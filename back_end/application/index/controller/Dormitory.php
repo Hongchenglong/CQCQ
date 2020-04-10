@@ -6,38 +6,54 @@ use \think\Db;
 
 class Dormitory extends BaseController
 {
+
+
     /**
      * 抽取宿舍
+     * 
      */
     public function draw()
     {
-
-        //query方法用于执行SQL查询操作
-        $cnt = Db::query("select count(*) as cnt from dorm");
-        $cnt = $cnt[0]['cnt'];
-        // dump($cnt[0]['cnt']);
-
-        
-        $book = array();
-        $return_data = array();
-        for ($i = 0; $i < 4; $i++) {
-            do {
-                $where = array();
-                $where['id'] = rand(1, $cnt);
-                $where['sex'] = '男';
-                $result = db('dorm')->where($where)->find();
-            } while ($book[$result['id']]);
-            dump(1);
-            $book[$result['id']] = 1; // 标记为1，表示被抽过
-            $return_data['dormNumber'] = $result['dormNumber'];
-            $return_data['data']['randNumber'] = rand(1, 10000);    // [1, 10000]的随机数
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['numOfBoys', 'numOfGirls'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
         }
+        $numOfBoys = $_POST['numOfBoys'];
+        $numOfGirls = $_POST['numOfGirls'];
 
+        // query方法用于执行SQL查询操作
+        // 获取宿舍所有人数（但暂时没考虑到系别和年级）
+        $boy = Db::query("select dormNumber from dorm where sex = '男' order by rand() limit " . $numOfBoys);
+        $girl = Db::query("select dormNumber from dorm where sex = '女' order by rand() limit " . $numOfGirls);
+        
+        
+        
 
+        if ($girl && $boy) {
+            for ($i = 0; $i < $numOfBoys; $i++) {
+                $boy[$i]['randNumber'] = rand(1, 10000);
+            }
+            for ($i = 0; $i < $numOfGirls; $i++) {
+                $girl[$i]['randNumber'] = rand(1, 10000);
+            }
 
-        return json($return_data);
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '抽签成功';
+            $return_data['data']['dorm'] = array_merge_recursive($boy, $girl);
 
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '抽签失败';
 
+            return json($return_data);
+        }
+        
     }
 
 
@@ -49,14 +65,9 @@ class Dormitory extends BaseController
         // 校验参数是否存在
         $parameter = array();
         $parameter = ['block', 'room'];
-        foreach ($parameter as $key => $value) {
-            if (empty($_POST[$value])) {
-                $return_data = array();
-                $return_data['error_code'] = 1;
-                $return_data['msg'] = '参数不足: ' . $value;
-
-                return json($return_data);
-            }
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
         }
 
         // 查询宿舍
@@ -64,7 +75,6 @@ class Dormitory extends BaseController
         $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
         $result = db('dorm')->where($where)->find();
 
-        // dump(rand(1, 2));
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
