@@ -8,9 +8,46 @@ class Dormitory extends BaseController
 {
 
 
+
     /**
-     * 抽取宿舍
-     * 
+     * 添加宿舍
+     */
+    public function insert()
+    {
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['grade', 'department', 'sex', 'block', 'room'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+
+        // 查询宿舍
+        $where = array();
+        $where['sex'] = $_POST['sex'];
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
+        $result = db('dorm')->where($where)->find();
+        
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '该宿舍已存在';
+            return json($return_data);
+        } else {
+            db('dorm')->where($where)->insert();
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '添加成功';
+            return json($return_data);
+        }
+
+    }
+
+
+    /**
+     * 随机抽取宿舍
      */
     public function draw()
     {
@@ -28,9 +65,9 @@ class Dormitory extends BaseController
         // 获取宿舍所有人数（但暂时没考虑到系别和年级）
         $boy = Db::query("select dormNumber from dorm where sex = '男' order by rand() limit " . $numOfBoys);
         $girl = Db::query("select dormNumber from dorm where sex = '女' order by rand() limit " . $numOfGirls);
-        
-        
-        
+
+
+
 
         if ($girl && $boy) {
             for ($i = 0; $i < $numOfBoys; $i++) {
@@ -53,7 +90,6 @@ class Dormitory extends BaseController
 
             return json($return_data);
         }
-        
     }
 
 
