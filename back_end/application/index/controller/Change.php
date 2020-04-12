@@ -119,16 +119,15 @@ class Change extends BaseController
      */
     public function verifyPhone()
     {
-        $parameter = array();
-        $parameter = ['id', 'phone'];
-        foreach ($parameter as $key => $value) {
-            if (empty($_POST[$value])) {
-                $return_data = array();
-                $return_data['error_code'] = 1;
-                $return_data['msg'] = '参数不足: ' . $value;
-                return json($return_data);
-            }
+        if (empty($_POST['phone'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '参数不足';
+            return json($return_data);
         }
+
+
+
 
         //验证规则（手机号码）
         // $vphone = new Validate([
@@ -150,12 +149,16 @@ class Change extends BaseController
     /**
      * 发送邮箱验证码
      */
-    
-    
     public function sendMailCaptcha()
     {
-        
-        $email= $_POST['email']; 
+        if (empty($_POST['email'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '参数不足';
+            return json($return_data);
+        } 
+
+        $email= $_POST['email'];
 
         //本人邮箱配置
         $sendmail = '947368746@qq.com'; 
@@ -177,17 +180,23 @@ class Change extends BaseController
         $mail->setFrom($sendmail, $send_name);      // 设置发件人信息
         $mail->addAddress($toemail, $to_name);      // 设置收件人信息
         $mail->addReplyTo($sendmail, $send_name);   // 设置回复人信息
-        global $code;
-        $code = rand(100000,999999);      // 验证码
+        cookie('code',rand(100000,999999),3600);
+        $code = cookie('code');         // 验证码
         $mail->Subject = "验证邮件";    // 邮件标题
 
         session("qqcode",$code);
         $mail->Body = "邮件内容是您的验证码是：".$code."，如果非本人操作无需理会！";    // 邮件正文
 
-        if (!$mail->send()) {           // 发送邮件
-            echo "Mailer Error: " . $mail->ErrorInfo;   // 输出错误信息
+        if (!$mail->send()) {   // 发送邮件
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '发送验证码错误';
+            return json($return_data);      
         }else{
-           return json(['code'=>'200','msg'=>'发送验证码成功']);
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '发送验证码成功';
+            return json($return_data);
         }
 
     }
@@ -198,7 +207,7 @@ class Change extends BaseController
     public function verifyMail()
     {
         $parameter = array();
-        $parameter = ['id', 'email', 'captcha' ];
+        $parameter = ['email', 'captcha' ];
         foreach ($parameter as $key => $value) {
             if (empty($_POST[$value])) {
                 $return_data = array();
@@ -208,7 +217,7 @@ class Change extends BaseController
             }
         }
 
-        if ($_POST['captcha'] != $code) {
+        if ($_POST['captcha'] != cookie('code')) {
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '验证码错误';
@@ -278,5 +287,51 @@ class Change extends BaseController
             return json($return_data);
         }
     }
+    
+    /**
+     * 修改头像
+     */
+    public function changeFaceUrl()
+    {
+        $parameter = array();
+        $parameter = ['id', 'face_url'];
+        foreach ($parameter as $key => $value) {
+            if (empty($_POST[$value])) {
+                $return_data = array();
+                $return_data['error_code'] = 1;
+                $return_data['msg'] = '参数不足: ' . $value;
+                return json($return_data);
+            }
+        }
+
+        //验证规则（头像）
+        $vfaceurl = new Validate([ ['face_url' , 'require|url'] ]);
+
+        $data = [ 'face_url' => $_POST['face_url'] ];
+
+        //验证
+        if(!$vfaceurl->check($data)){
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '无效的头像url地址';
+            return json($return_data);
+        }
+
+        $result = Db('user')->where(['id' => $_POST['id']])->setField('face_url', $_POST['face_url']);
         
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '修改成功';
+            $return_data['data']['id'] = $_POST['id'];
+            $return_data['data']['face_url'] = $_POST['face_url'];
+            return json($return_data);
+        } else {
+            // 更新数据执行失败
+            $return_data = array();
+            $return_data['error_code'] = 3;
+            $return_data['msg'] = '修改失败';
+            return json($return_data);
+        }
+    }
 }
