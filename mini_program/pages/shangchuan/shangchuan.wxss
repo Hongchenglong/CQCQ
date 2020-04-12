@@ -6,8 +6,8 @@
 
 .img-box{
   position: absolute;
-  left: 33%;
-  top: 94rpx;
+  left: 39%;
+  top: 60rpx;
 }
 
 .img-item {
@@ -94,6 +94,6 @@
   color:white;
   font-size: 25px;  
   position: absolute;
-  left: 26%;
+  left: 18%;
   top: 450rpx;
  }
