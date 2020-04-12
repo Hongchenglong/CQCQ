@@ -1,9 +1,18 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/load/load",
-    "pages/mine/mine",
-    "pages/bottom_menu/bottom_menu",
+    "pages/chouqu/chouqu",
+    "pages/youxiang/youxiang",
+    "pages/xiugaixinxi/xiugaixinxi",
+    "pages/shangchuan/shangchuan",
+    "pages/guanyu/guanyu",
+    
+    
+    
+    
+
+    "pages/email/email",
+    "pages/chakan/chakan",
+    "pages/xiangji/xiangji",
     "pages/index/index",
     "pages/logs/logs"
   ],
