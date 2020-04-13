@@ -1,0 +1,15 @@
+<view class="containera">
+  <!-- 校徽 -->
+  <image class="tu1" src="/images/cheng.png"></image>
+  <!-- 抽取结果 -->
+  <view class="chouqu">
+  <image class ="choutu" src="/images/own.png"></image>
+  <text class="choutext">查看抽取结果</text>
+  </view>
+  <!-- 拍照上传 -->
+  <view class="shangchuan">
+  <image class="chuantu" src="/images/own.png"></image>
+  <text class="chuantext">拍照上传</text>
+  </view>
+
+</view>
