@@ -1,0 +1,9 @@
+<view class="container">
+  <view>
+    <button class="btn" bindtap="chooseimage">点击更换图片</button>
+  </view>
+ 
+  <view>
+    <image src="{{img}}" catchTap="chooseImageTap" mode="aspectFit" class="img" />
+  </view>
+</view>
