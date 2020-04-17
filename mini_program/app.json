@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/chouqu/chouqu",
+    "pages/youxiang/youxiang",
+    "pages/xiugaixinxi/xiugaixinxi",
+    "pages/shangchuan/shangchuan",
+    "pages/guanyu/guanyu",
+    
+    
+    
+    
+
+    "pages/email/email",
+    "pages/chakan/chakan",
+    "pages/xiangji/xiangji",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

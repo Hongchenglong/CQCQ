@@ -1,0 +1,19 @@
+<!-- 上传成功和失败 还没弄 -->
+<view class='containera'>
+  <view class='img-box'>
+    <view class='img-list'>
+      <block wx:for="{{detailPics}}" wx:key="index">
+        <view class='img-item'>
+          <image src='{{item}}' bindlongpress="bindlongpressimg" data-id='{{index}}'></image>
+        </view>
+      </block>
+      <view class='chooseimg' bindtap='uploadDetailImage'>
+        <view class="weui-uploader__input-box"></view>
+      </view>
+    </view>
+    <view class='tips'>长按对应的图片即可删除</view>
+  </view>
+  <view >
+<button type="primary" class="indexButton" bindtap="onLaunch" style="background-color:#00BFFF"> 确认提交 </button>
+</view>
+</view>
