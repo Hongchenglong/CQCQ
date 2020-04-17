@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="all">
+	1.输入邮箱 > 2.输入验证码 > <text class="one">3.设置密码</text>
+</view>
+<view>
+	<input class="two" type="password" placeholder="输入密码" placeholder-class='plas' bindinput="passwdInput"/>
+	<input class="two" type="password" placeholder="确认密码" placeholder-class='plas' bindinput="repasswdInput"/>
+</view>
+<view><!--class="indexNologin"-->
+	<a href="" class="three"> 密码长度6-16位，须包含数字、字母、符号至少2种或以上元素 </a>
+</view>
+<view>
+	<button class="indexButton" bindtap="onLaunch"> 确认提交 </button>
+</view>
