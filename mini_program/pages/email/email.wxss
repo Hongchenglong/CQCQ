@@ -1,0 +1,43 @@
+/* pages/email/email.wxss */
+.first {
+  font-family: Roboto;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  width: 570rpx;
+  height: 40rpx;
+  margin-left: 120rpx;
+  margin-top: 20rpx;
+}
+
+.texts {
+  color: red
+}
+
+.inputs {
+  margin-left: 25rpx;
+  margin-top: 20rpx;
+  padding-left: 10rpx;
+  width: 700rpx;
+  height: 60rpx;
+  color: #000;
+  font-size: 28rpx;
+  text-align: left;
+  font-family: Microsoft Yahei;
+  background-color: #f2f2f2;
+}
+
+.plas {
+  font-size: 25rpx;
+  color: #CCCCCC;
+}
+
+.buttons {
+  margin-top:50rpx;
+  width: 600rpx;
+  height: 70rpx;
+  line-height:35rpx;
+  background-color: rgba(126, 196, 248, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 30rpx;
+  font-family: Roboto;
+}
