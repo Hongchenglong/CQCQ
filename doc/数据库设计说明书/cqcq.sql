@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost
--- 生成日期： 2020-04-17 09:47:16
+-- 生成日期： 2020-04-18 13:33:01
 -- 服务器版本： 5.7.26
 -- PHP 版本： 7.3.4
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `dorm` (
-  `id` int(11) NOT NULL,
-  `dormNumber` varchar(16) NOT NULL,
-  `studentId` int(11) NOT NULL
+  `dormId` int(11) NOT NULL,
+  `dormNumber` varchar(16) NOT NULL COMMENT '宿舍号',
+  `studentId` int(11) NOT NULL COMMENT '舍长学号'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -41,13 +41,13 @@ CREATE TABLE `dorm` (
 --
 
 CREATE TABLE `record` (
-  `id` int(11) NOT NULL,
-  `photo` varchar(128) NOT NULL,
-  `dormNumber` varchar(16) NOT NULL,
-  `randNumber` int(11) DEFAULT NULL,
-  `startTime` datetime DEFAULT NULL,
-  `uploadTime` datetime NOT NULL,
-  `endTime` datetime DEFAULT NULL
+  `recordId` int(11) NOT NULL,
+  `photo` varchar(128) NOT NULL COMMENT '照片地址',
+  `dormNumber` varchar(16) NOT NULL COMMENT '宿舍号',
+  `randNumber` int(11) NOT NULL COMMENT '随机号码',
+  `startTime` datetime NOT NULL COMMENT '开始时间',
+  `uploadTime` datetime NOT NULL COMMENT '上传时间',
+  `endTime` datetime NOT NULL COMMENT '结束时间'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,16 +57,16 @@ CREATE TABLE `record` (
 --
 
 CREATE TABLE `user` (
-  `userId` int(11) NOT NULL,
-  `role` int(11) NOT NULL,
-  `sex` varchar(2) NOT NULL,
-  `username` varchar(16) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  `email` varchar(32) NOT NULL,
-  `phone` varchar(32) NOT NULL,
-  `face_url` varchar(250) DEFAULT NULL,
-  `grade` int(11) NOT NULL,
-  `department` varchar(32) NOT NULL
+  `userId` int(11) NOT NULL COMMENT '学生填学号，辅导员填学工号',
+  `role` int(1) NOT NULL COMMENT '0表示学生，1表示辅导员',
+  `sex` varchar(2) NOT NULL COMMENT '性别',
+  `username` varchar(16) NOT NULL COMMENT '学生填宿舍号，辅导员填姓名',
+  `password` varchar(32) NOT NULL COMMENT '密码，md5加密',
+  `email` varchar(32) NOT NULL COMMENT '电子邮箱',
+  `phone` varchar(11) NOT NULL COMMENT '手机号码',
+  `face_url` varchar(250) DEFAULT NULL COMMENT '头像地址',
+  `grade` int(4) NOT NULL COMMENT '年级',
+  `department` varchar(16) NOT NULL COMMENT '系别'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -77,15 +77,13 @@ CREATE TABLE `user` (
 -- 表的索引 `dorm`
 --
 ALTER TABLE `dorm`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_Reference_2` (`studentId`);
+  ADD PRIMARY KEY (`dormId`) USING BTREE;
 
 --
 -- 表的索引 `record`
 --
 ALTER TABLE `record`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_Reference_1` (`dormNumber`);
+  ADD PRIMARY KEY (`recordId`) USING BTREE;
 
 --
 -- 表的索引 `user`
@@ -101,13 +99,13 @@ ALTER TABLE `user`
 -- 使用表AUTO_INCREMENT `dorm`
 --
 ALTER TABLE `dorm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `dormId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用表AUTO_INCREMENT `record`
 --
 ALTER TABLE `record`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `recordId` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
