@@ -1,0 +1,26 @@
+<view class="Section">
+  <view class="Date">当前日期:{{date_1}} {{weekday}}</view>
+  <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange1">
+    <view class="Start">
+      开始时间: {{time1}}
+    </view>
+    </picker>
+    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange2">
+    <view class="Later">
+      截止时间: {{time2}}
+    </view>
+  </picker>
+</view>
+
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">宿舍号</view>
+    <view class="th">号码</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="{{hostel}}">
+    <view class="tr">
+      <view class="td">{{item.hostel}}</view>
+      <view class="td">{{item.no}}</view>
+    </view>
+  </block>
+</view>
