@@ -1,0 +1,9 @@
+.one{
+  display: block;
+  font-size: 45rpx;
+  margin-bottom: 60rpx;
+}
+.two{
+  text-align: left;
+  width: 80%;
+}

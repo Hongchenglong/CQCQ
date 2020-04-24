@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+<view class="indexInput">
+ <input  maxlength="10" placeholder="请输入邮箱" bindinput="inputPhoneNum"/>
+  <text wx:if="{{send}}" class="sendMsg" bindtap="sendMsg">{{second+"s"}}</text>
+</view>
+<view class="indexInputs">
+ <input maxlength="10" placeholder="请输入验证码" />
+ <text wx:if="{{!send}}" bindtap='sendMsg' class="sendMsg">获取验证码</text>
+</view>
+
+<view class="indexButton">
+<button style="background-color: blue;" type="primary" bindtap="onLaunch"> 确认绑定 </button>
+</view>
+</view>
