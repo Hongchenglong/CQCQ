@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="containera">
+<view class="container">
 <view class="indexInput">
  <input  maxlength="10" placeholder="请输入邮箱" bindinput="inputPhoneNum"/>
   <text wx:if="{{send}}" class="sendMsg" bindtap="sendMsg">{{second+"s"}}</text>

@@ -1,19 +1,19 @@
 /* 学生主页校徽 */
-.tu1{
+.figure{
   width: 421rpx;
   height: 300rpx;
   margin-top: 30rpx;
   margin-bottom: 50rpx;
 }
 /* 学生主页查看抽取结果，上传照片的图 */
-.choutu,.chuantu{
-  width: 90rpx;
-  height: 90rpx;
+.extractfigure,.uploadfigure{
+  width: 105rpx;
+  height: 105rpx;
   position: absolute;
-  top: 60rpx; left: 60rpx;
+  top: 50rpx; left: 60rpx;
 }
 /* 学生主页抽取，上传部分 */
-.chouqu,.shangchuan{
+.extract,.upload{
   width: 500rpx;
   height: 210rpx;
   box-shadow:2px 2px gray;
@@ -22,15 +22,15 @@
  position: relative;
 }
 /* 抽取结果整块view */
-.chouqu{
-  background-color: aqua;
+.extract{
+  background-color:lightskyblue;
 }
 /* 拍照上传整块view */
-.shangchuan{
+.upload{
   background-color: plum;
 }
 /* 抽取结果，拍照上传文本 */
-.chuantext,.choutext{
+.uploadtext,.extracttext{
   position: absolute;
   top: 75rpx;
   left: 190rpx;
