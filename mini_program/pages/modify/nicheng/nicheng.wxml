@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+<view class="indexInput">
+ <input maxlength="10" placeholder="输入昵称" />
+ <view class="line"></view>
+</view>
+<view class="indexNologin">
+<a href=""> 6-16位字符 </a>
+</view>
+<view >
+<button type="primary" class="indexButton" bindtap="onLaunch" style="background-color:#87CEFA"> 保存</button>
+</view>
+</view>
