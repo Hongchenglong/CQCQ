@@ -6,7 +6,10 @@ use \think\Db;
 
 class Dormitory extends BaseController
 {
-
+    /**
+     * 查看宿舍
+     */
+    public 
 
 
     /**
@@ -29,7 +32,7 @@ class Dormitory extends BaseController
         $where['department'] = $_POST['department'];
         $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
         $result = db('dorm')->where($where)->find();
-        
+
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 2;
@@ -42,10 +45,10 @@ class Dormitory extends BaseController
             $return_data['msg'] = '添加成功';
             return json($return_data);
         }
-
     }
 
 
+    
     /**
      * 随机抽取宿舍
      */
@@ -53,21 +56,39 @@ class Dormitory extends BaseController
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['numOfBoys', 'numOfGirls'];
+        $parameter = ['numOfBoys', 'numOfGirls', 'department', 'grade'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
         }
+
         $numOfBoys = $_POST['numOfBoys'];
         $numOfGirls = $_POST['numOfGirls'];
 
-        // query方法用于执行SQL查询操作
-        // 获取宿舍所有人数（但暂时没考虑到系别和年级）
-        $boy = Db::query("select dormNumber from dorm where sex = '男' order by rand() limit " . $numOfBoys);
-        $girl = Db::query("select dormNumber from dorm where sex = '女' order by rand() limit " . $numOfGirls);
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        
 
-
-
+        $boy = Db::table('dorm')
+            ->field('dormNumber')   // 指定字段
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('sex', '男')
+            ->orderRaw('rand()')
+            ->limit($numOfBoys)
+            ->select();
+        $girl = Db::table('dorm')
+            ->field('dormNumber')   // 指定字段
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('sex', '女')
+            ->orderRaw('rand()')
+            ->limit($numOfGirls)
+            ->select();
 
         if ($girl && $boy) {
             for ($i = 0; $i < $numOfBoys; $i++) {
@@ -100,17 +121,27 @@ class Dormitory extends BaseController
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['block', 'room'];
+        $parameter = ['block', 'room', 'department', 'grade'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
         }
 
-        // 查询宿舍
+        // 查询条件
         $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
         $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
-        $result = db('dorm')->where($where)->find();
 
+        $result = Db::table('dorm')
+            ->field('dormNumber')   // 指定字段
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('sex', '男')
+            ->find();   // 查询单个数据
+
+        dump($result);
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
@@ -126,4 +157,5 @@ class Dormitory extends BaseController
             return json($return_data);
         }
     }
+
 }
