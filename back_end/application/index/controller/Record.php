@@ -2,116 +2,85 @@
 
 namespace app\index\controller;
 
-use \think\Db;
+use think\Db;
+use think\Validate;
+use \think\Request;
 
 class Record extends BaseController
 {
-
     /**
-     * 随机抽取宿舍
+     * 提交照片
      */
-    public function draw()
+    public function uploadPhoto()
     {
-        // 校验参数是否存在
         $parameter = array();
-        $parameter = ['numOfBoys', 'numOfGirls', 'department', 'grade'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        $parameter = ['id', 'file'];
+        foreach ($parameter as $key => $value) {
+            if (!empty($_POST[$value]) || !empty($_FILES[$value])) {
+                
+            } else {
+                $return_data = array();
+                $return_data['error_code'] = 1;
+                $return_data['msg'] = '参数不足: ' . $value;
+                return json($return_data);
+            }
         }
+        $type = array("gif", "jpeg", "jpg", "png", "bmp");  // 允许上传的图片后缀
+        $temp = explode(".", $_FILES['file']['name']);  // 拆分获取图片名
+        $extension = $temp[count($temp) - 1];     // 获取文件后缀名
 
-        $numOfBoys = $_POST['numOfBoys'];
-        $numOfGirls = $_POST['numOfGirls'];
+        if (in_array($extension, $type) && $_FILES["file"]["size"] < 5242880) {
 
-        // 查询条件
-        $where = array();
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
+            if ($_FILES["file"]["error"] > 0) {
 
+                $return_data = array();
+                $return_data['error_code'] = 3;
+                $return_data['msg'] = '文件上传错误！';
+                return json($return_data);
 
-        $boy = Db::table('dorm')
-            ->field('dormNumber')   // 指定字段
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->where('sex', '男')
-            ->orderRaw('rand()')
-            ->limit($numOfBoys)
-            ->select();
-        $girl = Db::table('dorm')
-            ->field('dormNumber')   // 指定字段
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->where('sex', '女')
-            ->orderRaw('rand()')
-            ->limit($numOfGirls)
-            ->select();
+            } else {
 
-        if ($girl && $boy) {
-            for ($i = 0; $i < $numOfBoys; $i++) {
-                $boy[$i]['randNumber'] = rand(1, 10000);
+                //随机取文件名
+                $day = date('Y-m-d');
+                $new_file_name = $day.'_'. $_POST['id'];
+                $new_name = $new_file_name . '.' . $extension; //新文件名
+                $path = 'upload/' . $new_name;        //upload为保存图片目录
+                if (file_exists("upload/" . $path)) {   //判断是否存在该文件
+
+                    $return_data = array();
+                    $return_data['error_code'] = 4;
+                    $return_data['msg'] = '文件已存在！';
+                    return json($return_data);
+
+                } else {
+
+                    // 如果不存在该文件则将文件上传到 upload 目录下（将临时文件移动到 upload 下以新文件名命名）
+                    //move_uploaded_file($_FILES['file']['tmp_name'], "upload/" .$day.'/'. $new_name); 
+
+                    //本地测试
+                    // $file = request()->file('file'); 
+                    // $info = $file->move('/home/www/upload/'.$day.'/', $new_name);
+                    // print_r($info);
+
+                    // 上传到数据库
+                    $uploadTime = date('Y-m-d H:i:s', time());
+                    
+                    $data = array('photo' => "upload/" .$day.'/'. $new_name, 'uploadTime' => $uploadTime);
+                    $result = Db('record')->where(['id' => $_POST['id']])->setField($data);
+
+                    $return_data = array();
+                    $return_data['error_code'] = 0;
+                    $return_data['msg'] = '文件上传成功！';
+                    $return_data['data']['id'] = $_POST['id'];
+                    $return_data['data']['photo'] = 'upload/' . $day . '/'. $new_name;
+                    $return_data['data']['uploadTime'] = $uploadTime;
+                    return json($return_data);
+                }
             }
-            for ($i = 0; $i < $numOfGirls; $i++) {
-                $girl[$i]['randNumber'] = rand(1, 10000);
-            }
-
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '抽签成功';
-            $return_data['data']['dorm'] = array_merge_recursive($boy, $girl);
-
-            return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '抽签失败';
-
-            return json($return_data);
-        }
-    }
-
-
-    /**
-     * 抽取指定宿舍
-     */
-    public function customize()
-    {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['block', 'room', 'department', 'grade'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
-
-        // 查询条件
-        $where = array();
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
-        $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
-
-        $result = Db::table('dorm')
-            ->field('dormNumber')   // 指定字段
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->where('sex', '男')
-            ->find();   // 查询单个数据
-
-        dump($result);
-        if ($result) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '指定成功';
-            $return_data['data']['dormNumber'] = $result['dormNumber'];
-            $return_data['data']['randNumber'] = rand(1, 10000);    // [1, 10000]的随机数
-            return json($return_data);
-        } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '无此宿舍';
-
+            $return_data['msg'] = '文件格式错误！';
             return json($return_data);
         }
     }
