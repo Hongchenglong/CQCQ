@@ -2,6 +2,8 @@
 
 namespace app\index\controller;
 
+use \think\Db;
+
 class User extends BaseController
 {
     /**
@@ -93,23 +95,44 @@ class User extends BaseController
     {
 
         // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['password', 'phone'];
-        foreach ($parameter as $key => $value) {
-            if (empty($_POST[$value])) {
-                $return_data = array();
-                $return_data['error_code'] = 1;
-                $return_data['msg'] = '参数不足: ' . $value;
+        if (empty($_POST['password'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '参数不足: password';
 
-                return json($return_data);
+            return json($return_data);
+        }
+
+        $account = '';
+        // 构造查询条件
+        $where = array();
+        $parameter = array();
+        $parameter = ['id', 'phone', 'email'];
+        foreach ($parameter as $key => $value) {
+            if (!empty($_POST[$value])) {
+                $account = $value;
+                $where[$value] = $_POST[$value];    // 3个至少有一个
             }
         }
 
-        // 查询用户
-        // 构造查询条件
-        $where = array();
-        $where['phone'] = $_POST['phone'];
-        $user = db('user')->where($where)->find();
+        //  3个都不存在 
+        if (empty($where)) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '参数不足: id/phone/email';
+
+            return json($return_data);
+        }
+
+        // 先从学生表中查询，若不存在从辅导员表中查询
+        $user = Db::table('student')
+            ->where($where)
+            ->find();
+        if (empty($user)) {
+            $user = Db::table('counselor')
+                ->where($where)
+                ->find();
+        }
 
         // dump($user);
         // 如果查询到该手机号用户
@@ -137,7 +160,7 @@ class User extends BaseController
             // 用户不存在
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '不存在该手机号用户，请注册';
+            $return_data['msg'] = '不存在该'. $account.'用户，请注册';
 
             return json($return_data);
         }
