@@ -1,0 +1,39 @@
+<view class="line"></view>
+  <!--点击跳转-->
+<view class='item' bindtap="goToMypage">
+  <view class="title">昵称</view>
+  <view class="detail2">
+  <!--先在标签中写decode="{{true}}",然后&nbsp;就代表空格了-->
+    <text decode="{{true}}"> 东二#422&nbsp;></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item" class = "zn-uploadimg">
+  <view class="title" bindtap = "modalinput">年级</view>
+  <text></text>
+  <view class="detail5">
+<text> {{gr1}}></text>
+  </view>
+  </view>
+<view class="line"></view>
+<view class="item">
+  <view class="title">系</view>
+  <view class="detail2">
+<text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item">
+  <view class="title">宿舍</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+
+<view class = "container" class = "zn-uploadimg" > 
+</view >
+<modal id = "modal" hidden = "{{hiddenmodalput}}" title = "输入年级" confirm - text = "提交" cancel - text = "取消" bindcancel = "cancel" bindconfirm = "confirm">
+<input bindsubmit='getInput' name='gre' type = 'text' placeholder = "请输入你的年级，如：2017级" auto - focus /> 
+</modal>
+
