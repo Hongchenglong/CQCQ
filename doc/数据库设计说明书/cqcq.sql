@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 25/04/2020 12:19:59
+ Date: 29/04/2020 16:10:09
 */
 
 SET NAMES utf8mb4;
@@ -36,95 +36,97 @@ CREATE TABLE `counselor`  (
 -- ----------------------------
 -- Records of counselor
 -- ----------------------------
-INSERT INTO `counselor` VALUES (666, '辅导员', '202cb962ac59075b964b07152d234b70', '123', '123', NULL, 2017, '计算机工程系');
+INSERT INTO `counselor` VALUES (666, '辅导员', '202cb962ac59075b964b07152d234b70', '12345678@qq.com', '17720768888', NULL, 2017, '计算机工程系');
 
 -- ----------------------------
 -- Table structure for dorm
 -- ----------------------------
 DROP TABLE IF EXISTS `dorm`;
 CREATE TABLE `dorm`  (
-  `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `block` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `room` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `dormNumber` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `student_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL
-) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `block` varchar(8) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `room` varchar(8) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `dorm_num` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `deleted` int(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 73 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dorm
 -- ----------------------------
-INSERT INTO `dorm` VALUES ('1', '中二', '103', '中二#103', '211706001');
-INSERT INTO `dorm` VALUES ('2', '中二', '104', '中二#104', '211706002');
-INSERT INTO `dorm` VALUES ('3', '中二', '105', '中二#105', '211706003');
-INSERT INTO `dorm` VALUES ('4', '中二', '106', '中二#106', '211706004');
-INSERT INTO `dorm` VALUES ('5', '中二', '107', '中二#107', '211706005');
-INSERT INTO `dorm` VALUES ('6', '中二', '108', '中二#108', '211706006');
-INSERT INTO `dorm` VALUES ('7', '中二', '111', '中二#111', '211706007');
-INSERT INTO `dorm` VALUES ('8', '中二', '112', '中二#112', '211706008');
-INSERT INTO `dorm` VALUES ('9', '中二', '113', '中二#113', '211706009');
-INSERT INTO `dorm` VALUES ('10', '中二', '114', '中二#114', '211706010');
-INSERT INTO `dorm` VALUES ('11', '中二', '115', '中二#115', '211706011');
-INSERT INTO `dorm` VALUES ('12', '中二', '116', '中二#116', '211706012');
-INSERT INTO `dorm` VALUES ('13', '中二', '117', '中二#117', '211706013');
-INSERT INTO `dorm` VALUES ('14', '中二', '118', '中二#118', '211706014');
-INSERT INTO `dorm` VALUES ('15', '中二', '119', '中二#119', '211706015');
-INSERT INTO `dorm` VALUES ('16', '中二', '120', '中二#120', '211706016');
-INSERT INTO `dorm` VALUES ('17', '中二', '121', '中二#121', '211706017');
-INSERT INTO `dorm` VALUES ('18', '中二', '122', '中二#122', '211706018');
-INSERT INTO `dorm` VALUES ('19', '中二', '123', '中二#123', '211706019');
-INSERT INTO `dorm` VALUES ('20', '中二', '201', '中二#201', '211706020');
-INSERT INTO `dorm` VALUES ('21', '中二', '202', '中二#202', '211706021');
-INSERT INTO `dorm` VALUES ('22', '中二', '203', '中二#203', '211706022');
-INSERT INTO `dorm` VALUES ('23', '中二', '204', '中二#204', '211706023');
-INSERT INTO `dorm` VALUES ('24', '中二', '205', '中二#205', '211706024');
-INSERT INTO `dorm` VALUES ('25', '中二', '206', '中二#206', '211706025');
-INSERT INTO `dorm` VALUES ('26', '中二', '207', '中二#207', '211706026');
-INSERT INTO `dorm` VALUES ('27', '中二', '208', '中二#208', '211706027');
-INSERT INTO `dorm` VALUES ('28', '中二', '209', '中二#209', '211706028');
-INSERT INTO `dorm` VALUES ('29', '中二', '210', '中二#210', '211706029');
-INSERT INTO `dorm` VALUES ('30', '中二', '213', '中二#213', '211706030');
-INSERT INTO `dorm` VALUES ('31', '中二', '214', '中二#214', '211706031');
-INSERT INTO `dorm` VALUES ('32', '中二', '215', '中二#215', '211706032');
-INSERT INTO `dorm` VALUES ('33', '中二', '216', '中二#216', '211706033');
-INSERT INTO `dorm` VALUES ('34', '中二', '217', '中二#217', '211706034');
-INSERT INTO `dorm` VALUES ('35', '中二', '218', '中二#218', '211706035');
-INSERT INTO `dorm` VALUES ('36', '中二', '219', '中二#219', '211706036');
-INSERT INTO `dorm` VALUES ('37', '中二', '220', '中二#220', '211706037');
-INSERT INTO `dorm` VALUES ('38', '中二', '221', '中二#221', '211706038');
-INSERT INTO `dorm` VALUES ('39', '中二', '222', '中二#222', '211706039');
-INSERT INTO `dorm` VALUES ('40', '中二', '223', '中二#223', '211706040');
-INSERT INTO `dorm` VALUES ('41', '中二', '224', '中二#224', '211706041');
-INSERT INTO `dorm` VALUES ('42', '中二', '225', '中二#225', '211706042');
-INSERT INTO `dorm` VALUES ('43', '中二', '301', '中二#301', '211706043');
-INSERT INTO `dorm` VALUES ('44', '中二', '302', '中二#302', '211706044');
-INSERT INTO `dorm` VALUES ('45', '中二', '303', '中二#303', '211706045');
-INSERT INTO `dorm` VALUES ('46', '中二', '304', '中二#304', '211706046');
-INSERT INTO `dorm` VALUES ('47', '中二', '305', '中二#305', '211706047');
-INSERT INTO `dorm` VALUES ('48', '中二', '306', '中二#306', '211706048');
-INSERT INTO `dorm` VALUES ('49', '中二', '307', '中二#307', '211706049');
-INSERT INTO `dorm` VALUES ('50', '中二', '308', '中二#308', '211706050');
-INSERT INTO `dorm` VALUES ('51', '中二', '309', '中二#309', '211706051');
-INSERT INTO `dorm` VALUES ('52', '中二', '310', '中二#310', '211706052');
-INSERT INTO `dorm` VALUES ('53', '中二', '313', '中二#313', '211706053');
-INSERT INTO `dorm` VALUES ('54', '中二', '314', '中二#314', '211706054');
-INSERT INTO `dorm` VALUES ('55', '中二', '325', '中二#325', '211706055');
-INSERT INTO `dorm` VALUES ('56', '中二', '411', '中二#411', '211706056');
-INSERT INTO `dorm` VALUES ('57', '东二', '410', '东二#410', '211706057');
-INSERT INTO `dorm` VALUES ('58', '东二', '411', '东二#411', '211706058');
-INSERT INTO `dorm` VALUES ('59', '东二', '412', '东二#412', '211706059');
-INSERT INTO `dorm` VALUES ('60', '东二', '413', '东二#413', '211706060');
-INSERT INTO `dorm` VALUES ('61', '东二', '414', '东二#414', '211706061');
-INSERT INTO `dorm` VALUES ('62', '东二', '415', '东二#415', '211706062');
-INSERT INTO `dorm` VALUES ('63', '东二', '416', '东二#416', '211706063');
-INSERT INTO `dorm` VALUES ('64', '东二', '417', '东二#417', '211706064');
-INSERT INTO `dorm` VALUES ('65', '东二', '418', '东二#418', '211706065');
-INSERT INTO `dorm` VALUES ('66', '东二', '419', '东二#419', '211706066');
-INSERT INTO `dorm` VALUES ('67', '东二', '421', '东二#421', '211706067');
-INSERT INTO `dorm` VALUES ('68', '东二', '422', '东二#422', '211706068');
-INSERT INTO `dorm` VALUES ('69', '东二', '423', '东二#423', '211706069');
-INSERT INTO `dorm` VALUES ('70', '东二', '424', '东二#424', '211706070');
-INSERT INTO `dorm` VALUES ('71', '东二', '425', '东二#425', '211706071');
-INSERT INTO `dorm` VALUES ('72', '东二', '426', '东二#426', '211706072');
+INSERT INTO `dorm` VALUES (1, '中二', '103', '中二#103', 211706001, 0);
+INSERT INTO `dorm` VALUES (2, '中二', '104', '中二#104', 211706002, 0);
+INSERT INTO `dorm` VALUES (3, '中二', '105', '中二#105', 211706003, 0);
+INSERT INTO `dorm` VALUES (4, '中二', '106', '中二#106', 211706004, 0);
+INSERT INTO `dorm` VALUES (5, '中二', '107', '中二#107', 211706005, 0);
+INSERT INTO `dorm` VALUES (6, '中二', '108', '中二#108', 211706006, 0);
+INSERT INTO `dorm` VALUES (7, '中二', '111', '中二#111', 211706007, 0);
+INSERT INTO `dorm` VALUES (8, '中二', '112', '中二#112', 211706008, 0);
+INSERT INTO `dorm` VALUES (9, '中二', '113', '中二#113', 211706009, 0);
+INSERT INTO `dorm` VALUES (10, '中二', '114', '中二#114', 211706010, 0);
+INSERT INTO `dorm` VALUES (11, '中二', '115', '中二#115', 211706011, 0);
+INSERT INTO `dorm` VALUES (12, '中二', '116', '中二#116', 211706012, 0);
+INSERT INTO `dorm` VALUES (13, '中二', '117', '中二#117', 211706013, 0);
+INSERT INTO `dorm` VALUES (14, '中二', '118', '中二#118', 211706014, 0);
+INSERT INTO `dorm` VALUES (15, '中二', '119', '中二#119', 211706015, 0);
+INSERT INTO `dorm` VALUES (16, '中二', '120', '中二#120', 211706016, 0);
+INSERT INTO `dorm` VALUES (17, '中二', '121', '中二#121', 211706017, 0);
+INSERT INTO `dorm` VALUES (18, '中二', '122', '中二#122', 211706018, 0);
+INSERT INTO `dorm` VALUES (19, '中二', '123', '中二#123', 211706019, 0);
+INSERT INTO `dorm` VALUES (20, '中二', '201', '中二#201', 211706020, 0);
+INSERT INTO `dorm` VALUES (21, '中二', '202', '中二#202', 211706021, 0);
+INSERT INTO `dorm` VALUES (22, '中二', '203', '中二#203', 211706022, 0);
+INSERT INTO `dorm` VALUES (23, '中二', '204', '中二#204', 211706023, 0);
+INSERT INTO `dorm` VALUES (24, '中二', '205', '中二#205', 211706024, 0);
+INSERT INTO `dorm` VALUES (25, '中二', '206', '中二#206', 211706025, 0);
+INSERT INTO `dorm` VALUES (26, '中二', '207', '中二#207', 211706026, 0);
+INSERT INTO `dorm` VALUES (27, '中二', '208', '中二#208', 211706027, 0);
+INSERT INTO `dorm` VALUES (28, '中二', '209', '中二#209', 211706028, 0);
+INSERT INTO `dorm` VALUES (29, '中二', '210', '中二#210', 211706029, 0);
+INSERT INTO `dorm` VALUES (30, '中二', '213', '中二#213', 211706030, 0);
+INSERT INTO `dorm` VALUES (31, '中二', '214', '中二#214', 211706031, 0);
+INSERT INTO `dorm` VALUES (32, '中二', '215', '中二#215', 211706032, 0);
+INSERT INTO `dorm` VALUES (33, '中二', '216', '中二#216', 211706033, 0);
+INSERT INTO `dorm` VALUES (34, '中二', '217', '中二#217', 211706034, 0);
+INSERT INTO `dorm` VALUES (35, '中二', '218', '中二#218', 211706035, 0);
+INSERT INTO `dorm` VALUES (36, '中二', '219', '中二#219', 211706036, 0);
+INSERT INTO `dorm` VALUES (37, '中二', '220', '中二#220', 211706037, 0);
+INSERT INTO `dorm` VALUES (38, '中二', '221', '中二#221', 211706038, 0);
+INSERT INTO `dorm` VALUES (39, '中二', '222', '中二#222', 211706039, 0);
+INSERT INTO `dorm` VALUES (40, '中二', '223', '中二#223', 211706040, 0);
+INSERT INTO `dorm` VALUES (41, '中二', '224', '中二#224', 211706041, 0);
+INSERT INTO `dorm` VALUES (42, '中二', '225', '中二#225', 211706042, 0);
+INSERT INTO `dorm` VALUES (43, '中二', '301', '中二#301', 211706043, 0);
+INSERT INTO `dorm` VALUES (44, '中二', '302', '中二#302', 211706044, 0);
+INSERT INTO `dorm` VALUES (45, '中二', '303', '中二#303', 211706045, 0);
+INSERT INTO `dorm` VALUES (46, '中二', '304', '中二#304', 211706046, 0);
+INSERT INTO `dorm` VALUES (47, '中二', '305', '中二#305', 211706047, 0);
+INSERT INTO `dorm` VALUES (48, '中二', '306', '中二#306', 211706048, 0);
+INSERT INTO `dorm` VALUES (49, '中二', '307', '中二#307', 211706049, 0);
+INSERT INTO `dorm` VALUES (50, '中二', '308', '中二#308', 211706050, 0);
+INSERT INTO `dorm` VALUES (51, '中二', '309', '中二#309', 211706051, 0);
+INSERT INTO `dorm` VALUES (52, '中二', '310', '中二#310', 211706052, 0);
+INSERT INTO `dorm` VALUES (53, '中二', '313', '中二#313', 211706053, 0);
+INSERT INTO `dorm` VALUES (54, '中二', '314', '中二#314', 211706054, 0);
+INSERT INTO `dorm` VALUES (55, '中二', '325', '中二#325', 211706055, 0);
+INSERT INTO `dorm` VALUES (56, '中二', '411', '中二#411', 211706056, 0);
+INSERT INTO `dorm` VALUES (57, '东二', '410', '东二#410', 211706057, 0);
+INSERT INTO `dorm` VALUES (58, '东二', '411', '东二#411', 211706058, 0);
+INSERT INTO `dorm` VALUES (59, '东二', '412', '东二#412', 211706059, 0);
+INSERT INTO `dorm` VALUES (60, '东二', '413', '东二#413', 211706060, 0);
+INSERT INTO `dorm` VALUES (61, '东二', '414', '东二#414', 211706061, 0);
+INSERT INTO `dorm` VALUES (62, '东二', '415', '东二#415', 211706062, 0);
+INSERT INTO `dorm` VALUES (63, '东二', '416', '东二#416', 211706063, 0);
+INSERT INTO `dorm` VALUES (64, '东二', '417', '东二#417', 211706064, 0);
+INSERT INTO `dorm` VALUES (65, '东二', '418', '东二#418', 211706065, 0);
+INSERT INTO `dorm` VALUES (66, '东二', '419', '东二#419', 211706066, 0);
+INSERT INTO `dorm` VALUES (67, '东二', '421', '东二#421', 211706067, 0);
+INSERT INTO `dorm` VALUES (68, '东二', '422', '东二#422', 211706068, 0);
+INSERT INTO `dorm` VALUES (69, '东二', '423', '东二#423', 211706069, 0);
+INSERT INTO `dorm` VALUES (70, '东二', '424', '东二#424', 211706070, 0);
+INSERT INTO `dorm` VALUES (71, '东二', '425', '东二#425', 211706071, 0);
+INSERT INTO `dorm` VALUES (72, '东二', '426', '东二#426', 211706072, 0);
 
 -- ----------------------------
 -- Table structure for record
@@ -132,12 +134,13 @@ INSERT INTO `dorm` VALUES ('72', '东二', '426', '东二#426', '211706072');
 DROP TABLE IF EXISTS `record`;
 CREATE TABLE `record`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `photo` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '照片地址',
+  `photo` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '照片地址',
   `dorm_id` int(11) NOT NULL COMMENT '宿舍号',
-  `randNumber` int(11) NOT NULL COMMENT '随机号码',
-  `startTime` datetime(0) NOT NULL COMMENT '开始时间',
-  `uploadTime` datetime(0) NOT NULL COMMENT '上传时间',
-  `endTime` datetime(0) NOT NULL COMMENT '结束时间',
+  `rand_num` int(11) NOT NULL COMMENT '随机号码',
+  `start_time` datetime(0) NOT NULL COMMENT '开始时间',
+  `upload_time` datetime(0) NULL DEFAULT NULL COMMENT '上传时间',
+  `end_time` datetime(0) NULL DEFAULT NULL COMMENT '结束时间',
+  `deleted` int(1) NOT NULL DEFAULT 0 COMMENT '0表示未删除，1表示已删除',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -152,7 +155,7 @@ CREATE TABLE `student`  (
   `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码，md5加密',
   `email` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '电子邮箱',
   `phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号码',
-  `face_url` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像地址',
+  `face_url` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像地址',
   `grade` int(4) NOT NULL COMMENT '年级',
   `department` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '系别',
   PRIMARY KEY (`id`) USING BTREE
