@@ -1,0 +1,9 @@
+<!--pages/chakan/chakan.wxml-->
+<view class="first">
+	<text class="texts1">2020年3月27日 星期五</text>
+	<button  class="buttons1">查看</button>
+</view> 
+<view class="second">
+	<text class="texts2">2020年3月28日 星期六</text>
+	<button  class="buttons2">查看</button>
+</view>
