@@ -69,7 +69,7 @@ class Dormitory extends BaseController
         $where['sex'] = $_POST['sex'];
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
+        $where['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
         $result = db('dorm')->where($where)->find();
 
         if ($result) {
