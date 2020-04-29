@@ -19,19 +19,31 @@
   line-height: 100rpx;
   color: #888;
 }
-.detail5 {
+.detail5 ,.detail4,.detail6,.detail7{
   font-size: 30rpx;
   position: absolute;
-  top: 105rpx;
   right: 20rpx;
   height: 100rpx;
   line-height: 100rpx;
   color: #888;
 }
- 
+ .detail5{
+  top: 105rpx;
+ }
+.detail4 {
+  top:3rpx;
+}
+.detail6{
+  top:210rpx;
+}
+.detail7{top:310rpx;}
 .line {
   border: 1px solid #ccc;
   opacity: 0.2;
+}
+modal{
+  display: none;
+  
 }
 
 
