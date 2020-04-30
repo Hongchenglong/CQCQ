@@ -246,13 +246,17 @@ class Draw extends BaseController
      */
     public function verifyResults()
     {
+        // dump(date('Y-m-d:', time()));
+        // 2020-04-30 16:22:52
+        
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['department', 'grade', 'start_time', ];
+        $parameter = ['department', 'grade', 'startTime', 'endTime'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
         }
+
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
@@ -263,8 +267,8 @@ class Draw extends BaseController
             ->join('student s', 's.id = d.student_id')
             ->where('confirmed = 0')
             ->where($where)
-            ->setField('record.confirmed', 1);
-
+            ->update(['record.confirmed' => 1, 'start_time'=> $_POST['startTime'], 'end_time' => $_POST['endTime']]);
+            // ->setField('record.confirmed', 1);
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
