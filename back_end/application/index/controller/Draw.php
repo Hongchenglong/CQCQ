@@ -211,14 +211,20 @@ class Draw extends BaseController
         $where = array();
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $result = Db::table('record')
-            // ->alias('r')    // 别名
-            // ->join('dorm d', 'd.id = r.dorm_id')
-            // ->join('student s', 's.id = d.student_id')
-            ->where('confirmed', 0)
-            // ->where($where)
-            ->delete();
-        dump($result);
+        $result = Db::execute(
+            "delete r from record r join dorm d 
+            on r.dorm_id = d.id join student s on s.id = d.student_id 
+            where confirmed = 0 and s.grade=:grade and s.department=:department",
+            ['grade' => $where['grade'], 'department' => $where['department']]
+        );
+        // $result = Db::table('record')
+        //     ->alias('r')    // 别名
+        //     ->join('dorm d', 'd.id = r.dorm_id')
+        //     ->join('student s', 's.id = d.student_id')
+        //     ->where('confirmed', 0)
+        //     ->where($where)
+        //     ->delete();
+        // dump($result);
 
         if ($result) {
             $return_data = array();
@@ -242,7 +248,7 @@ class Draw extends BaseController
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['department', 'grade'];
+        $parameter = ['department', 'grade', 'start_time', ];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
