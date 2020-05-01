@@ -10,11 +10,11 @@ Page({
     password: "",
   },
 
-  signup: function () {
+  /*signup: function () {
     wx.navigateTo({
       url: '/pages/enroll/enroll'
     })
-  },
+  },*/
 
   login: function () {
     var that = this
@@ -67,7 +67,7 @@ Page({
             })
           } else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
-            console.log(getApp().globalData.user)
+            console.log(getApp().globalData.user.username)
             wx.showModal({
               title: '恭喜！',
               showCancel: false,
@@ -80,9 +80,17 @@ Page({
                 }
               },
               complete: function (res) {
-                wx.reLaunch({
-                  url: '/pages/teacher_home/teacher_home'
-                })
+                if ( that.data.id.length == 6  ){
+                  console.log(that.data.id.length),
+                  wx.reLaunch({
+                    url: '/pages/teacher_home/teacher_home'
+                  })
+                }
+                else if ( that.data.id.length == 9  ){
+                  wx.reLaunch({
+                    url: '/pages/student_home/student_home'
+                  })
+                }
               }
             })
           }
@@ -90,15 +98,11 @@ Page({
         fail: function (res) {
           wx.showModal({
             title: '哎呀～',
+            showCancel: false,
             content: '网络不在状态呢！',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
+            success(res) { }
             }
-          })
+          )
         }
       })
     }

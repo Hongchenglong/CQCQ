@@ -8,68 +8,74 @@ Page({
    */
   data: {
     current: 'mine',
-    modalHidden: true,//是否隐藏对话框
+    modalHidden:true,//是否隐藏对话框
     username: '',
     grade: '',
     department: ''
   },
 
-  handleChange({ detail }) {
+  handleChange ({ detail }) {
     this.setData({
-      current: detail.key
+        current: detail.key
     });
-    if (detail.key == 'mine') {
-      wx.redirectTo({
-        url: '../teacher_mine/teacher_mine',
-      })
-    }
-    else if (detail.key == 'group') {
+    if(detail.key == 'mine'){
+      if(  getApp().globalData.load == 'false' ){
+        wx.redirectTo({
+          url: '/pages/load/load'
+          /*url: '../teacher_mine/teacher_mine',*/
+        })
+      } else {
+        wx.redirectTo({
+          url: '../teacher_mine/teacher_mine',
+          /*url: '../teacher_mine/teacher_mine',*/
+        })
+      }
+    }else if(detail.key == 'group'){
       wx.redirectTo({
         url: '../teacher_dorm/teacher_dorm',
       })
     }
-    else {
+    else{
       wx.redirectTo({
         url: '../teacher_home/teacher_home',
       })
-    }
-  },
+  }
+},
 
-  changeImage: function () {
-    wx.navigateTo({
-      url: '../image/image',
-    })
-  },
+changeImage:function(){
+  wx.navigateTo({
+    url: '../image/image',
+  })
+},
 
-  changeName: function () {
-    wx.navigateTo({
-      url: '../name/name',
-    })
-  },
-
-  turnLogin: function () {
-    wx.redirectTo({
-      url: '../login/login',
-    })
-  },
+changeName:function(){
+  wx.navigateTo({
+    url: '../name/name',
+  })
+},
+turnLogin:function(){
+  wx.redirectTo({
+    url: '../login/login',
+  })
+},
 
   //事件处理函数
-  bindViewTap: function () {
+  bindViewTap: function() {
     this.setData({
-      modalHidden: !this.data.modalHidden
+      modalHidden:!this.data.modalHidden
     })
   },
-
+      
   //事件处理函数
-  bindViewTap: function () {
+  bindViewTap: function() {
     /*this.setData({
       modalHidden:!this.data.modalHidden
     })*/
     wx.showModal({
       title: '退出登录',
       content: '确认退出登录？',
-      confirmColor: "red",
-      success(res) {
+      confirmColor:"red",
+      success (res) {
         if (res.confirm) {
           //点击确认退出
           wx.redirectTo({
@@ -78,17 +84,17 @@ Page({
         } else if (res.cancel) {
           //点击取消
           console.log('用户点击取消')
-        } else {
+        }else {
           //异常
           wx.showLoading({
-            title: '系统异常',
-            fail
+           title: '系统异常',
+           fail
           })
           setTimeout(function () {
-            wx.hideLoading()
+           wx.hideLoading()
           }, 2000)
-        }
-
+         }
+    
       }
     })
   },
@@ -102,7 +108,6 @@ Page({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department
     })
-    
   },
 
   /**

@@ -6,6 +6,9 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    var windowWidth = wx.getSystemInfoSync().windowWidth;
+    var windowHeight = wx.getSystemInfoSync().windowHeight;
+
     // 登录
     wx.login({
       success: res => {
@@ -36,6 +39,7 @@ App({
   globalData: {
     user: {}, //后台返回用户全部信息
     userInfo: {}, //微信获取用户信息
-    server: 'https://oeong.xyz' //域名
+    server: 'https://oeong.xyz', //域名
+    load:'false'
   }
 })
