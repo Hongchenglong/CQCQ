@@ -1,13 +1,10 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/chouqu/chouqu",
-    "pages/youxiang/youxiang",
     "pages/xiugaixinxi/xiugaixinxi",
-    "pages/shangchuan/shangchuan",
-    "pages/guanyu/guanyu",
     
 	
-	"pages/login/login",
     "pages/teacher_home/teacher_home",
     "pages/teacher_mine/teacher_mine",
     "pages/teacher_dorm/teacher_dorm",
@@ -18,10 +15,7 @@
     
 
     "pages/email/email",
-    "pages/chakan/chakan",
-    "pages/xiangji/xiangji",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/xiangji/xiangji"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -6,62 +6,111 @@ Page({
    */
   data: {
     is_disabled: false,
-    name: "",
-    pass: ""
+    id: "",
+    password: "",
   },
 
-  username: function username(e) {
-    this.setData({ name: e.detail.value });
-   },
-
-   password: function password(e) {
-    this.setData({ pass: e.detail.value });
-   },
-
-  login:function(){
-    var that = this
-    var userReg = /^\d{9}$/
-    var passReg = /^\d{9}$/
-    if ( that.data.name == ''){
-      wx.showModal({
-        title: '提示信息',
-        showCancel: false,
-        content: '亲，用户名不能为空哟~'
-      })
-    }else if ( that.data.pass == ''){
-      wx.showModal({
-        title: '提示信息',
-        showCancel: false,
-        content: '亲，密码不能为空哟~',
-      })
-    }else if ( !userReg.test(that.data.name) ) {
-      wx.showModal({
-        title: '提示信息',
-        showCancel: false,
-        content: '亲，您输入的用户名格式有问题~'
-      })
-    }else if ( !passReg.test(that.data.pass) ) {
-      wx.showModal({
-        title: '提示信息',
-        showCancel: false,
-        content: '亲，您输入的密码格式有问题~'
-      })
-    }else{
-      wx.redirectTo({
-        url: '../teacher_home/teacher_home',
+  signup: function () {
+    wx.navigateTo({
+      url: '/pages/enroll/enroll'
     })
+  },
+
+  login: function () {
+    var that = this
+    if (that.data.id == '') {
+      wx.showModal({
+        title: '提示！',
+        showCancel: false,
+        content: '请输入账号！',
+        success: function (res) { }
+      })
+    } else if (that.data.password == '') {
+      wx.showModal({
+        title: '提示！',
+        showCancel: false,
+        content: '请输入密码！',
+        success: function (res) { }
+      })
+    } else {
+      wx.request({
+        // url: 'http://localhost:8080/cqcq/back_end/public/index.php/index/user/login',
+        url: getApp().globalData.server + '/cqcq/public/index.php/index/user/login',
+        data: {
+          id: that.data.id,
+          password: that.data.password,
+        },
+        method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+          console.log(res.data)
+          if (res.data.error_code == 1 || res.data.error_code == 2 || res.data.error_code == 3) {
+            wx.showModal({
+              title: '提示！',
+              content: res.data.msg,
+              showCancel: false,
+              success(res) { }
+            })
+          } else if (res.data.error_code != 0) {
+            wx.showModal({
+              title: '哎呀～',
+              content: '出错了呢！' + res.data.data.msg,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          } else if (res.data.error_code == 0) {
+            getApp().globalData.user = res.data.data
+            console.log(getApp().globalData.user.username)
+            wx.showModal({
+              title: '恭喜！',
+              showCancel: false,
+              content: '登录成功',
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              },
+              complete: function (res) {
+                wx.reLaunch({
+                  url: '/pages/teacher_home/teacher_home'
+                })
+              }
+            })
+          }
+        },
+        fail: function (res) {
+          wx.showModal({
+            title: '哎呀～',
+            content: '网络不在状态呢！',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+      })
     }
   },
 
-  nameInput:function(e){
-    this.data.name = e.detail.value
+  idInput: function (e) {
+    this.data.id = e.detail.value
   },
 
-  passInput:function(e){
-    this.data.pass = e.detail.value
+  passwordInput: function (e) {
+    this.data.password = e.detail.value
   },
-  
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -76,7 +125,7 @@ Page({
   onReady: function () {
 
   },
-
+  
   /**
    * 生命周期函数--监听页面显示
    */
