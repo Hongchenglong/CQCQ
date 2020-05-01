@@ -25,9 +25,10 @@ page {
 }
 
 .avatar {
+  overflow: hidden;
   height: 200rpx;
   width: 200rpx;
-  border-radius: 100rpx;
+  border-radius: 50%;
 }
 
 .head {

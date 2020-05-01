@@ -23,11 +23,20 @@ Page({
       })
     }
     else{
-      wx.redirectTo({
-        url: '../teacher_mine/teacher_mine',
-      })
-  }
-},
+      if(  getApp().globalData.load == 'false' ){
+        wx.redirectTo({
+          url: '/pages/load/load'
+          /*url: '../teacher_mine/teacher_mine',*/
+        })
+      } else {
+        wx.redirectTo({
+          url: '../teacher_mine/teacher_mine',
+          /*url: '../teacher_mine/teacher_mine',*/
+        })
+      }
+    }
+  },
+
 
 dormCheck:function(){
     wx.navigateTo({
