@@ -32,13 +32,12 @@ class Dormitory extends BaseController
             ->where($where)
             ->select();
 
-            // dump($result);
+        // dump($result);
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '查看成功';
             $return_data['data'] = $result;
-
 
             return json($return_data);
         } else {
@@ -48,7 +47,6 @@ class Dormitory extends BaseController
 
             return json($return_data);
         }
-        
     }
 
     /**
@@ -85,5 +83,12 @@ class Dormitory extends BaseController
             return json($return_data);
         }
     }
-    
+
+    /**
+     * 删除宿舍
+     */
+    public function delete()
+    {
+        
+    }
 }
