@@ -8,22 +8,6 @@ use think\Validate;
 class Change extends BaseController
 {
     /**
-     * 修改个人信息
-     */
-    // public function changeInfo()
-    // {
-    //     if ($_POST['grade']) {
-    //         echo $_POST['grade'];
-    //     }
-    //     elseif($_POST['department']) {
-    //         echo $_POST['department'];
-    //     }
-    //     else{
-    //         echo $_POST['dormNumber'];
-    //     }
-
-    // }
-    /**
      * 修改昵称
      */
     public function changeUsername()
@@ -40,7 +24,11 @@ class Change extends BaseController
         }
 
         //验证规则（昵称）
-        $vusername = new Validate([['username', 'require|/^[A-Za-z0-9#\x{4e00}-\x{9fa5}]{6,16}$/u']]); // bug 汉字只占一个字符
+        if (Db('student')->where(['id' => $_POST['id']])->find()) {
+            $vusername = new Validate([['username', 'require|/^[A-Za-z0-9#\x{4e00}-\x{9fa5}]{6,16}$/u']]); // bug 汉字只占一个字符
+        } else {
+            $vusername = new Validate([['username', 'require|/^[A-Za-z0-9#\x{4e00}-\x{9fa5}]{3,16}$/u']]); // bug 汉字只占一个字符
+        }
         $data = ['username' => $_POST['username']];
 
         //验证
@@ -51,7 +39,11 @@ class Change extends BaseController
             return json($return_data);
         }
 
-        $result = Db('student')->where(['id' => $_POST['id']])->setField('username', $_POST['username']);
+        if (Db('student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db('student')->where(['id' => $_POST['id']])->setField('username', $_POST['username']);
+        } else {
+            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('username', $_POST['username']);
+        }
 
         if ($result) {
             $return_data = array();
@@ -86,7 +78,11 @@ class Change extends BaseController
             }
         }
         //更新数据
-        $result = Db('student')->where(['id' => $_POST['id']])->setField('grade', $_POST['grade']);
+        if (Db('student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db('student')->where(['id' => $_POST['id']])->setField('grade', $_POST['grade']);
+        } else {
+            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('grade', $_POST['grade']);
+        }
 
         if ($result) {
             $return_data = array();
@@ -121,8 +117,11 @@ class Change extends BaseController
             }
         }
         //更新数据
-        $result = Db('student')->where(['id' => $_POST['id']])->setField('department', $_POST['department']);
-
+        if (Db('student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db('student')->where(['id' => $_POST['id']])->setField('department', $_POST['department']);
+        } else {
+            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('department', $_POST['department']);
+        }
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
@@ -146,7 +145,7 @@ class Change extends BaseController
     public function changeDormNumber()
     {
         $parameter = array();
-        $parameter = ['student_id', 'block','room'];
+        $parameter = ['student_id', 'block', 'room'];
         foreach ($parameter as $key => $value) {
             if (empty($_POST[$value])) {
                 $return_data = array();
@@ -230,8 +229,11 @@ class Change extends BaseController
                     // print_r($info);
 
                     // 上传到数据库
-                    $result = Db('student')->where(['id' => $_POST['id']])->setField('face_url', "face_url/" . $new_name);
-
+                    if (Db('student')->where(['id' => $_POST['id']])->find()) {
+                        $result = Db('student')->where(['id' => $_POST['id']])->setField('face_url', "face_url/" . $new_name);
+                    } else {
+                        $result = Db('counselor')->where(['id' => $_POST['id']])->setField('face_url', "face_url/" . $new_name);
+                    }
                     $return_data = array();
                     $return_data['error_code'] = 0;
                     $return_data['msg'] = '修改成功！';
@@ -244,6 +246,91 @@ class Change extends BaseController
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '图片格式错误！';
+            return json($return_data);
+        }
+    }
+
+    /**
+     * 修改密码
+     */
+    public function changePassword()
+    {
+        $parameter = array();
+        $parameter = ['id', 'oldPassword', 'newPassword', 'password_again'];
+        foreach ($parameter as $key => $value) {
+            if (empty($_POST[$value])) {
+                $return_data = array();
+                $return_data['error_code'] = 1;
+                $return_data['msg'] = '参数不足: ' . $value;
+                return json($return_data);
+            }
+        }
+
+        // 先从学生表中查询，若不存在从辅导员表中查询
+        $user = Db('student')
+            ->where(['id' => $_POST['id']])
+            ->find();
+
+        if (empty($user)) {
+            $user = Db('counselor')
+                ->where(['id' => $_POST['id']])
+                ->find();
+        }
+
+
+        //判断原密码
+        if (md5($_POST['oldPassword']) != $user['password']) {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '密码不正确，请重新输入';
+            return json($return_data);
+        }
+
+        //判断两次密码是否一样
+        if ($_POST['newPassword'] != $_POST['password_again']) {
+            $return_data = array();
+            $return_data['error_code'] = 3;
+            $return_data['msg'] = '两次密码不一致';
+            return json($return_data);
+        }
+
+
+        $data = [
+            'newPassword' => $_POST['newPassword'],
+            'password_again' => $_POST['password_again']
+        ];
+
+        // 验证规则（密码）
+        $vpassword = new Validate([
+            ['newPassword', 'require|/^[0-9a-zA-Z-#_*%$@!?^]{8,16}$/i'],
+            ['password_again', 'require|/^[0-9a-zA-Z-#_*%$@!?^]{8,16}$/i']
+        ]);
+
+        //验证
+        if (!$vpassword->check($data)) {
+            $return_data = array();
+            $return_data['error_code'] = 4;
+            $return_data['msg'] = '8-16位长度，须包含数字、字母、符号至少2种或以上元素';
+            return json($return_data);
+        }
+
+        //更新数据
+        if (Db('student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db('student')->where(['id' => $_POST['id']])->setField('password', md5($_POST['newPassword']));
+        } else {
+            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('password', md5($_POST['newPassword']));
+        }
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '修改成功';
+            return json($return_data);
+        } else {
+            // 更新数据执行失败
+            $return_data = array();
+            $return_data['error_code'] = 5;
+            $return_data['msg'] = '修改失败';
             return json($return_data);
         }
     }

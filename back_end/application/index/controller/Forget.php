@@ -223,13 +223,13 @@ class Forget extends BaseController
         }
         $data = [
             'password' => $_POST['password'],
-            'password_word' => $_POST['password_again']
+            'password_again' => $_POST['password_again']
         ];
 
         // 验证规则（密码）
         $vpassword = new Validate([
             ['password' , 'require|/^[0-9a-zA-Z-#_*%$@!?^]{8,16}$/i'],
-            ['password_word' , 'require|/^[0-9a-zA-Z-#_*%$@!?^]{8,16}$/i']
+            ['password_again' , 'require|/^[0-9a-zA-Z-#_*%$@!?^]{8,16}$/i']
         ]);
 
         //验证
