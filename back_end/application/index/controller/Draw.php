@@ -48,7 +48,7 @@ class Draw extends BaseController
             ->limit($numOfGirls)
             ->select();
 
-        if ($girl && $boy) {
+        if ($boy && $girl) {
 
             // 获取随机数，并将抽到的宿舍添加到record表中
             for ($i = 0; $i < $numOfBoys; $i++) {
@@ -89,45 +89,45 @@ class Draw extends BaseController
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['block', 'room', 'department', 'grade'];
+        $parameter = ['block', 'room', 'department', 'grade', 'number'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
+        }
+
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $number = $_POST['number'];
+
+        dump($_POST['block']);
+        for ($i = 0; $i < $number; $i++) {
+
+            $where['dorm_num'] = $_POST['block'][$i] . '#' . $_POST['room'][$i];
+            $result = Db::table('dorm')
+                ->field('dorm.id, dorm_num')   // 指定字段
+                ->alias('d')    // 别名
+                ->join('student s', 's.id = d.student_id')
+                ->where($where)
+                ->find();
+
+            dump($result);
+
         }
 
         // // 查询条件
         // $where = array();
         // $where['grade'] = $_POST['grade'];
         // $where['department'] = $_POST['department'];
-        // $amount = $_POST['amount'];
+        // $where['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
 
-        // dump($_POST['block']);
-        // for ($i = 0; $i < $amount; $i++) {
-
-        //     $where['dorm_num'] = $_POST['block'][$i] . '#' . $_POST['room'][$i];
-        //     $result = Db::table('dorm')
-        //         ->field('dorm.id, dorm_num')   // 指定字段
-        //         ->alias('d')    // 别名
-        //         ->join('student s', 's.id = d.student_id')
-        //         ->where($where)
-        //         ->find();
-
-        //     dump($result);
-
-        // }
-
-        // 查询条件
-        $where = array();
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
-        $where['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
-
-        $result = Db::table('dorm')
-            ->field('dorm.id, dorm_num')   // 指定字段
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->find();   // 查询单个数据
+        // $result = Db::table('dorm')
+        //     ->field('dorm.id, dorm_num')   // 指定字段
+        //     ->alias('d')    // 别名
+        //     ->join('student s', 's.id = d.student_id')
+        //     ->where($where)
+        //     ->find();   // 查询单个数据
 
         if ($result) {
             $return_data = array();
@@ -157,6 +157,7 @@ class Draw extends BaseController
      */
     public function displayUnconfirmedResults()
     {
+
         // 校验参数是否存在
         $parameter = array();
         $parameter = ['department', 'grade'];
@@ -174,7 +175,7 @@ class Draw extends BaseController
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
-            ->where('confirmed', 0)
+            // ->where('confirmed', 0)
             ->where($where)
             ->select();
 
@@ -297,6 +298,7 @@ class Draw extends BaseController
         if ($result) {
             return $result;
         }
+
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];

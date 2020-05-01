@@ -7,8 +7,8 @@
 				<!--头像-->
 				<image src='../../images/loginBgImage.png' class='avatar' bindtap="changeImage"></image>
 				<!--昵称-->
-				<text class="head" bindtap="changeName"  >crl</text>
-				<text class="head" decode="{{true}}">17计算机工程系&nbsp;辅导员</text>
+				<text class="head" bindtap="changeName">{{username}}</text>
+				<text class="head" decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
 			</view>
 		</view>
 	</view>
