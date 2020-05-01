@@ -32,13 +32,12 @@ class Dormitory extends BaseController
             ->where($where)
             ->select();
 
-            // dump($result);
+        // dump($result);
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '查看成功';
             $return_data['data'] = $result;
-
 
             return json($return_data);
         } else {
@@ -48,7 +47,6 @@ class Dormitory extends BaseController
 
             return json($return_data);
         }
-        
     }
 
     /**
@@ -69,7 +67,7 @@ class Dormitory extends BaseController
         $where['sex'] = $_POST['sex'];
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
+        $where['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
         $result = db('dorm')->where($where)->find();
 
         if ($result) {
@@ -86,4 +84,11 @@ class Dormitory extends BaseController
         }
     }
 
+    /**
+     * 删除宿舍
+     */
+    public function delete()
+    {
+        
+    }
 }

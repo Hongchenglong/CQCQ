@@ -1,25 +1,26 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/chouqu/chouqu",
-    "pages/youxiang/youxiang",
     "pages/xiugaixinxi/xiugaixinxi",
-    "pages/shangchuan/shangchuan",
-    "pages/guanyu/guanyu",
     
-    
-    
+	
+    "pages/teacher_home/teacher_home",
+    "pages/teacher_mine/teacher_mine",
+    "pages/teacher_dorm/teacher_dorm",
+    "pages/teacher_bottom/teacher_bottom",   
+    "pages/load/load",
+    "pages/index/index",
+    "pages/logs/logs",
     
 
     "pages/email/email",
-    "pages/chakan/chakan",
-    "pages/xiangji/xiangji",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/xiangji/xiangji"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "辅助查寝系统",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

@@ -11,7 +11,7 @@ Page({
   next:function (e) {
     console.log("res.userInfo",getApp().globalData.userInfo)
     wx.reLaunch({
-      url: '/pages/login/login'
+      url: '../teacher_mine/teacher_mine',
     })
   },
 
@@ -46,6 +46,7 @@ Page({
                   success: function(res) {
                     console.log(res.userInfo)
                     getApp().globalData.userInfo = res.userInfo
+                    getApp().globalData.load = 'true'
                     that.next();
                   }
                 })
@@ -59,10 +60,9 @@ Page({
       }
     })
 
-
     setTimeout(function() {
       wx.hideLoading()
-    }, 2000)
+    }, 1000)
   },
 
   bindGetUserInfo(e) {
@@ -71,7 +71,7 @@ Page({
     if(e.detail.userInfo == undefined){}
     else{
       wx.reLaunch({
-        url: '/pages/login/login'
+        url: '../teacher_mine/teacher_mine',
       })
     }
   },

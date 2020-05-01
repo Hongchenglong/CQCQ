@@ -11,7 +11,7 @@
 .buttom_en{
   width: 70%;
   height: 80rpx;
-  background-color: #6AB7F0;
+  background-color: #7EC4F8;
   border-radius: 10rpx;
   align-content: center;
   text-align: center;
