@@ -1,0 +1,38 @@
+/* 学生主页校徽 */
+.figure{
+  width: 421rpx;
+  height: 300rpx;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
+/* 学生主页查看抽取结果，上传照片的图 */
+.extractfigure,.uploadfigure{
+  width: 105rpx;
+  height: 105rpx;
+  position: absolute;
+  top: 50rpx; left: 60rpx;
+}
+/* 学生主页抽取，上传部分 */
+.extract,.upload{
+  width: 500rpx;
+  height: 210rpx;
+  box-shadow:2px 2px gray;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+ position: relative;
+}
+/* 抽取结果整块view */
+.extract{
+  background-color:lightskyblue;
+}
+/* 拍照上传整块view */
+.upload{
+  background-color: plum;
+}
+/* 抽取结果，拍照上传文本 */
+.uploadtext,.extracttext{
+  position: absolute;
+  top: 75rpx;
+  left: 190rpx;
+  font-size: 40rpx;
+}
