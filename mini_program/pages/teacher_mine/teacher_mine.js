@@ -9,8 +9,8 @@ Page({
   data: {
     current: 'mine',
     modalHidden: true,//是否隐藏对话框
-    username: getApp().globalData.user.username,
-    grade: '2017',
+    username: '',
+    grade: '',
     department: ''
   },
 
@@ -97,9 +97,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    that.username = 
-    console.log(getApp().globalData.user)
-    console.log(username)
+    this.setData({
+      username: getApp().globalData.user.username,
+      grade: getApp().globalData.user.grade,
+      department: getApp().globalData.user.department
+    })
+    
   },
 
   /**

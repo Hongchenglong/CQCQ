@@ -67,7 +67,7 @@ Page({
             })
           } else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
-            console.log(getApp().globalData.user.username)
+            console.log(getApp().globalData.user)
             wx.showModal({
               title: '恭喜！',
               showCancel: false,
