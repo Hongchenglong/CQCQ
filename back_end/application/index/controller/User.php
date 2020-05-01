@@ -48,13 +48,8 @@ class User extends BaseController
                 $return_data = array();
                 $return_data['error_code'] = 0;
                 $return_data['msg'] = '登录成功';
-
                 $return_data['data'] = $user;
-                // $return_data['data']['user_id'] = $user['id'];
-                // $return_data['data']['username'] = $user['username'];
-                // $return_data['data']['phone'] = $user['phone'];
-                // $return_data['data']['face_url'] = $user['face_url'];
-
+ 
                 return json($return_data);
             }
         } else {

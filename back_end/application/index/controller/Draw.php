@@ -157,6 +157,7 @@ class Draw extends BaseController
      */
     public function displayUnconfirmedResults()
     {
+
         // 校验参数是否存在
         $parameter = array();
         $parameter = ['department', 'grade'];
@@ -174,7 +175,7 @@ class Draw extends BaseController
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
-            ->where('confirmed', 0)
+            // ->where('confirmed', 0)
             ->where($where)
             ->select();
 
