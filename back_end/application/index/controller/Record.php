@@ -88,7 +88,7 @@ class Record extends BaseController
                 } else {
 
                     // 如果不存在该文件则将文件上传到 upload 目录下（将临时文件移动到 upload 下以新文件名命名）
-                    //move_uploaded_file($_FILES['file']['tmp_name'], "upload/" .$day.'/'. $new_name); 
+                    move_uploaded_file($_FILES['file']['tmp_name'], "upload/" .$day.'/'. $new_name); 
 
                     //本地测试
                     // $file = request()->file('file'); 

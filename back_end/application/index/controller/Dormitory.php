@@ -89,6 +89,37 @@ class Dormitory extends BaseController
      */
     public function delete()
     {
-        
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['grade', 'department', 'block', 'room'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+
+        // 查询条件
+        $where = array();
+        $where['room'] = $_POST['room'];
+        $where['block'] = $_POST['block'];
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+
+        $result = Db::table('dorm')
+            ->where($where)
+            ->delete();
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '删除成功';
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '没有可删除的宿舍';
+
+            return json($return_data);
+        }
     }
 }

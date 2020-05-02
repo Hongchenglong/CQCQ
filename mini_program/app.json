@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/teacher_custom_page1/page1",
+    "pages/revise_phone/revise_phone",
+
     "pages/login/login",
     "pages/chouqu/chouqu",
     "pages/xiugaixinxi/xiugaixinxi",
