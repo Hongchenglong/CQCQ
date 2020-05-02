@@ -29,40 +29,37 @@ class Record extends BaseController
             ->where(['id' => $_POST['id']])
             ->find();
 
-        // if (
-        //     (strtotime(date('Y-m-d H:i:s', time())) < strtotime($user['start_time'])) //早于
-        //     || (strtotime(date('Y-m-d H:i:s', time())) > strtotime($user['end_time'])) //晚于
-        // ) {
-        //     $return_data = array();
-        //     $return_data['error_code'] = 2;
-        //     $return_data['msg'] = '不在查寝时间！';
-        //     return json($return_data);
-        // } 
-        // else {
-        
-        $result = Db('dorm')
-            ->field('dorm_id')
-            ->alias('d')
-            ->join('record r', 'r.dorm_id = d.id')
-            ->join('student s', 's.id = d.student_id')
-            ->select();
-
-        $where = array();
-        $where['id'] = $_POST['dorm_id'];
-
-        $result = Db('dorm')
-            ->where($where)
-            ->find();
-            dump($result);
-        if (!$result) {
+        if (
+            (strtotime(date('Y-m-d H:i:s', time())) < strtotime($user['start_time'])) //早于
+            || (strtotime(date('Y-m-d H:i:s', time())) > strtotime($user['end_time'])) //晚于
+        ) {
             $return_data = array();
-            $return_data['error_code'] = 3;
-            $return_data['msg'] = '您不在查寝名单中！';
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '不在查寝时间！';
             return json($return_data);
-        }
-        // }
+        } 
+        else {
 
-        dump(1);
+            $result = Db('dorm')
+                ->field('dorm_id')
+                ->alias('d')
+                ->join('record r', 'r.dorm_id = d.id')
+                ->join('student s', 's.id = d.student_id')
+                ->find();
+
+            $where = array();
+            $where['id'] = $_POST['dorm_id'];
+            $result = Db('dorm')
+                ->where($where)
+                ->find();
+
+            if (!$result) {
+                $return_data = array();
+                $return_data['error_code'] = 3;
+                $return_data['msg'] = '您不在查寝名单中！';
+                return json($return_data);
+            }
+        }
 
         $type = array("gif", "jpeg", "jpg", "png", "bmp");  // 允许上传的图片后缀
         $temp = explode(".", $_FILES['file']['name']);  // 拆分获取图片名
