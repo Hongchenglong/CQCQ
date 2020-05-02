@@ -15,14 +15,14 @@ class Getinfo extends BaseController
     {
 
         $get = Db('counselor')
-            ->field('id, username, grade, department')
+            ->field('id, username, email, phone, grade, department')
             ->where(['id' => $_POST['id']])
             ->find();
 
         if (empty($get)) { //学生
 
             $getStuInfo = Db('student')
-                ->field('id, username, grade, department, sex')
+                ->field('id, sex, username, email, phone, grade, department, sex')
                 ->where(['id' => $_POST['id']])
                 ->select();
 

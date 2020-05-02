@@ -22,16 +22,35 @@ class Forget extends BaseController
             $return_data['msg'] = '参数不足';
             return json($return_data);
         }
+
         //验证规则（手机号码）
         $vphone = new Validate([
             ['phone' , 'max:11|/^1[3-8]{1}[0-9]{9}$/']
         ]);
 
         //验证
-        if(!$vphone->check($_POST['phone'])){
+        if (!$vphone->check($_POST['phone'])) {
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '无效的手机号码';
+            return json($return_data);
+        }
+
+        //判断是否存在该用户
+        $user = Db('student')
+            ->where(['phone' => $_POST['phone']])
+            ->find();
+
+        if (empty($user)) {
+            $user = Db('counselor')
+                ->where(['phone' => $_POST['phone']])
+                ->find();
+        }
+
+        if(!$user){
+            $return_data = array();
+            $return_data['error_code'] = 3;
+            $return_data['msg'] = '无此用户！';
             return json($return_data);
         }
 
@@ -62,14 +81,16 @@ class Forget extends BaseController
         $request->setTemplateParam(json_encode(['code'=>$code]));
         $acsResponse = $acsClient -> getAcsResponse($request);
 
-        if ($acsResponse) {   // 发送邮件
+        if ($acsResponse) {   // 发送短信
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '发送验证码成功';
+            $return_data['data']['phone'] = $phone;
+            $return_data['data']['captcha'] = $code;
             return json($return_data);
         } else {
             $return_data = array();
-            $return_data['error_code'] = 3;
+            $return_data['error_code'] = 4;
             $return_data['msg'] = '发送验证码失败';
             return json($return_data);
         }
@@ -127,6 +148,25 @@ class Forget extends BaseController
             $return_data['msg'] = '无效的邮箱地址';
             return json($return_data);
         }
+
+        //判断是否存在该用户
+        $user = Db('student')
+            ->where(['email' => $_POST['email']])
+            ->find();
+
+        if (empty($user)) {
+            $user = Db('counselor')
+                ->where(['email' => $_POST['email']])
+                ->find();
+        }
+
+        if (!$user) {
+            $return_data = array();
+            $return_data['error_code'] = 3;
+            $return_data['msg'] = '无此用户！';
+            return json($return_data);
+        }
+
         $email= $_POST['email'];
 
         //本人邮箱配置
@@ -165,6 +205,8 @@ class Forget extends BaseController
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '发送验证码成功';
+            $return_data['data']['email'] = $email;
+            $return_data['data']['captcha'] = $code;
             return json($return_data);
         }
 
