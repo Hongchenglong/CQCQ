@@ -45,7 +45,12 @@ class Record extends BaseController
                 ->alias('d')
                 ->join('record r', 'r.dorm_id = d.id')
                 ->join('student s', 's.id = d.student_id')
-                ->where(['d.id' => $_POST['dorm_id'], 'd.student_id' => 's.id'])
+                ->find();
+
+            $where = array();
+            $where['id'] = $_POST['dorm_id'];
+            $result = Db('dorm')
+                ->where($where)
                 ->find();
 
             if (!$result) {
@@ -55,8 +60,6 @@ class Record extends BaseController
                 return json($return_data);
             }
         }
-
-
 
         $type = array("gif", "jpeg", "jpg", "png", "bmp");  // 允许上传的图片后缀
         $temp = explode(".", $_FILES['file']['name']);  // 拆分获取图片名
