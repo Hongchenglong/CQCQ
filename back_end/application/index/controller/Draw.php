@@ -94,19 +94,18 @@ class Draw extends BaseController
         if ($result) {
             return $result;
         }
-        dump($_POST['block']);
-        print_r($_POST['room']);
 
         $dorm_num = array();
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $len = sizeof($_POST['block']);
-        // print_r($_POST['block']);
+        $room = explode(',', $_POST['room']);
+        $block = explode(',', $_POST['block']);
+        $len = sizeof($room);
         for ($i = 0; $i < $len; $i++) {
-            $where['block'] = $_POST['block'][$i];
-            $where['room']  = $_POST['room'][$i];
+            $where['room']  = $room[$i];
+            $where['block'] = $block[$i];
             $result = Db::table('dorm')
                 ->field('dorm.id, dorm_num')   // 指定字段
                 ->alias('d')    // 别名
@@ -114,6 +113,7 @@ class Draw extends BaseController
                 ->where($where)
                 ->find();
             array_push($dorm_num, $result['dorm_num']);
+
             $data = array();
             $data['dorm_id'] = $result['id'];
             $data['rand_num'] = rand(1, 10000);

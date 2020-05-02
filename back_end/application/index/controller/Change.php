@@ -151,7 +151,7 @@ class Change extends BaseController
         if (!$get) {
             $data = array('block' => $_POST['block'], 'room' => $_POST['room'], 'dorm_num' => $dormNumber);
             $result = Db('dorm')->where(['student_id' => $_POST['student_id']])->setField($data);
-        }else{
+        } else {
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '请输入自己的宿舍！';
@@ -165,7 +165,7 @@ class Change extends BaseController
             $return_data['data']['student_id'] = $_POST['student_id'];
             $return_data['data']['block'] = $_POST['block'];
             $return_data['data']['room'] = $_POST['room'];
-            $return_data['data']['dormNumber'] = $dormNumber;
+            $return_data['data']['dorm_num'] = $dormNumber;
             return json($return_data);
         } else {
             // 更新数据执行失败
@@ -424,6 +424,8 @@ class Change extends BaseController
                 $return_data = array();
                 $return_data['error_code'] = 0;
                 $return_data['msg'] = '修改成功！';
+                $return_data['data']['id'] = $_POST['id'];
+                $return_data['data']['phone'] = $_POST['phone'];
                 return json($return_data);
             } else {
                 $return_data = array();
@@ -507,7 +509,7 @@ class Change extends BaseController
     public function verifyModifyEmail()
     {
         $parameter = array();
-        $parameter = ['email', 'captcha'];
+        $parameter = ['id', 'email', 'captcha'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
@@ -530,6 +532,8 @@ class Change extends BaseController
                 $return_data = array();
                 $return_data['error_code'] = 0;
                 $return_data['msg'] = '修改成功！';
+                $return_data['data']['id'] = $_POST['id'];
+                $return_data['data']['email'] = $_POST['email'];
                 return json($return_data);
             } else {
                 $return_data = array();
