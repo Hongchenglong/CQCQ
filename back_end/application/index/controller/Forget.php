@@ -24,7 +24,7 @@ class Forget extends BaseController
         }
         //验证规则（手机号码）
         $vphone = new Validate([
-            ['phone' , 'require|max:11|/^1[3-8]{1}[0-9]{9}$/']
+            ['phone' , 'max:11|/^1[3-8]{1}[0-9]{9}$/']
         ]);
 
         //验证
@@ -117,7 +117,7 @@ class Forget extends BaseController
             return json($return_data);
         }
         $vemail = new Validate([
-            ['email', 'require|email']
+            ['email', 'email']
         ]);
 
         //验证
