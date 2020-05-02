@@ -121,7 +121,7 @@ class Draw extends BaseController
 
             // dump($result);
         }
-        print_r($dorm_num);
+        // print_r($dorm_num);
 
         if ($result) {
             $return_data = array();

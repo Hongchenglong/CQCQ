@@ -122,4 +122,43 @@ class Dormitory extends BaseController
             return json($return_data);
         }
     }
+
+    /**
+     * 获取区号
+     */
+    public function getBlock()
+    {
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['grade', 'department'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $result = db('dorm')
+            ->field('block')
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->distinct(true)
+            ->where($where)
+            ->select();
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '成功获取区号';
+            $return_data['data'] = $result;
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '暂无区号';
+            return json($return_data);
+        }
+    }
 }

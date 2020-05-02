@@ -75,9 +75,9 @@ Page({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
-            success(res) {}
+            success(res) { }
           })
-        } 
+        }
         else if (res.data.error_code == 0) {
           that.setData({
             Listdata: res.data.data
@@ -86,7 +86,7 @@ Page({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
-            success(res) {},
+            success(res) { },
             complete: function (res) {
               wx.redirectTo({
                 url: '/pages/teacher/teacher_extract_page2/page2'
@@ -101,7 +101,7 @@ Page({
           title: '哎呀～',
           showCancel: false,
           content: '网络不在状态呢！',
-          success(res) {}
+          success(res) { }
         })
       }
 
