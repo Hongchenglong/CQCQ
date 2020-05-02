@@ -7,7 +7,22 @@ class Index
 {
     public function index()
     {
-        // dump(db('select * from record'));
         echo phpinfo();
+    }
+
+
+    public function test() {
+        dump($_POST['block']);
+        print_r($_POST['room']);
+
+
+        $data = array();
+        $data['block'] = $_POST['block'];
+        $data['room'] = $_POST['room'];
+        $result = Db::table('test')->insert($data);
+
+        dump($result);
+
+
     }
 }
