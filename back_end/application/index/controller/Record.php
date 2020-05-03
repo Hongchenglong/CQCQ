@@ -5,6 +5,7 @@ namespace app\index\controller;
 use think\Db;
 use think\Validate;
 use \think\Request;
+use \think\File;
 
 class Record extends BaseController
 {
@@ -37,9 +38,7 @@ class Record extends BaseController
             $return_data['error_code'] = 2;
             $return_data['msg'] = '不在查寝时间！';
             return json($return_data);
-        } 
-        else {
-
+        } else {
             $result = Db('dorm')
                 ->field('dorm_id')
                 ->alias('d')
@@ -74,7 +73,6 @@ class Record extends BaseController
                 $return_data['msg'] = '文件上传错误！';
                 return json($return_data);
             } else {
-
                 $day = date('Y-m-d');
                 $new_file_name = $day . '_' . $_POST['id'];
                 $new_name = $new_file_name . '.' . $extension; //新文件名
@@ -86,13 +84,12 @@ class Record extends BaseController
                     $return_data['msg'] = '文件已存在！';
                     return json($return_data);
                 } else {
-
                     // 如果不存在该文件则将文件上传到 upload 目录下（将临时文件移动到 upload 下以新文件名命名）
-                    move_uploaded_file($_FILES['file']['tmp_name'], "upload/" .$day.'/'. $new_name); 
+                    // move_uploaded_file($_FILES['file']['tmp_name'], "upload/" . $day . '/' . $new_name);
 
                     //本地测试
-                    // $file = request()->file('file'); 
-                    // $info = $file->move('/home/www/upload/'.$day.'/', $new_name);
+                    $file = request()->file('file');
+                    $info = $file->move(ROOT_PATH . 'public' . DS . 'upload' . DS . $day, $new_name);
                     // print_r($info);
 
                     // 上传到数据库
