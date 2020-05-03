@@ -54,7 +54,7 @@ class BaseController extends Controller
             // 如果存在，提示已注册
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = $value . '已被注册';
+            $return_data['msg'] = $where['id'].'已被注册';
 
             return json($return_data);
         }

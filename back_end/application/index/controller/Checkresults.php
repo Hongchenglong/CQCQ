@@ -86,7 +86,7 @@ class Checkresults extends BaseController
             ->join('student s', 's.id = d.student_id')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
-            ->where('start_time', 'between time', [$date, $date])
+            ->where('start_time', 'between time', [$date. ' 00:00:00', $date . ' 23:59:59'])
             ->where('r.deleted', 0)
             ->where('r.confirmed', 1)
             ->select();
@@ -177,7 +177,7 @@ class Checkresults extends BaseController
             ->where('r.deleted', 0)
             ->where('r.confirmed', 1)
             ->select();
-            
+
         if ($record) {
             $return_data = array();
             $return_data['error_code'] = 0;
