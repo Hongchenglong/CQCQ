@@ -10,14 +10,14 @@ class Checkresults extends BaseController
      * 查看查寝记录
      */
     public function checkRecords()
-    {   
+    {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['department', 'grade'];
+        $parameter = ['grade', 'department'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
-        } 
+        }
 
         // 查询条件
         $where = array();
@@ -33,7 +33,7 @@ class Checkresults extends BaseController
             ->where('r.deleted', 0)
             ->where('r.confirmed', 1)
             ->select();
-        
+
         if ($record) {
             $return_data = array();
             $return_data['error_code'] = 0;
@@ -51,9 +51,67 @@ class Checkresults extends BaseController
     }
 
     /**
+     * 选择日期查看查寝记录
+     */
+    public function specifiedDate()
+    {
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['grade', 'department', 'date'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+        $date = $_POST['date'];
+
+        // 判断是否非法日期
+        $is_date = strtotime($date) ? strtotime($date) : false;
+        if ($is_date === false && $date != "") {
+            $return_data = array();
+            $return_data['error_code'] = 3;
+            $return_data['msg'] = '日期格式非法';
+
+            return json($return_data);
+        }
+
+        // 查询条件
+        $where = array();
+        $where['s.grade'] = $_POST['grade'];
+        $where['s.department'] = $_POST['department'];
+        // dump($_POST['date']);
+        $record = Db::table('record')
+            ->field('start_time')   // 指定字段
+            ->alias('r')    // 别名
+            ->join('dorm d', 'd.id = r.dorm_id')
+            ->join('student s', 's.id = d.student_id')
+            ->distinct(true)   // 返回唯一不同的值
+            ->where($where)
+            ->where('start_time', 'between time', [$date, $date])
+            ->where('r.deleted', 0)
+            ->where('r.confirmed', 1)
+            ->select();
+
+        if ($record) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '显示' . $date . '查寝记录';
+            $return_data['data'] = $record;
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '没有' . $date . '这天查寝记录';
+
+            return json($return_data);
+        }
+    }
+
+    /**
      * 删除查寝记录
      */
-    public function deleteRecord() {
+    public function deleteRecord()
+    {
 
         // 校验参数是否存在
         $parameter = array();
@@ -91,9 +149,4 @@ class Checkresults extends BaseController
             return json($return_data);
         }
     }
-
-
-
-
-
 }

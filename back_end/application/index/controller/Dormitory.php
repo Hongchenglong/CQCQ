@@ -56,7 +56,7 @@ class Dormitory extends BaseController
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['grade', 'department', 'sex', 'block', 'room'];
+        $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
@@ -68,7 +68,11 @@ class Dormitory extends BaseController
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
         $where['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
-        $result = db('dorm')->where($where)->find();
+
+        $result = Db::table('dorm')
+            ->field('dorm.id, dorm_num')   // 指定字段
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')->where($where)->find();
 
         if ($result) {
             $return_data = array();
@@ -76,7 +80,20 @@ class Dormitory extends BaseController
             $return_data['msg'] = '该宿舍已存在';
             return json($return_data);
         } else {
-            db('dorm')->where($where)->insert();
+            // 添加宿舍
+            $data = array();
+            $data['room'] = $_POST['room'];
+            $data['block'] = $_POST['block'];
+            $data['student_id'] = $_POST['studentId'];
+            $data['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
+            db('dorm')->insert($data);
+
+            // 注册账号
+            $result = $this->sign($_POST['studentId'], $_POST['sex'], $where['dorm_num'], $_POST['grade'], $_POST['department']);
+            if ($result) {
+                return $result;
+            }
+
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '添加成功';
@@ -85,26 +102,42 @@ class Dormitory extends BaseController
     }
 
     /**
-     * 删除宿舍
+     * 添加宿舍后的删除宿舍
      */
     public function delete()
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['grade', 'department', 'block', 'room'];
+        $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
         }
 
-        // 查询条件
+        // 删除宿舍
         $where = array();
         $where['room'] = $_POST['room'];
         $where['block'] = $_POST['block'];
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
+        // $result = Db::table('dorm')
+        //     ->alias('d')    // 别名
+        //     ->join('student s', 's.id = d.student_id')
+        //     ->where($where)
+        //     ->delete();
+        $result = Db::execute(
+            "delete d from dorm d join student s on s.id = d.student_id 
+            where s.grade=:grade and s.department=:department and d.room=:room and d.block=:block",
+            ['grade' => $where['grade'], 'department' => $where['department'], 'room' => $where['room'], 'block' => $where['block']]
+        );
 
-        $result = Db::table('dorm')
+        // 删除账号
+        $where = array();
+        $where['sex'] = $_POST['sex'];
+        $where['id'] = $_POST['studentId'];
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $result = Db::table('student')
             ->where($where)
             ->delete();
 
