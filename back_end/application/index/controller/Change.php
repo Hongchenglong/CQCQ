@@ -222,8 +222,8 @@ class Change extends BaseController
                     //move_uploaded_file($_FILES['face_url']['tmp_name'], "face_url/" . $new_name); 
 
                     //本地测试  //本地会覆盖原图
-                    // $file = request()->file('face_url');
-                    // $info = $file->move('/home/www/face_url/', $new_name);
+                    $file = request()->file('face_url');
+                    $info = $file->move(ROOT_PATH . 'public' . DS . 'face_url', $new_name);
                     // print_r($info);
 
                     // 上传到数据库

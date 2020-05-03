@@ -109,13 +109,13 @@ class Dormitory extends BaseController
             $data['department'] = $_POST['department'];
             // 密码经过md5函数加密，得到32位字符串
             $data['password'] = md5($data['id']);
-            $result = db('student')->insert($data);
+            $student = db('student')->insert($data);
 
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '添加成功';
-            $return_data['data']['dorm'] = $dorm;
-            $return_data['data']['student'] = $student;
+            $return_data['data']['dorm'] = $_POST['block'] . '#' . $_POST['room'];
+            $return_data['data']['student'] = $_POST['studentId'];
 
             return json($return_data);
         }

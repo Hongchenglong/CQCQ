@@ -293,7 +293,7 @@ class Draw extends BaseController
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['department', 'grade'];
+        $parameter = ['department', 'grade', 'start_time'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
@@ -302,6 +302,7 @@ class Draw extends BaseController
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
+        $where['start_time'] = $_POST['start_time'];
         $where['department'] = $_POST['department'];
         $result = Db::table('record')
             ->field('dorm_num, rand_num')   // 指定字段
