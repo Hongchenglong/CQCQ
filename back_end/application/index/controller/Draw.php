@@ -14,7 +14,7 @@ class Draw extends BaseController
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['numOfBoys', 'numOfGirls', 'department', 'grade'];
+        $parameter = ['department', 'grade'];   // 'numOfBoys', 'numOfGirls', 
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
@@ -22,34 +22,40 @@ class Draw extends BaseController
 
         $numOfBoys = $_POST['numOfBoys'];
         $numOfGirls = $_POST['numOfGirls'];
+        $boy = $girl = array();
 
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
 
+        // 当选择宿舍数不为0时
+        if ($numOfBoys) {
+            $boy = Db::table('dorm')
+                ->field('dorm.id, dorm_num')   // 指定字段
+                ->alias('d')    // 别名
+                ->join('student s', 's.id = d.student_id')
+                ->where($where)
+                ->where('sex', '男')
+                ->orderRaw('rand()')
+                ->limit($numOfBoys)
+                ->select();
+        }
+        if ($numOfGirls) {
+            $girl = Db::table('dorm')
+                ->field('dorm.id, dorm_num')   // 指定字段
+                ->alias('d')    // 别名
+                ->join('student s', 's.id = d.student_id')
+                ->where($where)
+                ->where('sex', '女')
+                ->orderRaw('rand()')
+                ->limit($numOfGirls)
+                ->limit($numOfGirls)
+                ->select();
+        }
 
-        $boy = Db::table('dorm')
-            ->field('dorm.id, dorm_num')   // 指定字段
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->where('sex', '男')
-            ->orderRaw('rand()')
-            ->limit($numOfBoys)
-            ->select();
-        $girl = Db::table('dorm')
-            ->field('dorm.id, dorm_num')   // 指定字段
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->where('sex', '女')
-            ->orderRaw('rand()')
-            ->limit($numOfGirls)
-            ->select();
-
-        if ($boy && $girl) {
-
+        $all = array_merge_recursive($boy, $girl);
+        if ($all) {
             // 获取随机数，并将抽到的宿舍添加到record表中
             for ($i = 0; $i < $numOfBoys; $i++) {
                 $boy[$i]['rand_num'] = rand(1, 10000);
@@ -69,13 +75,13 @@ class Draw extends BaseController
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '抽签成功';
-            $return_data['data']['dorm'] = array_merge_recursive($boy, $girl);
+            $return_data['data']['dorm'] = $all;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '抽签失败';
+            $return_data['msg'] = '抽签失败，没有选择宿舍';
 
             return json($return_data);
         }
@@ -95,7 +101,9 @@ class Draw extends BaseController
             return $result;
         }
 
-        $dorm_num = array();
+        $dormSuc = array();
+        $dormFal = array();
+
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
@@ -112,22 +120,26 @@ class Draw extends BaseController
                 ->join('student s', 's.id = d.student_id')
                 ->where($where)
                 ->find();
-            array_push($dorm_num, $result['dorm_num']);
 
-            $data = array();
-            $data['dorm_id'] = $result['id'];
-            $data['rand_num'] = rand(1, 10000);
-            $result = Db::table('record')->insert($data);
-
-            // dump($result);
+            // 存在的宿舍
+            if ($result) {
+                array_push($dormSuc, $result['dorm_num']);
+                $data = array();
+                $data['dorm_id'] = $result['id'];
+                $data['rand_num'] = rand(1, 10000);
+                $result = Db::table('record')->insert($data);
+            } else {    // 不存在的宿舍
+                array_push($dormFal, $result['dorm_num']);
+            }
         }
-        print_r($dorm_num);
+        // print_r($dorm_num);
 
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '指定成功';
-            $return_data['data'] = $dorm_num;
+            $return_data['data']['dormSuc'] = $dormSuc;
+            $return_data['data']['dormFal'] = $dormFal;
 
             return json($return_data);
         } else {
@@ -281,7 +293,7 @@ class Draw extends BaseController
     {
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['department', 'grade'];
+        $parameter = ['department', 'grade', 'start_time'];
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
@@ -290,6 +302,7 @@ class Draw extends BaseController
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
+        $where['start_time'] = $_POST['start_time'];
         $where['department'] = $_POST['department'];
         $result = Db::table('record')
             ->field('dorm_num, rand_num')   // 指定字段

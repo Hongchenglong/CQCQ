@@ -222,8 +222,8 @@ class Change extends BaseController
                     //move_uploaded_file($_FILES['face_url']['tmp_name'], "face_url/" . $new_name); 
 
                     //本地测试  //本地会覆盖原图
-                    // $file = request()->file('face_url');
-                    // $info = $file->move('/home/www/face_url/', $new_name);
+                    $file = request()->file('face_url');
+                    $info = $file->move(ROOT_PATH . 'public' . DS . 'face_url', $new_name);
                     // print_r($info);
 
                     // 上传到数据库
@@ -407,32 +407,24 @@ class Change extends BaseController
             return $result;
         }
 
-        if ($_POST['captcha'] != cookie('code')) {
+        if (Db('student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db('student')->where(['id' => $_POST['id']])->setField('phone', $_POST['phone']);
+        } else {
+            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('phone', $_POST['phone']);
+        }
+
+        if ($result) {
             $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '验证码错误';
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '修改成功！';
+            $return_data['data']['id'] = $_POST['id'];
+            $return_data['data']['phone'] = $_POST['phone'];
             return json($return_data);
         } else {
-
-            if (Db('student')->where(['id' => $_POST['id']])->find()) {
-                $result = Db('student')->where(['id' => $_POST['id']])->setField('phone', $_POST['phone']);
-            } else {
-                $result = Db('counselor')->where(['id' => $_POST['id']])->setField('phone', $_POST['phone']);
-            }
-
-            if ($result) {
-                $return_data = array();
-                $return_data['error_code'] = 0;
-                $return_data['msg'] = '修改成功！';
-                $return_data['data']['id'] = $_POST['id'];
-                $return_data['data']['phone'] = $_POST['phone'];
-                return json($return_data);
-            } else {
-                $return_data = array();
-                $return_data['error_code'] = 3;
-                $return_data['msg'] = '修改失败！';
-                return json($return_data);
-            }
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '修改失败！';
+            return json($return_data);
         }
     }
 
@@ -485,7 +477,7 @@ class Change extends BaseController
         $code = cookie('code');         // 验证码
         $mail->Subject = "验证邮件";    // 邮件标题
 
-        session("aliyunCode", $code);
+        cookie("aliyunCode", $code);
         $mail->Body = "邮件内容是您的验证码是：" . $code . "，如果非本人操作无需理会！";    // 邮件正文
 
         if (!$mail->send()) {   // 发送邮件
@@ -515,32 +507,24 @@ class Change extends BaseController
             return $result;
         }
 
-        if ($_POST['captcha'] != cookie('code')) {
+        if (Db('student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db('student')->where(['id' => $_POST['id']])->setField('email', $_POST['email']);
+        } else {
+            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('email', $_POST['email']);
+        }
+
+        if ($result) {
             $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '验证码错误';
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '修改成功！';
+            $return_data['data']['id'] = $_POST['id'];
+            $return_data['data']['email'] = $_POST['email'];
             return json($return_data);
         } else {
-
-            if (Db('student')->where(['id' => $_POST['id']])->find()) {
-                $result = Db('student')->where(['id' => $_POST['id']])->setField('email', $_POST['email']);
-            } else {
-                $result = Db('counselor')->where(['id' => $_POST['id']])->setField('email', $_POST['email']);
-            }
-
-            if ($result) {
-                $return_data = array();
-                $return_data['error_code'] = 0;
-                $return_data['msg'] = '修改成功！';
-                $return_data['data']['id'] = $_POST['id'];
-                $return_data['data']['email'] = $_POST['email'];
-                return json($return_data);
-            } else {
-                $return_data = array();
-                $return_data['error_code'] = 3;
-                $return_data['msg'] = '修改失败！';
-                return json($return_data);
-            }
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '修改失败！';
+            return json($return_data);
         }
     }
 
