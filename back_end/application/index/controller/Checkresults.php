@@ -6,7 +6,6 @@ use \think\Db;
 
 class Checkresults extends BaseController
 {
-
     /**
      * 查看查寝记录
      */
@@ -18,7 +17,7 @@ class Checkresults extends BaseController
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
-        }
+        } 
 
         // 查询条件
         $where = array();
@@ -55,6 +54,7 @@ class Checkresults extends BaseController
      * 删除查寝记录
      */
     public function deleteRecord() {
+
         // 校验参数是否存在
         $parameter = array();
         $parameter = ['department', 'grade', 'start_time'];
@@ -62,12 +62,12 @@ class Checkresults extends BaseController
         if ($result) {
             return $result;
         }
-
         // 查询条件
         $where = array();
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
-
+        $where['r.start_time'] = $_POST['start_time'];
+        // dump($_POST['start_time']);
         $result = Db::table('record')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
