@@ -168,7 +168,6 @@ class Checkresults extends BaseController
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
         $where['r.start_time'] = $_POST['start_time'];
-
         $record = Db::table('record')
             ->field('start_time, end_time, photo')   // 指定字段
             ->alias('r')    // 别名
@@ -178,7 +177,7 @@ class Checkresults extends BaseController
             ->where('r.deleted', 0)
             ->where('r.confirmed', 1)
             ->select();
-
+            
         if ($record) {
             $return_data = array();
             $return_data['error_code'] = 0;
@@ -189,7 +188,7 @@ class Checkresults extends BaseController
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无查寝记录';
+            $return_data['msg'] = '无该天的查寝记录';
 
             return json($return_data);
         }
