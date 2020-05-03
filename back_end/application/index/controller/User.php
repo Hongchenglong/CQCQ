@@ -21,20 +21,17 @@ class User extends BaseController
         if ($result) {
             return $result;
         }
-
         $where['id'] = $_POST['id'];
 
-        // 先从学生表中查询，若不存在从辅导员表中查询
-        $user = Db::table('student')
+        // 先从辅导员表中查询，若不存在从学生表中查询
+        $user = Db::table('counselor')
             ->where($where)
             ->find();
-            
         if (empty($user)) {
-            $user = Db::table('counselor')
+            $user = Db::table('student')
                 ->where($where)
                 ->find();
         }
-
         // 如果查询到该用户
         if ($user) {
             // 如果密码不等
@@ -49,7 +46,7 @@ class User extends BaseController
                 $return_data['error_code'] = 0;
                 $return_data['msg'] = '登录成功';
                 $return_data['data'] = $user;
- 
+
                 return json($return_data);
             }
         } else {
