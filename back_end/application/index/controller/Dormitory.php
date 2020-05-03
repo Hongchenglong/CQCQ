@@ -69,15 +69,27 @@ class Dormitory extends BaseController
         $where['department'] = $_POST['department'];
         $where['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
 
-        $result = Db::table('dorm')
+        // 检验宿舍号是否已存在
+        $dorm = Db::table('dorm')
             ->field('dorm.id, dorm_num')   // 指定字段
             ->alias('d')    // 别名
             ->join('student s', 's.id = d.student_id')->where($where)->find();
 
-        if ($result) {
+        // 检验学号是否已被注册
+        $where = array();
+        $where['id'] = $_POST['studentId'];
+        $student = db('student')->where($where)->find();
+
+        if ($dorm) {
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '该宿舍已存在';
+            return json($return_data);
+        } else if ($student) {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '学号' . $_POST['studentId'] . '已存在';
+
             return json($return_data);
         } else {
             // 添加宿舍
@@ -86,17 +98,25 @@ class Dormitory extends BaseController
             $data['block'] = $_POST['block'];
             $data['student_id'] = $_POST['studentId'];
             $data['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
-            db('dorm')->insert($data);
+            $dorm = db('dorm')->insert($data);
 
-            // 注册账号
-            $result = $this->sign($_POST['studentId'], $_POST['sex'], $where['dorm_num'], $_POST['grade'], $_POST['department']);
-            if ($result) {
-                return $result;
-            }
+            // 如果尚未注册，则注册
+            $data = array();
+            $data['id'] = $_POST['studentId'];
+            $data['sex'] = $_POST['sex'];
+            $data['username'] = $_POST['block'] . '#' . $_POST['room'];
+            $data['grade'] =  $_POST['grade'];
+            $data['department'] = $_POST['department'];
+            // 密码经过md5函数加密，得到32位字符串
+            $data['password'] = md5($data['id']);
+            $result = db('student')->insert($data);
 
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '添加成功';
+            $return_data['data']['dorm'] = $dorm;
+            $return_data['data']['student'] = $student;
+
             return json($return_data);
         }
     }
