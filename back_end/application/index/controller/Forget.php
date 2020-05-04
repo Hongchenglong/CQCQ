@@ -21,7 +21,7 @@ class Forget extends BaseController
         if (empty($_POST['phone'])) {
             $return_data = array();
             $return_data['error_code'] = 1;
-            $return_data['msg'] = '参数不足';
+            $return_data['msg'] = '请输入手机号！';
             return json($return_data);
         }
 
@@ -34,7 +34,7 @@ class Forget extends BaseController
         if (!$vphone->check($_POST['phone'])) {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无效的手机号码';
+            $return_data['msg'] = '无效的手机号码！';
             return json($return_data);
         }
 
@@ -86,14 +86,14 @@ class Forget extends BaseController
         if ($acsResponse) {   // 发送短信
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '发送验证码成功';
+            $return_data['msg'] = '发送验证码成功！';
             $return_data['data']['phone'] = $phone;
             $return_data['data']['captcha'] = $code;
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 4;
-            $return_data['msg'] = '发送验证码失败';
+            $return_data['msg'] = '发送验证码失败！';
             return json($return_data);
         }
     }
@@ -116,7 +116,7 @@ class Forget extends BaseController
 
         $return_data = array();
         $return_data['error_code'] = 0;
-        $return_data['msg'] = '验证成功';
+        $return_data['msg'] = '验证成功！';
         return json($return_data);
     }
 
@@ -129,7 +129,7 @@ class Forget extends BaseController
         if (empty($_POST['email'])) {
             $return_data = array();
             $return_data['error_code'] = 1;
-            $return_data['msg'] = '参数不足';
+            $return_data['msg'] = '请输入邮箱！';
             return json($return_data);
         }
         $vemail = new Validate([
@@ -140,7 +140,7 @@ class Forget extends BaseController
         if (!$vemail->check($_POST['email'])) {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无效的邮箱地址';
+            $return_data['msg'] = '无效的邮箱地址！';
             return json($return_data);
         }
 
@@ -194,12 +194,12 @@ class Forget extends BaseController
         if (!$mail->send()) {   // 发送邮件
             $return_data = array();
             $return_data['error_code'] = 4;
-            $return_data['msg'] = '发送验证码错误';
+            $return_data['msg'] = '发送验证码错误！';
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '发送验证码成功';
+            $return_data['msg'] = '发送验证码成功！';
             $return_data['data']['email'] = $email;
             $return_data['data']['captcha'] = $code;
             return json($return_data);
@@ -224,7 +224,7 @@ class Forget extends BaseController
 
         $return_data = array();
         $return_data['error_code'] = 0;
-        $return_data['msg'] = '验证成功';
+        $return_data['msg'] = '验证成功！';
         return json($return_data);
     }
 
@@ -234,20 +234,27 @@ class Forget extends BaseController
     public function changePassword()
     {
         $parameter = array();
-        $parameter = ['id', 'password', 'password_again'];
-        foreach ($parameter as $key => $value) {
-            if (empty($_POST[$value])) {
-                $return_data = array();
-                $return_data['error_code'] = 1;
-                $return_data['msg'] = '参数不足: ' . $value;
-                return json($return_data);
-            }
+        $parameter = ['password', 'password_again'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+
+        if (!empty($_POST['email'])) {
+            $res = true;
+        } else if (!empty($_POST['phone'])) {
+            $res = false;
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '未输入手机或邮箱！';
+            return json($return_data);
         }
 
         if ($_POST['password'] != $_POST['password_again']) {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '两次密码不一致';
+            $return_data['msg'] = '两次密码不一致！';
             return json($return_data);
         }
         $data = [
@@ -265,12 +272,17 @@ class Forget extends BaseController
         if (!$vpassword->check($data)) {
             $return_data = array();
             $return_data['error_code'] = 3;
-            $return_data['msg'] = '8-16位长度，须包含数字、字母、符号至少2种或以上元素';
+            $return_data['msg'] = '8-16位长度，须包含数字、字母、符号至少2种或以上元素！';
             return json($return_data);
         }
 
         //更新数据
-        $result = Db('student')->where(['id' => $_POST['id']])->setField('password', md5($_POST['password']));
+        if ($res) {
+            $result = Db('student')->where(['email' => $_POST['email']])->setField('password', md5($_POST['password']));
+        } else {
+            $result = Db('student')->where(['phone' => $_POST['phone']])->setField('password', md5($_POST['password']));
+        }
+
 
         if ($result) {
             $return_data = array();
@@ -281,8 +293,9 @@ class Forget extends BaseController
             // 更新数据执行失败
             $return_data = array();
             $return_data['error_code'] = 4;
-            $return_data['msg'] = '修改失败';
+            $return_data['msg'] = '修改失败!(可能原因：原密码与新密码一致！)';
             return json($return_data);
         }
     }
+
 }
