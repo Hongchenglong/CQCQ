@@ -207,7 +207,7 @@ class Draw extends BaseController
         $where['department'] = $_POST['department'];
         $where['start_time'] = $_POST['start_time'];
         $result = Db::table('record')
-            ->field('d.dorm_num, r.rand_num')
+            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
@@ -223,7 +223,51 @@ class Draw extends BaseController
             return json($return_data);
         } else {
             $return_data = array();
-            $return_data['error_code'] = 1;
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '暂无抽签结果';
+
+            return json($return_data);
+        }
+    }
+
+    /**
+     * 显示当前的抽签结果
+     */
+    public function displayCurrentResults()
+    {
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['department', 'grade'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+
+        $now = date('Y-m-d H:i:s', time());
+
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $result = Db::table('record')
+            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
+            ->alias('r')    // 别名
+            ->join('dorm d', 'd.id = r.dorm_id')
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('end_time', '> time', $now)
+            ->select();
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '显示抽签结果';
+            $return_data['data'] = $result;
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
             $return_data['msg'] = '暂无抽签结果';
 
             return json($return_data);
