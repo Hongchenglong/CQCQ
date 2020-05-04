@@ -31,7 +31,6 @@ class Checkresults extends BaseController
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('r.deleted', 0)
-            ->where('r.confirmed', 1)
             ->select();
 
         if ($record) {
@@ -88,7 +87,6 @@ class Checkresults extends BaseController
             ->where($where)
             ->where('start_time', 'between time', [$date. ' 00:00:00', $date . ' 23:59:59'])
             ->where('r.deleted', 0)
-            ->where('r.confirmed', 1)
             ->select();
 
         if ($record) {
@@ -130,7 +128,6 @@ class Checkresults extends BaseController
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
-            ->where('confirmed = 1')
             ->where($where)
             ->update(['record.deleted' => 1]);
 
@@ -169,13 +166,12 @@ class Checkresults extends BaseController
         $where['s.department'] = $_POST['department'];
         $where['r.start_time'] = $_POST['start_time'];
         $record = Db::table('record')
-            ->field('start_time, end_time, photo')   // 指定字段
+            ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
             ->where($where)
             ->where('r.deleted', 0)
-            ->where('r.confirmed', 1)
             ->select();
 
         if ($record) {

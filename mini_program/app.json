@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/teacher_check_has/teacher_check_has",
+    "pages/teacher_details/teacher_details",
     "pages/teacher_custom_page1/page1",
     "pages/revise_phone/revise_phone",
 
