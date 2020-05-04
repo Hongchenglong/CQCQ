@@ -273,4 +273,59 @@ class Draw extends BaseController
             return json($return_data);
         }
     }
+
+    /**
+     * 显示最近一次的抽签结果
+     */
+    public function displayRecentResults()
+    {
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['department', 'grade'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+
+        // 先找到id最大的开始时间
+        $recentTime = Db::table('record')
+            ->field('r.id, start_time')
+            ->alias('r')    // 别名
+            ->join('dorm d', 'd.id = r.dorm_id')
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->order('r.id desc')
+            ->find();
+
+        // 再用这个时间去找和它同一批的数据
+        $result = Db::table('record')
+            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
+            ->alias('r')    // 别名
+            ->join('dorm d', 'd.id = r.dorm_id')
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('start_time', $recentTime['start_time'])
+            ->select();
+
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '显示抽签结果';
+            $return_data['data'] = $result;
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '暂无抽签结果';
+
+            return json($return_data);
+        }
+    }
 }

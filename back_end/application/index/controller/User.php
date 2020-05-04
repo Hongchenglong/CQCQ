@@ -27,10 +27,13 @@ class User extends BaseController
         $user = Db::table('counselor')
             ->where($where)
             ->find();
+        if ($user) $user['user'] = 'counselor';
+
         if (empty($user)) {
             $user = Db::table('student')
                 ->where($where)
                 ->find();
+            if ($user) $user['user'] = 'student';
         }
         // 如果查询到该用户
         if ($user) {
