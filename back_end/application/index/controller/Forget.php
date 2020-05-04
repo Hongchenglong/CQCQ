@@ -13,11 +13,13 @@ use Aliyun\Api\Sms\Request\V20170525\SendSmsRequest;
 class Forget extends BaseController
 {
 
+    static $acsClient = null;
     /**
      * 发送手机验证码
      */
     public function sendSms()
     {
+
         if (empty($_POST['phone'])) {
             $return_data = array();
             $return_data['error_code'] = 1;
@@ -74,14 +76,14 @@ class Forget extends BaseController
         //增加服务节点
         DefaultProfile::addEndpoint($endPointName, $region, $product, $domain);
         //初始化acsClient用于发送请求
-        $acsClient = new DefaultAcsClient($profile);
+        static::$acsClient = new DefaultAcsClient($profile);
 
         $request = new SendSmsRequest();
         $request->setPhoneNumbers($phone);
         $request->setSignName("CQCQ");
         $request->setTemplateCode("SMS_188991747");
         $request->setTemplateParam(json_encode(['code' => $code]));
-        $acsResponse = $acsClient->getAcsResponse($request);
+        $acsResponse = static::$acsClient->getAcsResponse($request);
 
         if ($acsResponse) {   // 发送短信
             $return_data = array();

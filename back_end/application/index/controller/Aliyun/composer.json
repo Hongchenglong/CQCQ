@@ -1,0 +1,5 @@
+{
+    "require": {
+        "alibabacloud/client": "^1.5"
+    }
+}
