@@ -1,11 +1,10 @@
 {
   "pages": [
-    "pages/teacher_check_has/teacher_check_has",
-    "pages/teacher_details/teacher_details",
+    "pages/login/login",
+
     "pages/teacher_custom_page1/page1",
     "pages/revise_phone/revise_phone",
 
-    "pages/login/login",
     "pages/chouqu/chouqu",
     "pages/xiugaixinxi/xiugaixinxi",
     

@@ -170,6 +170,7 @@ class Checkresults extends BaseController
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
+            ->order('start_time')
             ->where($where)
             ->where('r.deleted', 0)
             ->select();
