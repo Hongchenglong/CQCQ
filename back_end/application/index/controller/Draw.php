@@ -40,7 +40,11 @@ class Draw extends BaseController
                 ->orderRaw('rand()')
                 ->limit($numOfBoys)
                 ->select();
+            for ($i = 0; $i < $numOfBoys; $i++) {
+                $boy[$i]['rand_num'] = rand(1, 10000);
+            }
         }
+
         if ($numOfGirls) {
             $girl = Db::table('dorm')
                 ->field('dorm.id, dorm_num')   // 指定字段
@@ -50,28 +54,14 @@ class Draw extends BaseController
                 ->where('sex', '女')
                 ->orderRaw('rand()')
                 ->limit($numOfGirls)
-                ->limit($numOfGirls)
                 ->select();
-        }
-
-        $all = array_merge_recursive($boy, $girl);
-        if ($all) {
-            // 获取随机数，并将抽到的宿舍添加到record表中
-            for ($i = 0; $i < $numOfBoys; $i++) {
-                $boy[$i]['rand_num'] = rand(1, 10000);
-                $data = array();
-                $data['dorm_id'] = $boy[$i]['id'];
-                $data['rand_num'] = $boy[$i]['rand_num'];
-                Db::table('record')->insert($data);
-            }
             for ($i = 0; $i < $numOfGirls; $i++) {
                 $girl[$i]['rand_num'] = rand(1, 10000);
-                $data = array();
-                $data['dorm_id'] = $girl[$i]['id'];
-                $data['rand_num'] = $girl[$i]['rand_num'];
-                Db::table('record')->insert($data);
             }
+        }
+        $all = array_merge_recursive($boy, $girl);
 
+        if ($all) {
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '抽签成功';
@@ -123,11 +113,8 @@ class Draw extends BaseController
 
             // 存在的宿舍
             if ($result) {
-                array_push($dormSuc, $result['dorm_num']);
-                $data = array();
-                $data['dorm_id'] = $result['id'];
-                $data['rand_num'] = rand(1, 10000);
-                $result = Db::table('record')->insert($data);
+                $result['rand_num'] = rand(1, 10000);
+                array_push($dormSuc, $result);
             } else {    // 不存在的宿舍
                 array_push($dormFal, $result['dorm_num']);
             }
@@ -153,96 +140,6 @@ class Draw extends BaseController
 
 
     /**
-     * 显示未确认的抽签结果
-     */
-    public function displayUnconfirmedResults()
-    {
-
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
-
-        // 查询条件
-        $where = array();
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
-        $result = Db::table('record')
-            ->field('dorm_num, rand_num')   // 指定字段
-            ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
-            ->where('confirmed', 0)
-            ->where($where)
-            ->select();
-
-        if ($result) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示抽签结果';
-            $return_data['data'] = $result;
-
-            return json($return_data);
-        } else {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '暂无抽签结果';
-
-            return json($return_data);
-        }
-    }
-
-    /**
-     * 清空
-     */
-    public function redraw()
-    {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
-
-        // 查询条件
-        $where = array();
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
-        $result = Db::execute(
-            "delete r from record r join dorm d 
-            on r.dorm_id = d.id join student s on s.id = d.student_id 
-            where confirmed = 0 and s.grade=:grade and s.department=:department",
-            ['grade' => $where['grade'], 'department' => $where['department']]
-        );
-        // $result = Db::table('record')
-        //     ->alias('r')    // 别名
-        //     ->join('dorm d', 'd.id = r.dorm_id')
-        //     ->join('student s', 's.id = d.student_id')
-        //     ->where('confirmed', 0)
-        //     ->where($where)
-        //     ->delete();
-        // dump($result);
-
-        if ($result) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '删除成功';
-
-            return json($return_data);
-        } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '没有可删除的宿舍';
-
-            return json($return_data);
-        }
-    }
-
-    /**
      * 确认抽签结果
      */
     public function verifyResults()
@@ -252,7 +149,8 @@ class Draw extends BaseController
 
         // 校验参数是否存在
         $parameter = array();
-        $parameter = ['department', 'grade', 'startTime', 'endTime'];
+        $parameter = ['department', 'grade', 'start_time', 'end_time', 'dorm_id', 'rand_num'];
+        // dorm_id, rand_num是列表
         $result = $this->checkForExistence($parameter);
         if ($result) {
             return $result;
@@ -262,19 +160,23 @@ class Draw extends BaseController
         $where = array();
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $result = Db::table('record')
-            ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
-            ->where('confirmed = 0')
-            ->where($where)
-            ->update(['record.confirmed' => 1, 'start_time' => $_POST['startTime'], 'end_time' => $_POST['endTime']]);
-        // ->setField('record.confirmed', 1);
+        $dorm_id = explode(',', $_POST['dorm_id']);
+        $rand_num = explode(',', $_POST['rand_num']);
+        $len = sizeof($dorm_id);
+        for ($i = 0; $i < $len; $i++) {
+            $data = array();
+            $data['dorm_id'] = $dorm_id[$i];
+            $data['rand_num'] = $rand_num[$i];
+            $data['start_time'] = $_POST['start_time'];
+            $data['end_time'] = $_POST['end_time'];
+            $result = Db::table('record')->insert($data);
+        }
+
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '确认成功';
-            $return_data['data'] = $result;
+            // $return_data['data'] = $result;
 
             return json($return_data);
         } else {
@@ -287,9 +189,9 @@ class Draw extends BaseController
     }
 
     /**
-     * 显示已确认的抽签结果
+     * 显示抽签结果
      */
-    public function displayConfirmedResults()
+    public function displayResults()
     {
         // 校验参数是否存在
         $parameter = array();
@@ -302,28 +204,71 @@ class Draw extends BaseController
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
-        $where['start_time'] = $_POST['start_time'];
         $where['department'] = $_POST['department'];
+        $where['start_time'] = $_POST['start_time'];
         $result = Db::table('record')
-            ->field('dorm_num, rand_num')   // 指定字段
+            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
-            ->where('confirmed', 1)
             ->where($where)
             ->select();
 
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示已确认的抽签结果';
+            $return_data['msg'] = '显示抽签结果';
             $return_data['data'] = $result;
 
             return json($return_data);
         } else {
             $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '暂无已确认的抽签结果';
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '暂无抽签结果';
+
+            return json($return_data);
+        }
+    }
+
+    /**
+     * 显示当前的抽签结果
+     */
+    public function displayCurrentResults()
+    {
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['department', 'grade'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+
+        $now = date('Y-m-d H:i:s', time());
+
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $result = Db::table('record')
+            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
+            ->alias('r')    // 别名
+            ->join('dorm d', 'd.id = r.dorm_id')
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('end_time', '> time', $now)
+            ->select();
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '显示抽签结果';
+            $return_data['data'] = $result;
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '暂无抽签结果';
 
             return json($return_data);
         }
