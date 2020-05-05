@@ -259,7 +259,7 @@ class Checkresults extends BaseController
         $where['s.id'] = $_POST['student_id'];
 
         $record = Db::table('record')
-            ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
+            ->field('*')   // 指定字段start_time, end_time, photo, d.dorm_num, r.rand_num
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
