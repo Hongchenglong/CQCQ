@@ -1,6 +1,6 @@
 /* pages/forget/forget.wxss */
 .btns{
-  height:150px;
+  height:300rpx;
   margin-top:16%;
   background-color: rgb(230, 240, 239);
 }
@@ -12,7 +12,7 @@
 }
 
 .imgs {
-  width:80px;
-  height:70px;
-  margin:12px auto;
+  width:160rpx;
+  height:140rpx;
+  margin:24rpx auto;
 }
