@@ -74,12 +74,13 @@
 
 
 .submit{
-  background-color: rgba(105, 106, 255, 0.45);
+  background-color: #7AB8FB;
+  /*background-color: rgba(105, 106, 255, 0.45);*/
 }
 
 .pic{
-  width: 25px;
-  height: 25px;
+  width: 55rpx;
+  height: 55rpx;
 }
 
 .Start,.Later{

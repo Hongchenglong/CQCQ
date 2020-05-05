@@ -16,8 +16,8 @@
   flex-direction: column;
 }
 image{
-  width:23px;
-  height:23px
+  width:55rpx;
+  height:55rpx;
 }
 .Start,.Later{
   margin-top: 50rpx;

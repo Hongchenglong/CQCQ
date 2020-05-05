@@ -70,6 +70,6 @@ button{
 }
 
 .exit image{
-  width: 25px;
-  height: 25px;
+  width: 55rpx;
+  height: 55rpx;
 }

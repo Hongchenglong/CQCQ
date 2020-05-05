@@ -3,14 +3,14 @@
 <view class="Section">
 	<view class="whole">
 		<view class="Start">
-			<image src="/images/日期.png" class="date"></image>
-			<view class="text">开始时间: {{time1}}</view>
+			<image src="/images/开始时间.png" class="date"></image>
+			<view class="text">开始时间：{{time1}}</view>
 		</view>
 		<!-- <text decode="{{true}}" style="color:#777777">&nbsp;&nbsp;|&nbsp;&nbsp;</text> -->
 		
 		<view class="Later">
-			<image src="/images/日期.png" class="date"></image>
-			<view class="text">截止时间: {{time2}}</view>
+			<image src="/images/结束时间.png" class="date"></image>
+			<view class="text">截止时间：{{time2}}</view>
 		</view>
 	</view>
 	<!-- <view class="view-wrap">

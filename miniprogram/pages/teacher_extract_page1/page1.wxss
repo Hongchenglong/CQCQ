@@ -6,8 +6,8 @@
 }
 
 .iconGirl,.iconBoy{
-  width: 30px;
-  height: 30px;
+  width: 90rpx;
+  height: 90rpx;
 }
 
 .girls,.boys{

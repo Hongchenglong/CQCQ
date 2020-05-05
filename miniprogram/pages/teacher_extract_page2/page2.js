@@ -9,8 +9,19 @@ function getCurrentMonthFirst() {
   now_date = todate
   return todate;
 }
-var time_1 = null
-var time_2 = null
+var time_1 = '22:30'
+var time_2 = '22:45'
+
+//将字符串转化为时间
+function stringToDate(dateStr) {
+  let fullYear = parseInt(dateStr.substring(0, 4));
+  let month = parseInt(dateStr.substring(5, 7).substring(0, 1) == '0' ? dateStr.substring(6, 7) : dateStr.substring(5, 7));
+  let day = parseInt(dateStr.substring(8, 10).substring(0, 1) == '0' ? dateStr.substring(9, 10) : dateStr.substring(8, 10));
+  let hour = parseInt(dateStr.substring(11, 13).substring(0, 1) == '0' ? dateStr.substring(12, 13) : dateStr.substring(11, 13));
+  let minute = parseInt(dateStr.substring(14, 16).substring(0, 1) == '0' ? dateStr.substring(15, 16) : dateStr.substring(14, 16));
+  return new Date(fullYear, month - 1, day, hour, minute);
+}
+
 Page({
   /**
    * 页面的初始数据
@@ -30,19 +41,46 @@ Page({
   },
   //设置开始时间
   bindTimeChange1: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  console.log('picker发送选择改变，携带值为', e.detail.value)
     time_1 = e.detail.value
-    this.setData({
-      time1: e.detail.value
-    })
+    var bj_time1 = this.data.date_1 + " " + time_1
+    var bj_time2 = this.data.date_1 + " " + this.data.time2
+    var strdate1 = stringToDate(bj_time1)
+    var strdate2 = stringToDate(bj_time2)
+    var sign = strdate2 - strdate1
+    if (sign > 0) {
+      this.setData({
+        time1: e.detail.value
+      })
+    }else{
+      wx.showModal({
+        title: "提示：",
+        content: "开始时间不得晚于结束时间",
+        showCancel: false,
+      })
+    }
   },
+
   //设置截止时间
   bindTimeChange2: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     time_2 = e.detail.value
-    this.setData({
-      time2: e.detail.value
-    })
+    var bj_time1 = this.data.date_1 + " " + this.data.time1
+    var bj_time2 = this.data.date_1 + " " + time_2
+    var strdate1 = stringToDate(bj_time1)
+    var strdate2 = stringToDate(bj_time2)
+    var sign = strdate2 - strdate1
+    if (sign > 0) {
+      this.setData({
+        time2: e.detail.value
+      })
+    }else{
+      wx.showModal({
+        title: "提示：",
+        content: "开始时间不得晚于结束时间",
+        showCancel: false,
+      })
+    }
   },
   //跳转页面
   buttonchange: function (e) {
@@ -89,7 +127,8 @@ Page({
             success(res) {},
             complete: function (res) {
               wx.reLaunch({
-                url: '/pages/teacher_extract_page3/page3?dateData=' + now_date + '&weekData=' + that.data.weekday + '&time1Data=' + that.data.time1 + '&time2Data=' + that.data.time2
+                /*url: '/pages/teacher_extract_page3/page3?dateData=' + now_date + '&weekData=' + that.data.weekday + '&time1Data=' + that.data.time1 + '&time2Data=' + that.data.time2*/
+                url: '/pages/teacher_extract_page3/page3'
               })
             }
           })
