@@ -114,4 +114,70 @@ class Record extends BaseController
             return json($return_data);
         }
     }
+
+    /**
+     * 上传头像
+     */
+    public function uploadFaceUrl()
+    {
+        $parameter = array();
+        $parameter = ['id', 'file'];
+        foreach ($parameter as $key => $value) {
+            if (!empty($_POST[$value]) || !empty($_FILES[$value])) {
+            } else {
+                $return_data = array();
+                $return_data['error_code'] = 1;
+                $return_data['msg'] = '参数不足: ' . $value;
+                return json($return_data);
+            }
+        }
+
+        $type = array("gif", "jpeg", "jpg", "png", "bmp");  // 允许上传的图片后缀
+        $temp = explode(".", $_FILES['file']['name']);  // 拆分获取图片名
+        $extension = $temp[count($temp) - 1];     // 获取文件后缀名
+
+        if (in_array($extension, $type) && $_FILES["file"]["size"] < 5242880) {
+
+            if ($_FILES["file"]["error"] > 0) {
+                $return_data = array();
+                $return_data['error_code'] = 3;
+                $return_data['msg'] = '文件上传错误！';
+                return json($return_data);
+            } else {
+                $new_file_name = $_POST['id']; //取名为id
+                $new_name = $new_file_name . '.' . $extension; //新文件名
+                $path = 'face_url/' . $new_name;        //upload为保存图片目录
+                if (file_exists("face_url/" . $path)) {   //判断是否存在该文件
+                    $return_data = array();
+                    $return_data['error_code'] = 4;
+                    $return_data['msg'] = '文件已存在！';
+                    return json($return_data);
+                } else {
+
+                    //本地测试
+                    $file = request()->file('file');
+                    $info = $file->move(ROOT_PATH . 'public' . DS . 'face_url', $new_name);
+                    // print_r($info);
+
+                    // 上传到数据库
+                    if (Db('student')->where(['id' => $_POST['id']])->find()) {
+                        $result = Db('student')->where(['id' => $_POST['id']])->setField('face_url', "face_url/" . $new_name);
+                    } else {
+                        $result = Db('counselor')->where(['id' => $_POST['id']])->setField('face_url', "face_url/" . $new_name);
+                    }
+                    $return_data = array();
+                    $return_data['error_code'] = 0;
+                    $return_data['msg'] = '修改成功！';
+                    $return_data['data']['id'] = $_POST['id'];
+                    $return_data['data']['face_url'] = 'face_url/' . $new_name;
+                    return json($return_data);
+                }
+            }
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '文件格式错误！';
+            return json($return_data);
+        }
+    }
 }
