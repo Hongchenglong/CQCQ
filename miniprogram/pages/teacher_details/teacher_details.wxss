@@ -10,22 +10,22 @@
 
 .first {
   margin: auto;
-  width: 360px;
-  height: 70px;
-  line-height: 20px;
+  width: 720rpx;
+  height: 140rpx;
+  line-height: 40rpx;
   color: rgba(16, 16, 16, 1);
-  font-size: 14px;
+  font-size: 30rpx;
   font-family: Roboto;
-  border: 1px solid rgba(187, 187, 187, 1);
+  border: 2rpx solid rgba(187, 187, 187, 1);
 }
 
 .texts {
   margin-left: 5%;
   margin-top: 3%;
-  width: 300px;
-  height: 20px;
+  width: 600rpx;
+  height: 40rpx;
   color: rgba(16, 16, 16, 1);
-  font-size: 14px;
+  font-size: 30rpx;
   font-family: SourceHanSansSC-regular;
   float: left;
 }
@@ -36,12 +36,12 @@
 
 .second {
   margin: auto;
-  width: 360px;
-  height: 45px;
-  line-height: 20px;
-  font-size: 14px;
+  width: 720rpx;
+  height: 90rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
   text-align: left;
-  border: 1px solid rgba(187, 187, 187, 1);
+  border: 2rpx solid rgba(187, 187, 187, 1);
 }
 
 .tone{
@@ -49,9 +49,9 @@
   margin-left: 5%;
   margin-top: 3%;
   width:40%;
-  height: 20px;
+  height: 40rpx;
   color: rgba(16, 16, 16, 1);
-  font-size: 14px;
+  font-size: 30rpx;
   font-family: SourceHanSansSC-regular;
   float: left;
 }
@@ -60,16 +60,17 @@
   text-align: center;
   margin-top: 3%;
   width:50%;
-  height: 20px;
+  height: 40rpx;
   color: rgba(16, 16, 16, 1);
-  font-size: 14px;
+  font-size: 30rpx;
   font-family: SourceHanSansSC-regular;
   float: left;
 }
 
 .imgs {
-  width:360px;
-  height:200px;
+  width:720rpx;
+  height:450rpx;
   margin-left:2%;
   margin-top:2%;
+  
 }
