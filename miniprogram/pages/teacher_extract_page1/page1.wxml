@@ -1,0 +1,31 @@
+<!--pages/teacher_extract_page1/teacher_extract_page1.wxml-->
+<view class="wrap">
+	<view class="girls">
+		<image src="/images/nvsheng.png" class="iconGirl"></image>
+		<text class="head">女生宿舍：</text>
+		<i-panel title="基础用法">
+			<view style="padding: 8px">
+				<i-input-number value="{{ Girls_name }}" min="0" max="3" bindchange="handleChange1"  />
+			</view>
+		</i-panel>
+		<text class="foot">间</text>
+	</view>
+
+	<view class="boys">
+		<image src="/images/nansheng.png" class="iconBoy"></image>
+		<text class="head">男生宿舍：</text>
+		<i-panel title="基础用法">
+			<view style="padding: 8px">
+				<i-input-number value="{{ Boys_name }}" min="0" max="6" bindchange="handleChange2" />
+			</view>
+		</i-panel>
+		<text class="foot">间</text>
+	</view>
+	<view class="other">
+		<button style="width:100%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonList'>
+			<image src="/images/点击.png"></image>随机抽取
+		</button>
+		<view class="definition">不喜欢随机抽取？试试<view bindtap="buttonListener" style="font-weight:bold;color:#7AB8FB;">自定义抽取</view>
+		</view>
+	</view>
+</view>
