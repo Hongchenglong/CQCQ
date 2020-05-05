@@ -102,8 +102,8 @@ Page({
         } else if (res.data.error_code == 0) {
           list.push({'grade': Grade, 'dep': Dep, 'no': No, 'sex': Sex, 'block': Block, 'room': Room})
           wx.showModal({
-              title: "提示：",
-              content: res.data.msg,
+              title: "添加成功！",
+              content: "账号密码默认为学号",
               showCancel: false,
               success(res) {},
             }),
@@ -198,6 +198,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //传系别，年级
+    this.setData({
+      grade: getApp().globalData.user.grade,
+      dep: getApp().globalData.user.department
+    })
     //传区号
     var that = this
     var listblock = []
@@ -238,11 +243,6 @@ Page({
           success(res) {}
         })
       }
-    })
-    //传系别，年级
-    this.setData({
-      grade: getApp().globalData.user.grade,
-      dep: getApp().globalData.user.department
     })
     //列表自适应
   },

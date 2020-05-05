@@ -86,13 +86,14 @@ Page({
                 }*/
               },
               complete: function (res) {
-                if ( that.data.id.length == 6  ){
-                  console.log(that.data.id.length),
+                //that.data.user == 'counselor'
+                if (  that.data.id.length == 6 ){
+                  //console.log(that.data.id.length),
                   wx.reLaunch({
                     url: '/pages/teacher_home/teacher_home'
                   })
                 }
-                else if ( that.data.id.length == 9  ){
+                else if ( that.data.user == 'student'  ){
                   wx.reLaunch({
                     url: '/pages/student_home/student_home'
                   })

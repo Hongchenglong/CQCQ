@@ -174,8 +174,8 @@ Page({
       grade : getApp().globalData.user.grade,
       dep : getApp().globalData.user.department
     })
-    console.log(this.data.grade)
-    console.log(this.data.dep)
+    //console.log(this.data.grade)
+    //console.log(this.data.dep)
     var that = this
     var listblock = []
     // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock')

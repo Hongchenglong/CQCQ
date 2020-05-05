@@ -24,15 +24,13 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      grade : getApp().globalData.user.grade,
-      dep : getApp().globalData.user.department
+      grade: getApp().globalData.user.grade,
+      dep: getApp().globalData.user.department
     })
-    console.log(this.data.grade)
-    console.log(this.data.dep)
     var that = this
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayCurrentResults')
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayCurrentResults',
+      url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults',
       data: {
         department: that.data.dep,
         grade: that.data.grade,
@@ -51,10 +49,12 @@ Page({
             success(res) {}
           })
         } else if (res.data.error_code == 0) {
+          //console.log(res)
+          var l = res.data.data.length-1
           that.setData({
             Listdata: res.data.data,
-            time1:res.data.data[0].start_time,
-            time2:res.data.data[0].end_time
+            time1:res.data.data[l].start_time,
+            time2:res.data.data[l].end_time
           })
         }
       },
@@ -69,7 +69,6 @@ Page({
       }
     })
   },
-  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -97,7 +96,7 @@ Page({
    */
   onUnload: function () {
     this.setData({
-      clearTimer: true,
+      clearTimer: true
     });
     wx.reLaunch({
       url: '/pages/teacher_home/teacher_home',

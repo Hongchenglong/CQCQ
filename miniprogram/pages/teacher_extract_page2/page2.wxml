@@ -45,6 +45,6 @@
 	</block>
 </view>
 <view class="but">
-	<button bindtap='buttonListener' class="submit" style="width:40%">
-  <image src="/images/queren.png" class="pic"></image>确认</button>
+	<button bindtap='buttonListener' class="submit" style="width:40%;border-radius:30px ;">
+  <image src="/images/queren.png" class="pic"></image><text decode="{{true}}">&nbsp;确认</text></button>
 </view>
