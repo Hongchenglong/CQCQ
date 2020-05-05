@@ -1,0 +1,12 @@
+<view class="container">
+	<image class="picture" src="../../images/picture.png"></image>
+	<view class="containerLook" bindtap="goto1">
+		<text class="looktext" >拍照上传</text>
+	</view>
+	<view class="containerUpload" bindtap="goto2">
+		<text class="uploadtext"  >查看历史查寝</text>
+	</view>
+	<view class="containerBottom">
+		<text class="tips">Tips:若要修改照片，再次上传即可。系统将自动将其覆盖。</text>
+	</view>
+</view>
