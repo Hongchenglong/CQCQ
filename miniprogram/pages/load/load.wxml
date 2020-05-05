@@ -1,0 +1,14 @@
+<!--pages/login/load.wxml-->
+<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+<!--<open-data type="userAvatarUrl"></open-data>
+<open-data type="userNickName"></open-data>-->
+<!-- 需要使用 button 来授权登录 -->
+<view wx:if="{{canIUse}}" class="entitle">
+	<button style="width:90%;border-radius: 30px;" hover-class="plain-hover" class="buttom_en" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+		<image src="/images/授权.png"></image><text decode="{{true}}">&nbsp;授权登录</text> </button>
+	 <view class='med'>————— · —————</view>
+  <view class='txt'>\t\t欢迎使用辅助查寝系统小程序，我们需要一些您的公开信息，包括微信昵称、头像等。请放心，我们会妥善保管您的信息~</view>
+</view>
+<view wx:else>请升级微信版本</view>
+<!--底部导航栏-->
+<include src="/pages/teacher_bottom/teacher_bottom" />

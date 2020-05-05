@@ -1,0 +1,18 @@
+/* pages/forget/forget.wxss */
+.btns{
+  height:150px;
+  margin-top:16%;
+  background-color: rgb(230, 240, 239);
+}
+
+.texts{
+  float: right;
+  font-size: small;
+  color:#798687;
+}
+
+.imgs {
+  width:80px;
+  height:70px;
+  margin:12px auto;
+}

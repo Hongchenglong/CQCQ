@@ -1,0 +1,100 @@
+.wrap{
+  width: 95%;
+  margin: 5rpx auto;
+}
+
+.sex{
+  display:flex;
+  margin-top: 10rpx;
+  padding: 4px 0;
+  min-height: 16px;
+  padding: 7px 15px;
+  color: #495060;
+  font-size: 14px
+}
+
+radio {
+  transform:scale(0.8);
+}
+
+.address1,.address2{
+  padding-top: 10rpx;
+  font-size: 14px;
+  color: #495060;
+  height: 20px;
+  min-height: 16px;
+  margin: 10px 15px;
+  
+}
+.address2{
+  border-bottom:1rpx solid #e9eaec ;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+.block,.number{
+  display: flex;
+  align-items: center; /*垂直居中*/
+}
+
+image{
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.plain-hover{
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 10px #7AB8FB inset; 
+}
+
+button{
+  background-color: #7AB8FB;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  color: #fff;
+  border: 0;
+}
+
+
+
+/* 列表 */
+.table {
+  /*width: 80%;*/
+  display: flex;
+  margin: 40rpx 60rpx;
+  background-color: #fff;
+  border: 1rpx solid darkgray;
+  font-size: 10px;
+  flex-direction: column;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  height: 2rem;
+}
+.td,.th {
+  display: flex;
+  justify-content: center;  /*水平居中 */
+  align-items: center; /*垂直居中*/
+  width: 100%;
+  border: 1rpx solid darkgray;
+  height: 2rem;
+}
+.bg-w{
+  background: #f2f2f2;
+}
+
+thead th{
+  position: relative;
+  }
+  
+  .table>tbody>tr>td,
+  .table>tbody>tr>th,
+  .table>tfoot>tr>td,
+  .table>tfoot>tr>th,
+  .table>thead>tr>td,
+  .table>thead>tr>th {
+  white-space: nowrap;
+  }

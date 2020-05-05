@@ -1,0 +1,34 @@
+
+<view class="total">
+  <view class="top">
+    <view class="text">所属年级：{{grades}}</view>
+    <view class="text">所属系：{{dept}}</view>
+  </view>
+
+  <view class="selected_top">
+    <!-- 下拉框 -->
+    <view class='selected' bindtap='bindShowMsg'>
+      <text>{{types_name}}</text>
+      <image src='/images/xialajiantou.png' class="one_jt"></image>
+    </view>
+    <!-- 下拉需要显示的列表 -->
+    <view class="select_box" wx:if="{{select}}">
+      <view wx:for="{{types}}" wx:key="navItems">
+        <view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+      </view>
+  </view>
+
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th">区</view>
+        <view class="th">宿舍号</view>
+      </view>
+      <block wx:for="{{listData}}" wx:key="navItems">
+        <view class="tr">
+          <view class="td">{{item.block}}</view>
+          <view class="td">{{item.room}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

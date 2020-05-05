@@ -1,0 +1,50 @@
+/* pages/phone/phone.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  background:#dee5e6;
+}
+
+.changeInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  margin: 50rpx auto;
+}
+
+.changeInfoName{
+  position: relative;
+  height: 80rpx;
+  width: 100%;
+  border-radius: 10rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+
+.codeBtn{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: red;
+  width: 15%;
+  height: 80rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+}
+
+.changeInfoName input{
+  width: 100%;
+  height:100%;
+}
+
+.btn{
+  width: 40%;
+  height: 100rpx;
+  line-height: 70rpx;
+  color: #000;
+  border-radius: 50rpx;
+  margin-top:10%;
+}
