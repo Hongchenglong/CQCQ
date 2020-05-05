@@ -5,3 +5,6 @@
 | 团队名称 | [爱是用心码](https://www.cnblogs.com/yongxinma/)      |
 | 项目名称 | 辅助查寝系统   |
 
+后端代码：back_end
+
+小程序代码：mini_program
