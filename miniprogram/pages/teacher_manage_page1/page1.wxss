@@ -9,7 +9,10 @@
 
 .text {
   font-size: 13px;
-  margin-left: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*margin-left: 30rpx;*/
 }
 
 .selected_top {

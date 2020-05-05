@@ -74,7 +74,7 @@ Page({
             })
           } else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
-            console.log(getApp().globalData.user.username)
+            //console.log(getApp().globalData.user.username)
             wx.showModal({
               title: '恭喜!',
               showCancel: false,
@@ -86,14 +86,15 @@ Page({
                 }*/
               },
               complete: function (res) {
-                //that.data.user == 'counselor'
-                if (  that.data.id.length == 6 ){
+                console.log(getApp().globalData.user.user)
+                
+                if (  getApp().globalData.user.user == 'counselor' ){
                   //console.log(that.data.id.length),
                   wx.reLaunch({
                     url: '/pages/teacher_home/teacher_home'
                   })
                 }
-                else if ( that.data.user == 'student'  ){
+                else if ( getApp().globalData.user.user == 'student'  ){
                   wx.reLaunch({
                     url: '/pages/student_home/student_home'
                   })

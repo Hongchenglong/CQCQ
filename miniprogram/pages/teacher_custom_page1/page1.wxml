@@ -2,7 +2,7 @@
 <!-- <text>pages/teacher/custom/page1/page1.wxml</text> -->
 <view class='tatol'>
 	<view class='two'>
-		<view class='text'>指定宿舍</view>
+	  <!--<view class='text'>指定宿舍</view>-->
 		<view class="apartment">
 			<!-- 栋 -->
 			<view class='selected' bindtap='bindShowMsg'>
@@ -45,5 +45,6 @@
 			</view>
 		</block>
 	</view>
-	<button style="width:40%" class="submit" bindtap='buttonsubmit'>确认</button>
+	<button style="width:60%;border-radius: 30px;" class="submit" bindtap='buttonsubmit'>
+	<image src="/images/确定.png"></image><text decode="{{true}}">&nbsp;确认</text></button>
 </view>

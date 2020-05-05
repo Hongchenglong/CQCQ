@@ -1,41 +1,43 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/teacher_mine/teacher_mine",
-    "pages/teacher_home/teacher_home",
-    "pages/load/load",
-    "pages/teacher_dorm/teacher_dorm",
-    "pages/teacher_bottom/teacher_bottom", 
-
-    "pages/teacher_extract_page1/page1",
-    "pages/teacher_extract_page2/page2",
-    "pages/teacher_extract_page3/page3",
-    "pages/teacher_manage_page2/page2",
-    "pages/teacher_manage_page1/page1",
-    "pages/teacher_custom_page1/page1",  
     
-    "pages/index/index",
-    "pages/logs/logs",
-
-    "pages/modifyinformation/modifyinformation",
-    "pages/student_bottom/student_bottom", 
+    "pages/revise_email/revise_email",
+    "pages/revise_password/revise_password",
+    "pages/revise_information/revise_information",
     "pages/student_mine/student_mine", 
+    "pages/revise_about/revise_about",
+
+    
+    "pages/revise_phone/revise_phone",
+    "pages/uploadphoto/uploadphoto",
+    "pages/student_picupload/student_picupload",
+    
+    "pages/student_bottom/student_bottom", 
     "pages/student_home/student_home",
 
+    "pages/teacher_custom_page1/page1",  
+    "pages/teacher_extract_page3/page3",
+    "pages/teacher_extract_page2/page2",
+    "pages/teacher_extract_page1/page1",
+    "pages/teacher_manage_page2/page2",
+    "pages/teacher_manage_page1/page1",
+    
+
+    "pages/load/load",
+   
+    "pages/teacher_mine/teacher_mine",
+    "pages/teacher_home/teacher_home",
+    "pages/teacher_dorm/teacher_dorm",
+    "pages/teacher_bottom/teacher_bottom", 
+    
     "pages/teacher_check/teacher_check",
     "pages/forget/forget",
     "pages/email_verify/email_verify",
     "pages/phone_verify/phone_verify",
-    "pagesange_passwdange_passwd",
 
-
-    "pages/image/image",
-    "pages/name/name",
-    "pages/password/password",
-    "pages/info/info",
-    "pages/mail/mail",
-    "pages/phone/phone",
-    "pages/other/other"
+    "pages/index/index",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
