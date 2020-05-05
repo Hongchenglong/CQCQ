@@ -1,0 +1,95 @@
+.Section{
+  font-size: 12px;
+  margin: 10rpx 0rpx;
+  width: 100%;
+  height: 220rpx;
+  line-height: 60rpx;
+  border-top: solid 1px darkgray;
+  border-bottom: solid 1px darkgray;
+}
+.time1,.time2{
+  border:solid 1rpx #ADADAD;
+  border-radius: 5px;
+}
+.Date,.new{
+  height: 33.33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  font-size: 32rpx;
+}
+
+.new{
+  color:#7AB8FB;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.table {
+  margin: 30rpx 10rpx;
+  background-color: #fff;
+  border: 1px solid darkgray;
+  font-size: 15px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  height: 2rem;
+  justify-content: space-between;
+}
+
+.td,.th {
+  display: flex;
+  justify-content: center;  /*水平居中 */
+  align-items: center; /*垂直居中*/
+  width: 100%;
+  /*border: 1px solid darkgray;*/
+  height: 2rem;
+  border-bottom: 1px solid darkgray;
+  border-right: 1px solid darkgray;
+}
+
+.bg-w{
+  background: #f2f2f2;
+}
+
+.but{
+  margin:0rpx 10rpx;
+  display: flex;
+  justify-content: center;  /*水平居中 */
+  align-items: center; /*垂直居中*/
+}
+
+.submit{
+  font-weight: normal;
+  color: #fff;
+  display: flex;
+  justify-content: center;  /*水平居中 */
+  align-items: center; /*垂直居中*/
+}
+
+
+.submit{
+  background-color: rgba(105, 106, 255, 0.45);
+}
+
+.pic{
+  width: 25px;
+  height: 25px;
+}
+
+.Start,.Later{
+  display: flex;
+  flex-direction: row;
+  /*margin-top: 15rpx;*/
+}
+
+/*.time1,.time2{
+  margin-left: 10rpx;
+  border:solid 1rpx #ADADAD;
+  border-radius: 5px;
+}*/

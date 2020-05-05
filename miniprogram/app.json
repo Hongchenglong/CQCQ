@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/teacher_mine/teacher_mine",
+    "pages/teacher_home/teacher_home",
+    "pages/load/load",
+    "pages/teacher_dorm/teacher_dorm",
+    "pages/teacher_bottom/teacher_bottom", 
+
+    "pages/teacher_extract_page1/page1",
+    "pages/teacher_extract_page2/page2",
+    "pages/teacher_extract_page3/page3",
+    "pages/teacher_manage_page2/page2",
+    "pages/teacher_manage_page1/page1",
+    "pages/teacher_custom_page1/page1",  
+    
+    "pages/index/index",
+    "pages/logs/logs",
+
+    "pages/modifyinformation/modifyinformation",
+    "pages/student_bottom/student_bottom", 
+    "pages/student_mine/student_mine", 
+    "pages/student_home/student_home",
+
+    "pages/teacher_check/teacher_check",
+    "pages/forget/forget",
+    "pages/email_verify/email_verify",
+    "pages/phone_verify/phone_verify",
+    "pagesange_passwdange_passwd",
+
+
+    "pages/image/image",
+    "pages/name/name",
+    "pages/password/password",
+    "pages/info/info",
+    "pages/mail/mail",
+    "pages/phone/phone",
+    "pages/other/other"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "辅助查寝系统",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

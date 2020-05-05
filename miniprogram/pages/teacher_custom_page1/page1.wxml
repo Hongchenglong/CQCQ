@@ -1,0 +1,49 @@
+<!--pages/teacher/custom/page1/page1.wxml-->
+<!-- <text>pages/teacher/custom/page1/page1.wxml</text> -->
+<view class='tatol'>
+	<view class='two'>
+		<view class='text'>指定宿舍</view>
+		<view class="apartment">
+			<!-- 栋 -->
+			<view class='selected' bindtap='bindShowMsg'>
+				<text>{{Block}}</text>
+				<image src='/images/xialajiantou.png' class="two_jt1"></image>
+			</view>
+			<!-- 下拉需要显示的列表-->
+			<view class="two_select_box_1" wx:if="{{select}}" hidden="{{hiddenName3}}">
+				<view wx:for="{{Apart}}" wx:key="unique">
+					<view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+				</view>
+			</view>
+			<view class='text_3'>栋</view>
+
+			<!-- 室 -->
+			<view class='selected'>
+				<input class="input_room" auto-focus placeholder="--室号--" bindinput="bindKeyInput" type="number"/>
+			</view>
+			<view class='text_3'>室</view>		
+
+			<!-- 按钮 -->
+			<image src='/images/jiahao.png' class="add" bindtap="buttonaddList1"></image>
+			<image src='/images/qingkong2.png' class="clear" bindtap="buttonclearList"></image>
+		</view>
+	</view>
+
+	<view class="table">
+		<view class="tr bg-w">
+			<view class="th">栋</view>
+			<view class="th">室</view>
+			<view class="th th1"></view>
+		</view>
+		<block wx:for="{{listData}}" wx:key="index">
+			<view class="tr">
+				<view class="td">{{item.block}}</view>
+				<view class="td">{{item.room}}</view>
+				<view class="td td1">
+					<image src='/images/jianhao.png' data-idx='{{index}}' class="sub" bindtap="buttonsubList"></image>
+				</view>
+			</view>
+		</block>
+	</view>
+	<button style="width:40%" class="submit" bindtap='buttonsubmit'>确认</button>
+</view>

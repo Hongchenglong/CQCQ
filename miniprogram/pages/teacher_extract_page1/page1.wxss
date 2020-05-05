@@ -1,0 +1,57 @@
+/* pages/teacher_extract_page1/teacher_extract_page1.wxss */
+.wrap{
+  width: 90%;
+  height: 500rpx;
+  margin: 50rpx auto;
+}
+
+.iconGirl,.iconBoy{
+  width: 30px;
+  height: 30px;
+}
+
+.girls,.boys{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  font-size: 40rpx;
+  color: #777777;
+}
+
+.other{
+  width:80%;
+  align-items: center;
+  justify-content: center; 
+  margin: 30rpx auto;
+}
+
+button{
+  background-color: #7AB8FB;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  color: #fff;
+  border: 0;
+}
+
+image{
+  width: 55rpx;
+  height: 55rpx;
+}
+
+
+.plain-hover{
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 10px #7AB8FB inset; 
+}
+
+.definition{
+  margin-top: 15rpx;
+  color: #777777;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+

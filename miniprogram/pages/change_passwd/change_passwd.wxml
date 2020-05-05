@@ -1,0 +1,23 @@
+<!--pages/chang_passwd/chang_passwd.wxml-->
+<view class='changeInfo'>
+
+   <!--输入新密码-->
+	<view class='changeInfoName'>
+		<input type="password" placeholder='请输入密码' 
+      bindinput="passwdInput" />
+	</view>
+
+   <!--输入确认密码-->
+	<view class='changeInfoName'>
+		<input type="password" placeholder='请确认密码' 
+      bindinput="repasswdInput" />
+	</view>
+
+   <!--提交修改密码申请-->
+	<view>
+		<button class='btn' bindtap="onLaunch">
+			提交
+		</button>
+	</view>
+   
+</view>

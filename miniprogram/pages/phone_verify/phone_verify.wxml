@@ -1,0 +1,23 @@
+<!--pages/phone/phone.wxml-->
+<view class='changeInfo'>
+<!--输入手机号-->
+	<view class='changeInfoName'>
+		<input placeholder='请输入手机号' bindinput="phoneInput" />
+	</view>
+
+<!--输入验证码-->
+	<view class='changeInfoName'>
+		<input placeholder='请输验证码' 
+      style='width:70%;' 
+      bindinput="numInput" />
+		<button class='codeBtn' bindtap="onClick">
+			发送验证码
+		</button>
+	</view>
+
+<!--提交申请-->
+	<view>
+		<button class='btn' bindtap="onInput">下一步</button>
+	</view>
+
+</view>
