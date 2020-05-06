@@ -29,6 +29,37 @@ class Draw extends BaseController
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
 
+        // 先查宿舍数量够不够
+
+        $boys = Db::table('dorm')
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('s.sex', '男')
+            ->count('d.id');
+        if ($boys < $numOfBoys) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '所选的男生宿舍数大于实际的男生宿舍数';
+
+            return json($return_data);
+        }
+
+        $girls = Db::table('dorm')
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('s.sex', '女')
+            ->count('d.id');
+        if ($girls < $numOfGirls) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '所选的女生宿舍数大于实际的女生宿舍数';
+
+            return json($return_data);
+        }
+
+
         // 当选择宿舍数不为0时
         if ($numOfBoys) {
             $boy = Db::table('dorm')
