@@ -7,7 +7,7 @@ Page({
 
   goto2: function () {
     wx.navigateTo({
-      url: '/pages/student_lookover/student_lookover',
+      url: '/pages/student_check/student_check',
     })
   }
 })

@@ -6,19 +6,19 @@ Page({
     var _this = this;
     wx.request({
       data: {
-        id: 666666
+        id: getApp().globalData.user.id
       },
-      'url': getApp().globalData.server + '/public/index.php/index/getinfo/getHomeInfo',
+      'url': getApp().globalData.server + '/cqcq/public/index.php/index/getinfo/getHomeInfo',
       method: "POST",
       header: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        getApp().globalData.userInfomation = res.data.data;
+        getApp().globalData.user = res.data.data;
         _this.setData({
-          gr1: getApp().globalData.userInfomation.username,
-          gr2: getApp().globalData.userInfomation.grade,
-          gr3: getApp().globalData.userInfomation.department,
+          gr1: getApp().globalData.user.username,
+          gr2: getApp().globalData.user.grade,
+          gr3: getApp().globalData.user.department,
         })
       }
     })
@@ -29,6 +29,7 @@ Page({
     gr1: '',
     name: '',
     gr: '',
+    department:''
   },
 
   //点击按钮弹窗指定的hiddenmodalput弹出框 
@@ -51,13 +52,14 @@ Page({
   },
   //确认 
   confirm: function (e) {
+    getApp().globalData.user.username = this.data.gr,
+    getApp().globalData.name = this.data.gr
     var that = this;
-    getApp().globalData.name = this.data.gr,
       wx.request({
-        'url': getApp().globalData.server + '/public/index.php/index/change/changeusername',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeusername',
         //发给服务器的数据
         data: {
-          id: 666666,
+          id: getApp().globalData.user.id,
           username: getApp().globalData.name,
         },
         method: "POST",
@@ -90,7 +92,7 @@ Page({
                   data: {
                     name: res.data.username,
                   },
-                  gr1: getApp().globalData.name,
+                  gr1:getApp().globalData.user.username,
                 })
               }
             })
@@ -146,13 +148,14 @@ Page({
   },
   //确认 
   confirm2: function (e) {
+    getApp().globalData.user.grade = this.data.gr,
+    getApp().globalData.grade = this.data.gr
     var that = this;
-    getApp().globalData.grade = this.data.gr,
       wx.request({
-        'url': getApp().globalData.server + '/public/index.php/index/change/changegrade',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changegrade',
         //发给服务器的数据
         data: {
-          id: 666666,
+          id: getApp().globalData.user.id,
           grade: getApp().globalData.grade,
         },
         method: "POST",
@@ -211,8 +214,8 @@ Page({
   data3: {
     hiddenmodalput3: true,
     gr3: '',
-    de: '',
-    gr: ''
+    department: '',
+    gr: '',
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框 
   },
   //点击按钮弹窗指定的hiddenmodalput弹出框 
@@ -231,18 +234,20 @@ Page({
         tipsshow: "none"
       },
       hiddenmodalput3: true,
-      de: ''
+      department: ''
     });
+    console.log(this.data.department)
   },
   //确认 
   confirm3: function (e) {
+    getApp().globalData.user.department = this.data.gr,
+    getApp().globalData.department = this.data.gr
     var that = this;
-    getApp().globalData.department = this.data.gr,
       wx.request({
-        'url': getApp().globalData.server + '/public/index.php/index/change/changeDepartment',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeDepartment',
         //发给服务器的数据
         data: {
-          id: 666666,
+          id: getApp().globalData.user.id,
           department: getApp().globalData.department,
         },
         method: "POST",
@@ -293,7 +298,7 @@ Page({
 
   },
   getInput3: function (e) {
-    getApp().globalData.de = this.data.gr3
+    getApp().globalData.department = this.data.gr3
     const that = this;
     that.setData({
       gr: e.detail.value
