@@ -1,33 +1,51 @@
-.picture {
-  width: 200rpx;
-  height: 170rpx;
-  margin-top: 180rpx;
-  margin-bottom: 50rpx;
+/* pages/photo/photo.wxss */
+.head{
+  width: 300rpx;
+  height: 260rpx;
+  margin: 100rpx auto;
 }
 
-.containerLook,
-.containerUpload {
-  width: 400rpx;
-  height: 100rpx;
-  background-color: lightskyblue;
+image{
+  height: 100%;
+  width: 100%;
+}
+
+button{
+  margin: 100rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7EC4F8;
   box-shadow: 2px 2px gray;
+  color: #fff;
+  font-size: 40rpx;
 }
 
-.containerLook {
-  margin-top: 60rpx;
-  margin-bottom: 50rpx;
+button image{
+  width: 70rpx;
+  height: 70rpx;
 }
 
-.looktext,
-.uploadtext {
-  color: white;
-  font-size: 37rpx;
-  line-height: 95rpx;
+.plain-hover{
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 10px #7AB8FB inset; 
 }
 
-.tips {
-  position: absolute;
-  left: 10rpx;
-  bottom: 5rpx;
-  text-align: left;
+.foot{
+  width: 90%;
+  bottom: 0rpx;
+  position: fixed;
+  color: #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+}
+
+
+.tips{
+  bottom: 0rpx;
+  position: fixed;
+  text-align: center;
 }

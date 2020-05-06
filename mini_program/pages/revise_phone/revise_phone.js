@@ -44,7 +44,7 @@ Page({
         data: {
           phone: this.data.phone,
         },
-        'url': getApp().globalData.server + '/public/index.php/index/change/sendMessage',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/sendMessage',
         method: "POST",
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -135,7 +135,7 @@ Page({
       return false;
     } else {
       wx.request({
-        'url': getApp().globalData.server + '/public/index.php/index/change/verifyModifyEmail',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/verifyModifyEmail',
         // 发给服务器的数据
         data: {
           id: 211706001,

@@ -1,0 +1,48 @@
+<!--pages/student_mine/student_mine.wxml-->
+<view>
+	<view class="up">
+		<image src="../../images/personBgImage.jpg" mode="widthFix" style="" class="back"></image>
+		<view class="inner">
+			<view class="in">
+				<!--头像-->
+				<image src="{{pics}}" class='avatar' bindtap="uploadImage" name='avatar'></image>
+				<!--昵称-->
+				<text class="head" bindtap="changeName"  >crl</text>
+				<text class="head" decode="{{true}}">17计算机工程系&nbsp;东二#422</text>
+			</view>
+		</view>
+	</view>
+	<view class="down">
+		<i-cell-group>
+			<!--修改信息-->
+			<i-cell title="修改信息" is-link url="../revise_information/revise_information" style="height:10rpx" bindtap="changeInformation">
+				<i-icon slot="icon" type="brush_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+			<view class="line"></view>
+			<!--修改密码-->
+			<i-cell title="修改密码" is-link url="../revise_password/pasrevise_passwordsword">
+				<i-icon slot="icon" type="lock_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+			<view class="line"></view>
+			<!--修改邮箱-->
+			<i-cell title="修改邮箱" is-link url="../revise_email/revise_email">
+				<i-icon slot="icon" type="mail_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+			<view class="line"></view>
+			<!--修改手机-->
+			<i-cell title="修改手机" is-link url="../revise_phone/revise_phone">
+				<i-icon slot="icon" type="mobilephone_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+			<view class="line"></view>
+			<!--关于-->
+			<i-cell title="关于" is-link url="../revise_about/revise_about">
+				<i-icon slot="icon" type="prompt_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+		</i-cell-group>
+		<view>
+			<button hover-class="other-button-hover" style="width: 100%;" bindtap="bindViewTap"> 退出登录 </button>
+		</view>
+	</view>
+</view>
+<!--底部导航栏-->
+<include src="/pages/student_bottom/student_bottom" />

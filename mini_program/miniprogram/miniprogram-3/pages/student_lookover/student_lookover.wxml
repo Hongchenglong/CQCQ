@@ -1,0 +1,9 @@
+<!--此页面需要跳转到details-->
+<view class="firstScan">
+	<text class="firstScanText">2020年3月27日 星期五</text>
+	<button class="firstScanButton" bindtap="goto1">查看</button>
+</view>
+<view class="secondScan">
+	<text class="secondScanText">2020年3月28日 星期六</text>
+	<button class="secondScanButton" bindtap="goto2">查看</button>
+</view>

@@ -1,17 +1,17 @@
 {
   "pages": [
-    "pages/login/login",
     
-    "pages/revise_email/revise_email",
+    "pages/login/login",
+    "pages/student_picupload/student_picupload",
     "pages/revise_password/revise_password",
+    "pages/revise_phone/revise_phone",
     "pages/revise_information/revise_information",
     "pages/student_mine/student_mine", 
     "pages/revise_about/revise_about",
+    "pages/revise_email/revise_email",
 
-    
-    "pages/revise_phone/revise_phone",
     "pages/uploadphoto/uploadphoto",
-    "pages/student_picupload/student_picupload",
+    
     
     "pages/student_bottom/student_bottom", 
     "pages/student_home/student_home",
@@ -25,7 +25,7 @@
     
 
     "pages/load/load",
-   
+    
     "pages/teacher_mine/teacher_mine",
     "pages/teacher_home/teacher_home",
     "pages/teacher_dorm/teacher_dorm",

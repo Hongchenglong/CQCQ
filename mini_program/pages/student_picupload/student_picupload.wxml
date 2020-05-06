@@ -1,12 +1,16 @@
-<view class="container">
-	<image class="picture" src="../../images/picture.png"></image>
-	<view class="containerLook" bindtap="goto1">
-		<text class="looktext" >拍照上传</text>
+<view class="wrap">
+	<view class="head">
+		<image src="../../images/picture.png"></image>
 	</view>
-	<view class="containerUpload" bindtap="goto2">
-		<text class="uploadtext"  >查看历史查寝</text>
+	<view class="middle">
+		<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap="goto1">
+			<image src="../../images/拍照-空.png"></image><text>拍照上传</text>
+		</button>
+		<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap="goto2">
+			<image src="../../images/student_look.png"></image><text>查看查寝记录</text>
+		</button>
 	</view>
-	<view class="containerBottom">
-		<text class="tips">Tips:若要修改照片，再次上传即可。系统将自动将其覆盖。</text>
+	<view class="foot">
+			<text class="tips">Tips：若要修改照片，再次上传即可。系统将自动将其覆盖。</text>
 	</view>
 </view>

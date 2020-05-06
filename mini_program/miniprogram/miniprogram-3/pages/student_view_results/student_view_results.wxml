@@ -1,0 +1,11 @@
+<!--学生端查看抽取结果页面-->
+<view class="times">
+	<view>时间：{{date_1}} {{weekday}}</view>
+	<view>截止时间：{{time}}</view>
+</view>
+<view class="table">
+	<view class="tr bg-w">
+		<view class="th">宿舍号</view>
+		<view class="th">号码</view>
+	</view>
+</view>
