@@ -186,6 +186,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      grade : getApp().globalData.user.grade,
+      dep : getApp().globalData.user.department
+    })
     //获取星期并转为中文
     var today = new Date().getDay();
     console.log("today:" + today);

@@ -26,6 +26,12 @@
   justify-content: center;  
 }
 
+.plain-hover{
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 10px #7AB8FB inset; 
+}
+
 .table {
   margin: 30rpx 10rpx;
   background-color: #fff;

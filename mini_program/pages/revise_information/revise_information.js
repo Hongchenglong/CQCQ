@@ -13,7 +13,7 @@ Page({
     var _this = this;
     wx.request({
       data: {
-        id: 211706015
+        id: getApp().globalData.user.id
       },
       'url': getApp().globalData.server + '/cqcq/public/index.php/index/getinfo/getHomeInfo',
       method: "POST",
@@ -48,7 +48,13 @@ Page({
     name: '',
     gr: '',
     flag:'',
-    multiArray: [],
+    multiArray: [
+      ['中一', '中二', '东一' ,'东二'],
+      ['1', '2', '3', '4', '5','6','7'],
+      ['01', '02', '03', '04','05','06','07','08','09','10',
+      '11', '12', '13', '14','15','16','17','18','19','20',
+      '21', '22', '23', '24','25','26','27','28','29','30',]
+    ],
     multiIndex: [0, 0, 0],
   },
   bindMultiPickerChange: function (e) {
@@ -63,7 +69,7 @@ Page({
       'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeDormNumber',
       //发给服务器的数据
       data: {
-        student_id: 211706015,
+        student_id: getApp().globalData.user.id,
         block: block,
         room: room,
       },
@@ -113,18 +119,19 @@ Page({
         tipsshow: "none",
       },
       hiddenmodalput: true,
-      flag: ''
+      name: ''
     });
   },
   //确认 
   confirm: function (e) {
-    var that = this;
     getApp().globalData.name = this.data.gr,
+    getApp().globalData.user.username = this.data.gr
+    var that = this;
       wx.request({
         'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeusername',
         //发给服务器的数据
         data: {
-          id: 211706015,
+          id:getApp().globalData.user.id,
           username: getApp().globalData.name,
         },
         method: "POST",
@@ -145,7 +152,7 @@ Page({
                 tipsshow: "none"
               },
               hiddenmodalput: true,
-              flag: ''
+              name: ''
             })
             wx.showModal({
               title: '恭喜！',
@@ -157,7 +164,7 @@ Page({
                   data: {
                     name: res.data.username,
                   },
-                  gr1: getApp().globalData.name,
+                  gr1: getApp().globalData.user.username,
                 })
               }
             })

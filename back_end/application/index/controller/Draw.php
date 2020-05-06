@@ -292,9 +292,9 @@ class Draw extends BaseController
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
 
-        // 先找到id最大的开始时间
+        // 先找到本系、本年级的id最大的开始时间和结束时间
         $recentTime = Db::table('record')
-            ->field('r.id, start_time')
+            ->field('r.id, start_time, end_time')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
@@ -310,6 +310,7 @@ class Draw extends BaseController
             ->join('student s', 's.id = d.student_id')
             ->where($where)
             ->where('start_time', $recentTime['start_time'])
+            ->where('end_time', $recentTime['end_time'])
             ->select();
 
 
@@ -329,5 +330,4 @@ class Draw extends BaseController
         }
     }
 
-    
 }

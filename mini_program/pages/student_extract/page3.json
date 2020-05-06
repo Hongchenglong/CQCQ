@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-count-down": "../../dist/count-down/index"
+  },
+  "navigationBarTitleText": "查看抽签结果"
+}
