@@ -39,7 +39,7 @@ class Draw extends BaseController
             ->count('d.id');
         if ($boys < $numOfBoys) {
             $return_data = array();
-            $return_data['error_code'] = 1;
+            $return_data['error_code'] = 3;
             $return_data['msg'] = '所选的男生宿舍数大于实际的男生宿舍数';
 
             return json($return_data);
@@ -53,7 +53,7 @@ class Draw extends BaseController
             ->count('d.id');
         if ($girls < $numOfGirls) {
             $return_data = array();
-            $return_data['error_code'] = 1;
+            $return_data['error_code'] = 4;
             $return_data['msg'] = '所选的女生宿舍数大于实际的女生宿舍数';
 
             return json($return_data);
