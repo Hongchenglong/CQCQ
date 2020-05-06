@@ -119,14 +119,14 @@ Page({
         tipsshow: "none",
       },
       hiddenmodalput: true,
-      flag: ''
+      name: ''
     });
   },
   //确认 
   confirm: function (e) {
-    var that = this;
     getApp().globalData.name = this.data.gr,
-    getApp().globalData.user.username = this.data.gr,
+    getApp().globalData.user.username = this.data.gr
+    var that = this;
       wx.request({
         'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeusername',
         //发给服务器的数据
@@ -152,7 +152,7 @@ Page({
                 tipsshow: "none"
               },
               hiddenmodalput: true,
-              flag: ''
+              name: ''
             })
             wx.showModal({
               title: '恭喜！',
