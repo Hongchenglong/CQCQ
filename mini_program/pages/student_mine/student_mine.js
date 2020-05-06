@@ -110,6 +110,7 @@ turnLogin:function(){
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department
     })
+    wx.hideHomeButton()
   },
 
   /**

@@ -41,7 +41,7 @@ Page({
     }
 },
 
-changeImage:function(){
+/*changeImage:function(){
   wx.navigateTo({
     url: '../image/image',
   })
@@ -52,11 +52,12 @@ changeName:function(){
     url: '../name/name',
   })
 },
+
 turnLogin:function(){
   wx.redirectTo({
     url: '../login/login',
   })
-},
+},*/
 
   //事件处理函数
   bindViewTap: function() {
@@ -121,6 +122,7 @@ turnLogin:function(){
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department
     })
+    wx.hideHomeButton()
   },
 
   /**
