@@ -1,0 +1,47 @@
+<view class="line"></view>
+<view class="item" class="zn-uploadimg">
+	<view class="title" bindtap="modalinput">昵称</view>
+	<text></text>
+	<view class="detail4">
+		<text> {{gr1}}></text>
+	</view>
+</view>
+<modal style="display:{{config.tipsshow}}" id="modal" hidden="{{hiddenmodalput}}" title="输入昵称" confirm - text="提交" cancel - text="取消" bindcancel="cancel" bindconfirm="confirm">
+	<input value="{{ name }}" bindblur='getInput' name='gre' type='text' placeholder="请输入你的昵称，如：东二410" auto - focus />
+</modal>
+
+<view class="line"></view>
+<view class="item" class="zn-uploadimg2">
+	<view class="title" bindtap="popSuccessTest">年级</view>
+	<text></text>
+	<view class="detail5">
+		<text> {{gr2}}级></text>
+	</view>
+</view>
+
+<view class="line"></view>
+<view class="item" class="zn-uploadimg2" bindtap="popSuccessTest">
+	<view class="title">系</view>
+	<view class="detail6">
+		<text> {{gr3}}></text>
+	</view>
+</view>
+
+<view class="line"></view>
+<view class="item" class="zn-uploadimg2">
+	<picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
+		<view class="title">宿舍</view>
+		<view class="detail7">
+			{{multiArray[0][multiIndex[0]]}}#{{multiArray[1][multiIndex[1]]}}{{multiArray[2][multiIndex[2]]}}>
+		</view>	
+	</picker>
+	</view>
+
+<view class="line"></view>
+<view class="item" class="zn-uploadimg2" bindtap="popSuccessTest">
+	<view class="title">性别</view>
+	<view class="detail8">
+		<text> {{gr5}}></text>
+	</view>
+</view>
+<view class="line"></view>

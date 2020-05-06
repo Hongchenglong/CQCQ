@@ -1,0 +1,35 @@
+.times {
+  border: 1px solid darkgray;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 30rpx;
+  line-height: 60rpx;
+}
+
+.table {
+  margin-top: 30rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+}
+
+.tr {
+  display: flex;
+  height: 20rpx;
+}
+
+.th1 {
+  display: flex;
+  width: 100%;
+  margin-left: 70rpx;
+}
+
+.th2 {
+  display: flex;
+  width: 100%;
+}
+
+.img {
+  position: absolute;
+  width: 100%;
+  top: 250rpx;
+}

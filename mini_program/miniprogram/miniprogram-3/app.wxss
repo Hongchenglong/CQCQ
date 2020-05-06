@@ -1,0 +1,9 @@
+/**app.wxss**/
+/* 学生主页总 */
+.container {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

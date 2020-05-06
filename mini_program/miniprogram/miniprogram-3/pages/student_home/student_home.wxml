@@ -1,0 +1,17 @@
+<!--pages/student_home/student_home.wxml-->
+<view class="container">
+	<!-- 校徽 -->
+	<image class="figure" src="/images/cheng.png"></image>
+	<!-- 抽取结果 -->
+	<view class="extract" bindtap="gotoextractresults">
+		<image class="extractfigure" src="/images/look.png"></image>
+		<text class="extracttext">查看抽取结果</text>
+	</view>
+	<!-- 拍照上传 -->
+	<view class="upload" bindtap="gotopicupload">
+		<image class="uploadfigure" src="/images/camera.png"></image>
+		<text class="uploadtext">拍照上传</text>
+	</view>
+</view>
+<!--底部导航栏-->
+<include src="/pages/student_bottom/student_bottom" />

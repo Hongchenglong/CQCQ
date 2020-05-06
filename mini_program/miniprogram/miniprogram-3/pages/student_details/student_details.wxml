@@ -1,0 +1,12 @@
+<!--查看页面跳转到查看详情页面-->
+<view class="times">
+	<view>时间：{{date_1}} {{weekday}}</view>
+	<view>提交时间：{{time}}</view>
+</view>
+<view class="table">
+	<view class="tr bg-w">
+		<view class="th1">号码:No.1</view>
+		<view class="th2">宿舍：中二#117</view>
+	</view>
+</view>
+<image class="img" src="/images/example1.jpg"></image>

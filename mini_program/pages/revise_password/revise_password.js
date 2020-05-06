@@ -8,45 +8,50 @@ Page({
     newpwd:'',
     newpwd2:''
   },
+  getOldPwdValue: function (e) {
+    this.setData({
+      oldpwd: e.detail.value
+    })
+  },
+  getNewPwdValue: function (e) {
+    this.setData({
+      newpwd: e.detail.value
+    })
+  },
+  getNewPwd2Value: function (e) {
+    this.setData({
+      newpwd2: e.detail.value
+    })
+  },
   formSubmit: function (e) {
-    console.log(e);
-    //var oldpwd = e.detail.value.oldpwd;
-    //var newpwd = e.detail.value.newpwd;
-   //var newpwd2 = e.detail.value.newpwd2;
-    oldpwd = e.detail.value.oldpwd;
-    newpwd = e.detail.value.newpwd;
-    newpwd2 = e.detail.value.newpwd2;
-
-    if (oldpwd == '' || newpwd == '' || newpwd2 == '') {
+    var that = this;
+    if (that.data.oldpwd == '' || that.data.newpwd == '' || that.data.newpwd2 == '') {
       wx.showToast({
         title: '密码不能为空',
         icon: 'none',
         duration: 1000
       })
-    } else if (newpwd != newpwd2) {
+    } else if (that.data.newpwd != that.data.newpwd2) {
       wx.showToast({
         title: '两次密码输入不一致',
         icon: 'none',
         duration: 1000
       })
     } else {
-
-
       wx.request({
         'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changePassword',
         method: 'POST',
-        data: {
-          id: getApp().globalData.user.id,
-          oldPassword: e.detail.value.oldpwd,
-          newPassword: newpwd,
-          password_again: newpwd2,
-        },
         header: {
           'content-type': 'application/x-www-form-urlencoded'
         },
+        data: {
+          id: getApp().globalData.user.id,
+          oldPassword: that.data.oldpwd,
+          newPassword: that.data.newpwd,
+          password_again: that.data.newpwd2,
+        },
         success: (res) => {
-          console.log(res.data);
-          if (res.data.error) {
+          if (res.data.error_code) {
             wx.showToast({
               title: res.data.msg,
               icon: 'none',
@@ -70,11 +75,4 @@ Page({
       })
     }
   },
-  globalData: {
-    id: null,
-    oldPassword: null,
-    newPassword: null,
-    password_again: null,
-    server: 'https://oeong.xyz/cqcq'
-  }
 })
