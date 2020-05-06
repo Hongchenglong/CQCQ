@@ -59,9 +59,6 @@ Page({
   },
   bindMultiPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      multiIndex: e.detail.value
-    })
     var that = this;
     var block = getApp().globalData.multiArray[0][e.detail.value[0]];
     var room = getApp().globalData.multiArray[1][e.detail.value[1]]+getApp().globalData.multiArray[2][e.detail.value[2]];

@@ -14,7 +14,7 @@
 	</view>
 	<view class="Wpass">
 		<view class="Ppass">
-			<image src='../../images/密码（1）.png' mode="aspectFit" class="pass"></image>
+			<image src='../../images/密码(1).png' mode="aspectFit" class="pass"></image>
 		</view>
 		<!--输入密码-->
 		<input class="inputs" placeholder="密码" type="password" auto-focus bindinput="passwordInput"></input>
