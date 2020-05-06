@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "i-tab-bar": "../../s_dist/tab-bar/index",
-    "i-tab-bar-item": "../../s_dist/tab-bar-item/index"
-  },
-  "navigationBarTitleText": "辅助查寝系统"
-}

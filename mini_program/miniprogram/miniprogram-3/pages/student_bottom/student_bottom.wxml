@@ -1,9 +1,0 @@
-<!--pages/student_bottom/student_bottom.wxml-->
-<view class="wrap">
-	<view class="bottom_menu">
-		<i-tab-bar current="{{ current }}" color="#7AB8FB" bindchange="handleChange">
-			<i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="首页"></i-tab-bar-item>
-			<i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" title="我的"></i-tab-bar-item>
-		</i-tab-bar>
-	</view>
-</view>
