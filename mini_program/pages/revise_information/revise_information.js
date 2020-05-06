@@ -59,9 +59,6 @@ Page({
   },
   bindMultiPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      multiIndex: e.detail.value
-    })
     var that = this;
     var block = getApp().globalData.multiArray[0][e.detail.value[0]];
     var room = getApp().globalData.multiArray[1][e.detail.value[1]]+getApp().globalData.multiArray[2][e.detail.value[2]];
@@ -119,14 +116,14 @@ Page({
         tipsshow: "none",
       },
       hiddenmodalput: true,
-      flag: ''
+      name: ''
     });
   },
   //确认 
   confirm: function (e) {
-    var that = this;
     getApp().globalData.name = this.data.gr,
-    getApp().globalData.user.username = this.data.gr,
+    getApp().globalData.user.username = this.data.gr
+    var that = this;
       wx.request({
         'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeusername',
         //发给服务器的数据
@@ -152,7 +149,7 @@ Page({
                 tipsshow: "none"
               },
               hiddenmodalput: true,
-              flag: ''
+              name: ''
             })
             wx.showModal({
               title: '恭喜！',

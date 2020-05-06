@@ -6,7 +6,7 @@
 			<i-input value="{{ dep }}" title="所属系：" disabled />
 
 			<!--填入学号-->
-			<i-input value="{{ no }}" type="number" title="学号：" autofocus placeholder="学号" maxlength="50" bind:change="bindKeyInput3" />
+			<i-input value="{{ no }}" type="number" title="学号：" autofocus placeholder="学号" maxlength="9" bind:change="bindKeyInput3" />
 		</i-panel>
 
 		<!--选择性别-->

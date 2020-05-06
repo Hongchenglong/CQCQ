@@ -7,11 +7,11 @@
 
 <!--输入验证码-->
 	<view class='changeInfoName'>
-		<input placeholder='请输验证码' 
+		<input placeholder='请输入验证码' 
       style='width:70%;' 
       bindinput="numInput" />
-		<button class='codeBtn' bindtap="onClick">
-			发送验证码
+		<button class='codeBtn' bindtap="onClick" disabled='{{disabled}}'>
+			{{codename}}
 		</button>
 	</view>
 

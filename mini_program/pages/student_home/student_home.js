@@ -8,10 +8,29 @@ Page({
     current: 'homepage',
   },
 
+  handleChange ({ detail }) {
+    this.setData({
+        current: detail.key
+    });
+   if(detail.key == 'mine'){
+      console.log(getApp().globalData.load)
+      if(  getApp().globalData.load == false ){
+        console.log(getApp().globalData.load)
+        wx.reLaunch({
+          url: '../student_load/student_load'
+        })
+      } else {
+        wx.reLaunch({
+          url: '../student_mine/student_mine',
+        })
+      }
+    }
+  },
+
   //跳转至查看抽取结果
   gotoextractresults: function () {
     wx.navigateTo({
-      url: '../student_view_results/student_view_results',
+      url: '../student_extract/page3',
     })
   },
 
@@ -21,21 +40,6 @@ Page({
       url: '../student_picupload/student_picupload',
     })
   },
-
-  handleChange({ detail }) {
-    this.setData({
-      current: detail.key
-    });
-    if (detail.key == 'mine') {
-      wx.redirectTo({
-        url: '../student_mine/student_mine',
-      })
-    }
-
-    else {
-      wx.redirectTo({
-        url: '../student_home/student_home',
-      })
-    }
-  },
 })
+
+ 

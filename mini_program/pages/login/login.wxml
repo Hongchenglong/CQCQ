@@ -10,7 +10,7 @@
 			<image src='../../images/用户名 (1).png' mode="aspectFit" class="user"></image>
 		</view>
 		<!--输入账号-->
-		<input class="inputs" placeholder="账号" type="text" auto-focus bindinput="idInput"></input>
+		<input class="inputs" placeholder="账号" type="number" auto-focus bindinput="idInput"></input>
 	</view>
 	<view class="Wpass">
 		<view class="Ppass">

@@ -49,6 +49,8 @@ App({
     dorm:'', 
     block:'',
     room:'',
+    department:'',
+    de:'',
     userInfo: null,
     multiArray: [
       ['中一', '中二', '东一' ,'东二'],
@@ -58,5 +60,6 @@ App({
       '21', '22', '23', '24','25','26','27','28','29','30',]
     ],
     multiIndex: [0, 0, 0],
+    Flag: 1 // 1开 0锁  disable
   }
 })

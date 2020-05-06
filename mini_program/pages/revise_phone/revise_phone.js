@@ -31,6 +31,7 @@ Page({
         icon: 'none',
         duration: 1000
       })
+      getApp().globalData.Flag = 1
       return false;
     } else if (!myreg.test(this.data.phone)) {
       wx.showToast({
@@ -38,6 +39,7 @@ Page({
         icon: 'none',
         duration: 1000
       })
+      getApp().globalData.Flag = 1
       return false;
     } else {
       wx.request({
@@ -55,7 +57,9 @@ Page({
               title: '提示！',
               content: res.data.msg,
               showCancel: false,
-              success: function (res) {}
+              success: function (res) {
+                getApp().globalData.Flag = 1
+              }
             })
           } else if (res.data.error_code == 0) {
             wx.showModal({
@@ -68,6 +72,7 @@ Page({
                 _this.setData({
                   iscode: value
                 })
+                getApp().globalData.Flag = 0
                 var num = 61;
                 var timer = setInterval(function () {
                   num--;
@@ -77,7 +82,7 @@ Page({
                       codename: '重新发送',
                       disabled: false
                     })
-
+                    getApp().globalData.Flag = 1
                   } else {
                     _this.setData({
                       codename: num + "s"
@@ -95,10 +100,15 @@ Page({
   //获取验证码
   getVerificationCode() {
     this.getCode();
-    var _this = this
-    _this.setData({
-      disabled: true
-    })
+    if (getApp().globalData.Flag == 1) {
+      _this.setData({
+        disabled: false
+      })
+    } else {
+      _this.setData({
+        disabled: true
+      })
+    }
   },
   //提交表单信息
   save: function () {

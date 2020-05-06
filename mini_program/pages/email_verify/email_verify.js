@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    email:"",
-    num:""
+    email: "",
+    num: "",
+    codename: '获取验证码'
   },
 
   emailInput: function (e) {
@@ -28,29 +29,30 @@ Page({
         content: '请输入邮箱',
         showCancel: false
       })
-    }
-    else if (!myreg.test(that.data.email)) {
+      getApp().globalData.Flag = 1
+    } else if (!myreg.test(that.data.email)) {
       wx.showModal({
         title: '提示！',
         content: '请输入正确的邮箱！',
         showCancel: false,
-        success(res) {}
+        success(res) {
+          getApp().globalData.Flag = 1
+        }
       })
-    } 
-    else if (that.data.num == "") {
+    } else if (that.data.num == "") {
       wx.showModal({
         title: '提示',
         content: '请输入验证码',
         showCancel: false
       })
-    }
-    else{
+      getApp().globalData.Flag = 1
+    } else {
       console.log(that.data.num)
       wx.request({
         url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/verifyEmail',
         data: {
-          email:that.data.email,
-          captcha:that.data.num
+          email: that.data.email,
+          captcha: that.data.num
         },
         method: "POST",
         header: {
@@ -63,18 +65,16 @@ Page({
               title: '提示！',
               showCancel: false,
               content: res.data.msg,
-              success: function (res) { }
+              success: function (res) {}
             })
-          }
-          else if (res.data.error_code == 2) {
+          } else if (res.data.error_code == 2) {
             wx.showModal({
               title: '提示！',
               showCancel: false,
               content: res.data.msg,
-              success: function (res) { }
+              success: function (res) {}
             })
-          }
-          else if (res.data.error_code != 0) {
+          } else if (res.data.error_code != 0) {
             wx.showModal({
               title: '哎呀～',
               content: '出错了呢！' + res.data.msg,
@@ -86,8 +86,7 @@ Page({
                 }
               }
             })
-          }
-          else if (res.data.error_code == 0) {
+          } else if (res.data.error_code == 0) {
             wx.showModal({
               title: '恭喜！',
               showCancel: false,
@@ -99,11 +98,11 @@ Page({
                   console.log('用户点击取消')
                 }
               },
-              complete: function(res){
-                  wx.reLaunch({
-                    url: "../change_passwd/change_passwd?email="+that.data.email
-                  })
-              }  
+              complete: function (res) {
+                wx.reLaunch({
+                  url: "../change_passwd/change_passwd?email=" + that.data.email
+                })
+              }
             })
           }
         },
@@ -125,7 +124,7 @@ Page({
   },
 
   //获取验证码
-  onClick:function(e){
+  onClick: function (e) {
     var that = this;
     if (that.data.email == "") {
       wx.showModal({
@@ -133,13 +132,13 @@ Page({
         content: '请输入邮箱',
         showCancel: false
       })
-    }
-    else{
+      getApp().globalData.Flag == 1
+    } else {
       console.log("success")
-       wx.request({
+      wx.request({
         url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/sendMailCaptcha',
         data: {
-          email:that.data.email
+          email: that.data.email
         },
         method: "POST",
         header: {
@@ -152,18 +151,20 @@ Page({
               title: '提示！',
               showCancel: false,
               content: res.data.msg,
-              success: function (res) { }
+              success: function (res) {
+                getApp().globalData.Flag == 1
+              }
             })
-          }
-          else if (res.data.error_code == 2) {
+          } else if (res.data.error_code == 2) {
             wx.showModal({
               title: '提示！',
               showCancel: false,
               content: res.data.msg,
-              success: function (res) { }
+              success: function (res) {
+                getApp().globalData.Flag == 1
+              }
             })
-          }
-          else if (res.data.error_code != 0) {
+          } else if (res.data.error_code != 0) {
             wx.showModal({
               title: '哎呀～',
               content: '出错了呢！' + res.data.msg,
@@ -173,10 +174,10 @@ Page({
                 } else if (res.cancel) {
                   console.log('用户点击取消')
                 }
+                getApp().globalData.Flag == 1
               }
             })
-          }
-          else if (res.data.error_code == 0) {
+          } else if (res.data.error_code == 0) {
             wx.showModal({
               title: '恭喜！',
               showCancel: false,
@@ -187,23 +188,41 @@ Page({
                 } else if (res.cancel) {
                   console.log('用户点击取消')
                 }
-              }
-                })
-              }
-          },
-          fail: function (res) {
-            wx.showModal({
-              title: '哎呀～',
-              content: '网络不在状态呢！',
-              success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
-                }
+                getApp().globalData.Flag == 0
+                var number = 61;
+                var timer = setInterval(function () {
+                  number--;
+                  if (number <= 0) {
+                    clearInterval(timer);
+                    that.setData({
+                      codename: '重新发送',
+                      disabled: false
+                    })
+                    getApp().globalData.Flag = 1
+                  } else {
+                    that.setData({
+                      codename: number + "s"
+                    })
+                  }
+                }, 1000)
               }
             })
           }
+        },
+        fail: function (res) {
+          wx.showModal({
+            title: '哎呀～',
+            content: '网络不在状态呢！',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+              getApp().globalData.Flag = 1
+            }
+          })
+        }
       })
     }
   }

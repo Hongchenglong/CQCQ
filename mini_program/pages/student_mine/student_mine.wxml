@@ -7,9 +7,6 @@
 				<!--头像-->
 				<view class='avatar' bindtap="changeImage">
 					<open-data type="userAvatarUrl"></open-data>
-					<!-- <image src="https://oeong.xyz/cqcq/public/face_url/211706001.jpg"  class='avatar' bindtap="uploadImage" name='avatar'></image> -->
-					<!-- {{pics}} -->
-
 				</view>
 				<!--昵称-->
 				<text class="head" bindtap="changeName">{{username}}</text>
