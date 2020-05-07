@@ -1,0 +1,30 @@
+<!--pages/student_home/student_home.wxml-->
+<view>
+	<view class="head">
+		<image class="logo" src='../../images/至诚.png' mode="aspectFit"></image>
+	</view>
+	<view class="menu">
+		<!--点击跳转至查看抽取结果-->
+		<button class="one" style="width:100%" bindtap="gotoextractresults">
+			<view class="whole">
+				<view class="pic">
+					<image class="pic1" src='../../images/look.png' mode="aspectFit"></image>
+				</view>
+				<text decode="{{true}}">&nbsp;&nbsp;查看抽取结果</text>
+			</view>
+		</button>
+	</view>
+	<view class="menu">
+		<!--点击跳转至拍照上传-->
+		<button class="two" style="width:100%" bindtap="gotopicupload">
+			<view class="whole">
+				<view class="pic">
+					<image class="pic1" src='../../images/camera.png' mode="aspectFit"></image>
+				</view>
+				<text decode="{{true}}">&nbsp;&nbsp;拍照上传</text>
+			</view>
+		</button>
+	</view>
+</view>
+<!--底部导航栏-->
+<include src="/pages/student_bottom/student_bottom" />

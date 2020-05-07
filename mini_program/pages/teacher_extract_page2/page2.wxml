@@ -1,0 +1,50 @@
+<!--pages/teacher/extract/page2/page2.wxml-->
+<!-- <text>pages/teacher/extract/page2/page2.wxml</text> -->
+
+<!-- <view id="Star_time">开始时间：{{time1}}</view> -->
+<view class="Section">
+  <view class="new" bindtap="buttonchange" >
+	<image src="/images/right.png" style="width:23px;height:23px"></image>
+	<text decode="{{true}}">&nbsp;自定义</text></view>
+	<view class="Date">
+		<image src="/images/日期.png" style="width:23px;height:23px"></image>
+		<text decode="{{true}}">&nbsp;当前日期：</text>{{date_1}} {{weekday}}
+	</view>
+	<view class="Date">
+		<view class="Start" style="padding: 10px">
+			开始时间：
+			<view class="time1">
+				<picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange1">
+					{{time1}}
+				</picker>
+			</view>
+		</view>
+		<text decode="{{true}}" style="color:#777777">&nbsp;&nbsp;|&nbsp;&nbsp;</text>
+		<view class="Later" style="padding: 10px">
+			截止时间：
+			<view class="time2">
+				<picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange2">
+					{{time2}}
+				</picker>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="table" style="border-collapse: collapse;">
+	<view class="tr bg-w">
+		<view class="th">宿舍号</view>
+		<view class="th">号码</view>
+	</view>
+	<block wx:for="{{listData}}" wx:key="navItems">
+		<view class="tr">
+			<view class="td">{{item.dorm_num}}</view>
+			<view class="td">{{item.rand_num}}</view>		
+		</view>
+		
+	</block>
+</view>
+<view class="but">
+	<button bindtap='buttonListener' class="submit" style="width:40%;border-radius:30px ;" hover-class="plain-hover">
+  <image src="/images/queren.png" class="pic"></image><text decode="{{true}}">&nbsp;确认</text></button>
+</view>
