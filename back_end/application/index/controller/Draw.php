@@ -29,37 +29,6 @@ class Draw extends BaseController
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
 
-        // 先查宿舍数量够不够
-
-        $boys = Db::table('dorm')
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->where('s.sex', '男')
-            ->count('d.id');
-        if ($boys < $numOfBoys) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '所选的男生宿舍数大于实际的男生宿舍数';
-
-            return json($return_data);
-        }
-
-        $girls = Db::table('dorm')
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->where('s.sex', '女')
-            ->count('d.id');
-        if ($girls < $numOfGirls) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '所选的女生宿舍数大于实际的女生宿舍数';
-
-            return json($return_data);
-        }
-
-
         // 当选择宿舍数不为0时
         if ($numOfBoys) {
             $boy = Db::table('dorm')
@@ -361,4 +330,53 @@ class Draw extends BaseController
         }
     }
 
+    /**
+     * 获取宿舍数量
+     */
+    public function getNumber()
+    {
+        // 校验参数是否存在
+        $parameter = array();
+        $parameter = ['department', 'grade'];
+        $result = $this->checkForExistence($parameter);
+        if ($result) {
+            return $result;
+        }
+
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+
+        $boys = $girls = array();
+        $boys = Db::table('dorm')
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('s.sex', '男')
+            ->count('d.id');
+
+        $girls = Db::table('dorm')
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->where('s.sex', '女')
+            ->count('d.id');
+
+        if ($boys + $girls) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '成功返回宿舍数量';
+            $return_data['data']['boys'] = $boys;
+            $return_data['data']['girls'] = $girls;
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '该系暂无宿舍，请导入';
+
+            return json($return_data);
+        }
+    }
 }
