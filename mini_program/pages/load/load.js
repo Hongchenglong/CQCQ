@@ -88,9 +88,9 @@ Page({
   bindGetUserInfo(e) {
     getApp().globalData.userInfo = e.detail.userInfo
     console.log(e.detail.userInfo)
-    //getApp().globalData.load = true
     if(e.detail.userInfo == undefined){}
     else{
+      getApp().globalData.load = true
       wx.reLaunch({
         url: '../teacher_mine/teacher_mine',
       })
