@@ -5,11 +5,11 @@
 		<view class="inner">
 			<view class="in">
 				<!--头像-->
-				<view class='avatar' bindtap="changeImage">
+				<view class='avatar'>
 					<open-data type="userAvatarUrl"></open-data>
 				</view>
 				<!--昵称-->
-				<text class="head" bindtap="changeName">{{username}}</text>
+				<text class="head">{{username}}</text>
 				<text class="head" decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
 			</view>
 		</view>

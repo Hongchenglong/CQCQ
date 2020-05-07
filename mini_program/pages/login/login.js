@@ -74,33 +74,18 @@ Page({
             })
           } else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
-            //console.log(getApp().globalData.user.username)
-            wx.showModal({
-              title: '恭喜!',
-              showCancel: false,
-              content: '登录成功',
-              confirmColor:'#7EC4F8',
-              success: function (res) {
-                /*if (res.confirm) {
-                  console.log('用户点击确定')
-                }*/
-              },
-              complete: function (res) {
-                console.log(getApp().globalData.user.user)
-                
-                if (  getApp().globalData.user.user == 'counselor' ){
-                  //console.log(that.data.id.length),
-                  wx.reLaunch({
-                    url: '/pages/teacher_home/teacher_home'
-                  })
-                }
-                else if ( getApp().globalData.user.user == 'student'  ){
-                  wx.reLaunch({
-                    url: '/pages/student_home/student_home'
-                  })
-                }
-              }
-            })
+            console.log(getApp().globalData.user.user)
+            if (  getApp().globalData.user.user == 'counselor' ){
+              //console.log(that.data.id.length),
+              wx.reLaunch({
+                url: '/pages/teacher_home/teacher_home'
+              })
+            }
+            else if ( getApp().globalData.user.user == 'student'  ){
+              wx.reLaunch({
+                url: '/pages/student_home/student_home'
+              })
+            }
           }
         },
         fail: function (res) {
