@@ -5,7 +5,7 @@
 		<text class="head">女生宿舍：</text>
 		<i-panel title="基础用法">
 			<view style="padding: 8px">
-				<i-input-number value="{{ Girls_name }}" min="0" max="3" bindchange="handleChange1"  />
+				<i-input-number value="{{ Girls_name }}" min="0" max="{{ Girls_max }}" bindchange="handleChange1"  />
 			</view>
 		</i-panel>
 		<text class="foot">间</text>
@@ -16,7 +16,7 @@
 		<text class="head">男生宿舍：</text>
 		<i-panel title="基础用法">
 			<view style="padding: 8px">
-				<i-input-number value="{{ Boys_name }}" min="0" max="6" bindchange="handleChange2" />
+				<i-input-number value="{{ Boys_name }}" min="0" max="{{ Boys_max }}" bindchange="handleChange2" />
 			</view>
 		</i-panel>
 		<text class="foot">间</text>
