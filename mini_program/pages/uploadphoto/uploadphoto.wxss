@@ -66,6 +66,21 @@ input {
   background-color: #fff;
 }
 
+.de{
+  background-color: #7EC4F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 55%;
+  left: 10%;
+}
+
+.de image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
 .indexButton {
   width: 397rpx;
   left: 182rpx;
