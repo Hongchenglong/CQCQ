@@ -5,7 +5,7 @@
   background: #fff;
   align-items: center;
   line-height: 1.4;
-  height: 50rpx;
+  height: 60rpx;
   font-size: 14px;
   overflow: hidden
 }

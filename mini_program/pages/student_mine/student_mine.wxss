@@ -81,3 +81,8 @@ button{
   width: 55rpx;
   height: 55rpx;
 }
+
+.placeholder-view{
+  height: 9%;
+  width: 100%;
+}
