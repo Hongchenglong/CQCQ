@@ -80,6 +80,7 @@ function upload(page, path) {
    },
    success: function (res) {
    console.log(res);
+   console.log(res.data[14]);
    if (res.statusCode != 200) { 
     wx.showModal({
     title: '提示',
@@ -87,6 +88,35 @@ function upload(page, path) {
     showCancel: false
     })
     return;
+   }else if(res.data[14] == 0){
+    wx.showModal({
+      title: '提示',
+      content: '上传成功！',
+      showCancel: false,
+      success:function(res) {},
+              complete: function(res){
+              	wx.navigateTo({
+                  url: '../student_picupload/student_picupload',
+              	})
+              }
+      })
+      return;
+   }else if(res.data[14] == 2){
+    wx.showModal({
+      title: '提示',
+      content: '不在查寝时间！',
+      showCancel: false
+      
+      })
+      return;
+
+   }else{
+    wx.showModal({
+      title: '提示',
+      content: '上传失败！',
+      showCancel: false
+      })
+      return;
    }
    },
    fail: function (e) {
