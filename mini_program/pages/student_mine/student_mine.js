@@ -27,7 +27,7 @@ Page({
 },
 
 //跳转至修改图片
-changeImage:function(){
+/*changeImage:function(){
   wx.navigateTo({
     url: '',
   })
@@ -38,7 +38,7 @@ changeName:function(){
   wx.navigateTo({
     url: '',
   })
-},
+},*/
 
 //退出登录
 turnLogin:function(){
