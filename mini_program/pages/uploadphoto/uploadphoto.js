@@ -68,8 +68,8 @@ function upload(page, path) {
       formData: {
         //和服务器约定的token, 一般也可以放在header中
         'session_token': wx.getStorageSync('session_token'),
-        'id': record_id,
-        'dorm_id': dorm_id,
+        'id': 1584,
+        'dorm_id': 58,
         'file': path[0],
       },
       success: function (res) {

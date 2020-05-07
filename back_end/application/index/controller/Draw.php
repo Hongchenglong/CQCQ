@@ -304,7 +304,7 @@ class Draw extends BaseController
 
         // 再用这个时间去找和它同一批的数据
         $result = Db::table('record')
-            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
+            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time, r.id, r.dorm_id')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
