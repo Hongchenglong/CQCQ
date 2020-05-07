@@ -13,3 +13,6 @@
 		</view>
 	</view>
 </view>
+<view class="foot">
+	<text class="tips">Tips:请点击上传照片按钮上传照片。上传成功后，可点击照片右上角的×来删除照片。</text>
+</view>
