@@ -363,13 +363,20 @@ class Draw extends BaseController
             ->where('s.sex', '女')
             ->count('d.id');
 
-        $return_data = array();
-        $return_data['error_code'] = 0;
-        $return_data['msg'] = '成功返回宿舍数量';
-        $return_data['data']['boys'] = $boys;
-        $return_data['data']['girls'] = $girls;
+        if ($boys + $girls) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '成功返回宿舍数量';
+            $return_data['data']['boys'] = $boys;
+            $return_data['data']['girls'] = $girls;
 
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '该系暂无宿舍，请导入';
 
-        return json($return_data);
+            return json($return_data);
+        }
     }
 }
