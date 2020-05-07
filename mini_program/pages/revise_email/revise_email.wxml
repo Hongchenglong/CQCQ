@@ -13,7 +13,7 @@
 		</view>
 	</view>
 
-	<button class="de" style="border-radius: 30px;width:80%">
+	<button class="de" style="border-radius: 30px;width:80%" bindtap='save'>
 		<image src="../../images/dianji.png"></image><text decode="{{true}}">&nbsp;提交</text>
 	</button>
 
