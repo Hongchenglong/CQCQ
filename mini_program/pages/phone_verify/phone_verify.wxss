@@ -1,50 +1,56 @@
 /* pages/phone/phone.wxss */
-page{
-  height: 100%;
-  width: 100%;
-  background:#dee5e6;
-}
 
-.changeInfo{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 90%;
+.head{
+  width: 95%;
+  height: 250rpx;
+  border: 1rpx solid #e6e6e6;
+  border-radius: 5px;
   margin: 50rpx auto;
 }
 
-.changeInfoName{
-  position: relative;
-  height: 80rpx;
-  width: 100%;
-  border-radius: 10rpx;
-  background: #fff;
-  margin-bottom: 20rpx;
-  padding-left: 20rpx;
-  box-sizing: border-box;
+.one,.two{
+  height: 50%;
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  /*justify-content: center;*/ 
 }
 
-.codeBtn{
-  position: absolute;
-  right: 0;
-  top: 0;
-  color: red;
-  width: 15%;
-  height: 80rpx;
-  line-height: 50rpx;
-  font-size: 28rpx;
+image{
+  width: 75rpx;
+  height: 75rpx;
 }
 
-.changeInfoName input{
-  width: 100%;
-  height:100%;
+.two{
+  position: relative; /*父元素位置要设置为相对*/
 }
 
-.btn{
-  width: 40%;
-  height: 100rpx;
-  line-height: 70rpx;
-  color: #000;
-  border-radius: 50rpx;
-  margin-top:10%;
+.num{
+  font-size: 32rpx;
+  position: absolute; /*要约束所在位置的子元素的位置要设置成绝对*/
+  right: 0; /*调节靠右*/
+  height: 70%;
+  background-color: #7EC4F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
+
+input{
+  margin-left: 20rpx;
+}
+
+.de{
+  background-color: #7EC4F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.de image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
