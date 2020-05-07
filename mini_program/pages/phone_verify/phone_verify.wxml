@@ -9,7 +9,7 @@
 
 		<view class='two'>
 			<image src="../../images/验证码.png"></image>
-			<input placeholder='请输入验证码' bindinput="numInput" value='{{code}}'  style="width:40%"/>
+			<input placeholder='请输入验证码' bindinput="numInput" style="width:40%"/>
 			<button style="width:40%" class='num' bindtap="onClick" disabled='{{disabled}}'>{{codename}}</button>
 		</view>
 

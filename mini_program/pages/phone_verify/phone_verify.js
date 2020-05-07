@@ -7,7 +7,8 @@ Page({
   data: {
     phone: "",
     num: "",
-    codename: '获取验证码'
+    codename: '获取验证码',
+    code:""
   },
 
   phoneInput: function (e) {
@@ -84,26 +85,27 @@ Page({
               }
             })
           } else if (res.data.error_code == 0) {
-            wx.showModal({
-              title: '恭喜！',
-              showCancel: false,
-              content: '下一步',
-              success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
+            if(that.data.num == that.data.code){
+              wx.reLaunch({
+                url: "../change_passwd/change_passwd?phone=" + that.data.phone
+              })
+            }
+            else{
+              wx.showModal({
+                title: '哎呀～',
+                showCancel: false,
+                content: '验证码错误',
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
                 }
-              }
             })
           }
-        },
-        complete: function (res) {
-          wx.reLaunch({
-            url: "../change_passwd/change_passwd?phone=" + that.data.phone
-          })
         }
-
+      }
       })
     }
   },
@@ -120,11 +122,6 @@ Page({
       }
     })
   },
-
-  // wx.navigateTo({
-  //   url: "../change_passwd/change_passwd"
-  // })
-
 
   onClick: function (e) {
     var that = this;
@@ -179,6 +176,9 @@ Page({
               }
             })
           } else if (res.data.error_code == 0) {
+            that.setData({
+              code : res.data.data.captcha
+            })
             wx.showModal({
               title: '恭喜！',
               showCancel: false,
