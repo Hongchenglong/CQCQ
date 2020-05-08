@@ -14,7 +14,7 @@
 	</view>
 
 	<button class="de" style="border-radius: 30px;width:80%" bindtap='save'>
-		<image src="../../images/dianji.png"></image><text decode="{{true}}">&nbsp;提交</text>
+		<image src="../../images/点击.png"></image><text decode="{{true}}">&nbsp;提交</text>
 	</button>
 
 </view>

@@ -61,15 +61,15 @@ function upload(page, path) {
     title: "正在上传"
   }),
     wx.uploadFile({
-      url:  getApp().globalData.server + '/cqcq/public/index.php/index/Record/uploadPhoto',
+      url: getApp().globalData.server + '/cqcq/public/index.php/index/Record/uploadPhoto',
       filePath: path[0],
       name: 'file',
       header: { enctype: "multipart/form-data" },
       formData: {
         //和服务器约定的token, 一般也可以放在header中
         'session_token': wx.getStorageSync('session_token'),
-        'grade':getApp().globalData.user.grade,
-        'department':getApp().globalData.user.department,
+        'grade': getApp().globalData.user.grade,
+        'department': getApp().globalData.user.department,
         'dorm_id': getApp().globalData.userInfomation.roomInfo[0].id,
         'file': path[0],
       },
@@ -97,17 +97,24 @@ function upload(page, path) {
           })
           return;
         } else if (res.data[14] == 2) {
+          console.log('res.data', res.data)
           wx.showModal({
             title: '提示',
-            content: '不在查寝时间！',
+            content: '现在不在查寝时间！',
             showCancel: false
           })
           return;
-
-        } else {
+        } else if (res.data[14] == 3) {
           wx.showModal({
             title: '提示',
-            content: '上传失败！',
+            content: '您不在查寝名单中！',
+            showCancel: false
+          })
+          return;
+        } else if (res.data[14] == 6) {
+          wx.showModal({
+            title: '提示',
+            content: '文件格式错误！请上传照片。',
             showCancel: false
           })
           return;

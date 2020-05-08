@@ -210,8 +210,8 @@ Page({
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock',
       data: {
-        department: '计算机工程系', //需要传全局变量
-        grade: '2017',
+        department: this.data.dep, //需要传全局变量
+        grade: this.data.grade,
       },
       method: "POST",
       header: {

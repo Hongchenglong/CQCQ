@@ -21,7 +21,7 @@
 		<!--选择宿舍楼-->
 		<view class="address1">
 			<view class="block"><text style="padding-right: 10px">楼号：</text>
-				<picker range="{{ listBlock }}" bindchange="bindKeyInput5"><input value='{{block}}' placeholder='选择楼号' /></picker>
+				<picker range="{{ listBlock }}" bindchange="bindKeyInput5"><input value='{{block}}' placeholder='选择楼号' disabled /></picker>
 			</view>
 		</view>
 
