@@ -60,7 +60,7 @@ Page({
   //获取宿舍号
   bindKeyInput6: function (e) {
     this.setData({
-      room: e.detail.value
+      room: e.detail.detail.value
     })
     //console.log('room',e.detail.value)
   },

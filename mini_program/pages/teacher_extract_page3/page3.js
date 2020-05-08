@@ -1,6 +1,5 @@
 // pages/teacher/extract/page3/page3.js
 Page({
-
   data: {
     // targetTime: 0,
     clearTimer: false,
@@ -28,7 +27,6 @@ Page({
       dep: getApp().globalData.user.department
     })
     var that = this
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults')
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults',
       data: {
@@ -98,7 +96,7 @@ Page({
     this.setData({
       clearTimer: true
     });
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/teacher_home/teacher_home',
     })
   },
