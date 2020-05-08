@@ -96,7 +96,6 @@ class Record extends BaseController
                 $new_name = $new_file_name . '.' . $extension; //新文件名
                 $path = 'upload/' . $new_name;        //upload为保存图片目录
                 if (file_exists("upload/" . $path)) {   //判断是否存在该文件
-
                     $return_data = array();
                     $return_data['error_code'] = 5;
                     $return_data['msg'] = '文件已存在！';
@@ -112,14 +111,13 @@ class Record extends BaseController
 
                     // 上传到数据库
                     $uploadTime = date('Y-m-d H:i:s', time());
-
                     $data = array('photo' => "upload/" . $day . '/' . $new_name, 'upload_time' => $uploadTime);
-                    $result = Db('record')->where(['id' => $record['id']])->setField($data);
+                    $result = Db('record')->where(['id' => $record[0]['id']])->setField($data);
 
                     $return_data = array();
                     $return_data['error_code'] = 0;
                     $return_data['msg'] = '文件上传成功！';
-                    $return_data['data']['id'] = $record['id'];
+                    $return_data['data']['id'] = $record[0]['id'];
                     $return_data['data']['photo'] = 'upload/' . $day . '/' . $new_name;
                     $return_data['data']['upload_time'] = $uploadTime;
                     return json($return_data);
