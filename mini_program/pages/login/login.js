@@ -10,6 +10,7 @@ Page({
     password: "",
     isShow1:true,
     inputType1:"password",
+    height:''
   },
 
   /*signup: function () {
@@ -38,6 +39,7 @@ Page({
       })
     } else {
       wx.request({
+        // url: 'http://localhost:8080/cqcq/back_end/public/index.php/index/user/login',
         url: getApp().globalData.server + '/cqcq/public/index.php/index/user/login',
         data: {
           id: that.data.id,
@@ -127,7 +129,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+      // 获取可使用窗口宽度
+      var clientHeight = res.windowHeight;
+      // 获取可使用窗口高度
+      var clientWidth = res.windowWidth;
+      // 算出比例
+      let ratio = 750 / clientWidth;
+      //height = clientHeight * ratio;
+      // 设置高度
+      that.setData({
+        height: clientHeight * ratio
+      });
+      //getApp().globalData.height=that.data.height
+      //console.log(that.data.height)
+      //console.log(that.data.height*0.7)
+  }
+});
   },
 
   /**

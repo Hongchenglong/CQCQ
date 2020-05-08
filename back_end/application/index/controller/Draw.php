@@ -12,13 +12,19 @@ class Draw extends BaseController
      */
     public function draw()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade'];   // 'numOfBoys', 'numOfGirls', 
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['department', 'grade'];   // 'numOfBoys', 'numOfGirls', 
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } 
 
         $numOfBoys = $_POST['numOfBoys'];
         $numOfGirls = $_POST['numOfGirls'];
@@ -64,14 +70,14 @@ class Draw extends BaseController
         if ($all) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '抽签成功';
+            $return_data['msg'] = '抽签成功!';
             $return_data['data']['dorm'] = $all;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '抽签失败，没有选择宿舍';
+            $return_data['msg'] = '抽签失败，没有选择宿舍!';
 
             return json($return_data);
         }
@@ -83,13 +89,29 @@ class Draw extends BaseController
      */
     public function customize()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade', 'block', 'room'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['department', 'grade', 'block', 'room'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['block'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍楼！';
+            return json($return_data);
+        } else if (empty($_POST['room'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍号！';
+            return json($return_data);
+        } 
 
         $dormSuc = array();
         $dormFal = array();
@@ -124,7 +146,7 @@ class Draw extends BaseController
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '指定成功';
+            $return_data['msg'] = '指定成功!';
             $return_data['data']['dormSuc'] = $dormSuc;
             $return_data['data']['dormFal'] = $dormFal;
 
@@ -132,7 +154,7 @@ class Draw extends BaseController
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无此宿舍';
+            $return_data['msg'] = '无此宿舍!';
 
             return json($return_data);
         }
@@ -147,14 +169,40 @@ class Draw extends BaseController
         // dump(date('Y-m-d:', time()));
         // 2020-04-30 16:22:52
 
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade', 'start_time', 'end_time', 'dorm_id', 'rand_num'];
+        // $parameter = ['department', 'grade', 'start_time', 'end_time', 'dorm_id', 'rand_num'];
         // dorm_id, rand_num是列表
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['start_time'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入开始时间！';
+            return json($return_data);
+        } else if (empty($_POST['end_time'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入结束时间！';
+            return json($return_data);
+        } else if (empty($_POST['dorm_id'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍id！';
+            return json($return_data);
+        } else if (empty($_POST['rand_num'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入随机数！';
+            return json($return_data);
+        } 
 
         // 查询条件
         $where = array();
@@ -175,14 +223,14 @@ class Draw extends BaseController
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '确认成功';
+            $return_data['msg'] = '确认成功!';
             // $return_data['data'] = $result;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 1;
-            $return_data['msg'] = '没有可确认的抽签结果';
+            $return_data['msg'] = '没有可确认的抽签结果!';
 
             return json($return_data);
         }
@@ -193,13 +241,24 @@ class Draw extends BaseController
      */
     public function displayResults()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade', 'start_time'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['department', 'grade', 'start_time'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['start_time'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入开始时间！';
+            return json($return_data);
+        } 
 
         // 查询条件
         $where = array();
@@ -217,14 +276,14 @@ class Draw extends BaseController
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示抽签结果';
+            $return_data['msg'] = '显示抽签结果!';
             $return_data['data'] = $result;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无抽签结果';
+            $return_data['msg'] = '暂无抽签结果!';
 
             return json($return_data);
         }
@@ -235,13 +294,19 @@ class Draw extends BaseController
      */
     public function displayCurrentResults()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['department', 'grade'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } 
 
         $now = date('Y-m-d H:i:s', time());
 
@@ -261,14 +326,14 @@ class Draw extends BaseController
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示抽签结果';
+            $return_data['msg'] = '显示抽签结果!';
             $return_data['data'] = $result;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无抽签结果';
+            $return_data['msg'] = '暂无抽签结果!';
 
             return json($return_data);
         }
@@ -279,13 +344,19 @@ class Draw extends BaseController
      */
     public function displayRecentResults()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['department', 'grade'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } 
 
         // 查询条件
         $where = array();
@@ -304,7 +375,7 @@ class Draw extends BaseController
 
         // 再用这个时间去找和它同一批的数据
         $result = Db::table('record')
-            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time, r.id, r.dorm_id')
+            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
@@ -317,14 +388,14 @@ class Draw extends BaseController
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示抽签结果';
+            $return_data['msg'] = '显示抽签结果!';
             $return_data['data'] = $result;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无抽签结果';
+            $return_data['msg'] = '暂无抽签结果!';
 
             return json($return_data);
         }
@@ -335,13 +406,19 @@ class Draw extends BaseController
      */
     public function getNumber()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['department', 'grade'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } 
 
         // 查询条件
         $where = array();
@@ -366,7 +443,7 @@ class Draw extends BaseController
         if ($boys + $girls) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '成功返回宿舍数量';
+            $return_data['msg'] = '成功返回宿舍数量!';
             $return_data['data']['boys'] = $boys;
             $return_data['data']['girls'] = $girls;
 
@@ -374,7 +451,7 @@ class Draw extends BaseController
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '该系暂无宿舍，请导入';
+            $return_data['msg'] = '该系暂无宿舍，请导入!';
 
             return json($return_data);
         }
