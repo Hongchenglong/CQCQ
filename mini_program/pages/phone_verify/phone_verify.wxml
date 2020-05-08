@@ -1,23 +1,18 @@
 <!--pages/phone/phone.wxml-->
-<view class='changeInfo'>
-<!--输入手机号-->
-	<view class='changeInfoName'>
-		<input placeholder='请输入手机号' bindinput="phoneInput" />
-	</view>
+<view class="wrap">
+	<view class="head">
 
-<!--输入验证码-->
-	<view class='changeInfoName'>
-		<input placeholder='请输入验证码' 
-      style='width:70%;' 
-      bindinput="numInput" />
-		<button class='codeBtn' bindtap="onClick" disabled='{{disabled}}'>
-			{{codename}}
-		</button>
-	</view>
+		<view class="one">
+		<image src="../../images/phone.png"></image>
+			<input type="text" placeholder='请输入手机号' bindinput="phoneInput"/>
+		</view>
 
-<!--提交申请-->
-	<view>
-		<button class='btn' bindtap="onInput">下一步</button>
-	</view>
+		<view class='two'>
+			<image src="../../images/验证码.png"></image>
+			<input placeholder='请输入验证码' bindinput="numInput" style="width:40%"/>
+			<button style="width:40%" class='num' bindtap="onClick" disabled='{{disabled}}'>{{codename}}</button>
+		</view>
 
+	</view>
+	<button bindtap="onInput" style="border-radius: 30px;width:80%" class='de'><image src="../../images/点击.png"></image><text style="color:white" decode="{{true}}">&nbsp;下一步</text></button>
 </view>

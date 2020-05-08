@@ -1,14 +1,19 @@
 /* pages/forget/forget.wxss */
-.btns{
+.btnone{
   height:300rpx;
   margin-top:16%;
-  background-color: rgb(230, 240, 239);
+  background-color: #a9dcdd;
+}
+
+.btntwo{
+  height:300rpx;
+  margin-top:16%;
+  background-color: #bbbcff;
 }
 
 .texts{
   float: right;
   font-size: small;
-  color:#798687;
 }
 
 .imgs {

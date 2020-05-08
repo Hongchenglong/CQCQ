@@ -10,6 +10,7 @@ Page({
     password: "",
     isShow1:true,
     inputType1:"password",
+    height:''
   },
 
   /*signup: function () {
@@ -74,33 +75,18 @@ Page({
             })
           } else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
-            //console.log(getApp().globalData.user.username)
-            wx.showModal({
-              title: '恭喜!',
-              showCancel: false,
-              content: '登录成功',
-              confirmColor:'#7EC4F8',
-              success: function (res) {
-                /*if (res.confirm) {
-                  console.log('用户点击确定')
-                }*/
-              },
-              complete: function (res) {
-                console.log(getApp().globalData.user.user)
-                
-                if (  getApp().globalData.user.user == 'counselor' ){
-                  //console.log(that.data.id.length),
-                  wx.reLaunch({
-                    url: '/pages/teacher_home/teacher_home'
-                  })
-                }
-                else if ( getApp().globalData.user.user == 'student'  ){
-                  wx.reLaunch({
-                    url: '/pages/student_home/student_home'
-                  })
-                }
-              }
-            })
+            console.log(getApp().globalData.user.user)
+            if (  getApp().globalData.user.user == 'counselor' ){
+              //console.log(that.data.id.length),
+              wx.reLaunch({
+                url: '/pages/teacher_home/teacher_home'
+              })
+            }
+            else if ( getApp().globalData.user.user == 'student'  ){
+              wx.reLaunch({
+                url: '/pages/student_home/student_home'
+              })
+            }
           }
         },
         fail: function (res) {
@@ -143,7 +129,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+      // 获取可使用窗口宽度
+      var clientHeight = res.windowHeight;
+      // 获取可使用窗口高度
+      var clientWidth = res.windowWidth;
+      // 算出比例
+      let ratio = 750 / clientWidth;
+      //height = clientHeight * ratio;
+      // 设置高度
+      that.setData({
+        height: clientHeight * ratio
+      });
+      //getApp().globalData.height=that.data.height
+      //console.log(that.data.height)
+      //console.log(that.data.height*0.7)
+  }
+});
   },
 
   /**

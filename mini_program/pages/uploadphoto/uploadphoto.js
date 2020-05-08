@@ -17,7 +17,7 @@ Page({
       sourceType: ['album', 'camera'],
       success: function (res) {
         var imgSrc = res.tempFilePaths;
-         upload(that,  imgSrc); //连接接口 函数
+        upload(that, imgSrc); //连接接口 函数
         pics.push(imgSrc);
         if (pics.length >= 1) {
           that.setData({
@@ -52,53 +52,76 @@ Page({
   },
 
   /**提交 */
- 
-  //    globalData:{
-  //  id:{},
-  //     face_url:{},
-  //   server:'https://oeong.xyz/cqcq',
-  //   load:'false'
-  // },   
+
 })
 
 function upload(page, path) {
   wx.showToast({
-  icon: "loading",
-  title: "正在上传"
+    icon: "loading",
+    title: "正在上传"
   }),
-  wx.uploadFile({
-   url:'https://oeong.xyz/cqcq/public/index.php/index/Record/uploadPhoto',
-   filePath: path[0], 
-   name: 'file',
-   header: { enctype:"multipart/form-data" },
-   formData: {
-   //和服务器约定的token, 一般也可以放在header中
-   'session_token': wx.getStorageSync('session_token'),
-   'id':'1835',
-   'dorm_id':63,
-   'file':path[0],
-   },
-   success: function (res) {
-   console.log(res);
-   if (res.statusCode != 200) { 
-    wx.showModal({
-    title: '提示',
-    content: '上传失败',
-    showCancel: false
+    wx.uploadFile({
+      url:  getApp().globalData.server + '/cqcq/public/index.php/index/Record/uploadPhoto',
+      filePath: path[0],
+      name: 'file',
+      header: { enctype: "multipart/form-data" },
+      formData: {
+        //和服务器约定的token, 一般也可以放在header中
+        'session_token': wx.getStorageSync('session_token'),
+        'id': 1584,
+        'dorm_id': 58,
+        'file': path[0],
+      },
+      success: function (res) {
+        console.log(res);
+        console.log(res.data[14]);
+        if (res.statusCode != 200) {
+          wx.showModal({
+            title: '提示',
+            content: '上传失败',
+            showCancel: false
+          })
+          return;
+        } else if (res.data[14] == 0) {
+          wx.showModal({
+            title: '提示',
+            content: '上传成功！',
+            showCancel: false,
+            // success:function(res) {},
+            //         complete: function(res){
+            //         	wx.navigateTo({
+            //             url: '../student_picupload/student_picupload',
+            //         	})
+            //         }
+          })
+          return;
+        } else if (res.data[14] == 2) {
+          wx.showModal({
+            title: '提示',
+            content: '不在查寝时间！',
+            showCancel: false
+          })
+          return;
+
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '上传失败！',
+            showCancel: false
+          })
+          return;
+        }
+      },
+      fail: function (e) {
+        console.log(e);
+        wx.showModal({
+          title: '提示',
+          content: '上传失败',
+          showCancel: false
+        })
+      },
+      complete: function () {
+        wx.hideToast(); //隐藏Toast
+      }
     })
-    return;
-   }
-   },
-   fail: function (e) {
-   console.log(e);
-   wx.showModal({
-    title: '提示',
-    content: '上传失败',
-    showCancel: false
-   })
-   },
-   complete: function () {
-    wx.hideToast(); //隐藏Toast
-    }
-   })
-  }
+}

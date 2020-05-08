@@ -88,9 +88,9 @@ Page({
   bindGetUserInfo(e) {
     getApp().globalData.userInfo = e.detail.userInfo
     console.log(e.detail.userInfo)
-    getApp().globalData.load = true
     if(e.detail.userInfo == undefined){}
     else{
+      getApp().globalData.load = true
       wx.reLaunch({
         url: '../student_mine/student_mine',
       })
@@ -109,7 +109,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.hideHomeButton()
   },
 
   /**

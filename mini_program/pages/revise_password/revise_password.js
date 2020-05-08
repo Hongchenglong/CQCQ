@@ -6,7 +6,7 @@ Page({
   data: {
     oldpwd:'',
     newpwd:'',
-    newpwd2:''
+    newpwd2:'',
   },
   getOldPwdValue: function (e) {
     this.setData({
@@ -39,7 +39,7 @@ Page({
       })
     } else {
       wx.request({
-        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changePassword',
+        url: getApp().globalData.server + '/cqcq/public/index.php/index/change/changePassword',
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -51,15 +51,18 @@ Page({
           password_again: that.data.newpwd2,
         },
         success: (res) => {
+
           if (res.data.error_code) {
             wx.showToast({
               title: res.data.msg,
+              content: '失败',
               icon: 'none',
               duration: 2000,
             })
           } else {
             wx.showToast({
               title: res.data.msg,
+
               icon: 'success',
               duration: 2000,
               success: function () {

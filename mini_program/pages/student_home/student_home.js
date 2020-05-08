@@ -40,6 +40,10 @@ Page({
       url: '../student_picupload/student_picupload',
     })
   },
+
+  onShow:function(){
+    wx.hideHomeButton()
+  }
 })
 
  
