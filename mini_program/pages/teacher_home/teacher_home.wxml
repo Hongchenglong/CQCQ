@@ -1,14 +1,14 @@
 <!--pages/hoteacher_homeme/teacher_home.wxml-->
 <view>
 	<view class="head">
-		<image class="logo" src='../../images/至诚.png' mode="aspectFit"></image>
+		<image class="logo" src='https://oeong.xyz/cqcq/public/images/至诚.png' mode="aspectFit"></image>
 	</view>
 	<view class="menu">
 		<!--点击跳转至抽取宿舍-->
 		<button class="one" style="width:100%" bindtap="extract">
 			<view class="whole">
 				<view class="pic">
-					<image class="pic1" src='../../images/check.png' mode="aspectFit"></image>
+					<image class="pic1" src='https://oeong.xyz/cqcq/public/images/check.png' mode="aspectFit"></image>
 				</view>
 				<text decode="{{true}}">&nbsp;&nbsp;抽取宿舍</text>
 			</view>
@@ -19,7 +19,7 @@
 		<button class="two" style="width:100%" bindtap="check">
 			<view class="whole">
 				<view class="pic">
-					<image class="pic1" src='../../images/scan.png' mode="aspectFit"></image>
+					<image class="pic1" src='https://oeong.xyz/cqcq/public/images/scan.png' mode="aspectFit"></image>
 				</view>
 				<text decode="{{true}}">&nbsp;&nbsp;查看查寝结果</text>
 			</view>

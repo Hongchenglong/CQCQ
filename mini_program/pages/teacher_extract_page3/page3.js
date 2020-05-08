@@ -98,7 +98,7 @@ Page({
     this.setData({
       clearTimer: true
     });
-    wx.reLaunch({
+    wx.navigateTo({
       url: '/pages/teacher_home/teacher_home',
     })
   },

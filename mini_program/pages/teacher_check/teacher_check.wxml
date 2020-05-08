@@ -1,7 +1,7 @@
 <!--pages/chakan/chakan.wxml-->
 
 <view class="changeInfoName">
-	<image src="/images/搜索.png" />
+	<image src="https://oeong.xyz/cqcq/public/images/搜索.png" />
 	<view>
 	<picker mode="date" value="{{dateValue}}" start="2020-01-01" end="2999-12-31" bindchange="datePickerBindchange" >
 		{{dateValue}}
@@ -18,7 +18,7 @@
 <scroll-view class='scbg' scroll-y='true'>
 	<block wx:for="{{showData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="first">
-			<image class="imgs" src='/images/删除.png' bindtap="onLike" data-time="{{itemName.start_time}}"/>
+			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/删除.png' bindtap="onLike" data-time="{{itemName.start_time}}"/>
 			<text class="texts">{{itemName.start_time}}</text>
 			<button class="buttons" style="width:100px;margin-right:5%" bindtap="onClick" data-times="{{itemName.start_time}}">
 				查看

@@ -2,19 +2,19 @@
 	<view class="head">
 
 		<view class='one'>
-			<image src="../../images/mail.png"></image>
+			<image src="https://oeong.xyz/cqcq/public/images/mail.png"></image>
 			<input type="text" placeholder='请输入邮箱' bindinput='getEmailValue' value='{{email}}' />
 		</view>
 
 		<view class='two'>
-			<image src="../../images/验证码.png"></image>
+			<image src="https://oeong.xyz/cqcq/public/images/验证码.png"></image>
 			<input style="width:40%"  placeholder='请输入验证码' bindinput='getCodeValue' value='{{code}}' />
 			<button style="border-radius: 5px;width:40%" class='num' bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
 		</view>
 	</view>
 
 	<button class="de" style="border-radius: 30px;width:80%" bindtap='save'>
-		<image src="../../images/点击.png"></image><text decode="{{true}}">&nbsp;提交</text>
+		<image src="https://oeong.xyz/cqcq/public/images/点击.png"></image><text decode="{{true}}">&nbsp;提交</text>
 	</button>
 
 </view>

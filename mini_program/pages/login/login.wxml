@@ -2,20 +2,20 @@
 
 <view class="box">
 	<!--插入背景图片-->
-	<image src="../../images/loginBgImage.png" mode="aspectFill" class="back"></image>
+	<image src="https://oeong.xyz/cqcq/public/images/loginBgImage.png" mode="aspectFill" class="back"></image>
 </view>
 
 <view class="wrap" style="height:{{height*0.7}}rpx;">
-	<image src="../../images/headPortrait.png" class="head" style="height:{{height*0.7*0.26}}rpx;width:{{height*0.7*0.26}}rpx;"></image>
+	<image src="https://oeong.xyz/cqcq/public/images/headPortrait.png" class="head" style="height:{{height*0.7*0.26}}rpx;width:{{height*0.7*0.26}}rpx;"></image>
 
 	<view class="user" style="font-size:{{height*0.028}}rpx;">
 		<view class="row">
-			<image src="../../images/用户名(1).png" style="width:55rpx;height:55rpx"></image>
+			<image src="https://oeong.xyz/cqcq/public/images/用户名(1).png" style="width:55rpx;height:55rpx"></image>
 			<!--输入账号-->
 			<input type="number" placeholder="账号" auto-focus bindinput="idInput"></input>
 		</view>
 		<view class="row">
-			<image src="../../images/密码(1).png" style="width:55rpx;height:55rpx"></image>
+			<image src="https://oeong.xyz/cqcq/public/images/密码(1).png" style="width:55rpx;height:55rpx"></image>
 			<!--输入密码-->
 			<input placeholder="密码" type="password" auto-focus bindinput="passwordInput"></input>
 		</view>
