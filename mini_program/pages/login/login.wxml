@@ -10,7 +10,7 @@
 
 	<view class="user" style="font-size:{{height*0.028}}rpx;">
 		<view class="row">
-			<image src="../../images/用户名 (1).png" style="width:55rpx;height:55rpx"></image>
+			<image src="../../images/用户名(1).png" style="width:55rpx;height:55rpx"></image>
 			<!--输入账号-->
 			<input type="number" placeholder="账号" auto-focus bindinput="idInput"></input>
 		</view>
