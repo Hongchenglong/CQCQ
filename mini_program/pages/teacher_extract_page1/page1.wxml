@@ -23,7 +23,7 @@
 	</view>
 	<view class="other">
 		<button style="width:100%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonList'>
-			<image src="https://oeong.xyz/cqcq/public/images/点击.png"></image>随机抽取
+			<image src="https://oeong.xyz/cqcq/public/images/click.png"></image>随机抽取
 		</button>
 		<view class="definition">不喜欢随机抽取？试试<view bindtap="buttonListener" style="font-weight:bold;color:#7AB8FB;">自定义抽取</view>
 		</view>

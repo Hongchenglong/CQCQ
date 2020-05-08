@@ -39,7 +39,7 @@
 		</i-cell-group>
 		<view class="exit">
 			<button hover-class="other-button-hover" style="width: 90%;border-radius: 30px;" bindtap="bindViewTap"> 
-			<image src="https://oeong.xyz/cqcq/public/images/退出登录.png"></image><text decode="{{true}}">&nbsp;退出登录</text> </button>
+			<image src="https://oeong.xyz/cqcq/public/images/exit.png"></image><text decode="{{true}}">&nbsp;退出登录</text> </button>
 		</view>
 	</view>
 </view>

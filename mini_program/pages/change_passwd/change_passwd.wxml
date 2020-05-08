@@ -10,7 +10,7 @@
 			</view>
 		</view>
 		<button style="width:70%;background-color: #7EC4F8;border-radius: 30px;" type='primary' form-type="submit" bindtap="onLaunch">
-			<image src="https://oeong.xyz/cqcq/public/images/点击.png"></image><text decode="{{true}}">&nbsp;提交</text>
+			<image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text decode="{{true}}">&nbsp;提交</text>
 		</button>
 	</form>
 </view>

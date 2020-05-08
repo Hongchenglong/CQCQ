@@ -7,11 +7,11 @@
 		</view>
 
 		<view class='two'>
-			<image src="https://oeong.xyz/cqcq/public/images/验证码.png"></image>
+			<image src="/images/captcha.png"></image>
 			<input placeholder='请输入验证码' bindinput='getCodeValue' value='{{code}}'  style="width:40%"/>
 			<button style="width:40%" class='num' bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
 		</view>
 
 	</view>
-	<button bindtap='save' style="border-radius: 30px;width:80%" class='de'><image src="https://oeong.xyz/cqcq/public/images/点击.png"></image><text decode="{{true}}">&nbsp;提交</text></button>
+	<button bindtap='save' style="border-radius: 30px;width:80%" class='de'><image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text decode="{{true}}">&nbsp;提交</text></button>
 </view>

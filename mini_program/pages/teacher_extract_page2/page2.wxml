@@ -7,7 +7,7 @@
 	<image src="https://oeong.xyz/cqcq/public/images/right.png" style="width:23px;height:23px"></image>
 	<text decode="{{true}}">&nbsp;自定义</text></view>
 	<view class="Date">
-		<image src="https://oeong.xyz/cqcq/public/images/日期.png" style="width:23px;height:23px"></image>
+		<image src="https://oeong.xyz/cqcq/public/images/date.png" style="width:23px;height:23px"></image>
 		<text decode="{{true}}">&nbsp;当前日期：</text>{{date_1}} {{weekday}}
 	</view>
 	<view class="Date">

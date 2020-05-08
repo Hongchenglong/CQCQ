@@ -1,7 +1,7 @@
 <!--pages/hoteacher_homeme/teacher_home.wxml-->
 <view>
 	<view class="head">
-		<image class="logo" src='https://oeong.xyz/cqcq/public/images/至诚.png' mode="aspectFit"></image>
+		<image class="logo" src='https://oeong.xyz/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
 	</view>
 	<view class="menu">
 		<!--点击跳转至抽取宿舍-->
