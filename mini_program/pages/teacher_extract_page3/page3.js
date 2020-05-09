@@ -16,7 +16,14 @@ Page({
     this.setData({
       status: '结束'
     });
+
   },
+  //跳转页面
+  /*buttonchange: function (e) {
+    wx.reLaunch({
+      url: '/pages/teacher_home/teacher_home'
+    })
+  },*/
 
   /**
    * 生命周期函数--监听页面加载
@@ -79,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //wx.hideHomeButton()
   },
 
   /**
@@ -89,17 +96,18 @@ Page({
 
   },
 
-  /**
+    /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
     this.setData({
       clearTimer: true
     });
-    wx.redirectTo({
-      url: '/pages/teacher_home/teacher_home',
+    wx.navigateBack({
+      delta: 2
     })
   },
+  
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

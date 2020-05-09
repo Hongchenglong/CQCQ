@@ -17,7 +17,7 @@
 		<view class="row">
 			<image src="/images/password.png" style="width:55rpx;height:55rpx"></image>
 			<!--输入密码-->
-			<input placeholder="密码" type="password" auto-focus bindinput="passwordInput"></input>
+			<input placeholder="密码" type="password" bindinput="passwordInput"></input>
 		</view>
 	</view>
 

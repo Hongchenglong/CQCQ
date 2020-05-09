@@ -76,7 +76,7 @@ Page({
             showCancel: false,
             success(res) {},
             complete: function (res) {
-              wx.navigateTo({
+              wx.redirectTo({
                 url: '/pages/teacher_extract_page2/page2?listData='+JSON.stringify(that.data.listdata)
               })
             },
