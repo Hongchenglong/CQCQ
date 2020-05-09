@@ -13,14 +13,19 @@ class User extends BaseController
      */
     public function login()
     {
-
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['id', 'password'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['id', 'password'];
+        // 输入判断
+        if (empty($_POST['id'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入用户id！';
+            return json($return_data);
+        } else if (empty($_POST['password'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入密码！';
+            return json($return_data);
+        } 
         $where['id'] = $_POST['id'];
 
         // 先从辅导员表中查询，若不存在从学生表中查询
@@ -41,7 +46,7 @@ class User extends BaseController
             if (md5($_POST['password']) != $user['password']) {
                 $return_data = array();
                 $return_data['error_code'] = 2;
-                $return_data['msg'] = '密码不正确，请重新输入';
+                $return_data['msg'] = '密码不正确，请重新输入!';
 
                 return json($return_data);
             } else {
@@ -56,7 +61,7 @@ class User extends BaseController
             // 用户不存在
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '不存在该用户，请注册';
+            $return_data['msg'] = '不存在该用户，请注册!';
 
             return json($return_data);
         }
@@ -69,25 +74,40 @@ class User extends BaseController
      */
     public function sign()
     {
-
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['username', 'password', 'password_again', 'email', 'phone'];
-        foreach ($parameter as $key => $value) {
-            if (empty($_POST[$value])) {
-                $return_data = array();
-                $return_data['error_code'] = 1;
-                $return_data['msg'] = '参数不足: ' . $value;
-
-                return json($return_data);
-            }
-        }
+        // $parameter = ['username', 'password', 'password_again', 'email', 'phone'];
+        // 输入判断
+        if (empty($_POST['username'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入昵称！';
+            return json($return_data);
+        } else if (empty($_POST['password'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入密码！';
+            return json($return_data);
+        } else if (empty($_POST['password_again'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请再次输入密码！';
+            return json($return_data);
+        } else if (empty($_POST['email'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入邮箱！';
+            return json($return_data);
+        } else if (empty($_POST['phone'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入手机号！';
+            return json($return_data);
+        } 
 
         // 检验两次密码是否输入一致
         if ($_POST['password'] != $_POST['password_again']) {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '两次密码不一致';
+            $return_data['msg'] = '两次密码不一致!';
 
             return json($return_data);
         }
@@ -104,7 +124,7 @@ class User extends BaseController
                 // 如果存在，提示已注册
                 $return_data = array();
                 $return_data['error_code'] = 3;
-                $return_data['msg'] = $value . '已被注册';
+                $return_data['msg'] = $value . '已被注册!';
 
                 return json($return_data);
             }
@@ -138,7 +158,7 @@ class User extends BaseController
             // 插入数据执行失败
             $return_data = array();
             $return_data['error_code'] = 4;
-            $return_data['msg'] = '注册失败';
+            $return_data['msg'] = '注册失败!';
 
             return json($return_data);
         }

@@ -7,7 +7,8 @@
 			</view>
 			<image src="https://oeong.xyz/cqcq/public/images/upload.png" class="uploadImg {{isShow?'true':'hideTrue'}}"></image>
 	<button class="de" style="border-radius: 30px;width:80%" bindtap="uploadImage">
-		<image src="https://oeong.xyz/cqcq/public/images/dianji.png"></image><text decode="{{true}}">&nbsp;上传照片</text>
+
+		<image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text decode="{{true}}">&nbsp;上传照片</text>
 	</button>
 	<!-- <text class="tips">Tips:</text> -->
 		</view>
