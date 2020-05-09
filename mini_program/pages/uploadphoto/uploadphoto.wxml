@@ -3,13 +3,16 @@
 		<view class="contantPic">
 			<view class="picsList" wx:for="{{pics}}" wx:key="">
 				<image name='photo' src="{{item}}" class="uploadImg"></image>
-				<image src="../../images/error.png" class="uploadImg-error" data-img="{{item}}" bindtap='deleteImg'></image>
+				<image src="/images/error.png" class="uploadImg-error" data-img="{{item}}" bindtap='deleteImg'></image>
 			</view>
-			<image src="../../images/upload.png" class="uploadImg {{isShow?'true':'hideTrue'}}"></image>
+			<image src="https://oeong.xyz/cqcq/public/images/upload.png" class="uploadImg {{isShow?'true':'hideTrue'}}"></image>
 	<button class="de" style="border-radius: 30px;width:80%" bindtap="uploadImage">
-		<image src="../../images/dianji.png"></image><text decode="{{true}}">&nbsp;上传照片</text>
+		<image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text decode="{{true}}">&nbsp;上传照片</text>
 	</button>
 	<!-- <text class="tips">Tips:</text> -->
 		</view>
 	</view>
+</view>
+<view class="foot">
+	<text class="tips">Tips:请点击上传照片按钮上传照片。上传成功后，可点击照片右上角的×来删除照片。</text>
 </view>

@@ -1,30 +1,38 @@
 <!--pages/login/login.wxml-->
+
 <view class="box">
 	<!--插入背景图片-->
-	<image src="../../images/loginBgImage.png" mode="aspectFill" class="back"></image>
+	<image src="/images/loginBgImage.png" mode="aspectFill" class="back"></image>
 </view>
-<view class="wrap">
-	<image src="../../images/headPortrait.png" class="head"></image>
-	<view class="Wuser">
-		<view class="Puser">
-			<image src='../../images/用户名 (1).png' mode="aspectFit" class="user"></image>
+
+<view class="wrap" style="height:{{height*0.7}}rpx;">
+	<image src="/images/headPortrait.png" class="head" style="height:{{height*0.7*0.26}}rpx;width:{{height*0.7*0.26}}rpx;"></image>
+
+	<view class="user" style="font-size:{{height*0.028}}rpx;">
+		<view class="row">
+			<image src="/images/username.png" style="width:55rpx;height:55rpx"></image>
+			<!--输入账号-->
+			<input type="number" placeholder="账号" auto-focus bindinput="idInput"></input>
 		</view>
-		<!--输入账号-->
-		<input class="inputs" placeholder="账号" type="number" auto-focus bindinput="idInput"></input>
+		<view class="row">
+			<image src="/images/password.png" style="width:55rpx;height:55rpx"></image>
+			<!--输入密码-->
+			<input placeholder="密码" type="password" auto-focus bindinput="passwordInput"></input>
+		</view>
 	</view>
-	<view class="Wpass">
-		<view class="Ppass">
-			<image src='../../images/密码(1).png' mode="aspectFit" class="pass"></image>
-		</view>
-		<!--输入密码-->
-		<input class="inputs" placeholder="密码" type="password" auto-focus bindinput="passwordInput"></input>
+
+	<view class="foot">
+		<button class="login" style="width:88%;font-size: 40rpx;height:{{height*0.7*0.11}}rpx;" hover-class="btn-hover" bindtap="login">登 录
+		</button>
+		<navigator url="../forget/forget">
+			<view class="forgetPass" style="font-size:{{height*0.025}}rpx;">
+				忘记密码？
+			</view>
+		</navigator>
 	</view>
-	<!--点击登录-->
-	<button class="login" style="width:88%;font-size: 40rpx;" hover-class="btn-hover" bindtap="login">登 录
-	</button>
-	<navigator url="../forget/forget">
-		<view class="forgetPass">
-			忘记密码？
-		</view>
-	</navigator>
+
+</view>
+
+<view class="warn" style="font-size:{{height*0.026}}rpx;">
+	本小程序用于协助辅导员查寝，登录是为保证用户信息的安全性，防止非本校人员登录，请先登录，谢谢您的配合。
 </view>
