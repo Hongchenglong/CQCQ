@@ -3,7 +3,7 @@
 	<!--选择邮箱进行修改密码-->
 	<view>
 		<button class="btnone" bindtap="onClickEmail">
-			<image class="imgs" src='/images/邮箱.png' />
+			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/email.png' />
       <text class="texts">通过邮箱验证修改密码</text>
 		</button>
 	</view>
@@ -11,7 +11,7 @@
 	<!--选择手机号进行修改密码-->
 	<view>
 		<button class="btntwo" bindtap="onClickPhone">
-			<image class="imgs" src='/images/手机.png' />
+			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/iphone.png' />
       <text class="texts">通过手机验证修改密码</text>
 		</button>
 	</view>

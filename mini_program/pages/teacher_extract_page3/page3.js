@@ -1,6 +1,5 @@
 // pages/teacher/extract/page3/page3.js
 Page({
-
   data: {
     // targetTime: 0,
     clearTimer: false,
@@ -17,7 +16,14 @@ Page({
     this.setData({
       status: '结束'
     });
+
   },
+  //跳转页面
+  /*buttonchange: function (e) {
+    wx.reLaunch({
+      url: '/pages/teacher_home/teacher_home'
+    })
+  },*/
 
   /**
    * 生命周期函数--监听页面加载
@@ -28,7 +34,6 @@ Page({
       dep: getApp().globalData.user.department
     })
     var that = this
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults')
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults',
       data: {
@@ -81,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //wx.hideHomeButton()
   },
 
   /**
@@ -98,8 +103,9 @@ Page({
     this.setData({
       clearTimer: true
     });
-    wx.reLaunch({
-      url: '/pages/teacher_home/teacher_home',
+    
+    wx.navigateBack({
+      delta: 2
     })
   },
 

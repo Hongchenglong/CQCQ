@@ -7,10 +7,12 @@
   border-top: solid 1px darkgray;
   border-bottom: solid 1px darkgray;
 }
+
 .time1,.time2{
   border:solid 1rpx #ADADAD;
   border-radius: 5px;
 }
+
 .Date,.new{
   height: 33.33%;
   display: flex;

@@ -84,7 +84,7 @@ Page({
   },
   //跳转页面
   buttonchange: function (e) {
-    wx.reLaunch({
+    wx.navigateTo({
       url: '/pages/teacher_custom_page1/page1'
     })
   },
@@ -126,7 +126,7 @@ Page({
             showCancel: false,
             success(res) {},
             complete: function (res) {
-              wx.reLaunch({
+              wx.redirectTo({
                 /*url: '/pages/teacher_extract_page3/page3?dateData=' + now_date + '&weekData=' + that.data.weekday + '&time1Data=' + that.data.time1 + '&time2Data=' + that.data.time2*/
                 url: '/pages/teacher_extract_page3/page3'
               })
