@@ -46,7 +46,7 @@ class User extends BaseController
             if (md5($_POST['password']) != $user['password']) {
                 $return_data = array();
                 $return_data['error_code'] = 2;
-                $return_data['msg'] = '密码不正确，请重新输入!';
+                $return_data['msg'] = '您输入的账号或密码不正确';
 
                 return json($return_data);
             } else {
@@ -57,11 +57,12 @@ class User extends BaseController
 
                 return json($return_data);
             }
-        } else {
+        } 
+        else {
             // 用户不存在
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '不存在该用户，请注册!';
+            $return_data['msg'] = '您输入的账号或密码不正确';
 
             return json($return_data);
         }
