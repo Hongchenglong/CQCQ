@@ -103,7 +103,7 @@ Page({
     var num = this.data.Room;
     let list = this.data.listData
     var n = 0; //判断重复标志
-    if (apart != '--' && num != '--') {
+    if (apart != '-楼号-' && num != '') {
       for (var i = 0; i < list.length; i++) {
         if (list[i].block == apart && list[i].room == num) {
           n = 1

@@ -148,7 +148,7 @@ Page({
         'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/verifyModifyEmail',
         // 发给服务器的数据
         data: {
-          id: 211706001,
+          id: getApp().globalData.user.id,
           email: this.data.email,
           captcha: this.data.iscode,
         },
