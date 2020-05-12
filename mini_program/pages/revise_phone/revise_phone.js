@@ -145,11 +145,11 @@ Page({
       return false;
     } else {
       wx.request({
-        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/verifyModifyEmail',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/verifyModifyPhone',
         // 发给服务器的数据
         data: {
           id: getApp().globalData.user.id,
-          email: this.data.email,
+          phone: this.data.phone,
           captcha: this.data.iscode,
         },
         method: "POST",
@@ -171,9 +171,16 @@ Page({
               showCancel: false,
               success:function(res) {},
               complete: function(res){
-              	wx.navigateTo({
-                  url: '../student_mine/student_mine',
-              	})
+              	if(getApp().globalData.user.user == 'student') {
+                  wx.navigateTo({
+                    url: '../student_mine/student_mine',
+                  })
+                }
+              	else {
+                  wx.navigateTo({
+                    url: '../teacher_mine/teacher_mine',
+                  })
+                }
               }
             })
           }
