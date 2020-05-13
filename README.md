@@ -6,6 +6,6 @@
 | 项目名称 | 辅助查寝系统   |
 | 文档 | doc |
 | 后端代码 | back_end |
-| 小程序代码 | mini_program |
+| 小程序代码 | mini_programs |
 
-![](images\QRcode.png)
+![](http://oeong.xyz/cqcq/public/QRcode.png)
