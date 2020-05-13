@@ -7,3 +7,5 @@
 | 文档 | doc |
 | 后端代码 | back_end |
 | 小程序代码 | mini_program |
+
+![](images\QRcode.png)
