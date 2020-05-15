@@ -8,4 +8,4 @@
 | 后端代码 | back_end |
 | 小程序代码 | mini_programs |
 
-![](http://oeong.xyz/cqcq/public/QRcode.png)
+![小程序二维码](http://oeong.xyz/cqcq/public/QRcode.png)
