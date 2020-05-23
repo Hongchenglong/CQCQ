@@ -11,13 +11,19 @@ class Checkresults extends BaseController
      */
     public function checkRecords()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['grade', 'department'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } 
 
         // 查询条件
         $where = array();
@@ -37,14 +43,14 @@ class Checkresults extends BaseController
         if ($record) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示查寝记录';
+            $return_data['msg'] = '显示查寝记录！';
             $return_data['data'] = $record;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无查寝记录';
+            $return_data['msg'] = '暂无查寝记录！';
 
             return json($return_data);
         }
@@ -55,13 +61,25 @@ class Checkresults extends BaseController
      */
     public function specifiedDate()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department', 'date'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'date'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if(empty($_POST['date'])){
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入时间！';
+            return json($return_data);
         }
+
         $date = $_POST['date'];
 
         // 判断是否非法日期
@@ -69,7 +87,7 @@ class Checkresults extends BaseController
         if ($is_date === false && $date != "") {
             $return_data = array();
             $return_data['error_code'] = 3;
-            $return_data['msg'] = '日期格式非法';
+            $return_data['msg'] = '日期格式非法！';
 
             return json($return_data);
         }
@@ -93,14 +111,14 @@ class Checkresults extends BaseController
         if ($record) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示' . $date . '查寝记录';
+            $return_data['msg'] = '显示' . $date . '查寝记录！';
             $return_data['data'] = $record;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '没有' . $date . '这天查寝记录';
+            $return_data['msg'] = '没有' . $date . '这天查寝记录！';
 
             return json($return_data);
         }
@@ -111,13 +129,23 @@ class Checkresults extends BaseController
      */
     public function deleteRecord()
     {
-
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['department', 'grade', 'start_time'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['department', 'grade', 'start_time'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['start_time'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入开始时间！';
+            return json($return_data);
         }
         // 查询条件
         $where = array();
@@ -153,12 +181,23 @@ class Checkresults extends BaseController
      */
     public function viewDetails()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department', 'start_time'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'start_time'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['start_time'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入开始时间！';
+            return json($return_data);
         }
 
         // 查询条件
@@ -197,12 +236,23 @@ class Checkresults extends BaseController
      */
     public function studentCheckRecords()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department', 'student_id'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'student_id'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['student_id'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入学号！';
+            return json($return_data);
         }
 
         // 查询条件
@@ -225,14 +275,14 @@ class Checkresults extends BaseController
         if ($record) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示查寝记录';
+            $return_data['msg'] = '显示查寝记录!';
             $return_data['data'] = $record;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无查寝记录';
+            $return_data['msg'] = '暂无查寝记录!';
 
             return json($return_data);
         }
@@ -243,12 +293,28 @@ class Checkresults extends BaseController
      */
     public function studentViewDetails()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department', 'start_time', 'student_id'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'start_time', 'student_id'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['start_time'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入开始时间！';
+            return json($return_data);
+        }else if(empty($_POST['student_id'])){
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入学号！';
+            return json($return_data);
         }
 
         // 查询条件
@@ -270,14 +336,14 @@ class Checkresults extends BaseController
         if ($record) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示查寝记录';
+            $return_data['msg'] = '显示查寝记录!';
             $return_data['data'] = $record;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无该天的查寝记录';
+            $return_data['msg'] = '无该天的查寝记录!';
 
             return json($return_data);
         }

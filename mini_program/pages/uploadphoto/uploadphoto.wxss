@@ -92,6 +92,7 @@ input {
   position: absolute;
   top: 55%;
   left: 10%;
+  color: white;
 }
 
 .de image{

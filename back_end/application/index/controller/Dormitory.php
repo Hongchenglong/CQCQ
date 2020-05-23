@@ -11,12 +11,23 @@ class Dormitory extends BaseController
      */
     public function examine()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department', 'block'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'block'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['block'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍楼！';
+            return json($return_data);
         }
 
         // 查询条件
@@ -36,14 +47,14 @@ class Dormitory extends BaseController
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '查看成功';
+            $return_data['msg'] = '查看成功！';
             $return_data['data'] = $result;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无该区的宿舍信息';
+            $return_data['msg'] = '无该区的宿舍信息！';
 
             return json($return_data);
         }
@@ -54,12 +65,38 @@ class Dormitory extends BaseController
      */
     public function insert()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['sex'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入性别！';
+            return json($return_data);
+        } else if (empty($_POST['block'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍楼！';
+            return json($return_data);
+        } else if (empty($_POST['room'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍号！';
+            return json($return_data);
+        } else if (empty($_POST['studentId'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入学生号！';
+            return json($return_data);
         }
 
         // 查询宿舍
@@ -83,12 +120,12 @@ class Dormitory extends BaseController
         if ($dorm) {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '该宿舍已存在';
+            $return_data['msg'] = '该宿舍已存在！';
             return json($return_data);
         } else if ($student) {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '学号' . $_POST['studentId'] . '已存在';
+            $return_data['msg'] = '学号' . $_POST['studentId'] . '已存在！';
 
             return json($return_data);
         } else {
@@ -126,12 +163,38 @@ class Dormitory extends BaseController
      */
     public function delete()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['sex'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入性别！';
+            return json($return_data);
+        } else if (empty($_POST['block'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍楼！';
+            return json($return_data);
+        } else if (empty($_POST['room'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍号！';
+            return json($return_data);
+        } else if (empty($_POST['studentId'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入学生号！';
+            return json($return_data);
         }
 
         // 删除宿舍
@@ -164,13 +227,13 @@ class Dormitory extends BaseController
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '删除成功';
+            $return_data['msg'] = '删除成功!';
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '没有可删除的宿舍';
+            $return_data['msg'] = '没有可删除的宿舍!';
 
             return json($return_data);
         }
@@ -181,13 +244,19 @@ class Dormitory extends BaseController
      */
     public function getBlock()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
+        // $parameter = ['grade', 'department'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } 
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
@@ -203,14 +272,14 @@ class Dormitory extends BaseController
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '成功获取区号';
+            $return_data['msg'] = '成功获取区号!';
             $return_data['data'] = $result;
 
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无区号';
+            $return_data['msg'] = '暂无区号!';
             return json($return_data);
         }
     }
