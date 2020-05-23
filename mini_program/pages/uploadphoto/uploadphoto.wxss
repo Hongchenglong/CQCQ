@@ -35,6 +35,24 @@ textarea {
 
 }
 
+.foot{
+  width: 90%;
+  bottom: 0rpx;
+  position: fixed;
+  color: #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+}
+
+
+.tips{
+  bottom: 0rpx;
+  position: fixed;
+  text-align: center;
+}
+
 .uploadImg {
   width: 330rpx;
   height: 330rpx;
@@ -74,6 +92,7 @@ input {
   position: absolute;
   top: 55%;
   left: 10%;
+  color: white;
 }
 
 .de image{

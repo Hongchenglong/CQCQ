@@ -1,5 +1,5 @@
 // pages/teacher_mine/teacher_mine.js
-const { $Message } = require('../../dist/base/index');
+//const { $Message } = require('../../dist/base/index');
 
 Page({
 
