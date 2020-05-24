@@ -44,6 +44,7 @@ Page({
     } else {
       wx.request({
         data: {
+          id: getApp().globalData.user.id,
           phone: this.data.phone,
         },
         'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/sendMessage',
@@ -99,6 +100,7 @@ Page({
 
   //获取验证码
   getVerificationCode() {
+    var _this = this;
     this.getCode();
     if (getApp().globalData.Flag == 1) {
       _this.setData({
