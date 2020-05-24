@@ -28,7 +28,7 @@
 
 			<i-panel>
 			<!--选择宿舍号-->
-			<i-input value="{{ room }}" type="number" title="宿舍号：" autofocus placeholder="宿舍号" maxlength="9" bind:change="bindKeyInput6" />		
+			<i-input value="{{ room }}" type="number" title="宿舍号：" placeholder="宿舍号" maxlength="9" bind:change="bindKeyInput6" />		
 		</i-panel>
 	</view>
 </view>
