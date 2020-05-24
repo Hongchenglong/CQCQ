@@ -6,7 +6,12 @@ Page({
     pics: [],
     isShow: true
   },
-
+  Img:function(){
+    var that = this;
+    var imgSrc= getApp().globalData.imgSrc;
+    upload(that, imgSrc);
+    
+  },
   /**上传图片 */
   uploadImage: function () {
     var that = this;
@@ -17,7 +22,8 @@ Page({
       sourceType: ['album', 'camera'],
       success: function (res) {
         var imgSrc = res.tempFilePaths;
-        upload(that, imgSrc); //连接接口 函数
+        getApp().globalData.imgSrc = imgSrc
+        // upload(that, imgSrc); //连接接口 函数
         pics.push(imgSrc);
         if (pics.length >= 1) {
           that.setData({
@@ -27,7 +33,9 @@ Page({
         that.setData({
           pics: pics
         })
+        
       },
+     
     })
 
   },
