@@ -27,20 +27,20 @@ class Getinfo extends BaseController
                 ->select();
 
             $getRoom = Db('dorm')
-                ->field('student_id, block, room, dorm_num')
+                ->field('id, student_id, block, room, dorm_num')
                 ->where(['student_id' => $_POST['id']])
                 ->select();
 
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '获取数据成功';
+            $return_data['msg'] = '获取数据成功！';
             $return_data['data']['stuInfo'] = $getStuInfo;
             $return_data['data']['roomInfo'] = $getRoom;
             return json($return_data);
         } else { //辅导员
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '获取数据成功';
+            $return_data['msg'] = '获取数据成功！';
             $return_data['data'] = $get;
             return json($return_data);
         }

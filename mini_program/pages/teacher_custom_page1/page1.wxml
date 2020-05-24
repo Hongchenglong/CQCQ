@@ -7,7 +7,7 @@
 			<!-- 栋 -->
 			<view class='selected' bindtap='bindShowMsg'>
 				<text>{{Block}}</text>
-				<image src='/images/xialajiantou.png' class="two_jt1"></image>
+				<image src='https://oeong.xyz/cqcq/public/images/xialajiantou.png' class="two_jt1"></image>
 			</view>
 			<!-- 下拉需要显示的列表-->
 			<view class="two_select_box_1" wx:if="{{select}}" hidden="{{hiddenName3}}">
@@ -24,8 +24,8 @@
 			<view class='text_3'>室</view>		
 
 			<!-- 按钮 -->
-			<image src='/images/jiahao.png' class="add" bindtap="buttonaddList1"></image>
-			<image src='/images/qingkong2.png' class="clear" bindtap="buttonclearList"></image>
+			<image src='https://oeong.xyz/cqcq/public/images/jiahao.png' class="add" bindtap="buttonaddList1"></image>
+			<image src='https://oeong.xyz/cqcq/public/images/qingkong2.png' class="clear" bindtap="buttonclearList"></image>
 		</view>
 	</view>
 
@@ -40,11 +40,11 @@
 				<view class="td">{{item.block}}</view>
 				<view class="td">{{item.room}}</view>
 				<view class="td td1">
-					<image src='/images/jianhao.png' data-idx='{{index}}' class="sub" bindtap="buttonsubList"></image>
+					<image src='https://oeong.xyz/cqcq/public/images/jianhao.png' data-idx='{{index}}' class="sub" bindtap="buttonsubList"></image>
 				</view>
 			</view>
 		</block>
 	</view>
 	<button style="width:60%;border-radius: 30px;" class="submit" bindtap='buttonsubmit'>
-	<image src="/images/确定.png"></image><text decode="{{true}}">&nbsp;确认</text></button>
+	<image src="https://oeong.xyz/cqcq/public/images/sure.png"></image><text decode="{{true}}">&nbsp;确认</text></button>
 </view>

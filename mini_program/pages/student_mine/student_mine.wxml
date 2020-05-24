@@ -1,7 +1,7 @@
 <!--pages/student_mine/student_mine.wxml-->
 <view>
 	<view class="up">
-		<image src="../../images/personBgImage.jpg" mode="widthFix" style="" class="back"></image>
+		<image src="https://oeong.xyz/cqcq/public/images/personBgImage.jpg" mode="widthFix" style="" class="back"></image>
 		<view class="inner">
 			<view class="in">
 				<!--头像-->
@@ -39,7 +39,7 @@
 		</i-cell-group>
 		<view class="exit">
 			<button hover-class="other-button-hover" style="width: 90%;border-radius: 30px;" bindtap="bindViewTap"> 
-			<image src="/images/退出登录.png"></image><text decode="{{true}}">&nbsp;退出登录</text> </button>
+			<image src="https://oeong.xyz/cqcq/public/images/exit.png"></image><text decode="{{true}}">&nbsp;退出登录</text> </button>
 		</view>
 	</view>
 </view>
