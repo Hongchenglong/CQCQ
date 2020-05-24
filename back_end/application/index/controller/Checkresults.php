@@ -98,7 +98,7 @@ class Checkresults extends BaseController
         $where['s.department'] = $_POST['department'];
         // dump($_POST['date']);
         $record = Db::table('record')
-            ->field('start_time')   // 指定字段
+            ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
