@@ -51,6 +51,7 @@ App({
     room:'',
     department:'',
     de:'',
+    imgSrc:'',
     userInfo: null,
     multiArray: [
       ['中一', '中二', '东一' ,'东二'],
