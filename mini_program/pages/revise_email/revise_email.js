@@ -48,6 +48,7 @@ Page({
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         data: {
+          id: getApp().globalData.user.id,
           email: this.data.email,
         },
         success: function (res) { 
