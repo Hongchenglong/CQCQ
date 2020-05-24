@@ -54,3 +54,10 @@ input{
   height: 60rpx;
 }
 
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 10px #7EC4F8 inset; 
+}
+

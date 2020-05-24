@@ -42,13 +42,14 @@ Page({
       return false;
     } else {
       wx.request({
-        data: {
-          email: this.data.email,
-        },
-        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/sendMail',
+        url: getApp().globalData.server + '/cqcq/public/index.php/index/change/sendMail',
         method: "POST",
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          id: getApp().globalData.user.id,
+          email: this.data.email,
         },
         success: function (res) { 
           if (res.data.error_code != 0) {
@@ -163,7 +164,7 @@ Page({
         'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/verifyModifyEmail',
         //发给服务器的数据
         data: {
-          id: 211706001,
+          id: getApp().globalData.user.id,
           email: this.data.email,
           captcha: this.data.iscode,
         },
@@ -186,9 +187,16 @@ Page({
               showCancel: false,
               success:function(res) {},
               complete: function(res){
-              	wx.navigateTo({
-                  url: '../student_mine/student_mine',
-              	})
+                if(getApp().globalData.user.user == 'student') {
+                  wx.navigateTo({
+                    url: '../student_mine/student_mine',
+                  })
+                }
+              	else {
+                  wx.navigateTo({
+                    url: '../teacher_mine/teacher_mine',
+                  })
+                }
               }
             })
           }

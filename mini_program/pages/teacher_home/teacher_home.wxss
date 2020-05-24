@@ -11,8 +11,8 @@
 }
 .menu{
   width: 520rpx;
-  height: 200rpx;
-  margin: 60rpx auto;
+  height: 220rpx;
+  margin: 15% auto;
 }
 .one{
   width: 100%;

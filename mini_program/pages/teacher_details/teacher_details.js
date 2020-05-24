@@ -11,6 +11,18 @@ Page({
     grade:''
   },
 
+  //点击图片预览
+  clickImg: function(e){
+    var imgUrl = e.target.dataset.photo;
+    wx.previewImage({
+      urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
+      current: '', // 当前显示图片的http链接，默认是第一个
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
   //获取全部记录
   onLoad: function(options) {
     this.setData({

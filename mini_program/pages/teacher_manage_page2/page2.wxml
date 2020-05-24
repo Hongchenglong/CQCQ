@@ -28,21 +28,30 @@
 
 			<i-panel>
 			<!--选择宿舍号-->
-			<i-input value="{{ room }}" type="number" title="宿舍号：" autofocus placeholder="宿舍号" maxlength="9" bind:change="bindKeyInput6" />		
+			<i-input value="{{ room }}" type="number" title="宿舍号：" placeholder="宿舍号" maxlength="9" bind:change="bindKeyInput6" />		
 		</i-panel>
 	</view>
 </view>
 <!--点击添加宿舍-->
 <view class="de">
 	<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonaddList'>
-		<image src="https://oeong.xyz/cqcq/public/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
+		<image src="/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
+		<!--https://oeong.xyz/cqcq/public/images/click2.png-->
 	</button>
 </view>
 
+<!-- 分割线 -->
+<view class="line">
+	<view class="view1"></view>
+	<view>新增宿舍</view>
+	<view class="view2"></view>
+</view>
+
+
 <view class="table">
 	<view class="tr bg-w">
-		<view class="th" style="width:12%">年级</view>
-		<view class="th" style="width:25%">系别</view>
+		<view class="th" style="width:10%">年级</view>
+		<view class="th" style="width:30%">系别</view>
 		<view class="th" style="width:23%">学号</view>
 		<view class="th" style="width:10%">性别</view>
 		<view class="th" style="width:10%">楼号</view>
@@ -51,8 +60,8 @@
 	</view>
 	<block wx:for="{{listData}}" wx:key="index">
 		<view class="tr">
-			<view class="td" style="width:12%">{{item.grade}}</view>
-			<view class="td" style="width:25%">{{item.dep}}</view>
+			<view class="td" style="width:10%">{{item.grade}}</view>
+			<view class="td" style="width:30%">{{item.dep}}</view>
 			<view class="td" style="width:23%">{{item.no}}</view>
 			<view class="td" style="width:10%">{{item.sex}}</view>
 			<view class="td" style="width:10%">{{item.block}}</view>
