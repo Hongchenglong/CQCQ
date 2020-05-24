@@ -1,0 +1,48 @@
+<!--pages/teacher_mine/teacher_mine.wxml-->
+<view>
+	<view class="up">
+		<image src="https://oeong.xyz/cqcq/public/images/personBgImage.jpg" mode="widthFix" style="" class="back"></image>
+		<view class="inner">
+			<view class="in">
+				<!--头像-->
+				<view class='avatar'>
+					<open-data type="userAvatarUrl"></open-data>
+				</view>
+				<!--昵称-->
+				<text class="head" >{{username}}</text>
+				<text class="head" decode="{{true}}">{{grade}}&nbsp;{{department}}</text> 
+			</view>
+		</view>
+	</view>
+	<view class="down">
+		<i-cell-group>
+			<!--修改信息-->
+			<i-cell title="修改信息" is-link url="../teacher_information/teacher_information" style="height:10rpx">
+				<i-icon slot="icon" type="brush_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+			<!--修改密码-->
+			<i-cell title="修改密码" is-link url="../revise_password/revise_password">
+				<i-icon slot="icon" type="lock_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+			<!--修改邮箱-->
+			<i-cell title="修改邮箱" is-link url="../revise_email/revise_email">
+				<i-icon slot="icon" type="mail_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+			<!--修改手机-->
+			<i-cell title="修改手机" is-link url="../revise_phone/revise_phone">
+				<i-icon slot="icon" type="mobilephone_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+			<!--关于-->
+			<i-cell title="关于" is-link url="../revise_about/revise_about">
+				<i-icon slot="icon" type="prompt_fill" size="28" color="#7EC4F8" />
+			</i-cell>
+		</i-cell-group>
+		<view class="exit">
+			<button hover-class="other-button-hover" style="width: 90%;border-radius: 30px;" bindtap="bindViewTap"> 
+			<image src="https://oeong.xyz/cqcq/public/images/exit.png"></image><text decode="{{true}}">&nbsp;退出登录</text> </button>
+		</view>
+	</view>
+</view>
+<view class='placeholder-view'></view>
+<!--底部导航栏-->
+<include src="/pages/teacher_bottom/teacher_bottom" />

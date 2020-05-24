@@ -6,20 +6,97 @@ use \think\Db;
 
 class Dormitory extends BaseController
 {
+    /**
+     * 查看宿舍
+     */
+    public function examine()
+    {
+        // $parameter = ['grade', 'department', 'block'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['block'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍楼！';
+            return json($return_data);
+        }
 
+        // 查询条件
+        $where = array();
+        $where['block'] = $_POST['block'];
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
 
+        $result = Db::table('dorm')
+            ->field('block, room')   // 指定字段
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->select();
+
+        // dump($result);
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '查看成功！';
+            $return_data['data'] = $result;
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '无该区的宿舍信息！';
+
+            return json($return_data);
+        }
+    }
 
     /**
      * 添加宿舍
      */
     public function insert()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['grade', 'department', 'sex', 'block', 'room'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['sex'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入性别！';
+            return json($return_data);
+        } else if (empty($_POST['block'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍楼！';
+            return json($return_data);
+        } else if (empty($_POST['room'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍号！';
+            return json($return_data);
+        } else if (empty($_POST['studentId'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入学生号！';
+            return json($return_data);
         }
 
         // 查询宿舍
@@ -27,102 +104,182 @@ class Dormitory extends BaseController
         $where['sex'] = $_POST['sex'];
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
-        $result = db('dorm')->where($where)->find();
-        
-        if ($result) {
+        $where['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
+
+        // 检验宿舍号是否已存在
+        $dorm = Db::table('dorm')
+            ->field('dorm.id, dorm_num')   // 指定字段
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')->where($where)->find();
+
+        // 检验学号是否已被注册
+        $where = array();
+        $where['id'] = $_POST['studentId'];
+        $student = db('student')->where($where)->find();
+
+        if ($dorm) {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '该宿舍已存在';
+            $return_data['msg'] = '该宿舍已存在！';
+            return json($return_data);
+        } else if ($student) {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '学号' . $_POST['studentId'] . '已存在！';
+
             return json($return_data);
         } else {
-            db('dorm')->where($where)->insert();
+            // 添加宿舍
+            $data = array();
+            $data['room'] = $_POST['room'];
+            $data['block'] = $_POST['block'];
+            $data['student_id'] = $_POST['studentId'];
+            $data['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
+            $dorm = db('dorm')->insert($data);
+
+            // 如果尚未注册，则注册
+            $data = array();
+            $data['id'] = $_POST['studentId'];
+            $data['sex'] = $_POST['sex'];
+            $data['username'] = $_POST['block'] . '#' . $_POST['room'];
+            $data['grade'] =  $_POST['grade'];
+            $data['department'] = $_POST['department'];
+            // 密码经过md5函数加密，得到32位字符串
+            $data['password'] = md5($data['id']);
+            $student = db('student')->insert($data);
+
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '添加成功';
-            return json($return_data);
-        }
-
-    }
-
-
-    /**
-     * 随机抽取宿舍
-     */
-    public function draw()
-    {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['numOfBoys', 'numOfGirls'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
-        }
-        $numOfBoys = $_POST['numOfBoys'];
-        $numOfGirls = $_POST['numOfGirls'];
-
-        // query方法用于执行SQL查询操作
-        // 获取宿舍所有人数（但暂时没考虑到系别和年级）
-        $boy = Db::query("select dormNumber from dorm where sex = '男' order by rand() limit " . $numOfBoys);
-        $girl = Db::query("select dormNumber from dorm where sex = '女' order by rand() limit " . $numOfGirls);
-
-
-
-
-        if ($girl && $boy) {
-            for ($i = 0; $i < $numOfBoys; $i++) {
-                $boy[$i]['randNumber'] = rand(1, 10000);
-            }
-            for ($i = 0; $i < $numOfGirls; $i++) {
-                $girl[$i]['randNumber'] = rand(1, 10000);
-            }
-
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '抽签成功';
-            $return_data['data']['dorm'] = array_merge_recursive($boy, $girl);
-
-            return json($return_data);
-        } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '抽签失败';
+            $return_data['data']['dorm'] = $_POST['block'] . '#' . $_POST['room'];
+            $return_data['data']['student'] = $_POST['studentId'];
 
             return json($return_data);
         }
     }
 
-
     /**
-     * 抽取指定宿舍
+     * 添加宿舍后的删除宿舍
      */
-    public function customize()
+    public function delete()
     {
-        // 校验参数是否存在
-        $parameter = array();
-        $parameter = ['block', 'room'];
-        $result = $this->checkForExistence($parameter);
-        if ($result) {
-            return $result;
+        // $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['sex'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入性别！';
+            return json($return_data);
+        } else if (empty($_POST['block'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍楼！';
+            return json($return_data);
+        } else if (empty($_POST['room'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍号！';
+            return json($return_data);
+        } else if (empty($_POST['studentId'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入学生号！';
+            return json($return_data);
         }
 
-        // 查询宿舍
+        // 删除宿舍
         $where = array();
-        $where['dormNumber'] = $_POST['block'] . '#' . $_POST['room'];
-        $result = db('dorm')->where($where)->find();
+        $where['room'] = $_POST['room'];
+        $where['block'] = $_POST['block'];
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        // $result = Db::table('dorm')
+        //     ->alias('d')    // 别名
+        //     ->join('student s', 's.id = d.student_id')
+        //     ->where($where)
+        //     ->delete();
+        $result = Db::execute(
+            "delete d from dorm d join student s on s.id = d.student_id 
+            where s.grade=:grade and s.department=:department and d.room=:room and d.block=:block",
+            ['grade' => $where['grade'], 'department' => $where['department'], 'room' => $where['room'], 'block' => $where['block']]
+        );
+
+        // 删除账号
+        $where = array();
+        $where['sex'] = $_POST['sex'];
+        $where['id'] = $_POST['studentId'];
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $result = Db::table('student')
+            ->where($where)
+            ->delete();
 
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
-            $return_data['msg'] = '指定成功';
-            $return_data['data']['dormNumber'] = $result['dormNumber'];
-            $return_data['data']['randNumber'] = rand(1, 10000);    // [1, 10000]的随机数
+            $return_data['msg'] = '删除成功!';
+
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无此宿舍';
+            $return_data['msg'] = '没有可删除的宿舍!';
 
+            return json($return_data);
+        }
+    }
+
+    /**
+     * 获取区号
+     */
+    public function getBlock()
+    {
+        // $parameter = ['grade', 'department'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } 
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $result = db('dorm')
+            ->field('block')
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->distinct(true)
+            ->where($where)
+            ->select();
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '成功获取区号!';
+            $return_data['data'] = $result;
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '暂无区号!';
             return json($return_data);
         }
     }

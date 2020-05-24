@@ -1,0 +1,21 @@
+<!--pages/email_verify/email_verify.wxml-->
+<view class="wrap">
+	<view class="head">
+
+		<view class='one'>
+			<image src="https://oeong.xyz/cqcq/public/images/mail.png"></image>
+			<input type="text" placeholder='请输入邮箱' bindinput="emailInput" />
+		</view>
+
+		<view class='two'>
+			<image src="/images/captcha.png"></image>
+			<input style="width:40%"  placeholder='请输入验证码' bindinput="numInput" />
+			<button style="border-radius: 5px;width:40%" class='num' bindtap="onClick" disabled='{{disabled}}'>{{codename}}</button>
+		</view>
+	</view>
+
+	<button class="de" style="border-radius: 30px;width:80%">
+		<image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text style="color:white" decode="{{true}}" bindtap="onInput">&nbsp;下一步</text>
+	</button>
+
+</view>

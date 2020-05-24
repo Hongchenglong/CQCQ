@@ -1,0 +1,30 @@
+<!--pages/teacher_dorm/teacher_dorm.wxml-->
+<view>
+	<view class="head">
+		<image class="logo" src='https://oeong.xyz/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
+	</view>
+	<view class="menu">
+  <!--点击跳转至宿舍查看-->
+		<button class="one" style="width:100%" bindtap="dormCheck">
+			<view class="whole">
+				<view class="pic">
+					<image class="pic1" src='https://oeong.xyz/cqcq/public/images/scanMagnifier.png' mode="aspectFit"></image>
+				</view>
+				<text decode="{{true}}">&nbsp;&nbsp;&nbsp;宿舍查看</text>
+			</view>
+		</button>
+	</view>
+	<view class="menu">
+  <!--点击跳转至宿舍管理-->
+		<button class="two" style="width:100%" bindtap="dormManage">
+			<view class="whole">
+				<view class="pic">
+					<image class="pic1" src='https://oeong.xyz/cqcq/public/images/alter.png' mode="aspectFit"></image>
+				</view>
+				<text decode="{{true}}">&nbsp;&nbsp;&nbsp;宿舍管理</text>
+			</view>
+		</button>
+	</view>
+</view>
+<!--底部导航栏-->
+<include src="/pages/teacher_bottom/teacher_bottom" />

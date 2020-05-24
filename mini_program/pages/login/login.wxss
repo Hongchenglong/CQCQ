@@ -13,7 +13,6 @@ page{
 
 .wrap{
   width: 80%;
-  height: 65%;
   opacity: 0.64;
   background-color:rgb(240, 238, 238);
   position: absolute;
@@ -23,59 +22,74 @@ page{
 }
 
 .head{
-  width: 30%;
-  height: 23%;
-  margin-top: 9%;
-  margin-left: 35%;
-  margin-right: 35%;
-}
-
-.Wuser,.Wpass{
-  width: 90%;
-  height: 12%;
-  margin-top: 9%;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: white;
+  /*width: 220rpx;
+  height: 220rpx;*/
   display: flex;
-  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding-top: 7%;
+  margin-bottom: 7%;
 }
 
-.Puser, .Ppass{
-  width:9%;
-  height:54%;
-  line-height: 50%;
-  margin-left: 3%;
-  margin-top: 3%;
-  margin-bottom: 3%;
+.user{
+  background-color: white;
+  width: 90%;
+  height: 28%;
+  margin: 0 auto;
 }
 
-.user ,.pass{
-  width: 100%;
+.row{
+  height: 50%;
+  display: flex;
+  align-items: center;
+  /*justify-content: center;*/
+  margin-left: 7%;
+}
+
+input{
+  margin-left: 7%;
   height: 100%;
 }
 
-.inputs{
-  width: 80%;
-  height: 78%;
-  line-height: 78%;
-  background-color: #FFFFFF;
-  display: flex;
-  margin-top: 1%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  color: #888888;
-  font-size: 32rpx;
+.foot{
+  margin:9% auto ;
 }
 
 button{
   word-spacing:50rpx;
   background-color: #7EC4F8;
-  margin-top: 9%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-hover{
   background-color:rgb(113, 190, 254);
 }
+
+.forgetPass{
+  margin-top: 2%;
+  color: #777 ;
+  font-size: 32rpx;
+  float: right;
+  margin-right: 4%;
+  display: flex;
+}
+
+.warn{
+  width: 90%;
+  bottom: 0rpx;
+  position: fixed;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+  text-align: center;
+}
+
+
+
+
+

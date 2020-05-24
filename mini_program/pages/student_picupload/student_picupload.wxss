@@ -1,0 +1,51 @@
+/* pages/photo/photo.wxss */
+.head{
+  width: 300rpx;
+  height: 260rpx;
+  margin: 100rpx auto;
+}
+
+image{
+  height: 100%;
+  width: 100%;
+}
+
+button{
+  margin: 100rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #7EC4F8;
+  box-shadow: 2px 2px gray;
+  color: #fff;
+  font-size: 40rpx;
+}
+
+button image{
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.plain-hover{
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 10px #7EC4F8 inset; 
+}
+
+.foot{
+  width: 90%;
+  bottom: 0rpx;
+  position: fixed;
+  color: #777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+}
+
+
+.tips{
+  bottom: 0rpx;
+  position: fixed;
+  text-align: center;
+}
