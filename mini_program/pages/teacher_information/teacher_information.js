@@ -1,6 +1,12 @@
 var app = getApp();
 Page({
-
+  popSuccessTest2: function () {
+    wx.showToast({
+      title: '此处无法修改！请返回信息主页修改！',
+      icon: 'none',
+      duration: 2000, //停留时间
+    })
+  },
   //昵称：接口
   onShow: function (options) {
     var _this = this;
@@ -15,11 +21,20 @@ Page({
       },
       success: function (res) {
         getApp().globalData.user = res.data.data;
+        if(getApp().globalData.user.phone == null){
+          getApp().globalData.user.phone = "无";
+        }
+        if(getApp().globalData.user.email == null){
+          getApp().globalData.user.email = "无";
+        }
         _this.setData({
           gr1: getApp().globalData.user.username,
           gr2: getApp().globalData.user.grade,
           gr3: getApp().globalData.user.department,
+          gr6: getApp().globalData.user.phone,
+          gr7: getApp().globalData.user.email,
         })
+
       }
     })
   },

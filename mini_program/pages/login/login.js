@@ -73,7 +73,8 @@ Page({
                 }
               }*/
             })
-          } else if (res.data.error_code == 0) {
+          } 
+          else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
             console.log(getApp().globalData.user.user)
             if (getApp().globalData.user.user == 'counselor') {
@@ -156,8 +157,10 @@ Page({
         that.setData({
           height: clientHeight * ratio
         });
+        getApp().globalData.height = that.data.height
         //getApp().globalData.height=that.data.height
-        //console.log(that.data.height)
+        console.log(that.data.height)
+        console.log(getApp().globalData.height)
         //console.log(that.data.height*0.7)
       }
     });

@@ -5,11 +5,13 @@
 <view class="Section">
 
 	<view class="new" bindtap="buttonchange">
-		<image src="https://oeong.xyz/cqcq/public/images/right.png" style="width:23px;height:23px"></image>
+		<image src="/images/right.png" style="width:23px;height:23px"></image>
+		<!--https://oeong.xyz/cqcq/public/images/right.png-->
 		<text decode="{{true}}">&nbsp;自定义</text>
 	</view>
 	<view class="Date">
-		<image src="https://oeong.xyz/cqcq/public/images/date.png" style="width:23px;height:23px"></image>
+		<image src="/images/date.png" style="width:23px;height:23px"></image>
+		<!--https://oeong.xyz/cqcq/public/images/date.png-->
 		<text decode="{{true}}">&nbsp;当前日期：</text>{{date_1}} {{weekday}}
 	</view>
 	<view class="Date">
@@ -49,5 +51,6 @@
 <view class="but">
 	<button bindtap='buttonListener' class="submit" style="width:40%;border-radius:30px ;" hover-class="plain-hover">
 
-  <image src="https://oeong.xyz/cqcq/public/images/queren.png" class="pic"></image><text decode="{{true}}">&nbsp;确认</text></button>
+  <image src="/images/queren.png" class="pic"></image><text decode="{{true}}">&nbsp;确认</text></button>
+	<!--https://oeong.xyz/cqcq/public/images/queren.png-->
 </view>

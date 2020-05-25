@@ -58,9 +58,9 @@
 }
 
 .second {
-  margin: 20rpx;
+  margin:40rpx;
   height: 200rpx;
-  background-color: rgba(41, 193, 86, 0.33);
+  background-color:#e1e1e1;
   box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4);
   border: 2rpx solid rgba(255, 255, 255, 0);
 }
