@@ -24,7 +24,7 @@ class Draw extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入系！';
             return json($return_data);
-        } 
+        }
 
         $numOfBoys = $_POST['numOfBoys'];
         $numOfGirls = $_POST['numOfGirls'];
@@ -111,7 +111,7 @@ class Draw extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入宿舍号！';
             return json($return_data);
-        } 
+        }
 
         $dormSuc = array();
         $dormFal = array();
@@ -202,7 +202,15 @@ class Draw extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入随机数！';
             return json($return_data);
-        } 
+        }
+
+
+        // 先查看是否有这个时间段的记录，有则删除
+        $where = array();
+        $where['start_time'] = $_POST['start_time'];
+        $where['end_time'] = $_POST['end_time'];
+        Db::table('record')->where($where)->delete();
+
 
         // 查询条件
         $where = array();
@@ -258,7 +266,7 @@ class Draw extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入开始时间！';
             return json($return_data);
-        } 
+        }
 
         // 查询条件
         $where = array();
@@ -306,7 +314,7 @@ class Draw extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入系！';
             return json($return_data);
-        } 
+        }
 
         $now = date('Y-m-d H:i:s', time());
 
@@ -356,7 +364,7 @@ class Draw extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入系！';
             return json($return_data);
-        } 
+        }
 
         // 查询条件
         $where = array();
@@ -418,7 +426,7 @@ class Draw extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入系！';
             return json($return_data);
-        } 
+        }
 
         // 查询条件
         $where = array();

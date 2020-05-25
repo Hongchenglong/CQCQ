@@ -18,6 +18,12 @@ Page({
   //昵称：接口
   onShow: function (options) {
     var _this = this;
+    if(getApp().globalData.userInfomation.stuInfo[0].phone == null){
+      getApp().globalData.userInfomation.stuInfo[0].phone = "无";
+    }
+    if(getApp().globalData.userInfomation.stuInfo[0].email == null){
+      getApp().globalData.userInfomation.stuInfo[0].email = "无";
+    }
     _this.setData({
       gr1: getApp().globalData.userInfomation.stuInfo[0].username,
       gr2: getApp().globalData.userInfomation.stuInfo[0].grade,

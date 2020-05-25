@@ -5,11 +5,21 @@ Page({
     pics: [],
     isShow: true
   },
-  Img:function(){
+  Img: function () {
     var that = this;
-    var imgSrc= getApp().globalData.imgSrc;
-    upload(that, imgSrc);
-    
+    var imgSrc = getApp().globalData.imgSrc;
+
+    if (imgSrc != '') {
+      upload(that, imgSrc);
+    } else {
+      wx.showToast({
+        title: '照片不能为空',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
+
   },
   /**上传图片 */
   uploadImage: function () {
@@ -32,9 +42,9 @@ Page({
         that.setData({
           pics: pics
         })
-        
+
       },
-     
+
     })
 
   },
@@ -53,9 +63,10 @@ Page({
     }
     that.setData({
       pics: newPics,
+
       isShow: true
     })
-
+    getApp().globalData.imgSrc1 = newPics
   },
 
   /**提交 */

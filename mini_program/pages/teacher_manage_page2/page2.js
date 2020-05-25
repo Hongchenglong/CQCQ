@@ -73,54 +73,69 @@ Page({
     var Sex = this.data.sex;
     var Block = this.data.block;
     var Room = this.data.room;
-  //---------------------------------------------添加到数据库 -------------------------------------------
-    console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/insert')
-    wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/insert',
-      data: {
-        grade: Grade,
-        department: Dep,
-        room: Room,
-        block: Block,
-        sex: Sex,
-        studentId: No
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success(res) {
-        if (res.data.error_code != 0) {
-          wx.showModal({
-            title: "提示：",
-            content: res.data.msg,
-            showCancel: false,
-            success(res) {}
-          })
-        } else if (res.data.error_code == 0) {
-          list.push({'grade': Grade, 'dep': Dep, 'no': No, 'sex': Sex, 'block': Block, 'room': Room})
-          wx.showModal({
-              title: "添加成功！",
-              content: "账号密码默认为学号",
+    if (No.length != 9) {
+      wx.showToast({
+        title: '提示：请输入9位数的学号',
+        icon: 'none',
+        duration: 2000 //持续的时间
+      })
+    } else {
+      //---------------------------------------------添加到数据库 -------------------------------------------
+      console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/insert')
+      wx.request({
+        url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/insert',
+        data: {
+          grade: Grade,
+          department: Dep,
+          room: Room,
+          block: Block,
+          sex: Sex,
+          studentId: No
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success(res) {
+          if (res.data.error_code != 0) {
+            wx.showModal({
+              title: "提示：",
+              content: res.data.msg,
               showCancel: false,
-              success(res) {},
-            }),
-            that.setData({
-              listData: list
-            });
+              success(res) {}
+            })
+          } else if (res.data.error_code == 0) {
+            list.push({
+              'grade': Grade,
+              'dep': Dep,
+              'no': No,
+              'sex': Sex,
+              'block': Block,
+              'room': Room
+            })
+            wx.showModal({
+                title: "添加成功！",
+                content: "账号密码默认为学号",
+                showCancel: false,
+                success(res) {},
+              }),
+              that.setData({
+                listData: list
+              });
+          }
+        },
+        fail: function () {
+          console.log(res)
+          wx.showModal({
+            title: '哎呀～',
+            showCancel: false,
+            content: '网络不在状态呢！',
+            success(res) {},
+          })
         }
-      },
-      fail: function () {
-        console.log(res)
-        wx.showModal({
-          title: '哎呀～',
-          showCancel: false,
-          content: '网络不在状态呢！',
-          success(res) {},
-        })
-      }
-    })
-    //-------------------------------------------------------------------------
+      })
+      //-------------------------------------------------------------------------
+    }
   },
 
   //删除
@@ -128,8 +143,8 @@ Page({
     var that = this;
     var idx = e.currentTarget.dataset.idx;
     var list = that.data.listData;
-    console.log("idx:",idx)
-    console.log("list:",list[idx].no)
+    console.log("idx:", idx)
+    console.log("list:", list[idx].no)
     wx.showModal({
       title: '提示',
       content: '确定要删除这个宿舍吗？',
