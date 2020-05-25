@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+.item7{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .wsui-btn__hover_list {
   opacity: 0.9;
   background: #f7f7f7;
@@ -26,7 +31,13 @@
   color: #888;
 }*/
 
-.detail{
+.detail5,
+.detail4,
+.detail6,
+.detail7,
+.detail8,
+.detail2,
+.detail3{
   font-size: 30rpx;
   position: absolute;
   right: 20rpx;
@@ -35,24 +46,6 @@
   height: 100rpx;
   line-height: 100rpx;
   color: #888;
-}
-
-.picker{
-  height: 100rpx;
-  min-height: 100rpx;
-  width:100%;
-}
-
-.dorm_picker{
-  color: #888;
-  height:100rpx;
-  float:right;
-  margin-right:20rpx;
-}
-
-.dorm_text{
-  width:150rpx;
-  line-height:100rpx;
 }
 
 .line {

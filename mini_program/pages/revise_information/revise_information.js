@@ -4,7 +4,7 @@ Page({
   popSuccessTest: function () {
     wx.showToast({
       title: '不可修改',
-     image:'/images/error.png',
+      image:'/images/error.png',
       duration: 1000, //停留时间
     })
   },
