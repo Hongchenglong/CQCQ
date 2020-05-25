@@ -13,8 +13,9 @@
 		</view>
 	</view>
 
-	<button class="de" style="border-radius: 30px;width:80%" bindtap='save'>
-		<image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text decode="{{true}}">&nbsp;提交</text>
+	<button class="de" style="border-radius: 30px;width:80%" bindtap='save' hover-class="other-button-hover">
+		<image src="/images/click.png"></image><text decode="{{true}}">&nbsp;提交</text>
+		<!--https://oeong.xyz/cqcq/public/images/click.png-->
 	</button>
 
 </view>
