@@ -95,7 +95,12 @@ class Dormitory extends BaseController
         } else if (empty($_POST['studentId'])) {
             $return_data = array();
             $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学生号！';
+            $return_data['msg'] = '请输入学号！';
+            return json($return_data);
+        } else if (strlen($_POST['studentId']) != 9) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入9位数的学号！';
             return json($return_data);
         }
 
