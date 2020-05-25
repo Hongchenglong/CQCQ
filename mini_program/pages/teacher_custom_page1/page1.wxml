@@ -46,5 +46,6 @@
 		</block>
 	</view>
 	<button style="width:60%;border-radius: 30px;" class="submit" bindtap='buttonsubmit'>
-	<image src="https://oeong.xyz/cqcq/public/images/sure.png"></image><text decode="{{true}}">&nbsp;确认</text></button>
+	<image src="/images/sure.png"></image><text decode="{{true}}">&nbsp;确认</text></button>
+	<!--https://oeong.xyz/cqcq/public/images/sure.png-->
 </view>

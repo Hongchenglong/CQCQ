@@ -1,6 +1,6 @@
 <view class="line"></view>
-<view class="item" bindtap="modalinput">
-	<view class="title" >昵称</view>
+<view class="item" bindtap="modalinput" hover-class='wsui-btn__hover_list'>
+	<view class="title">昵称</view>
 	<view class="detail4">
 		<text> {{gr1}}></text>
 	</view>
@@ -12,7 +12,7 @@
 
 <view class="line"></view>
 
-<view class="item" bindtap="popSuccessTest">
+<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
 	<view class="title">年级</view>
 	<text></text>
 	<view class="detail5">
@@ -23,7 +23,7 @@
 
 <view class="line"></view>
 
-<view class="item" bindtap="popSuccessTest">
+<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
 	<view class="title">系</view>
 	<view class="detail6">
 		<text> {{gr3}}></text>
@@ -32,7 +32,7 @@
 
 <view class="line"></view>
 
-<view class="item" bindtap="popSuccessTest">
+<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
 	<view class="title">性别</view>
 	<view class="detail8">
 		<text> {{gr5}}></text>
@@ -40,8 +40,7 @@
 </view>
 
 <view class="line"></view>
-
-<view class="item7">
+<view class="item7" hover-class='wsui-btn__hover_list'>
 	<view class="title">宿舍</view>
 	<view class="detail7">
 		<picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
@@ -50,4 +49,18 @@
 	</view>
 </view>
 
+<view class="line"></view>
+<view class="item7" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
+	<view class="title">手机号</view>
+	<view class="detail2">
+		<text> {{gr6}}></text>
+	</view>
+</view>
+<view class="line"></view>
+<view class="item7" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
+	<view class="title">邮箱</view>
+	<view class="detail3">
+		<text> {{gr7}}></text>
+	</view>
+</view>
 <view class="line"></view>

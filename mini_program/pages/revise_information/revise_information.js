@@ -4,8 +4,15 @@ Page({
   popSuccessTest: function () {
     wx.showToast({
       title: '不可修改',
-      image: '/images/error.png',
+      image:'/images/error.png',
       duration: 1000, //停留时间
+    })
+  },
+  popSuccessTest2: function () {
+    wx.showToast({
+      title: '此处无法修改！请返回信息主页修改！',
+      icon: 'none',
+      duration: 2000, //停留时间
     })
   },
   //昵称：接口
@@ -18,6 +25,8 @@ Page({
       gr5: getApp().globalData.userInfomation.stuInfo[0].sex,
       block: getApp().globalData.userInfomation.roomInfo[0].block,
       room: getApp().globalData.userInfomation.roomInfo[0].room,
+      gr6: getApp().globalData.userInfomation.stuInfo[0].phone,
+      gr7: getApp().globalData.userInfomation.stuInfo[0].email,
     })
     getApp().globalData.multiIndex[0] = getApp().globalData.multiArray[0].indexOf(_this.data.block);
     getApp().globalData.multiIndex[1] = getApp().globalData.multiArray[1].indexOf(_this.data.room[0]);
@@ -67,7 +76,7 @@ Page({
             title: '提示！',
             content: res.data.msg,
             showCancel: false,
-            success: function (res) {}
+            success: function (res) { }
           })
         } else if (res.data.error_code == 0) {
           wx.showModal({
@@ -128,7 +137,7 @@ Page({
             title: '提示！',
             content: res.data.msg,
             showCancel: false,
-            success: function (res) {}
+            success: function (res) { }
           })
         } else if (res.data.error_code == 0) {
           that.setData({
@@ -166,50 +175,5 @@ Page({
     })
   },
 
-  //年级
-  data2: {
-    hiddenmodalput2: true,
-    gr2: '',
-    grade: '',
-    gr: ''
-    //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框 
-  },
-  //点击按钮弹窗指定的hiddenmodalput弹出框
-  modalinput2: function () {
-    this.setData({
-      config1: {
-        tipsshow: "block"
-      },
-      hiddenmodalput2: !this.data2.hiddenmodalput2
-    });
-  },
-  //取消按钮 
-  cancel2: function () {
-    this.setData({
-      config1: {
-        tipsshow: "none"
-      },
-      hiddenmodalput2: true,
-      grade: ''
-    });
-  },
-  //确认 
-  confirm2: function (e) {
-    getApp().globalData.grade = this.data.gr,
-      this.setData({
-        config1: {
-          tipsshow: "none"
-        },
-        hiddenmodalput2: true,
-        grade: '',
-        gr2: getApp().globalData.grade,
-      });
-  },
-  getInput2: function (e) {
-    getApp().globalData.grade = this.data.gr2
-    const that = this;
-    that.setData({
-      gr: e.detail.value
-    })
-  },
+
 })
