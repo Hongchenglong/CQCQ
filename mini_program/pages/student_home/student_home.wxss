@@ -14,8 +14,9 @@
 
 .menu{
   width: 520rpx;
-  height: 200rpx;
-  margin: 60rpx auto;
+  height: 220rpx;
+  margin: 15% auto;
+  /*border: 1rpx solid;*/
 }
 
 .one{
@@ -49,6 +50,11 @@
 .pic1{
   width: 100%;
   height: 100%;
+}
+
+.placeholder-view{
+  height: 9%;
+  width: 100%;
 }
 
 .bottom_menu{

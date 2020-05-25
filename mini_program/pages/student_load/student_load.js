@@ -41,9 +41,9 @@ Page({
   onLoad: function(options) {
     var that = this
 
-    wx.showLoading({
+    /*wx.showLoading({
       title: '加载中',
-    })
+    })*/
 
     wx.login({
       success(res) {
@@ -80,9 +80,9 @@ Page({
       }
     })
 
-    setTimeout(function() {
+    /*setTimeout(function() {
       wx.hideLoading()
-    }, 1000)
+    }, 1000)*/
   },
 
   bindGetUserInfo(e) {
@@ -90,6 +90,14 @@ Page({
     console.log(e.detail.userInfo)
     if(e.detail.userInfo == undefined){}
     else{
+      
+     //加载中的样式
+     wx.showToast({
+      title: '加载中...',
+      mask: true,
+      icon: 'loading'
+      })
+      
       getApp().globalData.load = true
       wx.reLaunch({
         url: '../student_mine/student_mine',

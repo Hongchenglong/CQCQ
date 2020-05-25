@@ -1,6 +1,5 @@
 // pages/teacher/manage/page2/page2.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -16,7 +15,6 @@ Page({
     //选择的楼号范围
     listBlock: []
   },
-
 
   bindViewEvent: function (e) {
     console.log(e.detail.value)
