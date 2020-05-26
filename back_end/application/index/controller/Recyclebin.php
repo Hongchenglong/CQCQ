@@ -4,12 +4,12 @@ namespace app\index\controller;
 
 use \think\Db;
 
-class Checkresults extends BaseController
+class Recyclebin extends BaseController
 {
     /**
-     * 查看查寝记录
+     * 查看被删除的查寝记录
      */
-    public function checkRecords()
+    public function checkDeletedRecords()
     {
         // $parameter = ['grade', 'department'];
         // 输入判断
@@ -36,7 +36,7 @@ class Checkresults extends BaseController
             ->join('student s', 's.id = d.student_id')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
-            ->where('r.deleted', 0)
+            ->where('r.deleted', 1)
             ->order('start_time desc')
             ->select();
 
@@ -57,9 +57,9 @@ class Checkresults extends BaseController
     }
 
     /**
-     * 选择日期查看查寝记录
+     * 选择日期查看被删除的查寝记录
      */
-    public function specifiedDate()
+    public function specifiedDeletedDate()
     {
         // $parameter = ['grade', 'department', 'date'];
         // 输入判断
@@ -105,7 +105,7 @@ class Checkresults extends BaseController
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('start_time', 'between time', [$date . ' 00:00:00', $date . ' 23:59:59'])
-            ->where('r.deleted', 0)
+            ->where('r.deleted', 1)
             ->select();
 
         if ($record) {
@@ -125,9 +125,9 @@ class Checkresults extends BaseController
     }
 
     /**
-     * 删除查寝记录
+     * 恢复查寝记录
      */
-    public function deleteRecord()
+    public function recoverRecord()
     {
         // $parameter = ['department', 'grade', 'start_time', 'end_time'];
         // 输入判断
@@ -165,7 +165,7 @@ class Checkresults extends BaseController
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
             ->where($where)
-            ->update(['record.deleted' => 1]);
+            ->update(['record.deleted' => 0]);
 
         if ($result) {
             $return_data = array();
@@ -184,9 +184,9 @@ class Checkresults extends BaseController
     }
 
     /**
-     * 查看详细
+     * 查看被删除的详细
      */
-    public function viewDetails()
+    public function viewDeletedDetails()
     {
         // $parameter = ['grade', 'department', 'start_time'];
         // 输入判断
@@ -218,7 +218,7 @@ class Checkresults extends BaseController
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
             ->where($where)
-            ->where('r.deleted', 0)
+            ->where('r.deleted', 1)
             ->select();
 
         if ($record) {
@@ -232,125 +232,6 @@ class Checkresults extends BaseController
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '无该天的查寝记录';
-
-            return json($return_data);
-        }
-    }
-
-
-    /**
-     * 学生查看查寝记录
-     */
-    public function studentCheckRecords()
-    {
-        // $parameter = ['grade', 'department', 'student_id'];
-        // 输入判断
-        if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
-        } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
-        } else if (empty($_POST['student_id'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学号！';
-            return json($return_data);
-        }
-
-        // 查询条件
-        $where = array();
-        $where['s.grade'] = $_POST['grade'];
-        $where['s.department'] = $_POST['department'];
-        $where['s.id'] = $_POST['student_id'];
-
-        $record = Db::table('record')
-            ->field('start_time, end_time')   // 指定字段
-            ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
-            ->distinct(true)   // 返回唯一不同的值
-            ->where($where)
-            ->where('r.deleted', 0)
-            ->order('start_time desc')
-            ->select();
-
-        if ($record) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示查寝记录!';
-            $return_data['data'] = $record;
-
-            return json($return_data);
-        } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无查寝记录!';
-
-            return json($return_data);
-        }
-    }
-
-    /**
-     * 学生查看详细
-     */
-    public function studentViewDetails()
-    {
-        // $parameter = ['grade', 'department', 'start_time', 'student_id'];
-        // 输入判断
-        if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
-        } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
-        } else if (empty($_POST['start_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入开始时间！';
-            return json($return_data);
-        } else if (empty($_POST['student_id'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学号！';
-            return json($return_data);
-        }
-
-        // 查询条件
-        $where = array();
-        $where['s.grade'] = $_POST['grade'];
-        $where['s.department'] = $_POST['department'];
-        $where['r.start_time'] = $_POST['start_time'];
-        $where['s.id'] = $_POST['student_id'];
-
-        $record = Db::table('record')
-            ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
-            ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
-            ->where($where)
-            ->where('r.deleted', 0)
-            ->select();
-
-        if ($record) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示查寝记录!';
-            $return_data['data'] = $record;
-
-            return json($return_data);
-        } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '无该天的查寝记录!';
 
             return json($return_data);
         }
