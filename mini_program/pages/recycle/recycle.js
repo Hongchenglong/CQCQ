@@ -21,7 +21,7 @@ Page({
    onSearch:function(e){
      var that = this
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/specifiedDate',
+      url: getApp().globalData.server + '/cqcq/public/index.php/index/Recyclebin/specifiedDeletedDate',
       data: {
         department:that.data.department,
         grade:that.data.grade,
@@ -126,7 +126,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/checkRecords',
+      url: getApp().globalData.server + '/cqcq/public/index.php/index/Recyclebin/checkDeletedRecords',
       data: {
         department:that.data.department,
         grade:that.data.grade
@@ -194,17 +194,17 @@ Page({
     },2000)
   },
   
-  //删除记录
+  //恢复记录
   onLike: function (e) {
     var that=this
     wx.showModal({
       title: '提示',
-      content: '您确认将此记录放入回收站？',
+      content: '您确认恢复此记录？',
       success: function (res) {
       if (res.confirm) {
         console.log('用户点击确定')
         wx.request({
-          url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/deleteRecord',
+          url: getApp().globalData.server + '/cqcq/public/index.php/index/Recyclebin/recoverRecord',
           data: {
             department:that.data.department,
             grade:that.data.grade,
@@ -251,8 +251,6 @@ Page({
             success: function (res) {
               if (res.confirm) {
                 console.log('用户点击确定')
-                console.log(e.target.dataset.start_time)
-                console.log(e.target.dataset.end_time)
                 that.onLoad()
               } else if (res.cancel) {
                 console.log('用户点击取消')
@@ -260,7 +258,7 @@ Page({
             },
             title: '恭喜！',
             showCancel: false,
-            content: '删除成功',
+            content: '恢复成功',
           })
         }
           },
@@ -291,7 +289,7 @@ Page({
   //查看跳转
   onClick: function (e) {
     wx.navigateTo({
-      url: "../teacher_details/teacher_details?time=" + e.target.dataset.times
+      url: "../recycle_bin/recycle_bin?time=" + e.target.dataset.times
     })
   },
 })
