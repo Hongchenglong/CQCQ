@@ -113,10 +113,12 @@ Page({
     var m = date.getMinutes();
     //秒  
     var s = date.getSeconds();
+    console.log("当前时间：" + Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s);
     var time =  Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
     this.setData({
       time: time
     })
+    console.log(this.data.time)
     this.setData({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department
@@ -208,10 +210,9 @@ Page({
           data: {
             department:that.data.department,
             grade:that.data.grade,
-            start_time:e.target.dataset.start_time,
+            start_time:e.target.dataset.time,
             end_time:e.target.dataset.end_time
           },
-
           method: "POST",
           header: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -251,8 +252,6 @@ Page({
             success: function (res) {
               if (res.confirm) {
                 console.log('用户点击确定')
-                console.log(e.target.dataset.start_time)
-                console.log(e.target.dataset.end_time)
                 that.onLoad()
               } else if (res.cancel) {
                 console.log('用户点击取消')
@@ -291,7 +290,7 @@ Page({
   //查看跳转
   onClick: function (e) {
     wx.navigateTo({
-      url: "../teacher_details/teacher_details?time=" + e.target.dataset.times
+      url: "../teacher_details/teacher_details?time=" + e.target.dataset.times +  "&&endtime=" + e.target.dataset.endtime
     })
   },
 })

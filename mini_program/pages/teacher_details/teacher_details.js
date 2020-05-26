@@ -8,7 +8,7 @@ Page({
     checkData:{},
     photoData:{},
     department:'',
-    grade:''
+    grade:'',
   },
 
   //点击图片预览
@@ -38,7 +38,8 @@ Page({
       data: {
         department:that.data.department,
         grade:that.data.grade,
-        start_time:options.time
+        start_time:options.time,
+        end_time:options.endtime
       },
       method: "POST",
       header: {

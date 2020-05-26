@@ -289,7 +289,7 @@ Page({
   //查看跳转
   onClick: function (e) {
     wx.navigateTo({
-      url: "../recycle_bin/recycle_bin?time=" + e.target.dataset.times
+      url: "../recycle_bin/recycle_bin?time=" + e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
     })
   },
 })
