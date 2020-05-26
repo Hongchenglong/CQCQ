@@ -188,7 +188,7 @@ class Recyclebin extends BaseController
      */
     public function viewDeletedDetails()
     {
-        // $parameter = ['grade', 'department', 'start_time'];
+        // $parameter = ['grade', 'department', 'start_time', 'end_time'];
         // 输入判断
         if (empty($_POST['grade'])) {
             $return_data = array();
@@ -205,6 +205,11 @@ class Recyclebin extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入开始时间！';
             return json($return_data);
+        } else if (empty($_POST['end_time'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入结束时间！';
+            return json($return_data);
         }
 
         // 查询条件
@@ -212,6 +217,8 @@ class Recyclebin extends BaseController
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
         $where['r.start_time'] = $_POST['start_time'];
+        $where['r.end_time'] = $_POST['end_time'];
+        
         $record = Db::table('record')
             ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
             ->alias('r')    // 别名

@@ -115,7 +115,7 @@ Page({
   //提交表单信息
   save: function () {
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
-
+    var that = this;
     if (this.data.phone == "") {
       wx.showToast({
         title: '手机号不能为空',
@@ -173,6 +173,7 @@ Page({
               showCancel: false,
               success:function(res) {},
               complete: function(res){
+                getApp().globalData.user.phone = that.data.phone;
               	if(getApp().globalData.user.user == 'student') {
                   wx.navigateTo({
                     url: '../student_mine/student_mine',
