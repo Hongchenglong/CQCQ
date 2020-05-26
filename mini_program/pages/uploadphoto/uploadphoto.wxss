@@ -37,7 +37,7 @@ textarea {
 
 .foot{
   width: 90%;
-  bottom: 0rpx;
+  bottom: 5rpx;
   position: fixed;
   color: #777;
   display: flex;
