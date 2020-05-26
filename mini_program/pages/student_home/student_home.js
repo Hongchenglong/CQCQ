@@ -6,6 +6,7 @@ Page({
    */
   data: {
     current: 'homepage',
+    /*height:''*/
   },
 
   handleChange ({ detail }) {
@@ -36,6 +37,12 @@ Page({
 
   //跳转至拍照上传
   gotopicupload: function () {
+    //加载中的样式
+    wx.showToast({
+      title: '加载中...',
+      mask: true,
+      icon: 'loading'
+      }),
     wx.navigateTo({
       url: '../student_picupload/student_picupload',
     })
@@ -43,7 +50,15 @@ Page({
 
   onShow:function(){
     wx.hideHomeButton()
-  }
+  },
+
+   /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    /*this.data.height = getApp().globalData.height
+    console.log(this.data.height)*/
+  },
 })
 
  

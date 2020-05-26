@@ -4,6 +4,17 @@
   align-items: center;
 }
 
+.item7 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.wsui-btn__hover_list {
+  opacity: 0.9;
+  background: #f7f7f7;
+}
+
 .title {
   padding-top: 30rpx;
   padding-bottom: 30rpx;
@@ -13,7 +24,9 @@
 
 .detail5,
 .detail4,
-.detail6{
+.detail6,
+.detail2,
+.detail3 {
   font-size: 30rpx;
   position: absolute;
   right: 20rpx;
@@ -32,4 +45,3 @@
 modal {
   display: none;
 }
-

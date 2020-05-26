@@ -4,10 +4,12 @@
 	</view>
 	<view class="middle">
 		<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap="goto1">
-			<image src="https://oeong.xyz/cqcq/public/images/photo_null.png"></image><text>拍照上传</text>
+			<image src="/images/photo_null.png"></image><text decode="{{true}}">&nbsp;拍照上传</text>
+			<!--https://oeong.xyz/cqcq/public/images/photo_null.png-->
 		</button>
 		<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap="goto2">
-			<image src="https://oeong.xyz/cqcq/public/images/student_look.png"></image><text>查看查寝记录</text>
+			<image src="/images/student_look.png"></image><text decode="{{true}}">&nbsp;查看查寝记录</text>
+			<!--https://oeong.xyz/cqcq/public/images/student_look.png-->
 		</button>
 	</view>
 	<view class="foot">
