@@ -28,6 +28,11 @@ class Remind extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入开始时间！';
             return json($return_data);
+        } else if (empty($_POST['end_time'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入结束时间！';
+            return json($return_data);
         }
 
         // 查询条件
@@ -35,6 +40,8 @@ class Remind extends BaseController
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
         $where['r.start_time'] = $_POST['start_time'];
+        $where['r.end_time'] = $_POST['end_time'];
+
         $record = Db('record')
             ->field('start_time, end_time, photo, d.dorm_num, rand_num, upload_time') // 指定字段
             ->alias('r') // 别名
