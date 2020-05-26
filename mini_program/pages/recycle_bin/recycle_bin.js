@@ -38,7 +38,8 @@ Page({
       data: {
         department:that.data.department,
         grade:that.data.grade,
-        start_time:options.time
+        start_time:options.time,
+        end_time:options.endtime
       },
       method: "POST",
       header: {
