@@ -3,10 +3,13 @@ Page({
   /** 页面的初始数据*/
   data: {
     pics: [],
-    isShow: true
+    isShow: true,
+
   },
+
   Img: function () {
     var that = this;
+
     var imgSrc = getApp().globalData.imgSrc;
 
     if (imgSrc != '') {
@@ -20,18 +23,25 @@ Page({
     }
 
 
+
+
   },
   /**上传图片 */
   uploadImage: function () {
     var that = this;
     let pics = that.data.pics;
+
     wx.chooseImage({
       count: 1 - pics.length,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
+
+
       success: function (res) {
+        var imgSrc = '';
         var imgSrc = res.tempFilePaths;
-        getApp().globalData.imgSrc = imgSrc
+
+        getApp().globalData.imgSrc = imgSrc;
         // upload(that, imgSrc); //连接接口 函数
         pics.push(imgSrc);
         if (pics.length >= 1) {
@@ -42,7 +52,6 @@ Page({
         that.setData({
           pics: pics
         })
-
       },
 
     })
@@ -64,9 +73,10 @@ Page({
     that.setData({
       pics: newPics,
 
-      isShow: true
+      isShow: true,
+
     })
-    getApp().globalData.imgSrc1 = newPics
+    getApp().globalData.imgSrc = ''
   },
 
   /**提交 */
@@ -75,14 +85,16 @@ Page({
 
 function upload(page, path) {
   wx.showToast({
-    icon: "loading",
-    title: "正在上传"
-  }),
+      icon: "loading",
+      title: "正在上传"
+    }),
     wx.uploadFile({
       url: getApp().globalData.server + '/cqcq/public/index.php/index/Record/uploadPhoto',
       filePath: path[0],
       name: 'file',
-      header: { enctype: "multipart/form-data" },
+      header: {
+        enctype: "multipart/form-data"
+      },
       formData: {
         //和服务器约定的token, 一般也可以放在header中
         'session_token': wx.getStorageSync('session_token'),
@@ -133,6 +145,13 @@ function upload(page, path) {
           wx.showModal({
             title: '提示',
             content: '文件格式错误！请上传照片。',
+            showCancel: false
+          })
+          return;
+        } else if (res.data[14] == 1) {
+          wx.showModal({
+            title: '提示',
+            content: '请上传照片',
             showCancel: false
           })
           return;
