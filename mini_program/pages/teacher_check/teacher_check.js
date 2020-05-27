@@ -138,6 +138,7 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
+        console.log(res.data)
         if (res.data.error_code == 1) {
           wx.showModal({
             title: '提示！',
