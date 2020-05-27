@@ -38,6 +38,7 @@ class Checkresults extends BaseController
             ->where($where)
             ->where('r.deleted', 0)
             ->order('start_time desc')
+            // ->paginate(5);
             ->select();
 
         if ($record) {
