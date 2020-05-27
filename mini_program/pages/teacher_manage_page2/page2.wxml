@@ -1,0 +1,86 @@
+<!--pages/teacher/manage/page2/page2.wxml-->
+<view class="wrap">
+	<view class="head" style="width: 100%;">
+		<i-panel>
+			<i-input value="{{ grade }}" title="所属年级：" disabled />
+			<i-input value="{{ dep }}" title="所属系：" disabled />
+
+			<!--填入学号-->
+			<i-input value="{{ no }}" type="number" title="学号：" autofocus placeholder="学号" maxlength="9" bind:change="bindKeyInput3" />		
+
+		</i-panel>
+
+		<!--选择性别-->
+		<view class="sex">
+			<text class="txt">性别：</text>
+			<radio-group bindchange="bindKeyInput4">
+				<radio value='男' checked color="#7AB8FB">男</radio>
+				<radio value='女' color="#7AB8FB">女</radio>
+			</radio-group>
+		</view>
+
+		<!--选择宿舍楼-->
+		<view class="address1">
+			<view class="block"><text style="margin-right: 15px" class="block_txt">楼号：</text>
+				<picker range="{{ listBlock }}" bindchange="bindKeyInput5"><input value='{{block}}' placeholder='选择楼号' disabled /></picker>
+			</view>
+		</view>
+
+			<i-panel>
+			<!--选择宿舍号-->
+			<i-input value="{{ room }}" type="number" title="宿舍号：" placeholder="宿舍号" maxlength="9" bind:change="bindKeyInput6" />		
+		</i-panel>
+	</view>
+</view>
+<!--点击添加宿舍-->
+<view class="de">
+	<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonaddList'>
+		<image src="https://oeong.xyz/cqcq/public/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
+	</button>
+</view>
+
+<!-- 分割线 -->
+<view class="line">
+	<view class="view1"></view>
+	<view>新增宿舍</view>
+	<view class="view2"></view>
+</view>
+
+
+<view class="table">
+	<view class="tr bg-w">
+		<view class="th" style="width:10%">年级</view>
+		<view class="th" style="width:30%">系别</view>
+		<view class="th" style="width:23%">学号</view>
+		<view class="th" style="width:10%">性别</view>
+		<view class="th" style="width:10%">楼号</view>
+		<view class="th" style="width:10%">室号</view>
+		<view class="th" style="width:10%"></view>
+	</view>
+	<block wx:for="{{listData}}" wx:key="index">
+		<view class="tr">
+			<view class="td" style="width:10%">{{item.grade}}</view>
+			<view class="td" style="width:30%">{{item.dep}}</view>
+			<view class="td" style="width:23%">{{item.no}}</view>
+			<view class="td" style="width:10%">{{item.sex}}</view>
+			<view class="td" style="width:10%">{{item.block}}</view>
+			<view class="td" style="width:10%">{{item.room}}</view>
+			<view class="td" data-idx='{{index}}' bindtap="buttondelete" style="color:red;width:10%">删除</view>
+		</view>
+	</block>
+
+	<div class="table-cont">
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</view>

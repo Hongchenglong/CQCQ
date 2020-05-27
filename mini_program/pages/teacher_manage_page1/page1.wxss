@@ -1,0 +1,120 @@
+/* pages/teacher/manage/page1/page1.wxss */
+/* 下拉框 */
+.top {
+  width: 100%;
+  height: 150rpx;
+  line-height: 75rpx;
+  border: solid 1px #ADADAD;
+}
+
+.text {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*margin-left: 30rpx;*/
+}
+
+.selected_top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
+  margin: 20rpx 10rpx;
+}
+
+.selected {
+  display: flex;
+  color: #ADADAD;
+  width: 80%;
+  height: 46rpx;
+  border: 1px solid #ADADAD;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  font-size: 32rpx;
+  padding-left: 15rpx;
+}
+
+/* 下拉内容 */
+.select_box {
+  display: flex;
+  position: absolute;
+  top: 220rpx;
+  flex-direction: column;
+  margin-left: 5rpx;
+  margin-top: 5rpx;
+  width: 80%;
+  height: 200rpx;
+  background-color: #fff;
+  overflow: hidden;
+  animation: myfirst 0.2s;
+  font-size: 30rpx;
+  z-index: 1;/*显示在最上层 */
+  
+}
+
+/* 下拉框内的字体 */
+.select_one {
+  display: flex;
+  padding-left: 45rpx;
+  width: 85%;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+  
+}
+
+/* 下拉过度效果 */
+
+@keyframes myfirst {
+  from {
+    height: 0rpx;
+  }
+
+  to {
+    height: 210rpx;
+  }
+}
+
+/* 箭头 */
+.one_jt {
+  margin-right: 8rpx;
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.table {
+  width: 80%;
+  margin: 40rpx 10rpx;
+  background-color: #fff;
+  border: 1rpx solid darkgray;
+  font-size: 12px;
+  flex-direction: column;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  height: 2rem;
+}
+
+.td,
+.th {
+  display: flex;
+  justify-content: center;
+  /*水平居中 */
+  align-items: center;
+  /*垂直居中*/
+  width: 100%;
+  border: 1rpx solid darkgray;
+  height: 2rem;
+  border-bottom: 1px solid darkgray;
+  border-right: 1px solid darkgray;
+}
+
+.bg-w {
+  background: #f2f2f2;
+}

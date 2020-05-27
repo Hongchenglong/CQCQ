@@ -5,13 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo')  //查看微信版本是否支持微信授权 若支持则会显示 授权登陆 按钮
+    canIUse: wx.canIUse('button.open-type.getUserInfo'), //查看微信版本是否支持微信授权 若支持则会显示 授权登陆 按钮
+    current: 'mine'
+
+  },
+
+  handleChange ({ detail }) {
+    this.setData({
+        current: detail.key
+    });
+    
+ if(detail.key == 'group'){
+      wx.reLaunch({
+        url: '../teacher_dorm/teacher_dorm',
+      })
+    }
+    else if(detail.key == 'homepage'){
+      wx.reLaunch({
+        url: '../teacher_home/teacher_home',
+      })
+    }
   },
 
   next:function (e) {
     console.log("res.userInfo",getApp().globalData.userInfo)
     wx.reLaunch({
-      url: '/pages/login/login'
+      url: '../teacher_mine/teacher_mine',
     })
   },
 
@@ -22,9 +41,9 @@ Page({
   onLoad: function(options) {
     var that = this
 
-    wx.showLoading({
+    /*wx.showLoading({
       title: '加载中',
-    })
+    })*/
 
     wx.login({
       success(res) {
@@ -42,10 +61,12 @@ Page({
             success(res) {
               if (res.authSetting['scope.userInfo']) {
                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                getApp().globalData.load = true
                 wx.getUserInfo({
                   success: function(res) {
                     console.log(res.userInfo)
                     getApp().globalData.userInfo = res.userInfo
+                    
                     that.next();
                   }
                 })
@@ -59,10 +80,9 @@ Page({
       }
     })
 
-
-    setTimeout(function() {
+    /*setTimeout(function() {
       wx.hideLoading()
-    }, 2000)
+    }, 1000)*/
   },
 
   bindGetUserInfo(e) {
@@ -70,8 +90,17 @@ Page({
     console.log(e.detail.userInfo)
     if(e.detail.userInfo == undefined){}
     else{
+      
+     //加载中的样式
+     wx.showToast({
+      title: '加载中...',
+      mask: true,
+      icon: 'loading'
+      })
+      
+      getApp().globalData.load = true
       wx.reLaunch({
-        url: '/pages/login/login'
+        url: '../teacher_mine/teacher_mine',
       })
     }
   },
@@ -88,7 +117,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.hideHomeButton()
   },
 
   /**

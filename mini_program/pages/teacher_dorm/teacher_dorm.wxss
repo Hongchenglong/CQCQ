@@ -1,0 +1,54 @@
+/* pages/teacher_dorm/teacher_dorm.wxss */
+.head{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 20rpx auto;
+  display: flex;
+}
+.logo{
+  width: 100%;
+  height: 100%;
+}
+.menu{
+  width: 520rpx;
+  height: 220rpx;
+  margin: 15% auto;
+}
+.one{
+  width: 100%;
+  height: 100%;
+  background-color:rgba(105, 106, 255, 0.45);
+}
+.two{
+  width: 100%;
+  height: 100%;
+  background-color:rgba(97, 190, 193, 0.54);
+}
+
+.whole{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin: auto; 
+}
+
+.pic{
+  width: 100rpx;
+  height: 100rpx;
+  align-items:center;
+  margin-left: 0rpx;
+}
+
+.pic1{
+  width: 100%;
+  height: 100%;
+}
+
+.bottom_menu{
+  width: 100%;
+  height: 9%;
+  bottom: 0rpx;
+  position: fixed;
+}

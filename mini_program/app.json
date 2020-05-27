@@ -1,25 +1,51 @@
 {
   "pages": [
-    "pages/chouqu/chouqu",
-    "pages/youxiang/youxiang",
-    "pages/xiugaixinxi/xiugaixinxi",
-    "pages/shangchuan/shangchuan",
-    "pages/guanyu/guanyu",
+    
+    "pages/login/login",
+    "pages/student_load/student_load",
+    
+    "pages/student_picupload/student_picupload",
+    "pages/revise_password/revise_password",
+    "pages/revise_phone/revise_phone",
+    "pages/revise_information/revise_information",
+    "pages/student_mine/student_mine", 
+    "pages/revise_about/revise_about",
+    "pages/revise_email/revise_email",
+    "pages/uploadphoto/uploadphoto",
     
     
-    
+    "pages/student_bottom/student_bottom", 
+    "pages/student_home/student_home",
+
+    "pages/student_extract/page3",
+    "pages/teacher_custom_page1/page1",  
+    "pages/teacher_extract_page3/page3",
+    "pages/teacher_extract_page2/page2",
+    "pages/teacher_extract_page1/page1",
+    "pages/teacher_manage_page2/page2",
+    "pages/teacher_manage_page1/page1",
     
 
-    "pages/email/email",
-    "pages/chakan/chakan",
-    "pages/xiangji/xiangji",
+    "pages/load/load",
+    "pages/teacher_mine/teacher_mine",
+    "pages/teacher_home/teacher_home",
+    "pages/teacher_dorm/teacher_dorm",
+    "pages/teacher_bottom/teacher_bottom", 
+    
+    "pages/teacher_check/teacher_check",
+    "pages/forget/forget",
+    "pages/email_verify/email_verify",
+    "pages/phone_verify/phone_verify",
+    "pages/student_check/student_check",
+    "pages/student_details/student_details",
+
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "辅助查寝系统",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
