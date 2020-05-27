@@ -141,7 +141,6 @@ class Draw extends BaseController
                 array_push($dormFal, $result['dorm_num']);
             }
         }
-        // print_r($dorm_num);
 
         if ($result) {
             $return_data = array();
@@ -154,7 +153,7 @@ class Draw extends BaseController
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无此宿舍!';
+            $return_data['msg'] = '指定了不存在的宿舍!';
 
             return json($return_data);
         }
