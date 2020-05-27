@@ -1,15 +1,14 @@
 Page({
-
   data: {
     i: 0,
     select: false,
     hiddenName3: false,
-    Block: '-楼号-',
-    Room: '',
-    Apart: [],
-    listData: [],
+    Block: '-楼号-', //区号输入框里的内容
+    Room: '', //室号输入框的内容
+    Apart: [], //区号列表
     dep: '',
-    grade: ''
+    grade: '',
+    listData: [], //区号+楼号
   },
 
   bindShowMsg() {
@@ -17,7 +16,7 @@ Page({
       select: !this.data.select
     })
   },
-
+  //改变楼号输入框里的内容
   mySelect(e) {
     console.log(e)
     var name = e.currentTarget.dataset.name
@@ -26,7 +25,7 @@ Page({
       select: false
     })
   },
-
+  //改变室号输入框里的内容
   bindKeyInput: function (e) {
     this.setData({
       Room: e.detail.value
@@ -91,9 +90,7 @@ Page({
           success(res) {}
         })
       }
-
     })
-
   },
 
   // 动态添加宿舍法
@@ -116,8 +113,8 @@ Page({
           data: {
             department: that.data.dep,
             grade: that.data.grade,
-            block: apart,
-            room: num
+            block:apart,
+            room:num
           },
           method: "POST",
           header: {
@@ -131,7 +128,8 @@ Page({
                 showCancel: false,
                 success(res) {}
               })
-            } else if (res.data.error_code == 0) {
+            } 
+            else if (res.data.error_code == 0) { 
               list.push({
                 'block': apart,
                 'room': num
@@ -150,7 +148,6 @@ Page({
             })
           }
         })
-
       } else {
         wx.showToast({
           title: '提示：选择失败，表中已有该宿舍',
@@ -204,15 +201,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    var List = JSON.parse(options.listdata); //抽取结果列表
+    var listblock = [] //宿舍区列表
+    var newList = []
+    var Dorm = ''
+    // console.log(List)
+    //导入抽取确认界面的列表中的宿舍区号及室号
+    for (var i = 0; i < List.length; i++) {
+      Dorm = List[i].dorm_num.split("#")
+      // console.log("print",Dorm[0],Dorm[1])
+      newList.push({
+        'block': Dorm[0],
+        'room': Dorm[1]
+      })
+    }
     this.setData({
+      listData: newList,
       grade: getApp().globalData.user.grade,
       dep: getApp().globalData.user.department
     })
     //console.log(this.data.grade)
     //console.log(this.data.dep)
-    var that = this
-    var listblock = []
     // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock')
+    
+    // 传区号
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock',
       data: {
