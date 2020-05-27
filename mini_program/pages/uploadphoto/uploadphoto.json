@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "上传照片"
+  "usingComponents":{},
+  "navigationBarTitleText":"上传照片"
+  
+  
 }
