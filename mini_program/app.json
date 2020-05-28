@@ -47,6 +47,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "辅助查寝系统",
     "navigationBarTextStyle": "black"
+    
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

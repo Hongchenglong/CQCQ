@@ -21,12 +21,6 @@ Page({
       },
       success: function (res) {
         getApp().globalData.user = res.data.data;
-        if(getApp().globalData.user.phone == null){
-          getApp().globalData.user.phone = "无";
-        }
-        if(getApp().globalData.user.email == null){
-          getApp().globalData.user.email = "无";
-        }
         _this.setData({
           gr1: getApp().globalData.user.username,
           gr2: getApp().globalData.user.grade,
@@ -34,7 +28,6 @@ Page({
           gr6: getApp().globalData.user.phone,
           gr7: getApp().globalData.user.email,
         })
-
       }
     })
   },

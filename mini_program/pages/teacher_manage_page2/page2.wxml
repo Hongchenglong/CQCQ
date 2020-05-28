@@ -35,7 +35,8 @@
 <!--点击添加宿舍-->
 <view class="de">
 	<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonaddList'>
-		<image src="https://oeong.xyz/cqcq/public/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
+		<image src="/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
+		<!--https://oeong.xyz/cqcq/public/images/click2.png-->
 	</button>
 </view>
 
