@@ -41,7 +41,9 @@
   line-height: 40rpx;
   font-size: 30rpx;
   text-align: left;
-  border: 2rpx solid rgba(187, 187, 187, 1);
+  margin-top: 1%;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;
+  background-color: rgba(126, 166, 248, 0.33);
 }
 
 .tone{
@@ -72,5 +74,6 @@
   height:450rpx;
   margin-left:2%;
   margin-top:2%;
-  
+  margin-bottom: 2%;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;
 }

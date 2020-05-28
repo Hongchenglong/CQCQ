@@ -141,7 +141,6 @@ class Draw extends BaseController
                 array_push($dormFal, $result['dorm_num']);
             }
         }
-        // print_r($dorm_num);
 
         if ($result) {
             $return_data = array();
@@ -154,12 +153,67 @@ class Draw extends BaseController
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无此宿舍!';
+            $return_data['msg'] = '指定了不存在的宿舍!';
 
             return json($return_data);
         }
     }
 
+    /**
+     * 判断单间宿舍是否存在
+     */
+    public function doesItExist()
+    {
+        // $parameter = ['department', 'grade', 'block', 'room'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($_POST['department'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['block'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍楼！';
+            return json($return_data);
+        } else if (empty($_POST['room'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍号！';
+            return json($return_data);
+        }
+
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $where['room']  = $_POST['room'];
+        $where['block'] = $_POST['block'];
+        $result = Db::table('dorm')
+            ->alias('d')    // 别名
+            ->join('student s', 's.id = d.student_id')
+            ->where($where)
+            ->find();
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '存在该宿舍!';
+
+            return json($return_data);
+        } else {
+            $return_data = array();
+            $return_data['error_code'] = 2;
+            $return_data['msg'] = '该宿舍不存在!';
+
+            return json($return_data);
+        }
+    }
 
     /**
      * 确认抽签结果
