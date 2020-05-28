@@ -286,6 +286,10 @@ Page({
   //查看跳转
   onClick: function (e) {
     wx.navigateTo({
+<<<<<<< HEAD
+
+=======
+>>>>>>> 04b27bd657536ebcc59970101054fb9890151378
       url: "../teacher_details/teacher_details?time=" + e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
     })
   },
