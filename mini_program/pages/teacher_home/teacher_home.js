@@ -6,8 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current: 'homepage'
-  },
+    current: 'homepage',
+    elements: [{
+      title: '抽取宿舍',
+      name: 'Extraction',
+      color: 'cyan',
+      icon: 'newsfill',
+      page: 'teacher_extract_page1',
+      page_tow:'page1'
+    },
+    {
+      title: '查看查寝结果',
+      name: 'View',
+      color: 'blue',
+      icon: 'colorlens',
+      page: 'teacher_check',
+      page_tow:'teacher_check'
+    }
+  ],
+},
   handleChange ({ detail }) {
     this.setData({
         current: detail.key
@@ -105,4 +122,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+  })
