@@ -7,7 +7,7 @@
 		</view>
 
 		<view class='two'>
-			<image src="/images/captcha.png"></image>
+			<image src="https://oeong.xyz/cqcq/public/images/captcha.png"></image>
 			<input placeholder='请输入验证码' bindinput='getCodeValue' value='{{code}}' style="width:40%" />
 			<button style="width:40%" class='num' bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
 		</view>
