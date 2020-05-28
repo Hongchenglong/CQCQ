@@ -5,7 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current: 'group'
+    current: 'group',
+    elements: [{
+      title: '宿舍查看',
+      name: 'Check',
+      color: 'newColor',
+      icon: 'formfill',
+      page: 'teacher_manage_page1',
+      page_tow:'page1'
+    },
+    {
+      title: '宿舍管理',
+      name: 'Manage',
+      color: 'newColor1',
+      icon: 'newsfill',
+      page: 'teacher_manage_page2',
+      page_tow:'page2'
+    }
+  ],
   },
 
   handleChange ({ detail }) {
