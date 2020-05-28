@@ -12,6 +12,18 @@ Page({
     student_id:""
   },
 
+  //点击图片预览
+  clickImg: function(e){
+    var imgUrl = e.target.dataset.photo;
+    wx.previewImage({
+      urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
+      current: '', // 当前显示图片的http链接，默认是第一个
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -31,7 +43,8 @@ Page({
         grade:this.data.grade,
         department:this.data.department,
         start_time:options.time,
-        student_id:this.data.student_id
+        student_id:this.data.student_id,
+        end_time:options.endtime,
       },
       method: "POST",
       header: {

@@ -1,48 +1,66 @@
-<!--pages/teacher/manage/page2/page2.wxml-->
-<view class="wrap">
-	<view class="head" style="width: 100%;">
-		<i-panel>
-			<i-input value="{{ grade }}" title="所属年级：" disabled />
-			<i-input value="{{ dep }}" title="所属系：" disabled />
-
-			<!--填入学号-->
-			<i-input value="{{ no }}" type="number" title="学号：" autofocus placeholder="学号" maxlength="9" bind:change="bindKeyInput3" />		
-
-		</i-panel>
-
-		<!--选择性别-->
-		<view class="sex">
-			<text class="txt">性别：</text>
-			<radio-group bindchange="bindKeyInput4">
-				<radio value='男' checked color="#7AB8FB">男</radio>
-				<radio value='女' color="#7AB8FB">女</radio>
-			</radio-group>
-		</view>
-
-		<!--选择宿舍楼-->
-		<view class="address1">
-			<view class="block"><text style="margin-right: 15px" class="block_txt">楼号：</text>
-				<picker range="{{ listBlock }}" bindchange="bindKeyInput5"><input value='{{block}}' placeholder='选择楼号' disabled /></picker>
-			</view>
-		</view>
-
-			<i-panel>
-			<!--选择宿舍号-->
-			<i-input value="{{ room }}" type="number" title="宿舍号：" autofocus placeholder="宿舍号" maxlength="9" bind:change="bindKeyInput6" />		
-		</i-panel>
+<!--表单-->
+<form>
+	<!--年级-->
+	<view class="cu-form-group">
+		<view class="title">年级：</view>
+		<input value="{{ grade }}" disabled placeholder=""></input>
 	</view>
-</view>
+
+	<!--系-->
+	<view class="cu-form-group">
+		<view class="title">系别：</view>
+		<input value="{{ dep }}" title="系别：" disabled placeholder=""></input>
+	</view>
+
+	<!--输入学号-->
+	<view class="cu-form-group">
+		<view class="title">学号：</view>
+		<input value="{{ no }}" type="number" title="学号：" placeholder="学号" bind:change="bindKeyInput3" maxlength="9"></input>
+	</view>
+
+	<!--选择性别-->
+	<view class="cu-form-group">
+		<view class="title">性别：</view>
+		<switch class="red sm" checked bindchange="bindKeyInput4"></switch>
+	</view>
+
+	<!--选择楼号-->
+	<view class="cu-form-group">
+		<view class="title">楼号：</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{listBlock}}" bindchange="bindKeyInput5">
+			<view class="picker">
+				{{index?listBlock[index]:'选择楼号'}}
+			</view>
+		</picker>
+	</view>
+
+	<!--输入宿舍号-->
+	<view class="cu-form-group">
+		<view class="title">宿舍号：</view>
+		<input value="{{ room }}" type="number" placeholder="宿舍号" bindchange="bindKeyInput6" maxlength="3"></input>
+	</view>
+</form>
+
 <!--点击添加宿舍-->
 <view class="de">
 	<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonaddList'>
-		<image src="https://oeong.xyz/cqcq/public/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
+		<image src="/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
+		<!--https://oeong.xyz/cqcq/public/images/click2.png-->
 	</button>
 </view>
 
+<!-- 分割线 -->
+<view class="line">
+	<view class="view1"></view>
+	<view>新增宿舍</view>
+	<view class="view2"></view>
+</view>
+
+
 <view class="table">
 	<view class="tr bg-w">
-		<view class="th" style="width:12%">年级</view>
-		<view class="th" style="width:25%">系别</view>
+		<view class="th" style="width:10%">年级</view>
+		<view class="th" style="width:30%">系别</view>
 		<view class="th" style="width:23%">学号</view>
 		<view class="th" style="width:10%">性别</view>
 		<view class="th" style="width:10%">楼号</view>
@@ -51,8 +69,8 @@
 	</view>
 	<block wx:for="{{listData}}" wx:key="index">
 		<view class="tr">
-			<view class="td" style="width:12%">{{item.grade}}</view>
-			<view class="td" style="width:25%">{{item.dep}}</view>
+			<view class="td" style="width:10%">{{item.grade}}</view>
+			<view class="td" style="width:30%">{{item.dep}}</view>
 			<view class="td" style="width:23%">{{item.no}}</view>
 			<view class="td" style="width:10%">{{item.sex}}</view>
 			<view class="td" style="width:10%">{{item.block}}</view>

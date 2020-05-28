@@ -67,9 +67,16 @@ Page({
               duration: 2000,
               success: function () {
                 setTimeout(function () {
-                  wx.navigateTo({
-                    url: '../student_mine/student_mine',
-                  })
+                  if(getApp().globalData.user.user == 'student') {
+                    wx.navigateTo({
+                      url: '../student_mine/student_mine',
+                    })
+                  }
+                  else {
+                    wx.navigateTo({
+                      url: '../teacher_mine/teacher_mine',
+                    })
+                  }
                 }, 2000)
               }
             })

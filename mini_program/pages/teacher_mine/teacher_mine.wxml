@@ -32,6 +32,10 @@
 			<i-cell title="修改手机" is-link url="../revise_phone/revise_phone">
 				<i-icon slot="icon" type="mobilephone_fill" size="28" color="#7EC4F8" />
 			</i-cell>
+			<!--回收站-->
+			<i-cell title="回收站" is-link url="../recycle/recycle">
+				<i-icon slot="icon" type="trash_fill" size="28" color="#7EC4F8" />
+			</i-cell>
 			<!--关于-->
 			<i-cell title="关于" is-link url="../revise_about/revise_about">
 				<i-icon slot="icon" type="prompt_fill" size="28" color="#7EC4F8" />
@@ -39,7 +43,8 @@
 		</i-cell-group>
 		<view class="exit">
 			<button hover-class="other-button-hover" style="width: 90%;border-radius: 30px;" bindtap="bindViewTap"> 
-			<image src="https://oeong.xyz/cqcq/public/images/exit.png"></image><text decode="{{true}}">&nbsp;退出登录</text> </button>
+			<image src="/images/exit.png"></image><text decode="{{true}}">&nbsp;&nbsp;退出登录</text> </button>
+			<!--https://oeong.xyz/cqcq/public/images/exit.png-->
 		</view>
 	</view>
 </view>

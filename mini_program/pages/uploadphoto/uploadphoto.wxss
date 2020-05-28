@@ -37,7 +37,7 @@ textarea {
 
 .foot{
   width: 90%;
-  bottom: 0rpx;
+  bottom: 5rpx;
   position: fixed;
   color: #777;
   display: flex;
@@ -107,4 +107,11 @@ input {
   color: white;
   font-size: 40rpx;
   position: absolute;
+}
+
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 10px #7EC4F8 inset; 
 }

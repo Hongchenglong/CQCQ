@@ -3,6 +3,9 @@
 	<view class="first">
 		<text class="texts">开始时间：{{checkData.start_time}}</text>
 		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
+			<button class="btn" style="width:100px;margin-right:8px;margin-top:-42px;float:right" bindtap="onSend">
+		一键提醒
+	</button>
 	</view>
 	<block wx:for="{{photoData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="second">

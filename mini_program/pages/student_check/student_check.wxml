@@ -1,9 +1,15 @@
 <!--pages/student_check/student_check.wxml-->
 <scroll-view class='scbg' scroll-y='true'>
 	<block wx:for="{{showData}}" wx:for-item="itemName" wx:for-index="id">
-		<view class="first">
+		<view class="first" wx:if="{{time<itemName.end_time}}">
 			<text class="texts">{{itemName.start_time}}</text>
-			<button class="buttons" style="width:200rpx;margin-right:5%" bindtap="onClick" data-times="{{itemName.start_time}}">
+			<button class="buttons" style="width:200rpx;margin-right:5%" bindtap="onClick" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">
+				查看
+			</button>
+		</view>
+		<view class="second" wx:if="{{time>=itemName.end_time}}">
+			<text class="texts">{{itemName.start_time}}</text>
+			<button class="buttons" style="width:200rpx;margin-right:5%" bindtap="onClick" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">
 				查看
 			</button>
 		</view>

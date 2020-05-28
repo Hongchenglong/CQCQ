@@ -32,3 +32,17 @@
 	<input value="{{department}}" bindblur='getInput3' name='gre3' type='text' placeholder="请输入系全称：如计算机工程系" auto - focus />
 </modal>
 <view class="line"></view>
+<view class="item7" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
+	<view class="title">手机号</view>
+	<view class="detail2">
+		<text> {{gr6}}></text>
+	</view>
+</view>
+<view class="line"></view>
+<view class="item7" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
+	<view class="title">邮箱</view>
+	<view class="detail3">
+		<text> {{gr7}}></text>
+	</view>
+</view>
+<view class="line"></view>
