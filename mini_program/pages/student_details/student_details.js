@@ -43,7 +43,8 @@ Page({
         grade:this.data.grade,
         department:this.data.department,
         start_time:options.time,
-        student_id:this.data.student_id
+        student_id:this.data.student_id,
+        end_time:options.endtime,
       },
       method: "POST",
       header: {
@@ -155,11 +156,4 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

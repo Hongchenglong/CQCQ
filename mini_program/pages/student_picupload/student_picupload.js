@@ -5,7 +5,7 @@ Page({
       mask: true,
       icon: 'loading'
     })
-    getApp().globalData.imgSrc=''
+    getApp().globalData.imgSrc = ''
     wx.navigateTo({
       url: '/pages/uploadphoto/uploadphoto',
     })

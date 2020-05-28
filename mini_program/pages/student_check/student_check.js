@@ -204,7 +204,7 @@ Page({
   //查看跳转
   onClick: function (e) {
     wx.navigateTo({
-      url: "../student_details/student_details?time=" + e.target.dataset.times
+      url: "../student_details/student_details?time=" + e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
     })
   },
 
@@ -254,11 +254,4 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

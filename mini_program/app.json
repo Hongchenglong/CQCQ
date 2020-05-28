@@ -4,6 +4,9 @@
     "pages/login/login",
     "pages/student_load/student_load",
     
+    "pages/recycle_bin/recycle_bin",
+    "pages/recycle/recycle",
+    
     "pages/student_picupload/student_picupload",
     "pages/revise_password/revise_password",
     "pages/revise_phone/revise_phone",

@@ -13,7 +13,8 @@ Page({
     listSex: ['男', '女'],
     listData: [],
     //选择的楼号范围
-    listBlock: []
+    listBlock: [],
+    flag:true,
   },
 
   bindViewEvent: function (e) {
@@ -33,34 +34,40 @@ Page({
   },
   bindKeyInput3: function (e) {
     this.setData({
-      no: e.detail.detail.value
+      no: e.detail.value
     })
-    //console.log('no：',e.detail.detail.value)
+    //console.log('no：',e.detail.value)
   },
 
-  //获取性别
+  //选择性别
   bindKeyInput4: function (e) {
     this.setData({
-      sex: e.detail.value
+      flag: e.detail.value
     })
-    //console.log('sex：',e.detail.value)
+    if(this.data.flag == false) {
+      this.data.sex = '女'
+    } else {
+      this.data.sex = '男'
+    }
+    //console.log('sex：',this.data.sex)
   },
 
   //获取宿舍楼
   bindKeyInput5: function (e) {
     var that = this
-    this.setData({
-      block: that.data.listBlock[e.detail.value]
-    })
-    //console.log('block：',that.data.block)
+       this.setData({
+       index: e.detail.value,
+       block: that.data.listBlock[e.detail.value]
+     })
+     //console.log('block：',that.data.block)
   },
 
   //获取宿舍号
   bindKeyInput6: function (e) {
     this.setData({
-      room: e.detail.detail.value
+      room: e.detail.value
     })
-    //console.log('room',e.detail.value)
+    //console.log('room:',e.detail.value)
   },
 
   //点击添加
@@ -73,6 +80,13 @@ Page({
     var Sex = this.data.sex;
     var Block = this.data.block;
     var Room = this.data.room;
+    if (No.length != 9) {
+      wx.showToast({
+        title: '提示：请输入9位数的学号',
+        icon: 'none',
+        duration: 2000 //持续的时间
+      })
+    } else {
   //---------------------------------------------添加到数据库 -------------------------------------------
     console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/insert')
     wx.request({
@@ -121,6 +135,7 @@ Page({
       }
     })
     //-------------------------------------------------------------------------
+  }
   },
 
   //删除
@@ -286,11 +301,4 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
