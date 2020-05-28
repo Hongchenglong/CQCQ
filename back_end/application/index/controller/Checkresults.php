@@ -11,7 +11,7 @@ class Checkresults extends BaseController
      */
     public function checkRecords()
     {
-        // $parameter = ['grade', 'department'];
+        // $parameter = ['grade', 'department', 'page'];
         // 输入判断
         if (empty($_POST['grade'])) {
             $return_data = array();
@@ -22,6 +22,11 @@ class Checkresults extends BaseController
             $return_data = array();
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        } else if (empty($_POST['page'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入页码！';
             return json($return_data);
         }
 
@@ -38,8 +43,9 @@ class Checkresults extends BaseController
             ->where($where)
             ->where('r.deleted', 0)
             ->order('start_time desc')
-            ->paginate(5);
-            // ->select();
+            ->limit(5)
+            ->page($_POST['page']-1)
+            ->select();
 
         if ($record) {
             $return_data = array();
