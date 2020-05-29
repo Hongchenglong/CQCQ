@@ -1,30 +1,17 @@
 <!--pages/hoteacher_homeme/teacher_home.wxml-->
-<view>
+<scroll-view scroll-y class="scrollPage">
 	<view class="head">
 		<image class="logo" src='https://oeong.xyz/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
 	</view>
-	<view class="menu">
-		<!--点击跳转至抽取宿舍-->
-		<button class="one" style="width:100%" bindtap="extract">
-			<view class="whole">
-				<view class="pic">
-					<image class="pic1" src='https://oeong.xyz/cqcq/public/images/check.png' mode="aspectFit"></image>
-				</view>
-				<text decode="{{true}}">&nbsp;&nbsp;抽取宿舍</text>
-			</view>
-		</button>
+	<view class='nav-list'>
+		<navigator open-type="navigate" hover-class='none' url="/pages/{{item.page}}/{{item.page_tow}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+			<view class="nav-title">{{item.title}}</view>
+			<view class="nav-name">{{item.name}}</view>
+			<text class='cuIcon-{{item.icon}}'></text>
+		</navigator>
 	</view>
-	<view class="menu">
-		<!--点击跳转至查看查寝结果-->
-		<button class="two" style="width:100%" bindtap="check">
-			<view class="whole">
-				<view class="pic">
-					<image class="pic1" src='https://oeong.xyz/cqcq/public/images/scan.png' mode="aspectFit"></image>
-				</view>
-				<text decode="{{true}}">&nbsp;&nbsp;查看查寝结果</text>
-			</view>
-		</button>
-	</view>
-</view>
+	<view class='cu-tabbar-height'></view>
+</scroll-view>
+
 <!--底部导航栏-->
 <include src="/pages/teacher_bottom/teacher_bottom" />
