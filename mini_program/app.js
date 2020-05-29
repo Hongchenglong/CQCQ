@@ -66,6 +66,7 @@ App({
     de: '',
     imgSrc: '',
     page: 2,
+    pagetwo: 2,
     all:{},
     userInfo: null,
     multiArray: [
