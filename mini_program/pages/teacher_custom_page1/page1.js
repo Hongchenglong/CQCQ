@@ -8,8 +8,8 @@ Page({
     Room: '',
     Apart: [],
     listData: [],
-    dep:'',
-    grade:''
+    dep: '',
+    grade: ''
   },
 
   bindShowMsg() {
@@ -32,7 +32,7 @@ Page({
       Room: e.detail.value
     })
   },
-  
+
   //抽取宿舍
   buttonsubmit: function (e) {
     var that = this
@@ -65,10 +65,9 @@ Page({
             showCancel: false,
             success(res) {}
           })
-        } 
-        else if (res.data.error_code == 0) {
+        } else if (res.data.error_code == 0) {
           that.setData({
-            listdata:res.data.data.dormSuc
+            listdata: res.data.data.dormSuc
           })
           wx.showModal({
             title: "提示：",
@@ -77,7 +76,7 @@ Page({
             success(res) {},
             complete: function (res) {
               wx.redirectTo({
-                url: '/pages/teacher_extract_page2/page2?listData='+JSON.stringify(that.data.listdata)
+                url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
               })
             },
           })
@@ -99,6 +98,7 @@ Page({
 
   // 动态添加宿舍法
   buttonaddList1: function (e) {
+    var that = this
     var apart = this.data.Block;
     var num = this.data.Room;
     let list = this.data.listData
@@ -110,10 +110,47 @@ Page({
         }
       }
       if (n == 0) {
-        list.push({
-          'block': apart,
-          'room': num
+        //判断宿舍是否存在
+        wx.request({
+          url: getApp().globalData.server + '/cqcq/public/index.php/index/Draw/doesItExist',
+          data: {
+            department: that.data.dep,
+            grade: that.data.grade,
+            block: apart,
+            room: num
+          },
+          method: "POST",
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success(res) {
+            if (res.data.error_code != 0) {
+              wx.showModal({
+                title: "提示：",
+                content: res.data.msg,
+                showCancel: false,
+                success(res) {}
+              })
+            } else if (res.data.error_code == 0) {
+              list.push({
+                'block': apart,
+                'room': num
+              })
+              that.setData({
+                listData: list
+              });
+            }
+          },
+          fail: function () {
+            wx.showModal({
+              title: '哎呀～',
+              showCancel: false,
+              content: '网络不在状态呢！',
+              success(res) {}
+            })
+          }
         })
+
       } else {
         wx.showToast({
           title: '提示：选择失败，表中已有该宿舍',
@@ -128,9 +165,6 @@ Page({
         duration: 2000 //持续的时间
       })
     }
-    this.setData({
-      listData: list
-    });
   },
 
   // 动态删除宿舍
@@ -171,8 +205,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      grade : getApp().globalData.user.grade,
-      dep : getApp().globalData.user.department
+      grade: getApp().globalData.user.grade,
+      dep: getApp().globalData.user.department
     })
     //console.log(this.data.grade)
     //console.log(this.data.dep)
@@ -197,13 +231,12 @@ Page({
             showCancel: false,
             success(res) {}
           })
-        } 
-        else if (res.data.error_code == 0) { 
-          for(var i=0;i<res.data.data.length;i++){
+        } else if (res.data.error_code == 0) {
+          for (var i = 0; i < res.data.data.length; i++) {
             listblock.push(res.data.data[i].block)
           }
           that.setData({
-            Apart:listblock
+            Apart: listblock
           })
         }
       },
