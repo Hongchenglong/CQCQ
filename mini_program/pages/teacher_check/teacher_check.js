@@ -1,5 +1,5 @@
 // pages/chakan/chakan.js
-var page = getApp().globalData.page;//页
+var page = getApp().globalData.page; //页
 
 Page({
   /**
@@ -129,7 +129,6 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        console.log(res.data)
         if (res.data.error_code == 1) {
           wx.showModal({
             title: '提示！',
@@ -145,7 +144,7 @@ Page({
           //   success: function (res) {}
           // })
 
-        } else  if (res.data.error_code != 0) {
+        } else if (res.data.error_code != 0) {
           wx.showModal({
             title: '哎呀～',
             content: '出错了呢！' + res.data.msg,
@@ -169,6 +168,8 @@ Page({
               loadMoreText: '没有数据了'
             })
           }
+
+
           console.log(that.data.showData)
           console.log(res)
           console.log(res.data.data)
@@ -286,6 +287,7 @@ Page({
   //查看跳转
   onClick: function (e) {
     wx.navigateTo({
+
       url: "../teacher_details/teacher_details?time=" + e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
     })
   },
@@ -295,6 +297,16 @@ Page({
 
     var that = this
     that.getList(1)
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 100)
+    // if (that.getList(1) == '') {
+    //   wx.showModal({
+    //     title: '提示！',
+    //     showCancel: false,
+    //     content: '回收站为空'
+    //   })
+    // }
   },
   //触底
   onScrollLower: function () {
@@ -302,5 +314,9 @@ Page({
     page = getApp().globalData.page + 1;
     console.log(page)
     that.getList(page)
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 80)
   },
+
 })
