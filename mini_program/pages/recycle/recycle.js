@@ -203,7 +203,7 @@ Page({
     })
     setTimeout(function () {
       wx.hideLoading()
-    }, 2000)
+    }, 100)
   },
 
   //恢复记录
@@ -304,14 +304,17 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
     that.getList(1)
-
-    // if (getApp().globalData.all == '') {
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 100)
+    // if (that.data.showData == '') {
     //   wx.showModal({
     //     title: '提示！',
     //     showCancel: false,
     //     content: '回收站为空'
     //   })
     // }
+
   },
   //触底
   onScrollLower: function () {
@@ -319,5 +322,9 @@ Page({
     page = getApp().globalData.pagetwo + 1;
     console.log(page)
     that.getList(page)
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 80)
   },
+
 })
