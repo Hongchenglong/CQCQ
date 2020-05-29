@@ -53,7 +53,7 @@ dormManage:function(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -97,4 +97,12 @@ dormManage:function(){
   onReachBottom: function () {
 
   },
+  // onShareAppMessage: function (res) {
+  //   console.log(res);
+  //   return {
+  //     title: '分享',
+  //     path: '/pages/login/login',
+  //     //imageUrl: '',
+  //   }
+  // },
 })

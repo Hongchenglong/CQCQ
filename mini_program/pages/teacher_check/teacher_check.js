@@ -212,7 +212,6 @@ Page({
               grade: that.data.grade,
               start_time: e.target.dataset.time,
               end_time: e.target.dataset.end_time,
-
             },
             method: "POST",
             header: {
@@ -250,7 +249,8 @@ Page({
                   success: function (res) {
                     if (res.confirm) {
                       console.log('用户点击确定')
-                      that.onLoad()
+                      //that.onLoad()
+                      that.onAll()
                     } else if (res.cancel) {
                       console.log('用户点击取消')
                     }
