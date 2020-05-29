@@ -178,7 +178,7 @@ Page({
               loadMoreText: '没有数据了'
             })
           }
-          
+
           console.log(that.data.showData)
           console.log(res)
           console.log(res.data.data)
@@ -304,7 +304,7 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
     that.getList(1)
-    
+
     // if (getApp().globalData.all == '') {
     //   wx.showModal({
     //     title: '提示！',
