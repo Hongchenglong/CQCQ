@@ -62,7 +62,6 @@ Page({
 
   //查看查寝结果
   check:function(){
-     getApp().globalData.page=2
     wx.navigateTo({
      
       url: '/pages/teacher_check/teacher_check',
@@ -88,6 +87,7 @@ Page({
    */
   onShow: function () {
     wx.hideHomeButton()
+    getApp().globalData.page = 2
   },
 
   /**
