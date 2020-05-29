@@ -1,34 +1,46 @@
-
 <view class="total">
-  <view class="top">
-    <view class="text">所属年级：{{grades}}</view>
-    <view class="text">所属系：{{dept}}</view>
-  </view>
+	<view class="top">
+		<view class="grade">
+			<image src="/images/nianji1.png" class="src" style="width:22px;height:22px"></image>
+			<view class="text">所属年级：{{grades}}</view>
+		</view>
+		<view class="dept">
+			<image src="/images/zhuanye.png" class="src" style="width:20px;height:20px"></image>
+			<view class="text">所属系：{{dept}}</view>
+		</view>
+	</view>
 
-  <view class="selected_top">
-    <!-- 下拉框 -->
-    <view class='selected' bindtap='bindShowMsg'>
-      <text>{{types_name}}</text>
-      <image src='https://oeong.xyz/cqcq/public/images/xialajiantou.png' class="one_jt"></image>
-    </view>
-    <!-- 下拉需要显示的列表 -->
-    <view class="select_box" wx:if="{{select}}">
-      <view wx:for="{{types}}" wx:key="navItems">
-        <view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
-      </view>
-  </view>
+  <!-- 分割线 -->
+<view class="line">
+	<view class="view1"></view>
+	<view style="font-size:12px">宿舍详情</view>
+	<view class="view2"></view>
+</view>
 
-    <view class="table">
-      <view class="tr bg-w">
-        <view class="th">区</view>
-        <view class="th">宿舍号</view>
-      </view>
-      <block wx:for="{{listData}}" wx:key="navItems">
-        <view class="tr">
-          <view class="td">{{item.block}}</view>
-          <view class="td">{{item.room}}</view>
-        </view>
-      </block>
-    </view>
-  </view>
+	<view class="selected_top">
+		<!-- 下拉框 -->
+		<view class='selected' bindtap='bindShowMsg'>
+			<text>{{types_name}}</text>
+			<image src='https://oeong.xyz/cqcq/public/images/xialajiantou.png' class="one_jt"></image>
+		</view>
+		<!-- 下拉需要显示的列表 -->
+		<view class="select_box" wx:if="{{select}}">
+			<view wx:for="{{types}}" wx:key="navItems">
+				<view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+			</view>
+		</view>
+
+		<view class="table">
+			<view class="tr bg-w">
+				<view class="th">区</view>
+				<view class="th">宿舍号</view>
+			</view>
+			<block wx:for="{{listData}}" wx:key="navItems">
+				<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
+					<view class="td">{{item.block}}</view>
+					<view class="td">{{item.room}}</view>
+				</view>
+			</block>
+		</view>
+	</view>
 </view>
