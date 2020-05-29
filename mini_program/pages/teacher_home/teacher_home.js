@@ -6,8 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current: 'homepage'
-  },
+    current: 'homepage',
+    elements: [{
+      title: '抽取宿舍',
+      name: 'Extraction',
+      color: 'cyan',
+      icon: 'newsfill',
+      page: 'teacher_extract_page1',
+      page_tow:'page1'
+    },
+    {
+      title: '查看查寝结果',
+      name: 'View',
+      color: 'blue',
+      icon: 'colorlens',
+      page: 'teacher_check',
+      page_tow:'teacher_check'
+    }
+  ],
+},
   handleChange ({ detail }) {
     this.setData({
         current: detail.key
@@ -46,6 +63,7 @@ Page({
   //查看查寝结果
   check:function(){
     wx.navigateTo({
+     
       url: '/pages/teacher_check/teacher_check',
   })
   },
@@ -69,6 +87,7 @@ Page({
    */
   onShow: function () {
     wx.hideHomeButton()
+    getApp().globalData.page = 2
   },
 
   /**
@@ -98,11 +117,5 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
+

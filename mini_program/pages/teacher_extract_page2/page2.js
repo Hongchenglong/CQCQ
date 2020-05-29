@@ -39,6 +39,7 @@ Page({
     blockList:[],
     randList:[],
   },
+
   //设置开始时间
   bindTimeChange1: function (e) {
   console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -82,10 +83,12 @@ Page({
       })
     }
   },
+
   //跳转页面
   buttonchange: function (e) {
-    wx.navigateTo({
-      url: '/pages/teacher_custom_page1/page1'
+    wx.redirectTo({
+      url: '/pages/teacher_custom_page2/page1?listdata=' + JSON.stringify(this.data.listData)
+      // url: '/pages/teacher_custom_page2/page1'
     })
   },
   //确认
@@ -169,10 +172,10 @@ Page({
       grade : getApp().globalData.user.grade,
       dep : getApp().globalData.user.department
     })
-     console.log("listData:",newList)
-     console.log("IdList:",this.data.idList)
-     console.log("BlockList:",this.data.blockList)
-     console.log("RoomList:",this.data.randList)
+    //  console.log("listData:",newList)
+    //  console.log("IdList:",this.data.idList)
+    //  console.log("BlockList:",this.data.blockList)
+    //  console.log("RoomList:",this.data.randList)
   },
 
   /**
@@ -237,14 +240,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    
   },
 
 })

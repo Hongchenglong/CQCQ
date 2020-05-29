@@ -9,8 +9,14 @@
   top: 0rpx;
   position: absolute;
   margin-top: 90rpx;
+  
 }
-
+.no-more-goods{
+  display:flex;
+  justify-content:center;
+  padding:20px 0;
+  position: relative;
+}
 .changeInfoName{
   position: absolute;
   height: 80rpx;
