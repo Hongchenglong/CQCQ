@@ -7,7 +7,7 @@
 	<view class="new" bindtap="buttonchange">
 		<image src="/images/right.png" style="width:23px;height:23px"></image>
 		<!--https://oeong.xyz/cqcq/public/images/right.png-->
-		<text decode="{{true}}">&nbsp;自定义</text>
+		<text decode="{{true}}">&nbsp;自定义添加/重置号码</text>
 	</view>
 	<view class="Date">
 		<image src="/images/date.png" style="width:23px;height:23px"></image>
