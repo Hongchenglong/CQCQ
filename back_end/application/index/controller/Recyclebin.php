@@ -226,6 +226,7 @@ class Recyclebin extends BaseController
             ->join('student s', 's.id = d.student_id')
             ->where($where)
             ->where('r.deleted', 1)
+            ->page($_POST['page'] - 1, 5)    // page('第几页','每页显示的数量')
             ->select();
 
         if ($record) {
