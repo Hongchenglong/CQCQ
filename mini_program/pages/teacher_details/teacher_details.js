@@ -1,6 +1,5 @@
 // pages/jiesu/jiesu.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -11,8 +10,42 @@ Page({
     grade:'',
   },
 
+  //点击图片预览
+  clickImg: function(e){
+    var imgUrl = e.target.dataset.photo;
+    wx.previewImage({
+      urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
+      current: '', // 当前显示图片的http链接，默认是第一个
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  
   //获取全部记录
   onLoad: function(options) {
+    var timestamp = Date.parse(new Date());
+    timestamp = timestamp / 1000;
+    //获取当前时间  
+    var n = timestamp * 1000;
+    var date = new Date(n);
+    //年  
+    var Y = date.getFullYear();
+    //月  
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //日  
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    //时  
+    var h = date.getHours();
+    //分  
+    var m = date.getMinutes();
+    //秒  
+    var s = date.getSeconds();
+    console.log("当前时间：" + Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s);
+    var time =  Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
+    this.setData({
+      time: time
+    })
     this.setData({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department
