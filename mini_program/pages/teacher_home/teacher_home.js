@@ -10,16 +10,16 @@ Page({
     elements: [{
       title: '抽取宿舍',
       name: 'Extraction',
-      color: 'cyan',
-      icon: 'newsfill',
+      color: 'newColor2',
+      icon: 'formfill',
       page: 'teacher_extract_page1',
       page_tow:'page1'
     },
     {
       title: '查看查寝结果',
       name: 'View',
-      color: 'blue',
-      icon: 'colorlens',
+      color: 'newColor3',
+      icon: 'newsfill',
       page: 'teacher_check',
       page_tow:'teacher_check'
     }
