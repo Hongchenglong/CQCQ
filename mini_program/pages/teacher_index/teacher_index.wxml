@@ -1,0 +1,24 @@
+<!--pages/teacher_index/teacher_index.wxml-->
+<teacher_home wx:if="{{PageCur=='teacher_home'}}"></teacher_home>
+<teacher_dorm wx:if="{{PageCur=='teacher_dorm'}}"></teacher_dorm>
+<teacher_mine wx:if="{{PageCur=='teacher_mine'}}"></teacher_mine>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="teacher_home">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/teacher_home{{PageCur=='teacher_home'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='teacher_home'?'text-newblue':'text-gray'}}">首页</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="teacher_dorm">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/teacher_dorm{{PageCur=='teacher_dorm'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='teacher_dorm'?'text-newblue':'text-gray'}}">宿舍</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="teacher_mine">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/teacher_mine{{PageCur=='teacher_mine'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='teacher_mine'?'text-newblue':'text-gray'}}">我的</view>
+  </view>
+</view>

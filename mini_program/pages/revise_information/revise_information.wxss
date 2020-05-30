@@ -41,15 +41,15 @@
   height: 100rpx;
   min-height: 100rpx;
   width:100%;
+  font-size:30rpx;
+  line-height:35rpx;
 }
 
 .dorm_picker{
   color: #888;
-  /* height:100rpx; */
+  height:100rpx;
   float:right;
   margin-right:20rpx;
-  font-size: 30rpx;
-  line-height: 36rpx;
 }
 
 .dorm_text{

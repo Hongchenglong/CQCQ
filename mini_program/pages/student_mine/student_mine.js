@@ -47,45 +47,6 @@ turnLogin:function(){
   })
 },
 
-  //事件处理函数
-  bindViewTap: function() {
-    this.setData({
-      modalHidden:!this.data.modalHidden
-    })
-  },
-      
-  //事件处理函数
-  bindViewTap: function() {
-    /*this.setData({
-      modalHidden:!this.data.modalHidden
-    })*/
-    wx.showModal({
-      title: '退出登录',
-      content: '确认退出登录？',
-      confirmColor:"red",
-      success (res) {
-        if (res.confirm) {
-          //点击确认退出
-          wx.redirectTo({
-            url: '../login/login',
-          })
-        } else if (res.cancel) {
-          //点击取消
-          console.log('用户点击取消')
-        }else {
-          //异常
-          wx.showLoading({
-           title: '系统异常',
-           fail
-          })
-          setTimeout(function () {
-           wx.hideLoading()
-          }, 2000)
-         }
-    
-      }
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -140,11 +101,127 @@ turnLogin:function(){
   onReachBottom: function () {
 
   },
+})
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+Component({
 
+  pageLifetimes: {
+    show: function() {
+      // 页面被展示时刷新
+      this.setData({
+        username: getApp().globalData.user.username,
+        grade: getApp().globalData.user.grade,
+        department: getApp().globalData.user.department
+      })
+      console.log("show")
+    },
+  },
+
+  data: {
+    current: 'mine',
+    modalHidden:true,//是否隐藏对话框
+    username: '',
+    grade: '',
+    department: ''
+  },
+  attached() {
+    this.setData({
+      username: getApp().globalData.user.username,
+      grade: getApp().globalData.user.grade,
+      department: getApp().globalData.user.department
+    })
+  },
+  methods: {
+    coutNum(e) {
+      if (e > 1000 && e < 10000) {
+        e = (e / 1000).toFixed(1) + 'k'
+      }
+      if (e > 10000) {
+        e = (e / 10000).toFixed(1) + 'W'
+      }
+      return e
+    },
+    CopyLink(e) {
+      wx.setClipboardData({
+        data: e.currentTarget.dataset.link,
+        success: res => {
+          wx.showToast({
+            title: '已复制',
+            duration: 1000,
+          })
+        }
+      })
+    },
+    showModal(e) {
+      this.setData({
+        modalName: e.currentTarget.dataset.target
+      })
+    },
+    hideModal(e) {
+      this.setData({
+        modalName: null
+      })
+    },
+    showQrcode() {
+      wx.previewImage({
+        urls: ['https://image.weilanwl.com/color2.0/zanCode.jpg'],
+        current: 'https://image.weilanwl.com/color2.0/zanCode.jpg' // 当前显示图片的http链接      
+      })
+    },
+    methods: {
+      /// 显示 actionsheet
+      show: function() {
+        console.log(456)
+      },
+    },
+     //点击加载样式
+     click: function () {
+      //加载中的样式
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+        })
+    },
+    //事件处理函数
+    bindViewTap: function() {
+      this.setData({
+        modalHidden:!this.data.modalHidden
+      })
+    },
+        
+    //事件处理函数
+    bindViewTap: function() {
+      /*this.setData({
+        modalHidden:!this.data.modalHidden
+      })*/
+      wx.showModal({
+        title: '退出登录',
+        content: '确认退出登录？',
+        confirmColor:"red",
+        success (res) {
+          if (res.confirm) {
+            //点击确认退出
+            wx.reLaunch({
+              url: '../login/login',
+            })
+          } else if (res.cancel) {
+            //点击取消
+            console.log('用户点击取消')
+          }else {
+            //异常
+            wx.showLoading({
+             title: '系统异常',
+             fail
+            })
+            setTimeout(function () {
+             wx.hideLoading()
+            }, 2000)
+           }
+      
+        }
+      })
+    },
   }
 })

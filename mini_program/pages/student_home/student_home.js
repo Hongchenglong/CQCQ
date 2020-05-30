@@ -7,6 +7,23 @@ Page({
   data: {
     current: 'homepage',
     /*height:''*/
+    elements: [{
+      title: '查看抽取结果',
+      name: 'Extraction',
+      color: 'newColor2',
+      icon: 'formfill',
+      page: 'student_extract',
+      page_tow:'page3'
+    },
+    {
+      title: '拍照上传',
+      name: 'View',
+      color: 'newColor3',
+      icon: 'newsfill',
+      page: 'student_picupload',
+      page_tow:'student_picupload'
+    }
+  ],
   },
 
   handleChange ({ detail }) {
@@ -27,6 +44,17 @@ Page({
       }
     }
   },
+
+     //点击
+     click: function () {
+      //加载中的样式
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+        })
+    },
 
   //跳转至查看抽取结果
   gotoextractresults: function () {

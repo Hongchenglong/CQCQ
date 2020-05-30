@@ -1,4 +1,5 @@
 /* pages/teacher_dorm/teacher_dorm.wxss */
+
 .head{
   width: 300rpx;
   height: 300rpx;
@@ -9,7 +10,7 @@
   width: 100%;
   height: 100%;
 }
-.menu{
+/*.menu{
   width: 520rpx;
   height: 220rpx;
   margin: 15% auto;
@@ -44,11 +45,11 @@
 .pic1{
   width: 100%;
   height: 100%;
-}
+}*/
 
-.bottom_menu{
+/*.bottom_menu{
   width: 100%;
   height: 9%;
   bottom: 0rpx;
   position: fixed;
-}
+}*/

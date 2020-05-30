@@ -4,6 +4,9 @@
     "pages/login/login",
     "pages/student_load/student_load",
     
+    "pages/recycle_bin/recycle_bin",
+    "pages/recycle/recycle",
+    
     "pages/student_picupload/student_picupload",
     "pages/revise_password/revise_password",
     "pages/revise_phone/revise_phone",
@@ -19,11 +22,12 @@
 
     "pages/student_extract/page3",
     "pages/teacher_custom_page1/page1",  
-    "pages/teacher_extract_page3/page3",
-    "pages/teacher_extract_page2/page2",
+    "pages/teacher_custom_page2/page1",  
     "pages/teacher_extract_page1/page1",
-    "pages/teacher_manage_page2/page2",
+    "pages/teacher_extract_page2/page2",
+    "pages/teacher_extract_page3/page3",
     "pages/teacher_manage_page1/page1",
+    "pages/teacher_manage_page2/page2",
     
 
     "pages/load/load",
@@ -39,6 +43,9 @@
     "pages/student_check/student_check",
     "pages/student_details/student_details",
 
+    "pages/teacher_index/teacher_index",
+    "pages/student_index/student_index",
+
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -47,6 +54,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "辅助查寝系统",
     "navigationBarTextStyle": "black"
+    
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -7,7 +7,7 @@
 			<view class="text">开始时间：{{time1}}</view>
 		</view>
 		<!-- <text decode="{{true}}" style="color:#777777">&nbsp;&nbsp;|&nbsp;&nbsp;</text> -->
-		
+
 		<view class="Later">
 			<image src="https://oeong.xyz/cqcq/public/images/endTime.png" class="date"></image>
 			<view class="text">截止时间：{{time2}}</view>
@@ -35,7 +35,7 @@
 		<view class="th">号码</view>
 	</view>
 	<block wx:for="{{Listdata}}" wx:key="navItems">
-		<view class="tr">
+		<view class="tr" style="background-color:{{dorm==item.dorm_num?'rgba(97, 190, 193, 0.54)':''}}">
 			<view class="td">{{item.dorm_num}}</view>
 			<view class="td">{{item.rand_num}}</view>
 		</view>

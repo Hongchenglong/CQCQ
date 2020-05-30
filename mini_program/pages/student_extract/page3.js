@@ -1,6 +1,5 @@
 // pages/teacher/extract/page3/page3.js
 Page({
-
   data: {
     // targetTime: 0,
     clearTimer: false,
@@ -10,8 +9,9 @@ Page({
     time1: '22:30',
     time2: '22:45',
     Listdata: [],
-    dep:'',
-    grade:''
+    dep: '',
+    grade: '',
+    dorm: ''
   },
   myLinsterner(e) {
     this.setData({
@@ -23,12 +23,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var that = this
+    // Dorm = getApp().globalData.user.username
     this.setData({
+      dorm: getApp().globalData.user.username,
       grade: getApp().globalData.user.grade,
       dep: getApp().globalData.user.department
     })
-    var that = this
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults')
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults',
       data: {
@@ -49,12 +65,19 @@ Page({
             success(res) {}
           })
         } else if (res.data.error_code == 0) {
-          //console.log(res)
-          var l = res.data.data.length-1
+          // var List = res.data.data
+          var l = res.data.data.length - 1
+          // for (var i = 0; i < List.length; i++) {
+          //   if (List[i].dorm_num == Dorm) {
+          //     that.setData({
+          //       sign:'1'
+          //     })
+          //   }
+          // }
           that.setData({
             Listdata: res.data.data,
-            time1:res.data.data[l].start_time,
-            time2:res.data.data[l].end_time
+            time1: res.data.data[l].start_time,
+            time2: res.data.data[l].end_time
           })
         }
       },
@@ -68,19 +91,7 @@ Page({
         })
       }
     })
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
   },
 

@@ -76,15 +76,23 @@ Page({
           } 
           else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
+            console.log(getApp().globalData.user)
             console.log(getApp().globalData.user.user)
+            //加载中的样式
+            wx.showToast({
+              title: '加载中...',
+              mask: true,
+              icon: 'loading',
+              duration: 400
+            })
             if (getApp().globalData.user.user == 'counselor') {
               //console.log(that.data.id.length),
               wx.reLaunch({
-                url: '/pages/teacher_home/teacher_home'
+                url: '/pages/teacher_index/teacher_index'
               })
             } else if (getApp().globalData.user.user == 'student') {
               wx.reLaunch({
-                url: '/pages/student_home/student_home'
+                url: '/pages/student_index/student_index'
               })
             }
             var _this = this;
@@ -115,6 +123,27 @@ Page({
         }
       })
     }
+
+    // 若已经授权，则获取用户信息
+    wx.getSetting({
+      success: res => {
+        //判断是否授权，如果授权成功
+        if (res.authSetting['scope.userInfo']) {    
+          //获取用户信息
+          wx.getUserInfo({
+            success: res => {
+              console.log(res);
+              getApp().globalData.userInfo = res.userInfo
+              getApp().globalData.load = true
+              //网络延迟，回调函数
+              if (this.userInfoReadyCallback) {
+                this.userInfoReadyCallback(res)
+              }
+            }
+          })
+        }      
+      },
+    })
   },
 
   idInput: function (e) {
@@ -123,20 +152,6 @@ Page({
 
   passwordInput: function (e) {
     this.data.password = e.detail.value
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
   },
 
   /**
@@ -166,35 +181,7 @@ Page({
     });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
+    /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
