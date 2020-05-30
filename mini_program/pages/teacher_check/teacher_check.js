@@ -277,9 +277,9 @@ Page({
                       console.log('用户点击取消')
                     }
                   },
-                  title: '恭喜！',
+                  title: '提示',
                   showCancel: false,
-                  content: '删除成功',
+                  content: '您删除的记录会在回收站中保留31天~',
                 })
               }
             },
