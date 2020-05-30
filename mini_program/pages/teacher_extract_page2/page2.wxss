@@ -115,7 +115,8 @@
   margin-bottom: 30rpx;
   width: 90%;
   height: 0;
-  border: 3rpx solid lavender;
+  /* border: 3rpx solid lavender; */
+  border: 3rpx solid #c0e2fa;
 }
 
 

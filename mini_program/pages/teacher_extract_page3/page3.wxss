@@ -15,7 +15,7 @@
   margin-bottom: 30rpx;
   width: 88%;
   height: 0;
-  border: 1.2px solid #cbcbd0;
+  border-bottom: 1.5px solid #d5dee4;
 }
 
 .turn,.Start,.Later{
