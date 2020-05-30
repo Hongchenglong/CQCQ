@@ -2,17 +2,26 @@
 /* 下拉框 */
 .top {
   width: 100%;
-  height: 150rpx;
-  line-height: 75rpx;
-  border: solid 1px #ADADAD;
+  height: 160rpx;
+  line-height: 80rpx;
 }
 
-.text {
-  font-size: 13px;
+.dept,.grade{
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  /*margin-left: 30rpx;*/
+  font-size: 13px;
+}
+
+.text{
+  color: #7D7D82;
+}
+
+.src{
+  margin-right: 10rpx;
+  /* width:55rpx;
+  height:55rpx; */
 }
 
 .selected_top {
@@ -22,14 +31,14 @@
   /* 水平居中 */
   align-items: center;
   /* 垂直居中 */
-  margin: 20rpx 10rpx;
+  margin: 30rpx 10rpx;
 }
 
 .selected {
   display: flex;
   color: #ADADAD;
-  width: 80%;
-  height: 46rpx;
+  width: 75%;
+  height: 66rpx;
   border: 1px solid #ADADAD;
   align-items: center;
   justify-content: space-between;
@@ -42,11 +51,10 @@
 .select_box {
   display: flex;
   position: absolute;
-  top: 220rpx;
+  top: 308rpx;
   flex-direction: column;
-  margin-left: 5rpx;
-  margin-top: 5rpx;
-  width: 80%;
+  /* margin-left: 5rpx; */
+  width: 74%;
   height: 200rpx;
   background-color: #fff;
   overflow: hidden;
@@ -90,7 +98,7 @@
   width: 80%;
   margin: 40rpx 10rpx;
   background-color: #fff;
-  border: 1rpx solid darkgray;
+  border: 1rpx solid #eff4f8;
   font-size: 12px;
   flex-direction: column;
 }
@@ -109,12 +117,40 @@
   align-items: center;
   /*垂直居中*/
   width: 100%;
-  border: 1rpx solid darkgray;
+  border: 1rpx solid #eff4f8;
   height: 2rem;
-  border-bottom: 1px solid darkgray;
-  border-right: 1px solid darkgray;
+  border-bottom: 1px solid #eff4f8;
+  border-right: 1px solid #eff4f8;
 }
 
 .bg-w {
-  background: #f2f2f2;
+  background: #b2dffe;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+  /*水平居中 */
+  align-items: center;
+  /*垂直居中 */
+  margin-top: 10rpx;
+  width: 100%;
+  height: 10%;
+  color: darkgray;
+}
+
+.view1 {
+  border: 1rpx solid lavender;
+  width: 215rpx;
+  height: 0rpx;
+  margin-right: 55rpx;
+  float: left
+}
+
+.view2 {
+  border: 1rpx solid lavender;
+  width: 215rpx;
+  height: 0rpx;
+  margin-left: 55rpx;
+  float: left
 }
