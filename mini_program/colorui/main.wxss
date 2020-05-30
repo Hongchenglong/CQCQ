@@ -9,7 +9,7 @@
 /* ==================
         初始化
  ==================== */
-page {
+ page {
 	/* Color 可以自定义相关配色 */
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
@@ -3454,6 +3454,28 @@ scroll-view.cu-steps .cu-item {
 	border-color: var(--white);
 }
 
+.bg-newColor{
+	background-color: #87CEEB;
+	color: #ffffff;
+		/*--newColor:rgba(105, 106, 255, 0.45),
+	--newColor1:rgba(97, 190, 193, 0.54),*/
+}
+
+.bg-newColor1{
+	background-color:rgba(221, 160, 221) ;
+	color: #ffffff;
+}
+
+.bg-newColor2{
+	background-color: rgba(105, 106, 255, 0.45);
+	color: #ffffff;
+}
+
+.bg-newColor3{
+	background-color: rgba(97, 190, 193, 0.54);
+	color: #ffffff;
+}
+
 .bg-red {
 	background-color: var(--red);
 	color: var(--white);
@@ -3861,7 +3883,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .text-content {
-	line-height: 2;
+	line-height: 1.6;
 }
 
 .text-left {
@@ -3872,11 +3894,19 @@ scroll-view.cu-steps .cu-item {
 	text-align: right;
 }
 
+.text-mei_red,
+.line-mei_red,
+.lines-mei_red {
+	color: #DDA0DD;
+}
+
+
 .text-red,
 .line-red,
 .lines-red {
 	color: var(--red);
 }
+
 
 .text-orange,
 .line-orange,
@@ -3900,6 +3930,12 @@ scroll-view.cu-steps .cu-item {
 .line-green,
 .lines-green {
 	color: var(--green);
+}
+
+.text-newblue,
+.line-newblue,
+.lines-newblue {
+	color: #7EC4F8;
 }
 
 .text-cyan,

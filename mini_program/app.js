@@ -1,18 +1,18 @@
 //app.js
 App({
   onLaunch: function () {
-      wx.getSystemInfo({
-        success: e => {
-          this.globalData.StatusBar = e.statusBarHeight;
-          let capsule = wx.getMenuButtonBoundingClientRect();
-      if (capsule) {
-         this.globalData.Custom = capsule;
-        this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
-      } else {
-        this.globalData.CustomBar = e.statusBarHeight + 50;
-      }
+    wx.getSystemInfo({
+      success: e => {
+        this.globalData.StatusBar = e.statusBarHeight;
+        let capsule = wx.getMenuButtonBoundingClientRect();
+        if (capsule) {
+          this.globalData.Custom = capsule;
+          this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
+        } else {
+          this.globalData.CustomBar = e.statusBarHeight + 50;
         }
-      })
+      }
+    })
 
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -55,6 +55,7 @@ App({
     server: 'https://oeong.xyz', //域名
     height: '', //手机屏幕高度
     load: false, //判断用户是否授权
+    PageCur: '',
     flag: '',
     userInfomation: '',
     name: '',
@@ -67,7 +68,7 @@ App({
     imgSrc: '',
     page: 2,
     pagetwo: 2,
-    all:{},
+    all: {},
     userInfo: null,
     multiArray: [
       ['中一', '中二', '东一', '东二'],

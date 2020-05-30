@@ -10,6 +10,7 @@
     "pages/student_picupload/student_picupload",
     "pages/revise_password/revise_password",
     "pages/revise_phone/revise_phone",
+    "pages/teacher_information/teacher_information",
     "pages/revise_information/revise_information",
     "pages/student_mine/student_mine", 
     "pages/revise_about/revise_about",
@@ -22,11 +23,12 @@
 
     "pages/student_extract/page3",
     "pages/teacher_custom_page1/page1",  
-    "pages/teacher_extract_page3/page3",
-    "pages/teacher_extract_page2/page2",
+    "pages/teacher_custom_page2/page1",  
     "pages/teacher_extract_page1/page1",
-    "pages/teacher_manage_page2/page2",
+    "pages/teacher_extract_page2/page2",
+    "pages/teacher_extract_page3/page3",
     "pages/teacher_manage_page1/page1",
+    "pages/teacher_manage_page2/page2",
     
 
     "pages/load/load",
@@ -41,6 +43,9 @@
     "pages/phone_verify/phone_verify",
     "pages/student_check/student_check",
     "pages/student_details/student_details",
+
+    "pages/teacher_index/teacher_index",
+    "pages/student_index/student_index",
 
     "pages/index/index",
     "pages/logs/logs"
