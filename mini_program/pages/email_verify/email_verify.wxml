@@ -14,8 +14,8 @@
 		</view>
 	</view>
 
-	<button class="de" style="border-radius: 30px;width:80%">
-		<image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text style="color:white" decode="{{true}}" bindtap="onInput">&nbsp;下一步</text>
+	<button class="de" style="border-radius: 30px;width:80%" bindtap="onInput">
+		<image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text style="color:white" decode="{{true}}" >&nbsp;下一步</text>
 	</button>
 
 </view>
