@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "teacher_home": "/pages/teacher_home/teacher_home",
+    "teacher_dorm": "/pages/teacher_dorm/teacher_dorm",
+    "teacher_mine": "/pages/teacher_mine/teacher_mine"
+  }
+}

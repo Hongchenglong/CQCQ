@@ -25,6 +25,18 @@ Page({
     }
   ],
 },
+
+    //点击
+    click: function () {
+      //加载中的样式
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+        })
+    },
+    
   handleChange ({ detail }) {
     this.setData({
         current: detail.key
@@ -62,6 +74,7 @@ Page({
 
   //查看查寝结果
   check:function(){
+     getApp().globalData.page=2
     wx.navigateTo({
      
       url: '/pages/teacher_check/teacher_check',
@@ -87,7 +100,6 @@ Page({
    */
   onShow: function () {
     wx.hideHomeButton()
-    getApp().globalData.page = 2
   },
 
   /**

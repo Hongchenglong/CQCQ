@@ -6,5 +6,6 @@
     "i-tab-bar-item": "../../dist/tab-bar-item/index",
     "i-icon": "../../dist/icon/index"
   },
-  "navigationBarTitleText": "学生首页"
+  "navigationBarTitleText": "学生首页",
+  "component": true
 }
