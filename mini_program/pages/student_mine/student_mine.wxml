@@ -19,7 +19,7 @@
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
 		<!--修改信息-->
 		<view class="cu-item arrow">
-			<navigator class="content" url="../teacher_information/teacher_information" hover-class="none" bindtap="click">
+			<navigator class="content" url="../revise_information/revise_information" hover-class="none" bindtap="click">
 				<text class="cuIcon-write text-mauve"></text>
 				<text class="text-grey">修改信息</text>
 			</navigator>
