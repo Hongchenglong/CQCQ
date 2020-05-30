@@ -158,35 +158,55 @@ Page({
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        success:function(res){
+        success: function (res) {
           if (res.data.error_code != 0) {
             wx.showModal({
               title: '提示！',
               content: res.data.msg,
               showCancel: false,
-              success:function(res) {}
+              success: function (res) {}
             })
           } else if (res.data.error_code == 0) {
             wx.showModal({
               title: '恭喜！',
               content: '修改成功！',
               showCancel: false,
-              success:function(res) {},
-              complete: function(res){
+              success: function (res) {},
+              complete: function (res) {
                 getApp().globalData.user.phone = that.data.phone;
-              	if(getApp().globalData.user.user == 'student') {
+                if (getApp().globalData.user.user == 'student') {
                   wx.navigateTo({
                     url: '../student_mine/student_mine',
                   })
-                }
-              	else {
+                } else {
                   wx.navigateTo({
                     url: '../teacher_mine/teacher_mine',
                   })
                 }
-              }
+              },
+              fail: function (e) {
+                console.log(e);
+                wx.showModal({
+                  title: '提示',
+                  content: '修改失败！',
+                  showCancel: false
+                })
+              },
             })
           }
+        },
+        fail: function (res) {
+          wx.showModal({
+            title: '哎呀～',
+            content: '网络不在状态呢！',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
         }
       })
     }
