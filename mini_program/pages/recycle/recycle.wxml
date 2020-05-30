@@ -14,7 +14,7 @@
 	</button>
 </view>
 
-<scroll-view class='scbg' scroll-y='true'>
+<scroll-view class='scbg' scroll-y='true'  bindscroll="onScrollLower">
 	<block wx:for="{{showData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="first" wx:if="{{time<itemName.end_time}}">
 			<image class="imgs" src='../../images/reback.png' bindtap="onLike" data-start_time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}"/>
@@ -32,3 +32,9 @@
 		</view>
 	</block>
 </scroll-view>
+ <view class='warn_text' hidden='{{!isShowLoadmore}}'>
+ 	<view class='loadmore_tips'>————正在加载————</view>
+ </view>
+ <view class="warn_text" hidden='{{!isShowNoDatasTips}}'>
+ 	<view class="loadmore_tips">————暂无数据————</view>
+ </view>

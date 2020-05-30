@@ -271,8 +271,8 @@ Page({
                   success: function (res) {
                     if (res.confirm) {
                       console.log('用户点击确定')
-                      that.onLoad()
-                      // that.onAll()
+                      // that.onLoad()
+                      that.onAll()
                     } else if (res.cancel) {
                       console.log('用户点击取消')
                     }
@@ -362,20 +362,20 @@ Page({
         isShowLoadmore: true, // 显示正在加载
         scrollTop: e.detail.scrollTop + that.data.totalScrollHeight
       })
-      page = getApp().globalData.page + 1;
       that.getList(page)
+      page = getApp().globalData.page + 1;
     } else if (e.detail.scrollTop <= 0) { // 最顶部
       console.log("最顶部")
       e.detail.scrollTop = 0;
     }
 
-    recordBlock = that.data.scrollHeight * (7 * (page - 3) + count);
+    recordBlock = that.data.scrollHeight * (7 * (page - 3) + count + 1);
     if (flag == 1 && recordBlock < e.detail.scrollTop + that.data.totalScrollHeight) {
-      page = getApp().globalData.page + 1;
       that.getList(page)
+      page = getApp().globalData.page + 1;
     }
 
-    if (flag == 1 && that.data.scrollHeight * (7 * (page - 4) + count) < e.detail.scrollTop + that.data.totalScrollHeight) {
+    if (flag == 1 && that.data.scrollHeight * (7 * (page - 3) + count ) < e.detail.scrollTop + that.data.totalScrollHeight) {
       if (change > e.detail.scrollTop) {
         that.setData({ //向上滚动 
           isShowLoadmore: false, // 不显示正在加载
