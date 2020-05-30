@@ -100,3 +100,16 @@
   height: 48rpx;
   float:right;
 }
+
+.warn_text{
+  position: absolute;
+  width:100%;
+  height: 60rpx;
+  bottom:0rpx ;
+}
+.loadmore_tips{
+  width:100%;
+  height: 60rpx;
+  text-align: center;
+  color: rgba(187, 187, 187, 1);
+}
