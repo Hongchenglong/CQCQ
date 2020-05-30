@@ -39,9 +39,9 @@ Page({
    */
   onShow: function () {
     var that = this
-    // Dorm = getApp().globalData.user.username
+    // console.log(getApp().globalData.userInfomation.roomInfo[0].dorm_num)
     this.setData({
-      dorm: getApp().globalData.user.username,
+      dorm: getApp().globalData.userInfomation.roomInfo[0].dorm_num,
       grade: getApp().globalData.user.grade,
       dep: getApp().globalData.user.department
     })
