@@ -43,7 +43,7 @@ class Checkresults extends BaseController
             ->where($where)
             ->where('r.deleted', 0)
             ->order('start_time desc')
-            ->page($_POST['page']-1, 5)    // page('第几页','每页显示的数量')
+            ->page($_POST['page']-1, 7)    // page('第几页','每页显示的数量')
             ->select();
 
         if ($record) {

@@ -198,9 +198,30 @@ Page({
                     url: '../teacher_mine/teacher_mine',
                   })
                 }
-              }
+              },
+              fail: function (e) {
+                console.log(e);
+                wx.showModal({
+                  title: '提示',
+                  content: '修改失败！',
+                  showCancel: false
+                })
+              },
             })
           }
+        },
+        fail: function (res) {
+          wx.showModal({
+            title: '哎呀～',
+            content: '网络不在状态呢！',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
         }
       })
     }

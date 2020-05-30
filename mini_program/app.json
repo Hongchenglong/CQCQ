@@ -42,6 +42,9 @@
     "pages/student_check/student_check",
     "pages/student_details/student_details",
 
+    "pages/teacher_index/teacher_index",
+    "pages/student_index/student_index",
+
     "pages/index/index",
     "pages/logs/logs"
   ],

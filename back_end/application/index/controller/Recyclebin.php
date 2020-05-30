@@ -11,7 +11,7 @@ class Recyclebin extends BaseController
      */
     public function checkDeletedRecords()
     {
-        // $parameter = ['grade', 'department'];
+        // $parameter = ['grade', 'department', 'page'];
         // 输入判断
         if (empty($_POST['grade'])) {
             $return_data = array();
@@ -23,7 +23,13 @@ class Recyclebin extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入系！';
             return json($return_data);
+        } else if (empty($_POST['page'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入页码！';
+            return json($return_data);
         }
+
 
         // 查询条件
         $where = array();
@@ -38,7 +44,7 @@ class Recyclebin extends BaseController
             ->where($where)
             ->where('r.deleted', 1)
             ->order('start_time desc')
-            ->page($_POST['page'] - 1, 5)    // page('第几页','每页显示的数量')
+            ->page($_POST['page'] - 1, 7)    // page('第几页','每页显示的数量')
             ->select();
 
         if ($record) {
