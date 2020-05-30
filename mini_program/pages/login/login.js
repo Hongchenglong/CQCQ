@@ -73,8 +73,7 @@ Page({
                 }
               }*/
             })
-          } 
-          else if (res.data.error_code == 0) {
+          } else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
             console.log(getApp().globalData.user)
             console.log(getApp().globalData.user.user)
@@ -181,10 +180,8 @@ Page({
     });
   },
 
-    /**
+  /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function (res) {}
 })
