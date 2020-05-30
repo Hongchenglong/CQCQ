@@ -22,11 +22,12 @@
 
     "pages/student_extract/page3",
     "pages/teacher_custom_page1/page1",  
-    "pages/teacher_extract_page3/page3",
-    "pages/teacher_extract_page2/page2",
+    "pages/teacher_custom_page2/page1",  
     "pages/teacher_extract_page1/page1",
-    "pages/teacher_manage_page2/page2",
+    "pages/teacher_extract_page2/page2",
+    "pages/teacher_extract_page3/page3",
     "pages/teacher_manage_page1/page1",
+    "pages/teacher_manage_page2/page2",
     
 
     "pages/load/load",
