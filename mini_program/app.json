@@ -10,6 +10,7 @@
     "pages/student_picupload/student_picupload",
     "pages/revise_password/revise_password",
     "pages/revise_phone/revise_phone",
+    "pages/teacher_information/teacher_information",
     "pages/revise_information/revise_information",
     "pages/student_mine/student_mine", 
     "pages/revise_about/revise_about",
