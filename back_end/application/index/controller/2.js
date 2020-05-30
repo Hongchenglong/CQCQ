@@ -4,7 +4,7 @@ Page({
   popSuccessTest: function () {
     wx.showToast({
       title: '不可修改',
-      image: '/images/error.png',
+     image:'/images/error.png',
       duration: 1000, //停留时间
     })
   },
@@ -15,13 +15,13 @@ Page({
       duration: 2000, //停留时间
     })
   },
-
+  //昵称：接口
   onShow: function (options) {
     var _this = this;
-    if (getApp().globalData.user.phone == null) {
+    if(getApp().globalData.user.phone == null){
       getApp().globalData.user.phone = "无";
     }
-    if (getApp().globalData.user.email == null) {
+    if(getApp().globalData.user.email == null){
       getApp().globalData.user.email = "无";
     }
     _this.setData({
@@ -82,7 +82,7 @@ Page({
             title: '提示！',
             content: res.data.msg,
             showCancel: false,
-            success: function (res) {}
+            success: function (res) { }
           })
         } else if (res.data.error_code == 0) {
           wx.showModal({
@@ -96,29 +96,15 @@ Page({
               })
               getApp().globalData.userInfomation.roomInfo[0].block = block;
               getApp().globalData.userInfomation.roomInfo[0].room = room;
-              getApp().globalData.userInfomation.roomInfo[0].dorm_num = block + "#" + room;
             }
           })
         }
-      },
-      fail: function (res) {
-        wx.showModal({
-          title: '哎呀～',
-          content: '网络不在状态呢！',
-          success: function (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-            } else if (res.cancel) {
-              console.log('用户点击取消')
-            }
-          }
-        })
-      },
+      }
     })
 
 
   },
-  //昵称：接口
+
   //点击按钮弹窗指定的hiddenmodalput弹出框 
   modalinput: function () {
     this.setData({
@@ -139,8 +125,9 @@ Page({
   },
   //确认 
   confirm: function (e) {
+    getApp().globalData.name = this.data.gr,
+      getApp().globalData.user.username = this.data.gr
     var that = this;
-    getApp().globalData.name = that.data.gr;
     wx.request({
       'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeusername',
       //发给服务器的数据
@@ -158,7 +145,7 @@ Page({
             title: '提示！',
             content: res.data.msg,
             showCancel: false,
-            success: function (res) {}
+            success: function (res) { }
           })
         } else if (res.data.error_code == 0) {
           that.setData({
@@ -173,7 +160,6 @@ Page({
             content: '修改成功！',
             showCancel: false,
             success: res1 => {
-              getApp().globalData.user.username = that.data.gr;
               console.log(res);
               that.setData({
                 data: {
@@ -184,20 +170,7 @@ Page({
             }
           })
         }
-      },
-      fail: function (res) {
-        wx.showModal({
-          title: '哎呀～',
-          content: '网络不在状态呢！',
-          success: function (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-            } else if (res.cancel) {
-              console.log('用户点击取消')
-            }
-          }
-        })
-      },
+      }
     })
 
   },
