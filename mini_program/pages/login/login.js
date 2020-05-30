@@ -73,8 +73,7 @@ Page({
                 }
               }*/
             })
-          } 
-          else if (res.data.error_code == 0) {
+          } else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
             console.log(getApp().globalData.user)
             console.log(getApp().globalData.user.user)
@@ -128,7 +127,7 @@ Page({
     wx.getSetting({
       success: res => {
         //判断是否授权，如果授权成功
-        if (res.authSetting['scope.userInfo']) {    
+        if (res.authSetting['scope.userInfo']) {
           //获取用户信息
           wx.getUserInfo({
             success: res => {
@@ -141,7 +140,7 @@ Page({
               }
             }
           })
-        }      
+        }
       },
     })
   },
@@ -181,10 +180,8 @@ Page({
     });
   },
 
-    /**
+  /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function (res) {}
 })

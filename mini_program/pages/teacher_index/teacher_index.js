@@ -6,14 +6,14 @@ Page({
    */
   data: {
     PageCur: '',
-    PageCur1:''
+    PageCur1: ''
   },
 
   NavChange(e) {
     this.setData({
       PageCur1: e.currentTarget.dataset.cur
     })
-    if(this.data.PageCur1 == 'teacher_mine' && getApp().globalData.load == false){
+    if (this.data.PageCur1 == 'teacher_mine' && getApp().globalData.load == false) {
       wx.navigateTo({
         url: '/pages/load/load',
       })
@@ -35,7 +35,7 @@ Page({
     this.setData({
       PageCur: getApp().globalData.PageCur,
     })
-    if(this.data.PageCur==''){
+    if (this.data.PageCur == '') {
       this.setData({
         PageCur: 'teacher_home',
       })
@@ -95,6 +95,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    
   }
 })
