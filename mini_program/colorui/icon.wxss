@@ -22,6 +22,8 @@
 	display: inline-block;
 }
 
+
+/*[class*="cuIcon-"] */
 [class*="cuIcon-"] {
 	font-family: "cuIcon";
 	font-size: inherit;

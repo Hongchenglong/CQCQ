@@ -1,10 +1,26 @@
 <!--pages/teacher_dorm/teacher_dorm.wxml-->
-<view>
+<scroll-view scroll-y class="scrollPage">
 	<view class="head">
 		<image class="logo" src='https://oeong.xyz/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
 	</view>
-	<view class="menu">
-  <!--点击跳转至宿舍查看-->
+	<view class='nav-list'>
+		<navigator open-type="navigate" hover-class='none' bindtap='click' url="/pages/{{item.page}}/{{item.page_tow}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+			<view class="nav-title">{{item.title}}</view>
+			<view class="nav-name">{{item.name}}</view>
+			<text class='cuIcon-{{item.icon}}'></text>
+		</navigator>
+	</view>
+	<view class='cu-tabbar-height'></view>
+</scroll-view>
+
+
+
+<!--<view>
+	<view class="head">
+		<image class="logo" src='https://oeong.xyz/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
+	</view>
+	<view class="menu">-->
+  <!--点击跳转至宿舍查看
 		<button class="one" style="width:100%" bindtap="dormCheck">
 			<view class="whole">
 				<view class="pic">
@@ -14,8 +30,8 @@
 			</view>
 		</button>
 	</view>
-	<view class="menu">
-  <!--点击跳转至宿舍管理-->
+	<view class="menu">-->
+  <!--点击跳转至宿舍管理
 		<button class="two" style="width:100%" bindtap="dormManage">
 			<view class="whole">
 				<view class="pic">
@@ -25,6 +41,6 @@
 			</view>
 		</button>
 	</view>
-</view>
-<!--底部导航栏-->
-<include src="/pages/teacher_bottom/teacher_bottom" />
+</view>-->
+<!--底部导航栏
+<include src="/pages/teacher_bottom/teacher_bottom" />-->

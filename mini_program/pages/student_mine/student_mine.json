@@ -8,5 +8,6 @@
     "i-button": "../../dist/button/index",
     "i-modal": "../../dist/modal/index"
   },
-  "navigationBarTitleText": "学生信息主页"
+  "navigationBarTitleText": "学生信息主页",
+  "component": true
 }
