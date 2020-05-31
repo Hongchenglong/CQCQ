@@ -5,12 +5,12 @@
 </cu-custom>
 <form>
 	<!--年级-->
-	<view class="cu-form-group">
+	<view class="cu-form-group" bindtap="popSuccessTest2">
 		<view class="title">年级：</view>
 		<input value="{{ grade }}" disabled placeholder=""></input>
 	</view>
 	<!--系-->
-	<view class="cu-form-group">
+	<view class="cu-form-group" bindtap="popSuccessTest2">
 		<view class="title">系别：</view>
 		<input value="{{ dep }}" title="系别：" disabled placeholder=""></input>
 	</view>

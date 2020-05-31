@@ -22,6 +22,14 @@ Page({
     CustomBar: app.globalData.CustomBar ? app.globalData.StatusBar + 44 : app.globalData.CustomBar,
   },
 
+  popSuccessTest2: function () {
+    wx.showToast({
+      title: '此处无法修改！请返回信息主页修改！',
+      icon: 'none',
+      duration: 2000, //停留时间
+    })
+  },
+
   bindViewEvent: function (e) {
     console.log(e.detail.value)
     //app.process(this,e);    
