@@ -16,7 +16,11 @@ image {
   box-shadow: 0px 0px 10px #7AB8FB inset;
 }
 
-button {
+.de{
+  margin-top: 50rpx;
+}
+
+button{
   background-color: #7AB8FB;
   display: flex;
   align-items: center;

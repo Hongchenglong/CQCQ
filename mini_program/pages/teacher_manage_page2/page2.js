@@ -1,4 +1,5 @@
 // pages/teacher/manage/page2/page2.js
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -15,6 +16,10 @@ Page({
     //选择的楼号范围
     listBlock: [],
     flag:true,
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    /*ColorList: app.globalData.ColorList,*/
+    CustomBar: app.globalData.CustomBar ? app.globalData.StatusBar + 44 : app.globalData.CustomBar,
   },
 
   bindViewEvent: function (e) {
