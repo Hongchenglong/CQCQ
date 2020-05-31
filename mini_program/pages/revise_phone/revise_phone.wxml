@@ -3,7 +3,7 @@
 
 		<view class="one">
 			<image src="https://oeong.xyz/cqcq/public/images/phone.png"></image>
-			<input type="text" placeholder='请输入手机号' bindinput='getPhoneValue' value='{{phone}}' />
+			<input type="text" style="width:90%" placeholder='请输入手机号' bindinput='getPhoneValue' value='{{phone}}' />
 		</view>
 
 		<view class='two'>

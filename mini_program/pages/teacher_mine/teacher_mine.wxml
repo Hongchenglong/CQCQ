@@ -51,7 +51,7 @@
 		</view>
 		<!--意见反馈-->
 		<view class="cu-item arrow" style="">
-			<button class="cu-btn content" style="border: 1rpx solid;width:100%;height:100%" open-type="feedback" bindtap="click">
+			<button class="cu-btn content" style="width:100%;height:100%" open-type="feedback" bindtap="click">
 				<text class="cuIcon-creative text-cyan"></text>
 				<text class="text-grey" style="font-weight:normal">意见反馈</text>
 			</button>
