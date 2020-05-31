@@ -43,6 +43,7 @@
     "pages/phone_verify/phone_verify",
     "pages/student_check/student_check",
     "pages/student_details/student_details",
+    "pages/teacher_details/teacher_details",
 
     "pages/teacher_index/teacher_index",
     "pages/student_index/student_index",
