@@ -8,8 +8,7 @@ Page({
     email: "",
     num: "",
     codename: '获取验证码',
-    code:"",
-    disabled: false //按钮是否可点
+    code: ""
   },
 
   emailInput: function (e) {
@@ -89,12 +88,11 @@ Page({
               }
             })
           } else if (res.data.error_code == 0) {
-            if(that.data.num == that.data.code){
+            if (that.data.num == that.data.code) {
               wx.reLaunch({
                 url: "../change_passwd/change_passwd?email=" + that.data.email
               })
-            }
-            else{
+            } else {
               wx.showModal({
                 title: '哎呀～',
                 showCancel: false,
@@ -106,9 +104,9 @@ Page({
                     console.log('用户点击取消')
                   }
                 }
-            })
+              })
+            }
           }
-        }
         },
         fail: function (res) {
           wx.showModal({
@@ -130,16 +128,13 @@ Page({
   //获取验证码
   onClick: function (e) {
     var that = this;
-    that.setData({
-      disabled: true
-    })
     if (that.data.email == "") {
       wx.showModal({
         title: '提示',
         content: '请输入邮箱',
         showCancel: false
       })
-      getApp().globalData.Flag == 1
+      getApp().globalData.Flag = 1
     } else {
       console.log("success")
       wx.request({
@@ -159,7 +154,7 @@ Page({
               showCancel: false,
               content: res.data.msg,
               success: function (res) {
-                getApp().globalData.Flag == 1
+                getApp().globalData.Flag = 1
               }
             })
           } else if (res.data.error_code == 2) {
@@ -168,7 +163,7 @@ Page({
               showCancel: false,
               content: res.data.msg,
               success: function (res) {
-                getApp().globalData.Flag == 1
+                getApp().globalData.Flag = 1
               }
             })
           } else if (res.data.error_code != 0) {
@@ -181,13 +176,16 @@ Page({
                 } else if (res.cancel) {
                   console.log('用户点击取消')
                 }
-                getApp().globalData.Flag == 1
+                getApp().globalData.Flag = 1
               }
             })
           } else if (res.data.error_code == 0) {
             console.log(res.data.data.captcha)
             that.setData({
-              code : res.data.data.captcha
+              code: res.data.data.captcha
+            })
+            that.setData({
+              disabled: true
             })
             wx.showModal({
               title: '恭喜！',
@@ -199,23 +197,25 @@ Page({
                 } else if (res.cancel) {
                   console.log('用户点击取消')
                 }
-                getApp().globalData.Flag == 0
-                var number = 61;
-                var timer = setInterval(function () {
-                  number--;
-                  if (number <= 0) {
-                    clearInterval(timer);
-                    that.setData({
-                      codename: '重新发送',
-                      disabled: false
-                    })
-                    getApp().globalData.Flag = 1
-                  } else {
-                    that.setData({
-                      codename: number + "s"
-                    })
-                  }
-                }, 1000)
+                getApp().globalData.Flag = 0
+                if (getApp().globalData.Flag == 0) {
+                  var number = 61;
+                  var timer = setInterval(function () {
+                    number--;
+                    if (number <= 0) {
+                      clearInterval(timer);
+                      that.setData({
+                        codename: '重新发送',
+                        disabled: false
+                      })
+                      getApp().globalData.Flag = 1
+                    } else {
+                      that.setData({
+                        codename: number + "s"
+                      })
+                    }
+                  }, 1000)
+                }
               }
             })
           }
