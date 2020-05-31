@@ -44,6 +44,7 @@
 	--brownLight: #ede1d9;
 	--greyLight: #e7ebed;
 	/* 渐变色 */
+	--gradualblue1: linear-gradient(45deg, #0081ff, #e03997);
 	--gradualRed: linear-gradient(45deg, #f43f3b, #ec008c);
 	--gradualOrange: linear-gradient(45deg, #ff9700, #ed1c24);
 	--gradualGreen: linear-gradient(45deg, #39b54a, #8dc63f);
@@ -51,9 +52,9 @@
 	--gradualPink: linear-gradient(45deg, #ec008c, #6739b6);
 	--gradualBlue: linear-gradient(45deg, #0081ff, #1cbbb4);
 	/* 阴影透明色 */
-	--ShadowSize: 6rpx 6rpx 8rpx;
+	--ShadowSize: 12rpx 12rpx 16rpx;/*6rpx 6rpx 8rpx;*/
 	--redShadow: rgba(204, 69, 59, 0.2);
-	--orangeShadow: rgba(217, 109, 26, 0.2);
+	--orangeShadow: rgba(4, 4, 4, 0.2);
 	--yellowShadow: rgba(224, 170, 7, 0.2);
 	--oliveShadow: rgba(124, 173, 55, 0.2);
 	--greenShadow: rgba(48, 156, 63, 0.2);
@@ -3619,6 +3620,12 @@ scroll-view.cu-steps .cu-item {
 .bg-grey.light {
 	color: var(--grey);
 	background-color: var(--greyLight);
+}
+
+
+.bg-gradual-blue1 {
+	background-image: var(--gradualblue1);
+	color: var(--white);
 }
 
 .bg-gradual-red {

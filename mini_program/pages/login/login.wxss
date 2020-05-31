@@ -57,7 +57,7 @@ input {
   margin: 9% auto;
 }
 
-button {
+.login {
   word-spacing: 50rpx;
   background-color: #7EC4F8;
   display: flex;

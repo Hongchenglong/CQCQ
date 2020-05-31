@@ -1,4 +1,8 @@
 <!--表单-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">宿舍管理</view>
+</cu-custom>
 <form>
 	<!--年级-->
 	<view class="cu-form-group">
@@ -43,7 +47,7 @@
 
 <!--点击添加宿舍-->
 <view class="de">
-	<button style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonaddList'>
+	<button class="margin-top bg-gradual-blue shadow bg-gradual-blue" style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonaddList'>
 		<image src="/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
 		<!--https://oeong.xyz/cqcq/public/images/click2.png-->
 	</button>
@@ -59,23 +63,28 @@
 
 <view class="table">
 	<view class="tr bg-w">
-		<view class="th" style="width:10%">年级</view>
+		<!--<view class="th" style="width:10%">年级</view>
 		<view class="th" style="width:30%">系别</view>
 		<view class="th" style="width:23%">学号</view>
 		<view class="th" style="width:10%">性别</view>
 		<view class="th" style="width:10%">楼号</view>
 		<view class="th" style="width:10%">室号</view>
-		<view class="th" style="width:10%"></view>
+		<view class="th" style="width:10%"></view>-->
+		<view class="th" >学号</view>
+		<view class="th" >性别</view>
+		<view class="th" >楼号</view>
+		<view class="th" >室号</view>
+		<view class="th" ></view>
 	</view>
 	<block wx:for="{{listData}}" wx:key="index">
 		<view class="tr">
-			<view class="td" style="width:10%">{{item.grade}}</view>
-			<view class="td" style="width:30%">{{item.dep}}</view>
-			<view class="td" style="width:23%">{{item.no}}</view>
-			<view class="td" style="width:10%">{{item.sex}}</view>
-			<view class="td" style="width:10%">{{item.block}}</view>
-			<view class="td" style="width:10%">{{item.room}}</view>
-			<view class="td" data-idx='{{index}}' bindtap="buttondelete" style="color:red;width:10%">删除</view>
+			<!--<view class="td" style="width:10%">{{item.grade}}</view>
+			<view class="td" style="width:30%">{{item.dep}}</view>-->
+			<view class="td" >{{item.no}}</view><!--style="width:23%"-->
+			<view class="td" >{{item.sex}}</view><!--style="width:10%"-->
+			<view class="td" >{{item.block}}</view><!--style="width:10%"-->
+			<view class="td" >{{item.room}}</view><!--style="width:10%"-->
+			<view class="td" data-idx='{{index}}' bindtap="buttondelete" style="color:red;">删除</view><!--width:10%-->
 		</view>
 	</block>
 

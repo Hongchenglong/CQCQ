@@ -1,6 +1,9 @@
 {
   "usingComponents": {
-    "i-input": "../../dist/input/index"
+    "i-input": "../../dist/input/index",
+    "cu-custom": "/colorui/components/cu-custom"
   },
-  "navigationBarTitleText": "宿舍管理"
+  "navigationBarTitleText": "宿舍管理",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
 }
