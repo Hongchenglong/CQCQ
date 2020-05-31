@@ -18,24 +18,9 @@
 		<!--https://oeong.xyz/cqcq/public/images/endTime.png-->
 		<view class="text">截止时间：{{time2}}</view>
 	</view>
+
+	<view class="line"></view>
 </view>
-
-	<!-- <text decode="{{true}}" style="color:#777777">&nbsp;&nbsp;|&nbsp;&nbsp;</text> -->
-
-	<!-- <view class="view-wrap">
-		<text class="Late">倒计时：</text>
-		<i-count-down target="{{targetTime}}" clear-timer="{{clearTimer}}"></i-count-down>
-	</view> -->
-	<!-- <view class="view-wrap">
-    <text class="Late">倒计时：</text>
-    <i-count-down
-						target="{{targetTime2}}"
-            bindcallback="myLinsterner"
-            clear-timer="{{clearTimer}}"
-    ></i-count-down>
-    <text>状态：{{status}}</text>
-</view> -->
-
 
 <view class="table">
 	<view class="tr bg-w">
@@ -43,7 +28,7 @@
 		<view class="th">号码</view>
 	</view>
 	<block wx:for="{{Listdata}}" wx:key="navItems">
-		<view class="tr">
+		<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
 			<view class="td">{{item.dorm_num}}</view>
 			<view class="td">{{item.rand_num}}</view>
 		</view>

@@ -10,5 +10,5 @@
   <view class='txt'>\t\t欢迎使用辅助查寝系统小程序，我们需要一些您的公开信息，包括微信昵称、头像等。请放心，我们会妥善保管您的信息~</view>
 </view>
 <view wx:else>请升级微信版本</view>
-<!--底部导航栏-->
-<include src="/pages/teacher_bottom/teacher_bottom" />
+<!--底部导航栏
+<include src="/pages/teacher_bottom/teacher_bottom" />-->

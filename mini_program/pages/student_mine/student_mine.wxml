@@ -1,49 +1,76 @@
 <!--pages/student_mine/student_mine.wxml-->
-<view>
-	<view class="up">
-		<image src="https://oeong.xyz/cqcq/public/images/personBgImage.jpg" mode="widthFix" style="" class="back"></image>
-		<view class="inner">
-			<view class="in">
-				<!--头像-->
-				<view class='avatar'>
-					<open-data type="userAvatarUrl"></open-data>
-				</view>
-				<!--昵称-->
-				<text class="head">{{username}}</text>
-				<text class="head" decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
+<scroll-view scroll-y class="scrollPage">
+	<view class="UCenter-bg">
+		<!--头像-->
+		<view class='avatar' mode="widthFix">
+			<open-data type="userAvatarUrl"></open-data>
+		</view>
+		<view class="margin-top-sm">
+			<view class="text-xl">{{username}}
+				<!--<text class="text-df">v2.0</text>-->
 			</view>
 		</view>
+		<view class="margin-top-sm">
+			<text decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
+		</view>
+		<image src="https://oeong.xyz/cqcq/public/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 	</view>
-	<view class="down">
-		<i-cell-group>
-			<!--修改信息-->
-			<i-cell title="修改信息" is-link url="../revise_information/revise_information"  style="height:10rpx">
-				<i-icon slot="icon" type="brush_fill" size="28" color="#7EC4F8" />
-			</i-cell>
-			<!--修改密码-->
-			<i-cell title="修改密码" is-link url="../revise_password/revise_password" >
-				<i-icon slot="icon" type="lock_fill" size="28" color="#7EC4F8" />
-			</i-cell>
-			<!--修改邮箱-->
-			<i-cell title="修改邮箱" is-link url="../revise_email/revise_email">
-				<i-icon slot="icon" type="mail_fill" size="28" color="#7EC4F8" />
-			</i-cell>
-			<!--修改手机-->
-			<i-cell title="修改手机" is-link url="../revise_phone/revise_phone" >
-				<i-icon slot="icon" type="mobilephone_fill"  size="28" color="#7EC4F8" />
-			</i-cell>
-			<!--关于-->
-			<i-cell title="关于" is-link url="../revise_about/revise_about" >
-				<i-icon slot="icon" type="prompt_fill" size="28" color="#7EC4F8" />
-			</i-cell>
-		</i-cell-group>
-		<view class="exit">
-			<button hover-class="other-button-hover" style="width: 90%;border-radius: 30px;" bindtap="bindViewTap"> 
-			<image src="/images/exit.png"></image><text decode="{{true}}">&nbsp;&nbsp;退出登录</text> </button>
-			<!--https://oeong.xyz/cqcq/public/images/exit.png-->
+	<!--<view class="padding flex text-center text-grey bg-white shadow-warp">-->
+	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+		<!--修改信息-->
+		<view class="cu-item arrow" bindtap="to_info">
+			<navigator class="content" hover-class="none"><!--url="../revise_information/revise_information"  bindtap="click"-->
+				<text class="cuIcon-write text-mauve"></text>
+				<text class="text-grey">修改信息</text>
+			</navigator>
+		</view>
+		<!--修改密码-->
+		<view class="cu-item arrow" bindtap="to_pass">
+			<navigator class="content" hover-class="none"><!--url="../revise_password/revise_password"  bindtap="click"-->
+				<text class="cuIcon-lock text-brown"></text>
+				<text class="text-grey">修改密码</text>
+			</navigator>
+		</view>
+		<!--修改邮箱-->
+		<view class="cu-item arrow" bindtap="to_mail">
+			<navigator class="content" hover-class="none"><!--url="../revise_email/revise_email"  bindtap="click"-->
+				<text class="cuIcon-mail text-newblue"></text>
+				<text class="text-grey">修改邮箱</text>
+			</navigator>
+		</view>
+		<!--修改手机-->
+		<view class="cu-item arrow" bindtap="to_phone">
+			<navigator class="content" hover-class="none"><!--url="../revise_phone/revise_phone"  bindtap="click"-->
+				<text class="cuIcon-mobile text-mei_red"></text>
+				<text class="text-grey">修改手机</text>
+			</navigator>
+		</view>
+		<!--意见反馈-->
+		<view class="cu-item arrow">
+			<button class="cu-btn content" open-type="feedback" bindtap="click">
+				<text class="cuIcon-creative text-cyan"></text>
+				<text class="text-grey" style="font-weight:normal">意见反馈</text>
+			</button>
+		</view>
+		<view class="cu-item arrow" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/CQCQ">
+			<view class="content">
+				<text class="cuIcon-github text-grey"></text>
+				<text class="text-grey">GitHub</text>
+			</view>
+		</view>
+		<!--关于-->
+		<view class="cu-item arrow"  bindtap="to_about">
+			<navigator class="content" hover-class="none"><!--url="../revise_about/revise_about"  bindtap="click"-->
+				<text class="cuIcon-question text-yellow"></text>
+				<text class="text-grey">关于</text>
+			</navigator>
 		</view>
 	</view>
-</view>
-<view class='placeholder-view'></view>
-<!--底部导航栏-->
-<include src="/pages/student_bottom/student_bottom" />
+	<view class="exit">
+		<button  class="bg-gradual-blue" hover-class="other-button-hover" style="width: 90%;border-radius: 30px;" bindtap="bindViewTap">
+			<image src="/images/exit.png"></image><text decode="{{true}}">&nbsp;&nbsp;退出登录</text>
+		</button>
+		<!--https://oeong.xyz/cqcq/public/images/exit.png-->
+	</view>
+	<view class="cu-tabbar-height"></view>
+</scroll-view>

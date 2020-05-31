@@ -1,10 +1,10 @@
 <!--pages/hoteacher_homeme/teacher_home.wxml-->
 <scroll-view scroll-y class="scrollPage">
-	<view class="head">
+	<view class="up">
 		<image class="logo" src='https://oeong.xyz/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
 	</view>
 	<view class='nav-list'>
-		<navigator open-type="navigate" hover-class='none' url="/pages/{{item.page}}/{{item.page_tow}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+		<navigator open-type="navigate" hover-class='none' bindtap="click" url="/pages/{{item.page}}/{{item.page_tow}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
 			<view class="nav-title">{{item.title}}</view>
 			<view class="nav-name">{{item.name}}</view>
 			<text class='cuIcon-{{item.icon}}'></text>
@@ -13,5 +13,5 @@
 	<view class='cu-tabbar-height'></view>
 </scroll-view>
 
-<!--底部导航栏-->
-<include src="/pages/teacher_bottom/teacher_bottom" />
+<!--底部导航栏
+<include src="/pages/teacher_bottom/teacher_bottom" />-->

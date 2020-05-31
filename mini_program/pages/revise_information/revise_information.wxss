@@ -41,6 +41,8 @@
   height: 100rpx;
   min-height: 100rpx;
   width:100%;
+  font-size:30rpx;
+  line-height:35rpx;
 }
 
 .dorm_picker{
