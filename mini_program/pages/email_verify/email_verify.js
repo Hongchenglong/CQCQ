@@ -187,17 +187,7 @@ Page({
             that.setData({
               disabled: true
             })
-            wx.showModal({
-              title: '恭喜！',
-              showCancel: false,
-              content: '发送成功',
-              success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
-                }
-                getApp().globalData.Flag = 0
+            getApp().globalData.Flag = 0
                 if (getApp().globalData.Flag == 0) {
                   var number = 61;
                   var timer = setInterval(function () {
@@ -214,7 +204,17 @@ Page({
                         codename: number + "s"
                       })
                     }
-                  }, 1000)
+                  },1000)
+                }
+            wx.showModal({
+              title: '恭喜！',
+              showCancel: false,
+              content: '发送成功',
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
                 }
               }
             })
