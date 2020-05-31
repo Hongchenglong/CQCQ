@@ -23,7 +23,6 @@ Page({
       gr6: getApp().globalData.user.phone,
       gr7: getApp().globalData.user.email,
     })
-
   },
   data: {
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框 

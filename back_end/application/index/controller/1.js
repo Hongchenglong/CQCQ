@@ -18,6 +18,7 @@ Page({
 
   onShow: function (options) {
     var _this = this;
+    console.log(getApp().globalData.userInfomation);
     if (getApp().globalData.user.phone == null) {
       getApp().globalData.user.phone = "无";
     }
@@ -96,7 +97,6 @@ Page({
               })
               getApp().globalData.userInfomation.roomInfo[0].block = block;
               getApp().globalData.userInfomation.roomInfo[0].room = room;
-              getApp().globalData.userInfomation.roomInfo[0].dorm_num = block + "#" + room;
             }
           })
         }
