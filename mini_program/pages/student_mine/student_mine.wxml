@@ -18,29 +18,29 @@
 	<!--<view class="padding flex text-center text-grey bg-white shadow-warp">-->
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
 		<!--修改信息-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_information/revise_information" hover-class="none" bindtap="click">
+		<view class="cu-item arrow" bindtap="to_info">
+			<navigator class="content" hover-class="none"><!--url="../revise_information/revise_information"  bindtap="click"-->
 				<text class="cuIcon-write text-mauve"></text>
 				<text class="text-grey">修改信息</text>
 			</navigator>
 		</view>
 		<!--修改密码-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_password/revise_password" hover-class="none" bindtap="click">
+		<view class="cu-item arrow" bindtap="to_pass">
+			<navigator class="content" hover-class="none"><!--url="../revise_password/revise_password"  bindtap="click"-->
 				<text class="cuIcon-lock text-brown"></text>
 				<text class="text-grey">修改密码</text>
 			</navigator>
 		</view>
 		<!--修改邮箱-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_email/revise_email" hover-class="none" bindtap="click">
+		<view class="cu-item arrow" bindtap="to_mail">
+			<navigator class="content" hover-class="none"><!--url="../revise_email/revise_email"  bindtap="click"-->
 				<text class="cuIcon-mail text-newblue"></text>
 				<text class="text-grey">修改邮箱</text>
 			</navigator>
 		</view>
 		<!--修改手机-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_phone/revise_phone" hover-class="none" bindtap="click">
+		<view class="cu-item arrow" bindtap="to_phone">
+			<navigator class="content" hover-class="none"><!--url="../revise_phone/revise_phone"  bindtap="click"-->
 				<text class="cuIcon-mobile text-mei_red"></text>
 				<text class="text-grey">修改手机</text>
 			</navigator>
@@ -52,15 +52,15 @@
 				<text class="text-grey" style="font-weight:normal">意见反馈</text>
 			</button>
 		</view>
-		<view class="cu-item arrow">
-			<view class="content" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/CQCQ">
+		<view class="cu-item arrow" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/CQCQ">
+			<view class="content">
 				<text class="cuIcon-github text-grey"></text>
 				<text class="text-grey">GitHub</text>
 			</view>
 		</view>
 		<!--关于-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_about/revise_about" hover-class="none" bindtap="click">
+		<view class="cu-item arrow"  bindtap="to_about">
+			<navigator class="content" hover-class="none"><!--url="../revise_about/revise_about"  bindtap="click"-->
 				<text class="cuIcon-question text-yellow"></text>
 				<text class="text-grey">关于</text>
 			</navigator>

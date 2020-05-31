@@ -176,6 +176,79 @@ Component({
         console.log(456)
       },
     },
+
+    to_info:function(){
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+      })
+      wx.navigateTo({
+        url: '../revise_information/revise_information',
+      })
+    },
+
+    to_pass:function(){
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+      })
+      wx.navigateTo({
+        url: '../revise_password/revise_password',
+      })
+    },
+
+    to_mail:function(){
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+      })
+      wx.navigateTo({
+        url: '../revise_email/revise_email',
+      })
+    },
+
+    to_phone:function(){
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+      })
+      wx.navigateTo({
+        url: '../revise_phone/revise_phone',
+      })
+    },
+
+    to_phone:function(){
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+      })
+      wx.navigateTo({
+        url: '../revise_phone/revise_phone',
+      })
+    },
+
+    to_about:function(){
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
+      })
+      wx.navigateTo({
+        url: '../revise_about/revise_about',
+      })
+    },
+
     //点击加载样式
     click: function () {
       //加载中的样式
