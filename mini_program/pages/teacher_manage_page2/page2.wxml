@@ -9,7 +9,6 @@
 		<view class="title">年级：</view>
 		<input value="{{ grade }}" disabled placeholder=""></input>
 	</view>
-
 	<!--系-->
 	<view class="cu-form-group">
 		<view class="title">系别：</view>
