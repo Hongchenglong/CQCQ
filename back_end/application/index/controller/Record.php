@@ -41,16 +41,17 @@ class Record extends BaseController
         // 先找到本系、本年级的id最大的开始时间和结束时间
         $recentId = Db('record')
             ->alias('r')    // 别名
-            ->field('r.start_time, r.end_time')
+            ->field('r.start_time, r.end_time, r.id')
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
             ->where(['grade' => $_POST['grade'], 'department' => $_POST['department']])
+            ->where('deleted', 0)
             ->order('r.id desc')
             ->find();
 
         // 判断该用户宿舍是否存在该时间段
         $record = Db('record')
-            ->field('r.id, r.dorm_id')
+            ->field('r.id, r.dorm_id, r.id')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
@@ -59,6 +60,7 @@ class Record extends BaseController
                 'start_time' => $recentId['start_time'], 'end_time' => $recentId['end_time'],
                 'r.dorm_id' => $_POST['dorm_id']
             ])
+            ->where('deleted', 0)
             ->select();
 
         if (
@@ -92,7 +94,7 @@ class Record extends BaseController
                 return json($return_data);
             } else {
                 $day = date('Y-m-d');
-                $new_file_name = $day . '_' . $_POST['dorm_id'];
+                $new_file_name = $day . '_' . $recentId['id'];
                 $new_name = $new_file_name . '.' . $extension; //新文件名
                 $path = 'upload/' . $new_name;        //upload为保存图片目录
                 if (file_exists("upload/" . $path)) {   //判断是否存在该文件

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "student_home": "/pages/student_home/student_home",
+    "student_mine": "/pages/student_mine/student_mine",
+    "load": "/pages/load/load"
+  }
+}

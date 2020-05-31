@@ -27,18 +27,19 @@ Page({
     }
   },
 
-  next:function (e) {
+  /*next:function (e) {
     console.log("res.userInfo",getApp().globalData.userInfo)
     wx.reLaunch({
       url: '../teacher_mine/teacher_mine',
     })
-  },
+  },*/
 
   /**
    * 生命周期函数--监听页面加载
    */
 
   onLoad: function(options) {
+
     var that = this
 
     /*wx.showLoading({
@@ -66,7 +67,6 @@ Page({
                   success: function(res) {
                     console.log(res.userInfo)
                     getApp().globalData.userInfo = res.userInfo
-                    
                     that.next();
                   }
                 })
@@ -88,20 +88,35 @@ Page({
   bindGetUserInfo(e) {
     getApp().globalData.userInfo = e.detail.userInfo
     console.log(e.detail.userInfo)
-    if(e.detail.userInfo == undefined){}
+    if(e.detail.userInfo == undefined){
+      console.log("取消")
+      wx.navigateBack({
+        delta: 1
+        })
+    }
+    //用户点击确认授权
     else{
-      
      //加载中的样式
      wx.showToast({
       title: '加载中...',
       mask: true,
-      icon: 'loading'
+      icon: 'loading',
+      duration:400
       })
-      
       getApp().globalData.load = true
-      wx.reLaunch({
-        url: '../teacher_mine/teacher_mine',
-      })
+      if (getApp().globalData.user.user == 'counselor') {
+        getApp().globalData.PageCur = 'teacher_mine'
+        wx.reLaunch({
+          url: "../teacher_index/teacher_index",
+        })
+      } else if (getApp().globalData.user.user == 'student'){
+        getApp().globalData.PageCur = 'student_mine'
+        wx.reLaunch({
+          url: "../student_index/student_index",
+        })
+      }
+      
+      //console.log(getApp().globalData.PageCur)
     }
   },
 
@@ -117,7 +132,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.hideHomeButton()
   },
 
   /**

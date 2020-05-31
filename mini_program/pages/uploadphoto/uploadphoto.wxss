@@ -35,7 +35,7 @@ textarea {
 
 }
 
-.foot{
+.foot {
   width: 90%;
   bottom: 5rpx;
   position: fixed;
@@ -47,7 +47,7 @@ textarea {
 }
 
 
-.tips{
+.tips {
   bottom: 0rpx;
   position: fixed;
   text-align: center;
@@ -84,7 +84,7 @@ input {
   background-color: #fff;
 }
 
-.de{
+button {
   background-color: #7EC4F8;
   display: flex;
   align-items: center;
@@ -93,9 +93,10 @@ input {
   top: 55%;
   left: 10%;
   color: white;
+  box-shadow: 2px 2px lightgray;
 }
 
-.de image{
+button image {
   width: 60rpx;
   height: 60rpx;
 }
@@ -113,5 +114,5 @@ input {
 .other-button-hover {
   position: relative;
   top: 3rpx;
-  box-shadow:0px 0px 10px #7EC4F8 inset; 
+  box-shadow: 0px 0px 10px #7EC4F8 inset;
 }

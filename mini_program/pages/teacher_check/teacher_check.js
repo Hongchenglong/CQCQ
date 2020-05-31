@@ -1,6 +1,8 @@
 // pages/chakan/chakan.js
-var page = getApp().globalData.page;//页
-
+var page = getApp().globalData.page; //页
+var change = 0;
+var flag = 0;
+var count = 0;
 Page({
   /**
    * 页面的初始数据
@@ -11,6 +13,11 @@ Page({
     department: '',
     grade: '',
     loadMoreText: '加载更多',
+    isShowLoadmore: false, //正在加载 
+    isShowNoDatasTips: false, //暂无数据
+    scrollHeight: 0,
+    scrollTop: 0,
+    totalScrollHeight: 0
   },
 
 
@@ -129,7 +136,10 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        console.log(res.data)
+        that.setData({
+          isShowLoadmore: true,
+          isShowNoDatasTips: false,
+        })
         if (res.data.error_code == 1) {
           wx.showModal({
             title: '提示！',
@@ -144,8 +154,11 @@ Page({
           //   content: res.data.msg,
           //   success: function (res) {}
           // })
-
-        } else  if (res.data.error_code != 0) {
+          that.setData({
+            isShowLoadmore: false, // 不显示正在加载
+            isShowNoDatasTips: true // 显示暂无数据
+          })
+        } else if (res.data.error_code != 0) {
           wx.showModal({
             title: '哎呀～',
             content: '出错了呢！' + res.data.msg,
@@ -159,11 +172,20 @@ Page({
           })
         } else if (res.data.error_code == 0) {
           //懒加载
-          getApp().globalData.page += 1
+          getApp().globalData.page += 1;
           if (res.data.data.length > 0) {
             that.setData({
-              showData: that.data.showData.concat(res.data.data) //合并数据
+              showData: that.data.showData.concat(res.data.data), //合并数据
+              isShowLoadmore: false,
+              isShowNoDatasTips: false,
             })
+            count = res.data.data.length;
+            if (res.data.data.length < 7) {
+              flag = 1;
+            } else {
+              flag = 0;
+            }
+            that.getScrollHeight();
           } else {
             that.setData({
               loadMoreText: '没有数据了'
@@ -212,7 +234,6 @@ Page({
               grade: that.data.grade,
               start_time: e.target.dataset.time,
               end_time: e.target.dataset.end_time,
-
             },
             method: "POST",
             header: {
@@ -250,14 +271,15 @@ Page({
                   success: function (res) {
                     if (res.confirm) {
                       console.log('用户点击确定')
-                      that.onLoad()
+                      // that.onLoad()
+                      that.onAll()
                     } else if (res.cancel) {
                       console.log('用户点击取消')
                     }
                   },
-                  title: '恭喜！',
+                  title: '提示',
                   showCancel: false,
-                  content: '删除成功',
+                  content: '您删除的记录会在回收站中保留31天~',
                 })
               }
             },
@@ -292,15 +314,96 @@ Page({
   //显示
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-
     var that = this
+    getApp().globalData.page = 2
+    page = getApp().globalData.page
     that.getList(1)
+    page += 1
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 100)
+    // if (that.getList(1) == '') {
+    //   wx.showModal({
+    //     title: '提示！',
+    //     showCancel: false,
+    //     content: '回收站为空'
+    //   })
+    // }
+  },
+
+  // 获取view的高度
+  getScrollHeight: function () {
+    var that = this;
+    // 页面高度
+    wx.createSelectorQuery().select('.scbg').boundingClientRect((rect) => {
+      that.setData({
+        totalScrollHeight: rect.height
+      })
+    }).exec()
+
+    // 设定一小块的高度
+    wx.createSelectorQuery().select('.changeInfoName').boundingClientRect((rect) => {
+      that.setData({
+        scrollHeight: rect.height / (80 / 240)
+      })
+    }).exec()
+
   },
   //触底
-  onScrollLower: function () {
-    var that = this
-    page = getApp().globalData.page + 1;
-    console.log(page)
-    that.getList(page)
+  onScrollLower: function (e) {
+    var that = this;
+    var recordBlock = that.data.scrollHeight * 7 * (page - 2); // n个记录高度
+
+    if (e.detail.scrollTop + that.data.totalScrollHeight >= recordBlock) { // 最底部 滑动距离加上view的高度 大于 记录高度
+      console.log("最底部")
+      e.detail.scrollTop = recordBlock; // 滚动距离等于记录高度
+      console.log(page)
+      that.setData({
+        isShowLoadmore: true, // 显示正在加载
+        scrollTop: e.detail.scrollTop + that.data.totalScrollHeight
+      })
+      that.getList(page)
+      page = getApp().globalData.page + 1;
+    } else if (e.detail.scrollTop <= 0) { // 最顶部
+      console.log("最顶部")
+      e.detail.scrollTop = 0;
+    }
+
+    recordBlock = that.data.scrollHeight * (7 * (page - 3) + count + 1);
+    if (flag == 1 && recordBlock < e.detail.scrollTop + that.data.totalScrollHeight) {
+      that.getList(page)
+      page = getApp().globalData.page + 1;
+    }
+
+    if (flag == 1 && that.data.scrollHeight * (7 * (page - 3) + count ) < e.detail.scrollTop + that.data.totalScrollHeight) {
+      if (change > e.detail.scrollTop) {
+        that.setData({ //向上滚动 
+          isShowLoadmore: false, // 不显示正在加载
+          isShowNoDatasTips: false // 不显示暂无数据
+        })
+      } else if (change < e.detail.scrollTop) {
+        that.setData({ // 向下滚动 
+          isShowLoadmore: false, // 不显示正在加载
+          isShowNoDatasTips: true // 显示暂无数据
+        })
+      }
+    } else {
+      if (change > e.detail.scrollTop) {
+        that.setData({ //向上滚动 
+          isShowLoadmore: false, // 不显示正在加载
+          isShowNoDatasTips: false // 不显示暂无数据
+        })
+      } else if (change < e.detail.scrollTop) {
+        that.setData({ // 向下滚动 
+          isShowLoadmore: false, // 不显示正在加载
+          isShowNoDatasTips: false // 不显示暂无数据
+        })
+      }
+    }
+    
+    change = e.detail.scrollTop;
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 80)
   },
 })

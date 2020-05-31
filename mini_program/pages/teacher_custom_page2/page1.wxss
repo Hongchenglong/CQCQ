@@ -101,8 +101,9 @@
 .table {
   margin: 30rpx 10rpx;
   background-color: #fff;
-  border: 1px solid darkgray;
+  border: 1px solid #eff4f8;
   font-size: 12px;
+  margin-bottom: 60rpx;
 }
 
 .tr {
@@ -116,7 +117,7 @@
   justify-content: center;  /*水平居中 */
   align-items: center; /*垂直居中*/
   width: 100%;
-  border: 1px solid darkgray;
+  border: 1px solid #eff4f8;
   height: 2rem;
 }
 
@@ -125,7 +126,7 @@
 }
 
 .bg-w{
-  background: #f2f2f2;
+  background: #b2dffe;
 }
 
 button{

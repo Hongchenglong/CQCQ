@@ -3,5 +3,6 @@
     "i-tab-bar": "../../dist/tab-bar/index",
     "i-tab-bar-item": "../../dist/tab-bar-item/index"
   },
-  "navigationBarTitleText": "宿舍管理"
+  "navigationBarTitleText": "宿舍管理",
+  "component": true
 }

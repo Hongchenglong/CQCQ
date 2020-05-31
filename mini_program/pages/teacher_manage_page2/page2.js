@@ -1,4 +1,5 @@
 // pages/teacher/manage/page2/page2.js
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -15,6 +16,18 @@ Page({
     //选择的楼号范围
     listBlock: [],
     flag:true,
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    /*ColorList: app.globalData.ColorList,*/
+    CustomBar: app.globalData.CustomBar ? app.globalData.StatusBar + 44 : app.globalData.CustomBar,
+  },
+
+  popSuccessTest2: function () {
+    wx.showToast({
+      title: '此处无法修改！请返回信息主页修改！',
+      icon: 'none',
+      duration: 2000, //停留时间
+    })
   },
 
   bindViewEvent: function (e) {
@@ -301,4 +314,5 @@ Page({
   onReachBottom: function () {
 
   },
+
 })
