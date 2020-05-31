@@ -4,11 +4,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
     phone: '', //手机号
     code: '', //验证码
     iscode: null, //用于存放验证码接口里获取到的code
-    codename: '获取验证码'
+    codename: '获取验证码',
   },
   //获取input输入框的值
   getPhoneValue: function (e) {

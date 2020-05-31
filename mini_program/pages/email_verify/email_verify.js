@@ -8,7 +8,8 @@ Page({
     email: "",
     num: "",
     codename: '获取验证码',
-    code:""
+    code:"",
+    disabled: false //按钮是否可点
   },
 
   emailInput: function (e) {
@@ -129,6 +130,9 @@ Page({
   //获取验证码
   onClick: function (e) {
     var that = this;
+    that.setData({
+      disabled: true
+    })
     if (that.data.email == "") {
       wx.showModal({
         title: '提示',
