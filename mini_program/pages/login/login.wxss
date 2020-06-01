@@ -80,12 +80,12 @@ input {
 
 .warn {
   width: 90%;
-  bottom: 0rpx;
+  bottom: 2%;
   position: fixed;
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: centler;
   margin-left: 5%;
   text-align: center;
 }
