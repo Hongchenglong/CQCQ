@@ -1,24 +1,3 @@
 /* pages/forget/forget.wxss */
 @import'/colorui/main.wxss';
-.btnone{
-  height:300rpx;
-  margin-top:16%;
-  background-color: #a9dcdd;
-}
-
-.btntwo{
-  height:300rpx;
-  margin-top:16%;
-  background-color: #bbbcff;
-}
-
-.texts{
-  float: right;
-  font-size: small;
-}
-
-.imgs {
-  width:160rpx;
-  height:140rpx;
-  margin:24rpx auto;
-}
+@import'/colorui/icon.wxss';
