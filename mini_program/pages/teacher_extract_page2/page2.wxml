@@ -14,7 +14,7 @@
 		<text decode="{{true}}">&nbsp;当前日期：</text>{{date_1}} {{weekday}}
 	</view>
 	<view class="Date">
-		<view class="Start" style="padding: 10px">
+		<view class="Start" style="padding: 10px;font-weight: bold;">
 			开始时间：
 			<view class="time1">
 				<picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange1">
@@ -23,7 +23,7 @@
 			</view>
 		</view>
 		<text decode="{{true}}" style="color:#777777">&nbsp;&nbsp;|&nbsp;&nbsp;</text>
-		<view class="Later" style="padding: 10px">
+		<view class="Later" style="padding: 10px;font-weight: bold;">
 			截止时间：
 			<view class="time2">
 				<picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange2">
