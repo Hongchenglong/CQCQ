@@ -20,8 +20,8 @@ Page({
         name: 'View',
         color: 'newColor3',
         icon: 'newsfill',
-        page: 'student_check',
-        page_tow: 'student_check'
+        page: 'student_picupload',
+        page_tow: 'student_picupload'
       }
     ],
   },
