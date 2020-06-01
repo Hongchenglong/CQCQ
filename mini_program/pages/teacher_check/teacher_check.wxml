@@ -1,7 +1,7 @@
 <!--pages/chakan/chakan.wxml-->
 
 
-<view class="changeInfoName">
+<view class="changeInfoName" hidden='{{!isShowing}}'>
 	<image src="https://oeong.xyz/cqcq/public/images/search.png" />
 	<view>
 		<picker mode="date" value="{{dateValue}}" start="2020-01-01" end="2999-12-31" bindchange="datePickerBindchange">
@@ -41,3 +41,4 @@
 <view class="warn_text" hidden='{{!isShowNoDatasTips}}'>
 	<view class="loadmore_tips">————暂无数据————</view>
 </view>
+<image class="image" src="/images/data.png" mode="widthFix" hidden='{{!isShow}}'></image>
