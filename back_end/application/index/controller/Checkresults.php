@@ -370,7 +370,7 @@ class Checkresults extends BaseController
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '无该天的查寝记录!';
+            $return_data['msg'] = '没有这天的查寝记录!';
 
             return json($return_data);
         }

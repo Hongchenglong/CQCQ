@@ -14,7 +14,7 @@ Page({
         isShowLoadmore: false, //正在加载 
         isShowNoDatasTips: false, //暂无数据
         isShow: false,
-        isShowing: false
+        isShowing: true
     },
 
     datePickerBindchange: function (e) {
