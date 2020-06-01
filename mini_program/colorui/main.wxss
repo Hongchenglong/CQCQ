@@ -9,7 +9,7 @@
 /* ==================
         初始化
  ==================== */
-page {
+ page {
 	/* Color 可以自定义相关配色 */
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
@@ -44,6 +44,7 @@ page {
 	--brownLight: #ede1d9;
 	--greyLight: #e7ebed;
 	/* 渐变色 */
+	--gradualblue1: linear-gradient(45deg, #0081ff, #e03997);
 	--gradualRed: linear-gradient(45deg, #f43f3b, #ec008c);
 	--gradualOrange: linear-gradient(45deg, #ff9700, #ed1c24);
 	--gradualGreen: linear-gradient(45deg, #39b54a, #8dc63f);
@@ -51,9 +52,9 @@ page {
 	--gradualPink: linear-gradient(45deg, #ec008c, #6739b6);
 	--gradualBlue: linear-gradient(45deg, #0081ff, #1cbbb4);
 	/* 阴影透明色 */
-	--ShadowSize: 6rpx 6rpx 8rpx;
+	--ShadowSize: 12rpx 12rpx 16rpx;/*6rpx 6rpx 8rpx;*/
 	--redShadow: rgba(204, 69, 59, 0.2);
-	--orangeShadow: rgba(217, 109, 26, 0.2);
+	--orangeShadow: rgba(4, 4, 4, 0.2);
 	--yellowShadow: rgba(224, 170, 7, 0.2);
 	--oliveShadow: rgba(124, 173, 55, 0.2);
 	--greenShadow: rgba(48, 156, 63, 0.2);
@@ -1394,6 +1395,23 @@ button.icon.lg {
 	padding-right: 90rpx
 }
 
+.cu-list.menu>.cu-item>.cu-item.arrow:before {
+	position: absolute;
+	top: 0;
+	right: 30rpx;
+	bottom: 0;
+	display: block;
+	margin: auto;
+	width: 30rpx;
+	height: 30rpx;
+	color: var(--grey);
+	content: "\e6a3";
+	text-align: center;
+	font-size: 34rpx;
+	font-family: "cuIcon";
+	line-height: 30rpx
+}
+
 .cu-list.menu>.cu-item.arrow:before {
 	position: absolute;
 	top: 0;
@@ -1411,7 +1429,13 @@ button.icon.lg {
 	line-height: 30rpx
 }
 
-.cu-list.menu>.cu-item button.content {
+.cu-list.menu>.cu-item>.cu-item.arrow content{
+	padding: 0;
+	background-color: transparent;
+	justify-content: flex-start
+}
+
+.cu-list.menu>.cu-item button.content{
 	padding: 0;
 	background-color: transparent;
 	justify-content: flex-start
@@ -1432,7 +1456,7 @@ button.icon.lg {
 
 .cu-list.menu>.cu-item .content>text[class*=cuIcon] {
 	display: inline-block;
-	margin-right: 10rpx;
+	margin-right: 0rpx;
 	width: 1.6em;
 	text-align: center
 }
@@ -3454,6 +3478,28 @@ scroll-view.cu-steps .cu-item {
 	border-color: var(--white);
 }
 
+.bg-newColor{
+	background-color: #87CEEB;
+	color: #ffffff;
+		/*--newColor:rgba(105, 106, 255, 0.45),
+	--newColor1:rgba(97, 190, 193, 0.54),*/
+}
+
+.bg-newColor1{
+	background-color:rgba(221, 160, 221) ;
+	color: #ffffff;
+}
+
+.bg-newColor2{
+	background-color: rgba(105, 106, 255, 0.45);
+	color: #ffffff;
+}
+
+.bg-newColor3{
+	background-color: rgba(97, 190, 193, 0.54);
+	color: #ffffff;
+}
+
 .bg-red {
 	background-color: var(--red);
 	color: var(--white);
@@ -3597,6 +3643,12 @@ scroll-view.cu-steps .cu-item {
 .bg-grey.light {
 	color: var(--grey);
 	background-color: var(--greyLight);
+}
+
+
+.bg-gradual-blue1 {
+	background-image: var(--gradualblue1);
+	color: var(--white);
 }
 
 .bg-gradual-red {
@@ -3861,7 +3913,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .text-content {
-	line-height: 2;
+	line-height: 1.6;
 }
 
 .text-left {
@@ -3872,11 +3924,19 @@ scroll-view.cu-steps .cu-item {
 	text-align: right;
 }
 
+.text-mei_red,
+.line-mei_red,
+.lines-mei_red {
+	color: #DDA0DD;
+}
+
+
 .text-red,
 .line-red,
 .lines-red {
 	color: var(--red);
 }
+
 
 .text-orange,
 .line-orange,
@@ -3900,6 +3960,12 @@ scroll-view.cu-steps .cu-item {
 .line-green,
 .lines-green {
 	color: var(--green);
+}
+
+.text-newblue,
+.line-newblue,
+.lines-newblue {
+	color: #7EC4F8;
 }
 
 .text-cyan,

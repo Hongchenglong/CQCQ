@@ -432,6 +432,7 @@ class Draw extends BaseController
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.id = d.student_id')
             ->where($where)
+            ->where('deleted', 0)
             ->order('r.id desc')
             ->find();
 
@@ -444,6 +445,7 @@ class Draw extends BaseController
             ->where($where)
             ->where('start_time', $recentTime['start_time'])
             ->where('end_time', $recentTime['end_time'])
+            ->where('deleted', 0)
             ->select();
 
 

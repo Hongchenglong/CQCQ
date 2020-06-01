@@ -1,12 +1,5 @@
 {
-  "usingComponents": {
-    "i-cell-group": "../../dist/cell-group/index",
-    "i-cell": "../../dist/cell/index",
-    "i-tab-bar": "../../dist/tab-bar/index",
-    "i-tab-bar-item": "../../dist/tab-bar-item/index",
-    "i-icon": "../../dist/icon/index",
-    "i-button": "../../dist/button/index",
-    "i-modal": "../../dist/modal/index"
-  },
-  "navigationBarTitleText": "学生信息主页"
+  "usingComponents": {},
+  "navigationBarTitleText": "学生信息主页",
+  "component": true
 }

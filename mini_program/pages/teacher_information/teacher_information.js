@@ -23,7 +23,6 @@ Page({
       gr6: getApp().globalData.user.phone,
       gr7: getApp().globalData.user.email,
     })
-
   },
   data: {
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框 
@@ -54,7 +53,6 @@ Page({
   },
   //确认 
   confirm: function (e) {
-    getApp().globalData.user.username = this.data.gr;
     getApp().globalData.name = this.data.gr;
     var that = this;
     wx.request({
@@ -89,6 +87,7 @@ Page({
             content: '修改成功！',
             showCancel: false,
             success: res1 => {
+              getApp().globalData.user.username = that.data.gr;
               console.log(res);
               that.setData({
                 data: {
@@ -96,18 +95,31 @@ Page({
                 },
                 gr1: getApp().globalData.user.username,
               })
-            }
+            },
+            fail: function (e) {
+              console.log(e);
+              wx.showModal({
+                title: '提示',
+                content: '修改失败！',
+                showCancel: false
+              })
+            },
           })
         }
       },
-      fail: function (e) {
-        console.log(e);
+      fail: function (res) {
         wx.showModal({
-          title: '提示',
-          content: '修改失败！',
-          showCancel: false
+          title: '哎呀～',
+          content: '网络不在状态呢！',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
         })
-      },
+      }
     })
 
 
@@ -150,8 +162,7 @@ Page({
   },
   //确认 
   confirm2: function (e) {
-    getApp().globalData.user.grade = this.data.gr,
-      getApp().globalData.grade = this.data.gr
+    getApp().globalData.grade = this.data.gr;
     var that = this;
     wx.request({
       'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changegrade',
@@ -185,6 +196,7 @@ Page({
             content: '修改成功！',
             showCancel: false,
             success: res1 => {
+              getApp().globalData.user.grade = that.data.gr;
               console.log(res);
               that.setData({
                 data: {
@@ -203,7 +215,20 @@ Page({
             },
           })
         }
-      }
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '哎呀～',
+          content: '网络不在状态呢！',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      },
     })
   },
   getInput2: function (e) {
@@ -242,8 +267,7 @@ Page({
   },
   //确认 
   confirm3: function (e) {
-    getApp().globalData.user.department = this.data.gr,
-      getApp().globalData.department = this.data.gr
+    getApp().globalData.department = this.data.gr;
     var that = this;
     wx.request({
       'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeDepartment',
@@ -277,6 +301,7 @@ Page({
             content: '修改成功！',
             showCancel: false,
             success: res1 => {
+              getApp().globalData.user.department = that.data.gr;
               console.log(res);
               that.setData({
                 data: {
@@ -295,6 +320,19 @@ Page({
             },
           })
         }
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '哎呀～',
+          content: '网络不在状态呢！',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
       }
     })
 

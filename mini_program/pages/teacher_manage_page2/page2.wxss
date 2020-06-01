@@ -16,7 +16,11 @@ image {
   box-shadow: 0px 0px 10px #7AB8FB inset;
 }
 
-button {
+.de{
+  margin-top: 50rpx;
+}
+
+button{
   background-color: #7AB8FB;
   display: flex;
   align-items: center;
@@ -30,42 +34,39 @@ button {
 
 /* 列表 */
 .table {
-  /* width: 90%; */
   display: flex;
-  margin: 40rpx 60rpx;
-  background-color: #fff;
-  border: 5rpx solid #d9e0e7;
-  font-size: 10px;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  width: 100%;
+  margin-top: 40rpx;
+  font-size: 10px;
 }
 
 .tr {
   display: flex;
-  width: 100%;
+  /* justify-content: center;
+  align-items: center; */
+  width: 95%;
   height: 2rem;
+  border: 1px solid #d9e0e7;
+  font-weight: normal;
+  font-size: 11.5px;
+  color: #8a8e94;
 }
 
 .td,
 .th {
   display: flex;
-  justify-content: center;
-  /*水平居中 */
-  align-items: center;
-  /*垂直居中*/
+  justify-content: center;  /*水平居中 */
+  align-items: center; /*垂直居中*/
   width: 100%;
-  border-bottom: 1.5px solid #d9e0e7;
-  border-left: 1px solid #d9e0e7;
-  border-right: 1px solid #d9e0e7;
+  /*border: 1px solid darkgray;*/
   height: 2rem;
-  text-align: center;
+  border: 1px solid #d9e0e7;
 }
 
-.bg-w {
-  background: #f2f2f2;
-  font-weight: normal;
-  font-size: 10px;
-  color: #8a8e94;
-}
+
 
 thead th {
   position: relative;

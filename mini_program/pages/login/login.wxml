@@ -22,7 +22,7 @@
 	</view>
 
 	<view class="foot">
-		<button class="login" style="width:88%;font-size: 40rpx;height:{{height*0.7*0.11}}rpx;" hover-class="btn-hover" bindtap="login">登 录
+		<button class="bg-gradual-blue login" style="width:88%;font-size: 40rpx;height:{{height*0.7*0.11}}rpx;font-weight: bold;" hover-class="btn-hover" bindtap="login">登 录
 		</button>
 		<navigator url="../forget/forget">
 			<view class="forgetPass" style="font-size:{{height*0.025}}rpx;">

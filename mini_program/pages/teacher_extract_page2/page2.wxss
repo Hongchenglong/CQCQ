@@ -4,13 +4,15 @@
   width: 100%;
   height: 220rpx;
   line-height: 60rpx;
-  border-top: solid 1px darkgray;
-  border-bottom: solid 1px darkgray;
+  /* border-top: solid 1px darkgray;
+  border-bottom: solid 1px darkgray; */
+  color: #4C4C4F;
 }
 
 .time1,.time2{
-  border:solid 1rpx #ADADAD;
+  border:solid 1rpx #7AB8FB;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .Date,.new{
@@ -35,19 +37,22 @@
 }
 
 .table {
-  margin: 30rpx 10rpx;
-  background-color: #fff;
-  border: 1px solid darkgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx 0;
+  width: 100%;
   font-size: 15px;
-  border-right: 0;
-  border-bottom: 0;
+  flex-direction: column;
 }
 
 .tr {
   display: flex;
-  width: 100%;
+  width: 90%;
   height: 2rem;
-  justify-content: space-between;
+  border: 1rpx solid #eff4f8;
+  background: #b2dffe;
+  /* justify-content: space-between; */
 }
 
 .td,.th {
@@ -57,16 +62,13 @@
   width: 100%;
   /*border: 1px solid darkgray;*/
   height: 2rem;
-  border-bottom: 1px solid darkgray;
-  border-right: 1px solid darkgray;
+  border: 1px solid #eff4f8;
 }
 
-.bg-w{
-  background: #f2f2f2;
-}
+
 
 .but{
-  margin:0rpx 10rpx;
+  margin:50rpx 10rpx;
   display: flex;
   justify-content: center;  /*水平居中 */
   align-items: center; /*垂直居中*/
@@ -102,3 +104,20 @@
   border:solid 1rpx #ADADAD;
   border-radius: 5px;
 }*/
+.wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+}
+.line {
+  margin-top: 25rpx;
+  margin-bottom: 30rpx;
+  width: 90%;
+  height: 0;
+  /* border: 3rpx solid lavender; */
+  border: 3rpx solid #c0e2fa;
+}
+
+
