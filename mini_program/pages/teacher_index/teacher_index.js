@@ -55,11 +55,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    /*this.setData({
-      username: getApp().globalData.user.username,
-      grade: getApp().globalData.user.grade,
-      department: getApp().globalData.user.department
-    })*/
     wx.hideHomeButton()
   },
 
