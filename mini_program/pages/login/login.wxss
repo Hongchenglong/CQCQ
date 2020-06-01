@@ -85,7 +85,7 @@ input {
   color: #fff;
   display: flex;
   align-items: center;
-  justify-content: centler;
+  justify-content: center;
   margin-left: 5%;
   text-align: center;
 }
