@@ -24,7 +24,7 @@
 			<view class='text_3'>室</view>		
 
 			<!-- 按钮 -->
-			<image src='https://oeong.xyz/cqcq/public/images/jiahao.png' class="add" bindtap="buttonaddList1"></image>
+			<image src='https://oeong.xyz/cqcq/public/images/jiahao.png' class="add" bindtap="formSubmit"></image>
 			<image src='https://oeong.xyz/cqcq/public/images/qingkong2.png' class="clear" bindtap="buttonclearList"></image>
 		</view>
 	</view>

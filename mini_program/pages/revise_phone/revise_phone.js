@@ -20,7 +20,7 @@ Page({
       code: e.detail.value
     })
   },
-  getCode: function () {
+  getVerificationCode: function () {
     var a = this.data.phone;
     var _this = this;
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
@@ -30,7 +30,9 @@ Page({
         icon: 'none',
         duration: 1000
       })
-      getApp().globalData.Flag = 1
+      _this.setData({
+        disabled: false
+      })
       return false;
     } else if (!myreg.test(this.data.phone)) {
       wx.showToast({
@@ -38,7 +40,9 @@ Page({
         icon: 'none',
         duration: 1000
       })
-      getApp().globalData.Flag = 1
+      _this.setData({
+        disabled: false
+      })
       return false;
     } else {
       wx.request({
@@ -58,10 +62,15 @@ Page({
               content: res.data.msg,
               showCancel: false,
               success: function (res) {
-                getApp().globalData.Flag = 1
+                _this.setData({
+                  disabled: false
+                })
               }
             })
           } else if (res.data.error_code == 0) {
+            _this.setData({
+              disabled: true
+            })
             wx.showModal({
               title: '恭喜！',
               content: '发送成功！',
@@ -70,47 +79,50 @@ Page({
                 console.log(res.data.data)
                 var value = JSON.parse(res.data.data.captcha);
                 _this.setData({
-                  iscode: value
+                  iscode: value,
+                  disabled: true
                 })
-                getApp().globalData.Flag = 0
-                var num = 61;
-                var timer = setInterval(function () {
-                  num--;
-                  if (num <= 0) {
-                    clearInterval(timer);
-                    _this.setData({
-                      codename: '重新发送',
-                      disabled: false
-                    })
-                    getApp().globalData.Flag = 1
-                  } else {
-                    _this.setData({
-                      codename: num + "s"
-                    })
-                  }
-                }, 1000)
               },
             })
+            var num = 61;
+            var timer = setInterval(function () {
+              num--;
+              if (num <= 0) {
+                clearInterval(timer);
+                _this.setData({
+                  codename: '重新发送',
+                  disabled: false
+                })
+                getApp().globalData.Flag = 1
+              } else {
+                _this.setData({
+                  codename: num + "s",
+                  disabled: true
+                })
+              }
+            }, 1000)
           }
         },
+        fail: function (res) {
+          wx.showModal({
+            title: '哎呀！',
+            content: '网络不在状态！',
+            success: function (res) {
+              if (res.confirm) {
+                console.log("用户点击确认")
+              } else if (res.cancel) {
+                console.log("用户点击取消")
+              }
+            },
+          })
+          _this.setData({
+            disabled: false
+          })
+        }
       })
     }
   },
 
-  //获取验证码
-  getVerificationCode() {
-    var _this = this;
-    this.getCode();
-    if (getApp().globalData.Flag == 1) {
-      _this.setData({
-        disabled: false
-      })
-    } else {
-      _this.setData({
-        disabled: true
-      })
-    }
-  },
   //提交表单信息
   save: function () {
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
