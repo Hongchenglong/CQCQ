@@ -106,10 +106,19 @@ Page({
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
     //时  
     var h = date.getHours();
+    if(h < 10){
+      h = '0' + h
+    }
     //分  
     var m = date.getMinutes();
+    if(m < 10){
+      m = '0' + m
+    }
     //秒  
     var s = date.getSeconds();
+    if(s < 10){
+      s = '0' + s
+    }
     console.log("当前时间：" + Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s);
     var time = Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
     this.setData({
