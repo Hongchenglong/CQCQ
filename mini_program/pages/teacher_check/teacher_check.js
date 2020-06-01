@@ -13,6 +13,8 @@ Page({
         loadMoreText: '加载更多',
         isShowLoadmore: false, //正在加载 
         isShowNoDatasTips: false, //暂无数据
+        isShow: false,
+        isShowing: false
     },
 
     datePickerBindchange: function (e) {
@@ -159,7 +161,9 @@ Page({
                     // })
                     that.setData({
                         isShowLoadmore: false, // 不显示正在加载
-                        isShowNoDatasTips: true // 显示暂无数据
+                        isShowNoDatasTips: false, // 显示暂无数据
+                        isShow: true, // 显示暂无数据
+                        isShowing: false
                     })
                 } else if (res.data.error_code != 0) {
                     wx.showModal({
