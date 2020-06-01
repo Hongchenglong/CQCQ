@@ -263,6 +263,7 @@ Component({
       wx.showLoading({
         title: '加载中',
         mask: true,
+        duration: 5000
       })
     },
 

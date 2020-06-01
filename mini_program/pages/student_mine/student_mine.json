@@ -1,7 +1,5 @@
 {
-  "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "学生信息主页",
   "component": true
 }

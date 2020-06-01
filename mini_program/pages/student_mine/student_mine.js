@@ -244,6 +244,7 @@ Component({
       wx.showLoading({
         title: '加载中',
         mask: true,
+        duration: 5000
       })
       /*wx.showToast({
         title: '加载中...',
