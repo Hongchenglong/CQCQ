@@ -250,6 +250,10 @@ Component({
       })
     },
 
+    to_su:function(){
+      open-type
+    },
+
     to_about:function(){
       wx.showToast({
         title: '加载中...',
