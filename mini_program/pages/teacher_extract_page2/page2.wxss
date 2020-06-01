@@ -10,8 +10,9 @@
 }
 
 .time1,.time2{
-  border:solid 1rpx #ADADAD;
+  border:solid 1rpx #7AB8FB;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .Date,.new{

@@ -4,11 +4,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
     phone: '', //手机号
     code: '', //验证码
     iscode: null, //用于存放验证码接口里获取到的code
-    codename: '获取验证码'
+    codename: '获取验证码',
   },
   //获取input输入框的值
   getPhoneValue: function (e) {
@@ -186,7 +185,10 @@ Page({
               success: function (res) {},
               complete: function (res) {
                 getApp().globalData.user.phone = that.data.phone;
-                if (getApp().globalData.user.user == 'student') {
+                wx.navigateBack({
+                  delta: 1
+                  })
+                /*if (getApp().globalData.user.user == 'student') {
                   wx.navigateTo({
                     url: '../student_mine/student_mine',
                   })
@@ -194,7 +196,7 @@ Page({
                   wx.navigateTo({
                     url: '../teacher_mine/teacher_mine',
                   })
-                }
+                }*/
               },
               fail: function (e) {
                 console.log(e);

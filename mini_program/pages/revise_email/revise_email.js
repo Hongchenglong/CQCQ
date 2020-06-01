@@ -186,7 +186,10 @@ Page({
               success:function(res) {},
               complete: function(res){
                 getApp().globalData.user.email = _this.data.email;
-                if(getApp().globalData.user.user == 'student') {
+                wx.navigateBack({
+                  delta: 1
+                  })
+                /*if(getApp().globalData.user.user == 'student') {
                   wx.navigateTo({
                     url: '../student_mine/student_mine',
                   })
@@ -195,7 +198,7 @@ Page({
                   wx.navigateTo({
                     url: '../teacher_mine/teacher_mine',
                   })
-                }
+                }*/
               },
               fail: function (e) {
                 console.log(e);

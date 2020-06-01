@@ -1,3 +1,4 @@
+var util=require("../../utils/util.js")
 Page({
   data: {
     i: 0,
@@ -93,8 +94,8 @@ Page({
     })
   },
 
-  // 动态添加宿舍法
-  buttonaddList1: function (e) {
+   // 动态添加宿舍法
+   formSubmit: util.throttle(function(e){
     var that = this
     var apart = this.data.Block;
     var num = this.data.Room;
@@ -113,8 +114,8 @@ Page({
           data: {
             department: that.data.dep,
             grade: that.data.grade,
-            block:apart,
-            room:num
+            block: apart,
+            room: num
           },
           method: "POST",
           header: {
@@ -128,8 +129,7 @@ Page({
                 showCancel: false,
                 success(res) {}
               })
-            } 
-            else if (res.data.error_code == 0) { 
+            } else if (res.data.error_code == 0) {
               list.push({
                 'block': apart,
                 'room': num
@@ -148,6 +148,7 @@ Page({
             })
           }
         })
+
       } else {
         wx.showToast({
           title: '提示：选择失败，表中已有该宿舍',
@@ -162,7 +163,7 @@ Page({
         duration: 2000 //持续的时间
       })
     }
-  },
+  },1000),
 
   // 动态删除宿舍
   buttonsubList: function (e) {

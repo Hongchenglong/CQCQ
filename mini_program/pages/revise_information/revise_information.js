@@ -96,6 +96,7 @@ Page({
               })
               getApp().globalData.userInfomation.roomInfo[0].block = block;
               getApp().globalData.userInfomation.roomInfo[0].room = room;
+              getApp().globalData.userInfomation.roomInfo[0].dorm_num = block + "#" + room;
             }
           })
         }

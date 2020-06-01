@@ -64,9 +64,13 @@ Page({
               title: res.data.msg,
 
               icon: 'success',
-              duration: 2000,
+              duration: 1500,
               success: function () {
                 setTimeout(function () {
+                  wx.navigateBack({
+                    delta: 1
+                    })
+                  /*
                   if(getApp().globalData.user.user == 'student') {
                     wx.navigateTo({
                       url: '../student_mine/student_mine',
@@ -76,7 +80,7 @@ Page({
                     wx.navigateTo({
                       url: '../teacher_mine/teacher_mine',
                     })
-                  }
+                  }*/
                 }, 2000)
               }
             })

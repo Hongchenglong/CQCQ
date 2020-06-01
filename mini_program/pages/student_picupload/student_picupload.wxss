@@ -16,7 +16,7 @@ button{
   align-items: center;
   justify-content: center;
   background-color: #7EC4F8;
-  box-shadow: 2px 2px gray;
+  box-shadow: 2px 2px lightgray;
   color: #fff;
   font-size: 40rpx;
 }

@@ -134,6 +134,7 @@ Component({
         department: getApp().globalData.user.department
       })
       console.log("show")
+      wx.hideLoading()
     },
   },
 
@@ -190,15 +191,80 @@ Component({
       },
     },
 
+    to_info:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url:"../teacher_information/teacher_information" 
+      })
+      wx.hideLoading()
+    },
+
+    to_pass:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url:"../revise_password/revise_password"
+      })
+      wx.hideLoading()
+    },
+
+    to_mail:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url:"../revise_email/revise_email"
+      })
+      wx.hideLoading()
+    },
+
+    to_phone:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url:"../revise_phone/revise_phone"
+      })
+      wx.hideLoading()
+    },
+
+    to_re:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url:"../recycle/recycle"
+      })
+      wx.hideLoading()
+    },
+
+    to_about:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url:"../revise_about/revise_about"
+      })
+      wx.hideLoading()
+    },
+
      //点击加载样式
      click: function () {
       //加载中的样式
-      wx.showToast({
-        title: '加载中...',
+      wx.showLoading({
+        title: '加载中',
         mask: true,
-        icon: 'loading',
-        duration: 400
-        })
+        duration: 5000
+      })
     },
 
     //事件处理函数
