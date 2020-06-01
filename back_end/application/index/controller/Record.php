@@ -94,7 +94,7 @@ class Record extends BaseController
                 return json($return_data);
             } else {
                 $day = date('Y-m-d');
-                $new_file_name = $day . '_' . $recentId['id'];
+                $new_file_name = $day . '_' . $recentId['id'] . $_POST['dorm_id'];
                 $new_name = $new_file_name . '.' . $extension; //新文件名
                 $path = 'upload/' . $new_name;        //upload为保存图片目录
                 if (file_exists("upload/" . $path)) {   //判断是否存在该文件
