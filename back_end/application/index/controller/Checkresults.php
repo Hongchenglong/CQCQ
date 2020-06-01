@@ -56,8 +56,8 @@ class Checkresults extends BaseController
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
-            $return_data['msg'] = '已经滑到底了~';
-            // $return_data['msg'] = '暂无查寝记录！';
+            // $return_data['msg'] = '已经滑到底了~';
+            $return_data['msg'] = '暂无查寝记录！';
 
             return json($return_data);
         }
