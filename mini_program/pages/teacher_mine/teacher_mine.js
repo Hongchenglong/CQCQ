@@ -282,7 +282,7 @@ Component({
       wx.showModal({
         title: '退出登录',
         content: '确认退出登录？',
-        confirmColor:"red",
+        confirmColor:"#FF0000",
         success (res) {
           if (res.confirm) {
             //点击确认退出
