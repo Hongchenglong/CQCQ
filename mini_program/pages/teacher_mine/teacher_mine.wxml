@@ -19,11 +19,11 @@
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
 		<!--修改信息-->
 		<view class="cu-item arrow" bindtap="to_info">
-			<navigator class="content" hover-class="none" >
+			<view class="content" url="" hover-class="none">
 				<!--url="../teacher_information/teacher_information"  bindtap="click"-->
 				<text class="cuIcon-write text-mauve"></text>
 				<text class="text-grey">修改信息</text>
-			</navigator>
+			</view>
 		</view>
 		<!--修改密码-->
 		<view class="cu-item arrow" bindtap="to_pass">
@@ -50,22 +50,27 @@
 			</navigator>
 		</view>
 		<!--意见反馈-->
-		<view class="cu-item arrow" style="">
-			<button class="cu-btn content" style="width:100%;height:100%" open-type="feedback" bindtap="click">
-				<text class="cuIcon-creative text-cyan"></text>
-				<text class="text-grey" style="font-weight:normal">意见反馈</text>
+		<view class="cu-item" style="padding:0">
+			<button class="cu-item arrow" open-type="feedback" style="width:100%;height:100%;border:none; padding-left: 30rpx;margin: 0;background-color: transparent;font-weight:normal" hover-class="none" bindtap="click">
+				<!--padding-top: 0;padding-bottom: 0;-->
+				<view class="content" style="margin-left: 0;text-align: left;">
+					<text class="cuIcon-creative text-cyan"></text>
+					<text class="text-grey">意见反馈</text>
+				</view>
 			</button>
 		</view>
 		<!--回收站-->
 		<view class="cu-item arrow" bindtap="to_re">
-			<navigator class="content" hover-class="none"><!-- url="../recycle/recycle" bindtap="click"-->
+			<navigator class="content" hover-class="none">
+				<!-- url="../recycle/recycle" bindtap="click"-->
 				<text class="cuIcon-delete text-green"></text>
 				<text class="text-grey">回收站</text>
 			</navigator>
 		</view>
 		<!--关于-->
 		<view class="cu-item arrow" bindtap="to_about">
-			<navigator class="content" hover-class="none"><!-- url="../revise_about/revise_about"  bindtap="click"-->
+			<navigator class="content" hover-class="none">
+				<!-- url="../revise_about/revise_about"  bindtap="click"-->
 				<text class="cuIcon-question text-yellow"></text>
 				<text class="text-grey">关于</text>
 			</navigator>
