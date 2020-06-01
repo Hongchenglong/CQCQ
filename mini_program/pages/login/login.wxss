@@ -80,7 +80,7 @@ input {
 
 .warn {
   width: 90%;
-  bottom: 0rpx;
+  bottom: 2%;
   position: fixed;
   color: #fff;
   display: flex;
