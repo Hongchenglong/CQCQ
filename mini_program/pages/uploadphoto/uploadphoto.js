@@ -100,11 +100,18 @@ function upload(page, path) {
         'session_token': wx.getStorageSync('session_token'),
         'grade': getApp().globalData.user.grade,
         'department': getApp().globalData.user.department,
-        'dorm_id': getApp().globalData.userInfomation.roomInfo[0].id,
+        // 'dorm_id': getApp().globalData.userInfomation.roomInfo[0].id,
         'file': path[0],
+        'dorm_num':getApp().globalData.dorm_num,
+        'rand_num':getApp().globalData.rand_num,
+        'end_time':getApp().globalData.end_time,
+        'start_time':getApp().globalData.start_time
       },
+      
       success: function (res) {
         console.log(res);
+        console.log(getApp().globalData.rand_num)
+        console.log(getApp().globalData.dorm_num)
         console.log(res.data[14]);
         if (res.statusCode != 200) {
           wx.showModal({
@@ -119,9 +126,9 @@ function upload(page, path) {
             content: '上传成功！',
             showCancel: false,
             // success:function(res) {},
-            //         complete: function(res){
+            //         complete: function(e){
             //         	wx.navigateTo({
-            //             url: '../student_picupload/student_picupload',
+            //             url: '../student_details/student_details?=time'+ e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
             //         	})
             //         }
           })

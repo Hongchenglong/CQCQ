@@ -1,12 +1,12 @@
 <!--pages/chakan/chakan.wxml-->
 
 
-<view class="changeInfoName">
+<view class="changeInfoName" hidden='{{!isShowing}}'>
 	<image src="https://oeong.xyz/cqcq/public/images/search.png" />
 	<view>
-	<picker mode="date" value="{{dateValue}}" start="2020-01-01" end="2999-12-31" bindchange="datePickerBindchange" >
-		{{dateValue}}
-	</picker>
+		<picker mode="date" value="{{dateValue}}" start="2020-01-01" end="2999-12-31" bindchange="datePickerBindchange">
+			{{dateValue}}
+		</picker>
 	</view>
 	<button class="btn" style="width:75px;margin-left:8px;float:left" bindtap="onSearch">
 		搜索
@@ -16,17 +16,17 @@
 	</button>
 </view>
 
-<scroll-view class='scbg' scroll-y='true' bindscroll="onScrollLower">
-	<block  wx:for="{{showData}}" wx:for-item="itemName" wx:for-index="id">
+<scroll-view class='scbg' scroll-y='true' bindscrolltolower="onScrollLower" bindscroll="onPull">
+	<block wx:for="{{showData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="first" wx:if="{{time<itemName.end_time}}">
-			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/delete.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}"/>
+			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/delete.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}" />
 			<text class="texts">{{itemName.start_time}}</text>
 			<button class="buttons" style="width:100px;margin-right:5%" bindtap="onClick" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">
 				查看
 			</button>
 		</view>
 		<view class="second" wx:if="{{time>=itemName.end_time}}">
-			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/delete.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}"/>
+			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/delete.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}" />
 			<text class="texts">{{itemName.start_time}}</text>
 			<button class="buttons" style="width:100px;margin-right:5%" bindtap="onClick" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">
 				查看
@@ -35,9 +35,10 @@
 	</block>
 </scroll-view>
 <!-- 懒加载 -->
- <view class='warn_text' hidden='{{!isShowLoadmore}}'>
- 	<view class='loadmore_tips'>————正在加载————</view>
- </view>
- <view class="warn_text" hidden='{{!isShowNoDatasTips}}'>
- 	<view class="loadmore_tips">————暂无数据————</view>
- </view>
+<view class='warn_text' hidden='{{!isShowLoadmore}}'>
+	<view class='loadmore_tips'>————正在加载————</view>
+</view>
+<view class="warn_text" hidden='{{!isShowNoDatasTips}}'>
+	<view class="loadmore_tips">————暂无数据————</view>
+</view>
+<image class="image" src="/images/data.png" mode="widthFix" hidden='{{!isShow}}'></image>

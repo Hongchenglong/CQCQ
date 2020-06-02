@@ -3,5 +3,6 @@
   "navigationBarTitleText": "忘记密码",
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black"
+  "navigationBarTextStyle": "black",
+  "component": true
 }
