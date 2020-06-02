@@ -4,6 +4,7 @@ Page({
   data: {
     pics: [],
     isShow: true,
+
   },
 
   Img: function () {
@@ -40,7 +41,6 @@ Page({
         var imgSrc = '';
         var imgSrc = res.tempFilePaths;
 
-        // getApp().globalData.imgSrc = imgSrc;
         getApp().globalData.imgSrc = imgSrc;
         // upload(that, imgSrc); //连接接口 函数
         pics.push(imgSrc);
@@ -109,6 +109,9 @@ function upload(page, path) {
       },
 
       success: function (res) {
+        console.log(res);
+        console.log(getApp().globalData.rand_num)
+        console.log(getApp().globalData.dorm_num)
         console.log(res.data[14]);
         if (res.statusCode != 200) {
           wx.showModal({
@@ -122,12 +125,17 @@ function upload(page, path) {
             title: '提示',
             content: '上传成功！',
             showCancel: false,
-            // success:function(res) {},
-            //         complete: function(e){
-            //         	wx.navigateTo({
-            //             url: '../student_details/student_details?=time'+ e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
-            //         	})
-            //         }
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+                // wx.navigateTo({
+                //   url: '../student_details/student_details?time=' + getApp().globalData.start_time + "&&endtime=" + getApp().globalData.end_time
+                // })
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            },
           })
           return;
         } else if (res.data[14] == 2) {
