@@ -5,100 +5,98 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showData:{},
-    dateValue:" - - ",
-    grade:"",
-    department:"",
-    student_id:""
+    showData: {},
+    dateValue: " - - ",
+    grade: "",
+    department: "",
+    student_id: "",
+    isShow: false,
   },
 
-  datePickerBindchange:function(e){
+  datePickerBindchange: function (e) {
     this.setData({
-     dateValue:e.detail.value
+      dateValue: e.detail.value
     })
-   },
+  },
 
-   //搜索记录
-   onSearch:function(e){
+  //搜索记录
+  onSearch: function (e) {
     console.log(this.data.grade)
     console.log(this.data.department)
     console.log(this.data.student_id)
     var that = this
-   wx.request({
-     url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/specifiedDate',
-     data: {
-       grade:that.data.grade,
-       department:that.data.department,
-       date:that.data.dateValue
-     },
-     method: "POST",
-     header: {
-       "Content-Type": "application/x-www-form-urlencoded"
-     },
-     success: function (res) {
-       if (res.data.error_code == 1) {
-         wx.showModal({
-           title: '提示！',
-           showCancel: false,
-           content: res.data.msg,
-           success: function (res) { }
-         })
-       }
-       else if (res.data.error_code == 2) {
-         wx.showModal({
-           title: '提示！',
-           showCancel: false,
-           content: res.data.msg,
-           success: function (res) { }
-         })
-       }
-       else if (res.data.error_code != 0) {
-         wx.showModal({
-           title: '哎呀～',
-           content: '出错了呢！' + res.data.msg,
-           success: function (res) {
-             if (res.confirm) {
-               console.log('用户点击确定')
-             } else if (res.cancel) {
-               console.log('用户点击取消')
-             }
-           }
-         })
-       }
-       else if (res.data.error_code == 0) {
-         that.setData({
-           showData:res.data.data
-         })
-       }
-     },
-     fail: function (res) {
-       wx.showModal({
-         title: '哎呀～',
-         content: '网络不在状态呢！',
-         success: function (res) {
-           if (res.confirm) {
-             console.log('用户点击确定')
-           } else if (res.cancel) {
-             console.log('用户点击取消')
-           }
-         }
-       })
-     },
-     complete:function(res){
-       wx.hideLoading()
-     }
-   })
+    wx.request({
+      url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/specifiedDate',
+      data: {
+        grade: that.data.grade,
+        department: that.data.department,
+        date: that.data.dateValue
+      },
+      method: "POST",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        if (res.data.error_code == 1) {
+          wx.showModal({
+            title: '提示！',
+            showCancel: false,
+            content: res.data.msg,
+            success: function (res) {}
+          })
+        } else if (res.data.error_code == 2) {
+          wx.showModal({
+            title: '提示！',
+            showCancel: false,
+            content: res.data.msg,
+            success: function (res) {}
+          })
+        } else if (res.data.error_code != 0) {
+          wx.showModal({
+            title: '哎呀～',
+            content: '出错了呢！' + res.data.msg,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        } else if (res.data.error_code == 0) {
+          that.setData({
+            showData: res.data.data
+          })
+        }
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '哎呀～',
+          content: '网络不在状态呢！',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      },
+      complete: function (res) {
+        wx.hideLoading()
+      }
+    })
   },
 
-   //全部记录
-   onAll:function(e){
+  //全部记录
+  onAll: function (e) {
     var that = this
     that.onLoad()
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     //获取当前时间戳  
     var timestamp = Date.parse(new Date());
     timestamp = timestamp / 1000;
@@ -113,39 +111,39 @@ Page({
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
     //时  
     var h = date.getHours();
-    if(h < 10){
+    if (h < 10) {
       h = '0' + h
     }
     //分  
     var m = date.getMinutes();
-    if(m < 10){
+    if (m < 10) {
       m = '0' + m
     }
     //秒  
     var s = date.getSeconds();
-    if(s < 10){
+    if (s < 10) {
       s = '0' + s
     }
     console.log("当前时间：" + Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s);
-    var time =  Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
+    var time = Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
     this.setData({
       time: time
     })
     this.setData({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department,
-      student_id:getApp().globalData.user.id,
+      student_id: getApp().globalData.user.id,
     })
-    var that=this
+    var that = this
     wx.showLoading({
       title: '加载中',
     })
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/studentCheckRecords',
       data: {
-        department:that.data.department,
-        grade:that.data.grade,
-        student_id:that.data.student_id
+        department: that.data.department,
+        grade: that.data.grade,
+        student_id: that.data.student_id
       },
       method: "POST",
       header: {
@@ -157,18 +155,20 @@ Page({
             title: '提示！',
             showCancel: false,
             content: res.data.msg,
-            success: function (res) { }
+            success: function (res) {}
           })
-        }
-        else if (res.data.error_code == 2) {
+        } else if (res.data.error_code == 2) {
           wx.showModal({
             title: '提示！',
             showCancel: false,
             content: res.data.msg,
-            success: function (res) { }
+            success: function (res) {
+              that.setData({
+                isShow: true,
+              })
+            }
           })
-        }
-        else if (res.data.error_code != 0) {
+        } else if (res.data.error_code != 0) {
           wx.showModal({
             title: '哎呀～',
             content: '出错了呢！' + res.data.msg,
@@ -180,8 +180,7 @@ Page({
               }
             }
           })
-        }
-        else if (res.data.error_code == 0) {
+        } else if (res.data.error_code == 0) {
           that.setData({
             showData: res.data.data,
           })
@@ -201,13 +200,13 @@ Page({
           }
         })
       },
-      complete:function(res){
+      complete: function (res) {
         wx.hideLoading()
       }
     })
-    setTimeout(function() {
+    setTimeout(function () {
       wx.hideLoading()
-    },2000)
+    }, 2000)
   },
 
   //查看跳转
@@ -231,7 +230,7 @@ Page({
     this.setData({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department,
-      student_id:getApp().globalData.user.id,
+      student_id: getApp().globalData.user.id,
     })
     console.log(this.data.student_id)
   },
