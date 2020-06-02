@@ -153,7 +153,13 @@ Page({
     this.data.password = e.detail.value
   },
 
-  to_forget:function(){
+  to_forget: function () {
+    wx.showToast({
+      title: '加载中...',
+      mask: true,
+      icon: 'loading',
+      duration: 400
+    })
     wx.navigateTo({
       url: '../forget/forget',
     })
