@@ -113,6 +113,7 @@ Page({
   },
   //上传
   onSend: function (e) {
+    getApp().globalData.imgSrc = ''
     wx.navigateTo({
       url: "../uploadphoto/uploadphoto?time=" + e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
     })
