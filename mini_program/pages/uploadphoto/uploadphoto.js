@@ -4,7 +4,6 @@ Page({
   data: {
     pics: [],
     isShow: true,
-
   },
 
   Img: function () {
@@ -41,6 +40,7 @@ Page({
         var imgSrc = '';
         var imgSrc = res.tempFilePaths;
 
+        // getApp().globalData.imgSrc = imgSrc;
         getApp().globalData.imgSrc = imgSrc;
         // upload(that, imgSrc); //连接接口 函数
         pics.push(imgSrc);
@@ -109,9 +109,6 @@ function upload(page, path) {
       },
       
       success: function (res) {
-        console.log(res);
-        console.log(getApp().globalData.rand_num)
-        console.log(getApp().globalData.dorm_num)
         console.log(res.data[14]);
         if (res.statusCode != 200) {
           wx.showModal({
