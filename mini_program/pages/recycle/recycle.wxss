@@ -111,3 +111,9 @@
   text-align: center;
   color: rgba(187, 187, 187, 1);
 }
+
+.image{
+  height:50%;
+  margin:auto;
+  display: block;
+}

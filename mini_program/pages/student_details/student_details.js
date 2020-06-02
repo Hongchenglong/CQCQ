@@ -31,7 +31,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.clearStorageSync()
     this.setData({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department,
