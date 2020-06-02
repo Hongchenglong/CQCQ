@@ -15,6 +15,7 @@ Page({
   //点击图片预览
   clickImg: function (e) {
     var imgUrl = e.target.dataset.photo;
+    console.log(imgUrl)
     wx.previewImage({
       urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
       current: '', // 当前显示图片的http链接，默认是第一个
@@ -86,8 +87,6 @@ Page({
           getApp().globalData.rand_num = res.data.data[0].rand_num
           getApp().globalData.start_time = res.data.data[0].start_time
           getApp().globalData.end_time = res.data.data[0].end_time
-          console.log(res.data.data)
-          console.log(res.data.data[0].dorm_num)
         }
       },
       fail: function (res) {

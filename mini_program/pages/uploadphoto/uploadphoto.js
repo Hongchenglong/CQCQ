@@ -102,12 +102,12 @@ function upload(page, path) {
         'department': getApp().globalData.user.department,
         // 'dorm_id': getApp().globalData.userInfomation.roomInfo[0].id,
         'file': path[0],
-        'dorm_num':getApp().globalData.dorm_num,
-        'rand_num':getApp().globalData.rand_num,
-        'end_time':getApp().globalData.end_time,
-        'start_time':getApp().globalData.start_time
+        'dorm_num': getApp().globalData.dorm_num,
+        'rand_num': getApp().globalData.rand_num,
+        'end_time': getApp().globalData.end_time,
+        'start_time': getApp().globalData.start_time
       },
-      
+
       success: function (res) {
         console.log(res.data[14]);
         if (res.statusCode != 200) {
