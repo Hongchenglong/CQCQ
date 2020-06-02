@@ -1,8 +1,19 @@
 <!--pages/student_details/student_details.wxml-->
-<scroll-view class='scbg' scroll-y='true'>
+<scroll-view class='scbg' scroll-y='true'
+refresher-enabled="{{true}}" 
+	refresher-threshold="{{100}}" 
+	refresher-default-style="black" 
+	refresher-triggered="{{triggered}}" 
+	refresher-background="white" 
+	bindrefresherpulling="onPulling" 
+	bindrefresherrefresh="onRefresh" 
+	bindrefresherrestore="onRestore" >
 	<view class="first">
 		<text class="texts">开始时间：{{checkData.start_time}}</text>
 		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
+			<button class="btn" style="width:100px;margin-right:8px;margin-top:-42px;float:right" bindtap="onSend">
+			上传照片
+		</button>
 	</view>
 	<block wx:for="{{photoData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="second">

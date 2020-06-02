@@ -1,8 +1,6 @@
 {
   "component": true,
-  "usingComponents":
-  {
-    "i-badge": "../badge/index",
+  "usingComponents": {
     "i-icon": "../icon/index"
   }
 }
