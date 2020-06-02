@@ -1,6 +1,5 @@
 // pages/student_details/student_details.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -17,6 +16,8 @@ Page({
   //点击图片预览
   clickImg: function (e) {
     var imgUrl = e.target.dataset.photo;
+    console.log('e:', e)
+    console.log('imgUrl:', imgUrl)
     wx.previewImage({
       urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
       current: imgUrl, // 当前显示图片的http链接，默认是第一个
@@ -90,9 +91,6 @@ Page({
           getApp().globalData.rand_num = res.data.data[0].rand_num
           getApp().globalData.start_time = res.data.data[0].start_time
           getApp().globalData.end_time = res.data.data[0].end_time
-
-          console.log(res.data.data)
-          console.log(res.data.data[0].dorm_num)
         }
       },
       fail: function (res) {
@@ -116,10 +114,14 @@ Page({
       wx.hideLoading()
     }, 2000)
   },
-  //上传
+
+  /**
+   * 上传照片
+   */
   onSend: function (e) {
     getApp().globalData.imgSrc = ''
-    wx.navigateTo({
+    // wx.navigateTo({  // 保留当前页面，跳转到应用内的某个页面。
+    wx.redirectTo({  // 关闭当前页面，跳转到应用内的某个页面。
       url: "../uploadphoto/uploadphoto?time=" + e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
     })
   },
@@ -167,6 +169,4 @@ Page({
     })
     //console.log(this.data.student_id)
   },
-
-
 })
