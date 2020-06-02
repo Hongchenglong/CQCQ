@@ -7,7 +7,15 @@
   top: 0rpx;
   position: absolute;
 }
-
+.btn {
+  height: 60rpx;
+  line-height: 28rpx;
+  font-size: small;
+  font-weight: bold;
+  color: #7AB8FB;
+  border-radius: 28rpx;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;
+}
 .first {
   margin: auto;
   width: 720rpx;

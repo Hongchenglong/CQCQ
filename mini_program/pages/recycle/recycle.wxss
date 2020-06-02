@@ -101,11 +101,13 @@
   width: 100%;
   height: 60rpx;
   bottom: 0rpx;
+  font-size: 32rpx;
 }
 
 .loadmore_tips {
   width: 100%;
   height: 60rpx;
+  font-size: 32rpx;
   text-align: center;
   color: rgba(187, 187, 187, 1);
 }
