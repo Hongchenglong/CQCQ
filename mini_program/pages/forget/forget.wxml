@@ -1,4 +1,8 @@
 <!--pages/forget/forget.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">忘记密码</view>
+</cu-custom>
 <scroll-view scroll-y class="scrollPage">
 	<view class='nav-list' style="margin:30% 0 20%;">
 		<navigator open-type="navigate" hover-class='none' bindtap="click" url="/pages/{{item.page}}/{{item.page}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key style="margin-bottom: 20%;">

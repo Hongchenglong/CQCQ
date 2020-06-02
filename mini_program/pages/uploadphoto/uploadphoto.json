@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
   "navigationBarTitleText": "上传照片"
 }
