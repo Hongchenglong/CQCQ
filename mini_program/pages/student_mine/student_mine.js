@@ -115,6 +115,7 @@ Component({
         department: getApp().globalData.user.department
       })
       //console.log("show")
+      wx.hideLoading()
       wx.hideHomeButton()
     },
   },
@@ -176,15 +177,81 @@ Component({
         console.log(456)
       },
     },
+
+    to_info:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url: '../revise_information/revise_information',
+      })
+    },
+
+    to_pass:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url: '../revise_password/revise_password',
+      })
+    },
+
+    to_mail:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url: '../revise_email/revise_email',
+      })
+    },
+
+    to_phone:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url: '../revise_phone/revise_phone',
+      })
+    },
+
+    to_phone:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url: '../revise_phone/revise_phone',
+      })
+    },
+
+    to_about:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+      wx.navigateTo({
+        url: '../revise_about/revise_about',
+      })
+    },
+
     //点击加载样式
     click: function () {
       //加载中的样式
-      wx.showToast({
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+        duration: 5000
+      })
+      /*wx.showToast({
         title: '加载中...',
         mask: true,
         icon: 'loading',
-        duration: 400
-      })
+        duration: 500
+      })*/
     },
     //事件处理函数
     bindViewTap: function () {
@@ -201,7 +268,7 @@ Component({
       wx.showModal({
         title: '退出登录',
         content: '确认退出登录？',
-        confirmColor: "red",
+        confirmColor: "#FF0000",
         success(res) {
           if (res.confirm) {
             //点击确认退出

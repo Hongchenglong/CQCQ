@@ -50,13 +50,13 @@ map,.mapBox{
   width: 750rpx;
   height: 300rpx;
 }
-
 .avatar {
   overflow: hidden;
   height: 200rpx;
   width: 200rpx;
   border-radius: 50%;
 }
+
 
 /** 添加自定义button点击态样式类**/
 .other-button-hover {

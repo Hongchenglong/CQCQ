@@ -3,7 +3,7 @@
 
 		<view class='one'>
 			<image src="https://oeong.xyz/cqcq/public/images/mail.png"></image>
-			<input type="text" placeholder='请输入邮箱' bindinput='getEmailValue' value='{{email}}' />
+			<input type="text" style="width:90%" placeholder='请输入邮箱' bindinput='getEmailValue' value='{{email}}' />
 		</view>
 
 		<view class='two'>

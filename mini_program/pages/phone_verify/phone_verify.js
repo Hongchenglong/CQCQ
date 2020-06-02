@@ -8,8 +8,7 @@ Page({
     phone: "",
     num: "",
     codename: '获取验证码',
-    code:"",
-    disabled: false //按钮是否可点
+    code: ""
   },
 
   phoneInput: function (e) {
@@ -86,12 +85,11 @@ Page({
               }
             })
           } else if (res.data.error_code == 0) {
-            if(that.data.num == that.data.code){
+            if (that.data.num == that.data.code) {
               wx.reLaunch({
                 url: "../change_passwd/change_passwd?phone=" + that.data.phone
               })
-            }
-            else{
+            } else {
               wx.showModal({
                 title: '哎呀～',
                 showCancel: false,
@@ -103,10 +101,10 @@ Page({
                     console.log('用户点击取消')
                   }
                 }
-            })
+              })
+            }
           }
         }
-      }
       })
     }
   },
@@ -124,12 +122,8 @@ Page({
     })
   },
 
-  // 发送验证码
   onClick: function (e) {
     var that = this;
-    that.setData({
-      disabled: true
-    })
     if (that.data.phone == "") {
       wx.showModal({
         title: '提示',
@@ -182,8 +176,30 @@ Page({
             })
           } else if (res.data.error_code == 0) {
             that.setData({
-              code : res.data.data.captcha
+              code: res.data.data.captcha
             })
+            that.setData({
+              disabled: true
+            })
+            getApp().globalData.Flag = 0
+                if (getApp().globalData.Flag == 0) {
+                  var number = 61;
+                  var timer = setInterval(function () {
+                    number--;
+                    if (number <= 0) {
+                      clearInterval(timer);
+                      that.setData({
+                        codename: '重新发送',
+                        disabled: false
+                      })
+                      getApp().globalData.Flag = 1
+                    } else {
+                      that.setData({
+                        codename: number + "s"
+                      })
+                    }
+                  }, 1000)
+                }
             wx.showModal({
               title: '恭喜！',
               showCancel: false,
@@ -194,23 +210,6 @@ Page({
                 } else if (res.cancel) {
                   console.log('用户点击取消')
                 }
-                getApp().globalData.Flag == 0
-                var number = 61;
-                var timer = setInterval(function () {
-                  number--;
-                  if (number <= 0) {
-                    clearInterval(timer);
-                    that.setData({
-                      codename: '重新发送',
-                      disabled: false
-                    })
-                    getApp().globalData.Flag = 1
-                  } else {
-                    that.setData({
-                      codename: number + "s"
-                    })
-                  }
-                }, 1000)
               }
             })
           }

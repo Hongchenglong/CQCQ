@@ -4,7 +4,7 @@
 
 		<view class="one">
 		<image src="https://oeong.xyz/cqcq/public/images/phone.png"></image>
-			<input type="text" placeholder='请输入手机号' bindinput="phoneInput"/>
+			<input type="text" style="width:90%" placeholder='请输入手机号' bindinput="phoneInput"/>
 		</view>
 
 		<view class='two'>

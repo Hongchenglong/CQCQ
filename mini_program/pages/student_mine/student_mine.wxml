@@ -18,52 +18,56 @@
 	<!--<view class="padding flex text-center text-grey bg-white shadow-warp">-->
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
 		<!--修改信息-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_information/revise_information" hover-class="none" bindtap="click">
+		<view class="cu-item arrow" bindtap="to_info">
+			<view class="content" hover-class="none"><!--url="../revise_information/revise_information"  bindtap="click"-->
 				<text class="cuIcon-write text-mauve"></text>
 				<text class="text-grey">修改信息</text>
-			</navigator>
+			</view>
 		</view>
 		<!--修改密码-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_password/revise_password" hover-class="none" bindtap="click">
+		<view class="cu-item arrow" bindtap="to_pass">
+			<view class="content" hover-class="none"><!--url="../revise_password/revise_password"  bindtap="click"-->
 				<text class="cuIcon-lock text-brown"></text>
 				<text class="text-grey">修改密码</text>
-			</navigator>
+			</view>
 		</view>
 		<!--修改邮箱-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_email/revise_email" hover-class="none" bindtap="click">
+		<view class="cu-item arrow" bindtap="to_mail">
+			<view class="content" hover-class="none"><!--url="../revise_email/revise_email"  bindtap="click"-->
 				<text class="cuIcon-mail text-newblue"></text>
 				<text class="text-grey">修改邮箱</text>
-			</navigator>
+			</view>
 		</view>
 		<!--修改手机-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_phone/revise_phone" hover-class="none" bindtap="click">
+		<view class="cu-item arrow" bindtap="to_phone">
+			<view class="content" hover-class="none"><!--url="../revise_phone/revise_phone"  bindtap="click"-->
 				<text class="cuIcon-mobile text-mei_red"></text>
 				<text class="text-grey">修改手机</text>
-			</navigator>
+			</view>
 		</view>
 		<!--意见反馈-->
-		<view class="cu-item arrow">
-			<button class="cu-btn content" open-type="feedback" bindtap="click">
-				<text class="cuIcon-creative text-cyan"></text>
-				<text class="text-grey" style="font-weight:normal">意见反馈</text>
+		<view class="cu-item" style="padding:0">
+			<button class="cu-item arrow" open-type="feedback" style="width:100%;height:100%;border:none; padding-left: 30rpx;margin: 0;background-color: transparent;font-weight:normal" hover-class="none" bindtap="click">
+				<!--padding-top: 0;padding-bottom: 0;-->
+				<view class="content" style="margin-left: 0;text-align: left;">
+					<text class="cuIcon-creative text-cyan"></text>
+					<text class="text-grey">意见反馈</text>
+				</view>
 			</button>
 		</view>
-		<view class="cu-item arrow">
-			<view class="content" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/CQCQ">
+		<!--GitHub-->
+		<view class="cu-item arrow" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/CQCQ">
+			<view class="content">
 				<text class="cuIcon-github text-grey"></text>
 				<text class="text-grey">GitHub</text>
 			</view>
 		</view>
 		<!--关于-->
-		<view class="cu-item arrow">
-			<navigator class="content" url="../revise_about/revise_about" hover-class="none" bindtap="click">
+		<view class="cu-item arrow"  bindtap="to_about">
+			<view class="content" hover-class="none"><!--url="../revise_about/revise_about"  bindtap="click"-->
 				<text class="cuIcon-question text-yellow"></text>
 				<text class="text-grey">关于</text>
-			</navigator>
+			</view>
 		</view>
 	</view>
 	<view class="exit">

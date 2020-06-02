@@ -1,5 +1,5 @@
+var util=require("../../utils/util.js")
 Page({
-
   data: {
     i: 0,
     select: false,
@@ -9,7 +9,9 @@ Page({
     Apart: [],
     listData: [],
     dep: '',
-    grade: ''
+    grade: '',
+    buttonClicked: false,
+    timer:''
   },
 
   bindShowMsg() {
@@ -95,9 +97,8 @@ Page({
     })
 
   },
-
   // 动态添加宿舍法
-  buttonaddList1: function (e) {
+  formSubmit: util.throttle(function(e){
     var that = this
     var apart = this.data.Block;
     var num = this.data.Room;
@@ -165,8 +166,10 @@ Page({
         duration: 2000 //持续的时间
       })
     }
-  },
 
+  },1000),
+
+  
   // 动态删除宿舍
   buttonsubList: function (e) {
     var idx = e.currentTarget.dataset.idx;

@@ -15,3 +15,4 @@
 		</view>
 	</block>
 </scroll-view>
+<image class="image" src="/images/data.png" mode="widthFix" hidden='{{!isShow}}'></image>

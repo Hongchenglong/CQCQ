@@ -1,9 +1,9 @@
 <!--pages/student_home/student_home.wxml-->
 <scroll-view scroll-y class="scrollPage">
 	<view class="up">
-		<image class="logo" src='https://oeong.xyz/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
+		<image class="logo" src='/images/zhicheng.png' mode="aspectFit"></image>
 	</view>
-	<view class='nav-list'>
+	<view class='nav-list' style="margin-top: 20rpx;padding-top: 0;">
 		<navigator open-type="navigate" hover-class='none' bindtap="click" url="/pages/{{item.page}}/{{item.page_tow}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
 			<view class="nav-title">{{item.title}}</view>
 			<view class="nav-name">{{item.name}}</view>
