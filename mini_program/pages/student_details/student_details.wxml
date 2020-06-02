@@ -8,13 +8,20 @@ refresher-enabled="{{true}}"
 	bindrefresherpulling="onPulling" 
 	bindrefresherrefresh="onRefresh" 
 	bindrefresherrestore="onRestore" >
-	<view class="first">
+	
+	<view class="first" wx:if="{{time<checkData.end_time}}">
 		<text class="texts">开始时间：{{checkData.start_time}}</text>
 		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
 			<button class="btn" style="width:100px;margin-right:8px;margin-top:-42px;float:right" bindtap="onSend">
 			上传照片
 		</button>
 	</view>
+
+	<view class="first" wx:if="{{time>=checkData.end_time}}">
+		<text class="texts">开始时间：{{checkData.start_time}}</text>
+		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
+	</view>
+
 	<block wx:for="{{photoData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="second">
 			<text class="tone">宿舍：{{itemName.dorm_num}}</text>
