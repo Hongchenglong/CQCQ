@@ -1,9 +1,14 @@
+const app = getApp();
 Page({
 
   /** 页面的初始数据*/
   data: {
     pics: [],
     isShow: true,
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    /*ColorList: app.globalData.ColorList,*/
+    height:''
   },
 
   Img: function () {

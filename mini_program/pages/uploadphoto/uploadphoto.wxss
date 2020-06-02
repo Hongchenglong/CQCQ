@@ -1,3 +1,8 @@
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
+page{
+  background-color: #fff;
+}
 .wrap {
   width: 675rpx;
   margin-left: 37rpx;
@@ -48,7 +53,7 @@ textarea {
 
 
 .tips {
-  bottom: 0rpx;
+  bottom: 2%;
   position: fixed;
   text-align: center;
 }

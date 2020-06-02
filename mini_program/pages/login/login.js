@@ -1,4 +1,5 @@
 // pages/login/login.js
+const app = getApp();
 Page({
 
   /**
@@ -10,7 +11,11 @@ Page({
     password: "",
     isShow1: true,
     inputType1: "password",
-    height: ''
+    height: '',
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    /*ColorList: app.globalData.ColorList,*/
+    height:''
   },
 
   /*signup: function () {
