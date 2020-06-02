@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"E:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\record\records.html";i:1591026586;}*/ ?>
 <!DOCTYPE html>
 <html>
 

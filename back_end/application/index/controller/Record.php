@@ -111,7 +111,12 @@ class Record extends BaseController
         }
 
         date_default_timezone_set("PRC"); //时区标识符 解决时差8小时
-        if (date("Y-m-d H:i:s") < $_POST['end_time']) {
+        if (date("Y-m-d H:i:s") < $_POST['start_time']) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '该次抽查尚未开始！';
+            return json($return_data);
+        } else if (date("Y-m-d H:i:s") < $_POST['end_time']) {
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '该查寝尚未结束！';
