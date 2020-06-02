@@ -27,27 +27,27 @@
 		</view>
 		<!--修改密码-->
 		<view class="cu-item arrow" bindtap="to_pass">
-			<navigator class="content" hover-class="none">
+			<view class="content" hover-class="none">
 				<!--url="../revise_password/revise_password"  bindtap="click"-->
 				<text class="cuIcon-lock text-brown"></text>
 				<text class="text-grey">修改密码</text>
-			</navigator>
+			</view>
 		</view>
 		<!--修改邮箱-->
 		<view class="cu-item arrow" bindtap="to_mail">
-			<navigator class="content" hover-class="none">
+			<view class="content" hover-class="none">
 				<!--url="../revise_email/revise_email"  bindtap="click"-->
 				<text class="cuIcon-mail text-newblue"></text>
 				<text class="text-grey">修改邮箱</text>
-			</navigator>
+			</view>
 		</view>
 		<!--修改手机-->
 		<view class="cu-item arrow" bindtap="to_phone">
-			<navigator class="content" hover-class="none">
+			<view class="content" hover-class="none">
 				<!--url="../revise_phone/revise_phone"  bindtap="click"-->
 				<text class="cuIcon-mobile text-mei_red"></text>
 				<text class="text-grey">修改手机</text>
-			</navigator>
+			</view>
 		</view>
 		<!--意见反馈-->
 		<view class="cu-item" style="padding:0">
@@ -61,19 +61,19 @@
 		</view>
 		<!--回收站-->
 		<view class="cu-item arrow" bindtap="to_re">
-			<navigator class="content" hover-class="none">
+			<view class="content" hover-class="none">
 				<!-- url="../recycle/recycle" bindtap="click"-->
 				<text class="cuIcon-delete text-green"></text>
 				<text class="text-grey">回收站</text>
-			</navigator>
+			</view>
 		</view>
 		<!--关于-->
 		<view class="cu-item arrow" bindtap="to_about">
-			<navigator class="content" hover-class="none">
+			<view class="content" hover-class="none">
 				<!-- url="../revise_about/revise_about"  bindtap="click"-->
 				<text class="cuIcon-question text-yellow"></text>
 				<text class="text-grey">关于</text>
-			</navigator>
+			</view>
 		</view>
 	</view>
 	<view class="exit">
