@@ -4,14 +4,11 @@ Page({
   data: {
     pics: [],
     isShow: true,
-
   },
 
   Img: function () {
     var that = this;
-
     var imgSrc = getApp().globalData.imgSrc;
-
     if (imgSrc != '') {
       upload(that, imgSrc);
     } else {
@@ -21,11 +18,8 @@ Page({
         duration: 1000
       })
     }
-
-
-
-
   },
+
   /**上传图片 */
   uploadImage: function () {
     var that = this;
@@ -35,8 +29,6 @@ Page({
       count: 1 - pics.length,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-
-
       success: function (res) {
         var imgSrc = '';
         var imgSrc = res.tempFilePaths;
@@ -53,9 +45,7 @@ Page({
           pics: pics
         })
       },
-
     })
-
   },
 
   /**删除图片 */
@@ -72,15 +62,10 @@ Page({
     }
     that.setData({
       pics: newPics,
-
       isShow: true,
-
     })
     getApp().globalData.imgSrc = ''
   },
-
-  /**提交 */
-
 })
 
 function upload(page, path) {
@@ -100,14 +85,12 @@ function upload(page, path) {
         'session_token': wx.getStorageSync('session_token'),
         'grade': getApp().globalData.user.grade,
         'department': getApp().globalData.user.department,
-        // 'dorm_id': getApp().globalData.userInfomation.roomInfo[0].id,
         'file': path[0],
         'dorm_num': getApp().globalData.dorm_num,
         'rand_num': getApp().globalData.rand_num,
         'end_time': getApp().globalData.end_time,
         'start_time': getApp().globalData.start_time
       },
-
       success: function (res) {
         console.log(res);
         console.log(getApp().globalData.rand_num)
@@ -128,12 +111,13 @@ function upload(page, path) {
             success: function (res) {
               if (res.confirm) {
                 console.log('用户点击确定')
-                // wx.navigateTo({
-                //   url: '../student_details/student_details?time=' + getApp().globalData.start_time + "&&endtime=" + getApp().globalData.end_time
-                // })
-                wx.navigateBack({
-                  delta: 1
+                wx.redirectTo({
+                  url: '../student_details/student_details?time=' + getApp().globalData.start_time + "&&endtime=" + getApp().globalData.end_time
+                  // 传到student_details.js的onload，用options.time调用
                 })
+                // wx.navigateBack({
+                //   delta: 1
+                // })
               }
             },
           })
@@ -173,7 +157,7 @@ function upload(page, path) {
         console.log(e);
         wx.showModal({
           title: '提示',
-          content: '上传失败',
+          content: '您的网络状态不佳，上传失败',
           showCancel: false
         })
       },
