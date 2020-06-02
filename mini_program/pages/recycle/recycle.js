@@ -1,6 +1,11 @@
 // pages/chakan/chakan.js
 var page = getApp().globalData.pagetwo; //页
 var count = 0;
+var totalCount = 0; //总记录数
+var flag = 0; //0开 1锁
+var scrollHeight = 0; //记录块高度
+var scrollTop = 0;
+var oneScrollHeight = 0; //一个记录块高度
 Page({
     /**
      * 页面的初始数据
@@ -13,6 +18,9 @@ Page({
         loadMoreText: '加载更多',
         isShowLoadmore: false, //正在加载 
         isShowNoDatasTips: false, //暂无数据
+        isShow: false,
+        isShowing: true, //搜索开启
+        isScroll: true, //启用滚动
     },
 
     datePickerBindchange: function (e) {
@@ -24,6 +32,9 @@ Page({
     //搜索记录
     onSearch: function (e) {
         var that = this
+        that.setData({
+            isScroll: true
+        })
         wx.request({
             url: getApp().globalData.server + '/cqcq/public/index.php/index/Recyclebin/specifiedDeletedDate',
             data: {
@@ -66,6 +77,28 @@ Page({
                     that.setData({
                         showData: res.data.data
                     })
+                    that.getScrollHeight();
+                    count = that.data.showData.length
+                    console.log(count);
+                    if (count < 7) {
+                        if (count * oneScrollHeight < scrollHeight) { //记录块不超过页面高度
+                            console.log('count * oneScrollHeight', count * oneScrollHeight);
+                            console.log('scrollHeight', scrollHeight);
+                            that.setData({
+                                isScroll: false //禁用滚动
+                            })
+                        } else {
+                            that.setData({
+                                isScroll: true //允许滚动
+                            })
+                            flag = 1;
+                        }
+                    } else if (count >= 7) {
+                        that.setData({
+                            isScroll: true //允许滚动
+                        })
+                        flag = 1;
+                    }
                     console.log(that.data.showData)
                 }
             },
@@ -92,6 +125,7 @@ Page({
     onAll: function (e) {
         this.setData({
             showData: [],
+            isScroll: true
         })
         getApp().globalData.pagetwo = 2
         this.onLoad();
@@ -133,7 +167,8 @@ Page({
         })
         this.setData({
             grade: getApp().globalData.user.grade,
-            department: getApp().globalData.user.department
+            department: getApp().globalData.user.department,
+            isScroll: true
         })
         var that = this
         wx.showLoading({
@@ -173,6 +208,13 @@ Page({
                         isShowLoadmore: false, // 不显示正在加载
                         isShowNoDatasTips: true // 显示暂无数据
                     })
+                    if (totalCount == 0) {
+                        that.setData({
+                            isShow: true,
+                            isShowing: false,
+                            isShowNoDatasTips: false,
+                        })
+                    }
                 } else if (res.data.error_code != 0) {
                     wx.showModal({
                         title: '哎呀～',
@@ -195,6 +237,7 @@ Page({
                             isShowNoDatasTips: false,
                         })
                         count = res.data.data.length;
+                        totalCount += count;
                         console.log(count);
                     } else {
                         that.setData({
@@ -329,6 +372,7 @@ Page({
         var that = this
         getApp().globalData.pagetwo = 2
         page = getApp().globalData.pagetwo
+        flag = 0;
         that.getList(1)
         page += 1
         setTimeout(function () {
@@ -344,19 +388,48 @@ Page({
 
     },
 
+    getScrollHeight: function () {
+        // 页面高度
+        wx.createSelectorQuery().select('.scbg').boundingClientRect((rect) => {
+            scrollHeight = rect.height
+        }).exec()
+
+        // 设定一小块的高度
+        wx.createSelectorQuery().select('.changeInfoName').boundingClientRect((rect) => {
+            oneScrollHeight = rect.height / (80 / 240)
+        }).exec()
+    },
+
     //触底
     onScrollLower: function (e) {
         var that = this;
         if (count == 7) {
-            console.log(page)
+            if (flag == 1) {
+                that.setData({
+                    isScroll: true
+                })
+            } else {
+                flag = 0;
+                console.log(page)
+                that.setData({
+                    isShowLoadmore: true, // 显示正在加载
+                    isShowNoDatasTips: false,
+                })
+                that.getList(page)
+                page = getApp().globalData.pagetwo + 1;
+            }
+        } else if (count < 7) {
+            if (flag == 1) {
+                that.setData({
+                    isScroll: true
+                })
+            } else {
+                that.getList(page)
+            }
+        } else if (count > 7) {
             that.setData({
-                isShowLoadmore: true, // 显示正在加载
-                isShowNoDatasTips: false,
+                isScroll: true
             })
-            that.getList(page)
-            page = getApp().globalData.pagetwo + 1;
-        } else {
-            that.getList(page)
         }
         setTimeout(function () {
             wx.hideLoading()
