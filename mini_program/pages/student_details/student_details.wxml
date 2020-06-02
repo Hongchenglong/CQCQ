@@ -1,16 +1,19 @@
 <!--pages/student_details/student_details.wxml-->
-<scroll-view class='scbg' scroll-y='true'>
-	<view class="first">
-		<text class="texts">开始时间：{{checkData.start_time}}</text>
-		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
+<scroll-view class='scbg' scroll-y='true' refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-default-style="black" refresher-triggered="{{triggered}}" refresher-background="white" bindrefresherpulling="onPulling" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore">
+		<view class="first" >
+		<view style="float:left;">
+			<text class="texts">开始时间：{{checkData.start_time}}</text>
+			<text class="texts" style="margin-top: 0;"> 截止时间：{{checkData.end_time}}</text>
+		</view>
+		<button wx:if="{{time<checkData.end_time}}" class="btn" style="width:350rpx;height:50rpx;margin-right:5rpx;float:right;margin-top: 45rpx;" bindtap="onSend">
+			上传照片
+		</button>
 	</view>
 	<block wx:for="{{photoData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="second">
 			<text class="tone">宿舍：{{itemName.dorm_num}}</text>
 			<text class="ttwo">号码：{{itemName.rand_num}}</text>
 		</view>
-		<image bindtap='clickImg' class="imgs" mode="widthFix"
-		src="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}"
-		data-photo="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}"/>
+		<image bindtap='clickImg' class="imgs" mode="widthFix" src="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}" data-photo="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}" />
 	</block>
 </scroll-view>

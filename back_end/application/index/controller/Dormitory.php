@@ -40,6 +40,7 @@ class Dormitory extends BaseController
             ->field('block, room')   // 指定字段
             ->alias('d')    // 别名
             ->join('student s', 's.id = d.student_id')
+            ->order('room')
             ->where($where)
             ->select();
 

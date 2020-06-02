@@ -4,7 +4,7 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     /*ColorList: app.globalData.ColorList,*/
-    CustomBar: app.globalData.CustomBar ? app.globalData.StatusBar + 44 : app.globalData.CustomBar,
+    /*CustomBar: app.globalData.CustomBar ? app.globalData.StatusBar + 44 : app.globalData.CustomBar,*/
     height:''
   },
   onLoad: function () { },
