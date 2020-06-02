@@ -53,3 +53,9 @@
   height: 48rpx;
   float: left;
 }
+
+.image{
+  height:50%;
+  margin:auto;
+  display: block;
+}

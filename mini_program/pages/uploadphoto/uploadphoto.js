@@ -113,6 +113,7 @@ function upload(page, path) {
                 console.log('用户点击确定')
                 wx.redirectTo({
                   url: '../student_details/student_details?time=' + getApp().globalData.start_time + "&&endtime=" + getApp().globalData.end_time
+                  // 传到student_details.js的onload，用options.time调用
                 })
                 // wx.navigateBack({
                 //   delta: 1
