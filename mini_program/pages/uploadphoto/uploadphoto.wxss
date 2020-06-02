@@ -1,3 +1,5 @@
+@import"/colorui/main.wxss";
+
 .wrap {
   width: 675rpx;
   margin-left: 37rpx;
@@ -5,9 +7,9 @@
   font-size: 15rpx;
 }
 
-.contantWrap {
+/* .contantWrap {
   background-color: #fff;
-}
+} */
 
 .contant {
   width: 675rpx;
@@ -48,7 +50,7 @@ textarea {
 
 
 .tips {
-  bottom: 0rpx;
+  bottom: 2%;
   position: fixed;
   text-align: center;
 }
