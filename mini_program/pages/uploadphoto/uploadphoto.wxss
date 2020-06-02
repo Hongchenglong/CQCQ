@@ -1,8 +1,5 @@
-@import "/colorui/main.wxss";
-@import "/colorui/icon.wxss";
-page{
-  background-color: #fff;
-}
+@import"/colorui/main.wxss";
+
 .wrap {
   width: 675rpx;
   margin-left: 37rpx;
@@ -10,9 +7,9 @@ page{
   font-size: 15rpx;
 }
 
-.contantWrap {
+/* .contantWrap {
   background-color: #fff;
-}
+} */
 
 .contant {
   width: 675rpx;

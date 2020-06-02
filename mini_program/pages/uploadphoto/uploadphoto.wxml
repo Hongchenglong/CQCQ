@@ -1,7 +1,3 @@
-<!--<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-	<view slot="backText">返回</view>
-	<view slot="content">上传照片</view>
-</cu-custom>-->
 <view class="wrap">
 	<view class="contantWrap">
 		<view class="contantPic">
@@ -11,14 +7,14 @@
 			</view>
 			<image src="https://oeong.xyz/cqcq/public/images/upload.png" class="uploadImg {{isShow?'true':'hideTrue'}}" bindtap="uploadImage"></image>
 		</view>
-		<button class="bg-gradual-green shadow bg-gradual-green" style="border-radius: 30px;width:80%;" bindtap="Img">
 
+		<button class="bg-gradual-blue shadow bg-gradual-blue" style="border-radius: 30px;width:80%;" bindtap="Img">
 			<image src="/images/click.png"></image><text decode="{{true}}">&nbsp;上传照片</text>
 		</button>
 
 	</view>
-
 </view>
+
 <view class="foot">
 	<text class="tips">Tips:请点击+选择照片，点击×可删除照片。</text>
 </view>
