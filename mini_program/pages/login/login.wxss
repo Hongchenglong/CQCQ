@@ -51,7 +51,6 @@ input {
 .for{
   width: 60rpx;
   height: 60rpx;
-  border-radius: 50%;
   margin-left: 50rpx;
 }
 
