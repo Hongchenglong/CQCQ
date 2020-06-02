@@ -127,7 +127,7 @@ Page({
     wx.getSetting({
       success: res => {
         //判断是否授权，如果授权成功
-        if (res.authSetting['scope.userInfo']) {    
+        if (res.authSetting['scope.userInfo']) {
           //获取用户信息
           wx.getUserInfo({
             success: res => {
@@ -140,7 +140,7 @@ Page({
               }
             }
           })
-        }      
+        }
       },
     })
   },
@@ -151,6 +151,18 @@ Page({
 
   passwordInput: function (e) {
     this.data.password = e.detail.value
+  },
+
+  to_forget: function () {
+    wx.showToast({
+      title: '加载中...',
+      mask: true,
+      icon: 'loading',
+      duration: 400
+    })
+    wx.navigateTo({
+      url: '../forget/forget',
+    })
   },
 
   /**

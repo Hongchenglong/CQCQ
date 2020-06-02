@@ -50,7 +50,6 @@ map,.mapBox{
   width: 750rpx;
   height: 300rpx;
 }
-
 .avatar {
   overflow: hidden;
   height: 200rpx;

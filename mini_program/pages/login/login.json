@@ -1,4 +1,8 @@
 {
-  "usingComponents": {} ,
-  "navigationBarTitleText": "登录"
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "navigationBarTitleText": "登陆",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
 }

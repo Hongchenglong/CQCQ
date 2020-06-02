@@ -1,91 +1,105 @@
 /* pages/login/login.wxss */
-page {
-  height: 100%;
+@import'/colorui/icon.wxss';
+@import'/colorui/main.wxss';
+
+.up{
+  width: 250rpx;
+  height: 250rpx;
+  margin: 70rpx auto;
+  display: flex;
 }
 
-.back {
+.logo{
   width: 100%;
   height: 100%;
-  position: fixed;
-  background-size: 100% 100%;
-  z-index: -1;
-  /*让图片置于最底层，不会影响其它部分*/
+  margin: 0rpx auto;
 }
 
-.wrap {
-  width: 80%;
-  opacity: 0.64;
-  background-color: rgb(240, 238, 238);
-  position: absolute;
-  margin-top: 10%;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-.head {
-  /*width: 220rpx;
-  height: 220rpx;*/
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  padding-top: 7%;
-  margin-bottom: 7%;
-}
-
-.user {
-  background-color: white;
-  width: 90%;
-  height: 28%;
+.info {
+  width: 600rpx;
+  height: 300rpx;
   margin: 0 auto;
+  /*border: 1rpx solid;*/
 }
 
 .row {
-  height: 50%;
+  background-color: #fff;
+  height: 40%;
   display: flex;
   align-items: center;
   /*justify-content: center;*/
-  margin-left: 7%;
+  margin: 0 auto;
+  /*border: 1rpx solid;*/
+  border-radius: 30px;
+}
+
+.pic{
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 50%;
+  margin-left: 20rpx;
 }
 
 input {
-  margin-left: 7%;
+  margin-left: 50rpx;
   height: 100%;
+  width: 310rpx;
+  font-size: 32rpx;
+  /*border: 1rpx solid;*/
 }
 
-.foot {
-  margin: 9% auto;
+.for{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 50rpx;
 }
 
-.login {
-  word-spacing: 50rpx;
-  background-color: #7EC4F8;
+.login{
+  margin:10% auto;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 130rpx;
+  height: 130rpx;
+  margin-bottom: 20%;
 }
 
-.btn-hover {
-  background-color: rgb(113, 190, 254);
+.login image{
+  width: 65rpx;
+  height: 55rpx
 }
 
-.forgetPass {
-  margin-top: 2%;
-  color: #777;
-  font-size: 32rpx;
-  float: right;
-  margin-right: 4%;
-  display: flex;
-}
+/*.placeholder-view{
+  height: 50%;
+  width: 100%;
+}*/
 
-.warn {
+.warn{
   width: 90%;
   bottom: 2%;
   position: fixed;
-  color: #fff;
-  display: flex;
+  margin-left: 5%;
+}
+
+.forget{
   align-items: center;
   justify-content: center;
-  margin-left: 5%;
   text-align: center;
+}
+
+.divLine{
+  margin:5% auto;
+  /*background: #7EC4F8;*/
+  width: 600rpx;
+  height: 1rpx;
+ }
+
+.text{
+  margin-top:5% ;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 32rpx;
+  color: #777;
 }
