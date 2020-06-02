@@ -3,7 +3,7 @@
 	<view class="head">
 
 		<view class="one">
-		<image src="https://oeong.xyz/cqcq/public/images/phone.png"></image>
+		<image src="/images/phone.png"></image>
 			<input type="text" style="width:90%" placeholder='请输入手机号' bindinput="phoneInput"/>
 		</view>
 
@@ -14,5 +14,5 @@
 		</view>
 
 	</view>
-	<button bindtap="onInput" style="border-radius: 30px;width:80%" class='de'><image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text style="color:white" decode="{{true}}">&nbsp;下一步</text></button>
+	<button bindtap="onInput" style="border-radius: 30px;width:80%" class='de'><image src="/images/click.png"></image><text style="color:white" decode="{{true}}">&nbsp;下一步</text></button>
 </view>

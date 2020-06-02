@@ -4,7 +4,7 @@
 		<view slot="content">辅助查寝系统</view>
 	</cu-custom>
 	<view class="up" style="">
-		<image class="logo" src='https://oeong.xyz/cqcq/public/images/owl.png' mode="aspectFit"></image>
+		<image class="logo" src='/images/owl.png' mode="aspectFit"></image>
 	</view>
 	<view class="info">
 		<view class="row">

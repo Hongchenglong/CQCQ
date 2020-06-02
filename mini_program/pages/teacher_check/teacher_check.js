@@ -55,12 +55,12 @@ Page({
                         success: function (res) {}
                     })
                 } else if (res.data.error_code == 2) {
-                    wx.showModal({
-                        title: '提示！',
-                        showCancel: false,
-                        content: res.data.msg,
-                        success: function (res) {}
-                    })
+                    // wx.showModal({
+                    //     title: '提示！',
+                    //     showCancel: false,
+                    //     content: res.data.msg,
+                    //     success: function (res) {}
+                    // })
                 } else if (res.data.error_code == 0) {
                     that.setData({
                         showData: res.data.data
