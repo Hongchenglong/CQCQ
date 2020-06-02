@@ -211,7 +211,7 @@ Page({
                 triggered: false,
             })
             that._freshing = false
-        }, 2000)
+        }, 1000)
     },
 
     // 下拉刷新复位

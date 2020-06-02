@@ -4,7 +4,7 @@
 .up{
   width: 300rpx;
   height: 300rpx;
-  margin: 70rpx auto;
+  margin: 20rpx auto;
   display: flex;
 }
 
