@@ -18,10 +18,10 @@
 			一键提醒
 		</button>
 	</view>
-	<view class="first" wx:if="{{time>=checkData.end_time}}">
+	<!-- <view class="first" wx:if="{{time>=checkData.end_time}}">
 		<text class="texts">开始时间：{{checkData.start_time}}</text>
 		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
-	</view>
+	</view> -->
 
 	<block wx:for="{{photoData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="second">
