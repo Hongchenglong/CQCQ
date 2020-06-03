@@ -1,5 +1,5 @@
 /* pages/student_details/student_details.wxss */
-.scbg{
+.scbg {
   width: 100%;
   height: 97%;
   left: 0rpx;
@@ -7,6 +7,7 @@
   top: 0rpx;
   position: absolute;
 }
+
 .btn {
   height: 60rpx;
   line-height: 28rpx;
@@ -15,7 +16,11 @@
   color: #7AB8FB;
   border-radius: 28rpx;
   box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .first {
   margin: auto;
   width: 720rpx;
@@ -25,17 +30,19 @@
   font-size: 30rpx;
   font-family: Roboto;
   border: 2rpx solid rgba(187, 187, 187, 1);
+  display: flex
 }
 
 .texts {
-  margin-left: 5%;
+  margin-left: 10rpx;
   margin-top: 3%;
-  width: 600rpx;
+  width: 455rpx;
   height: 40rpx;
   color: rgba(16, 16, 16, 1);
   font-size: 30rpx;
   font-family: SourceHanSansSC-regular;
   float: left;
+  height: 50%;
 }
 
 .one {
@@ -54,11 +61,11 @@
   background-color: rgba(126, 166, 248, 0.33);
 }
 
-.tone{
+.tone {
   text-align: center;
   margin-left: 5%;
   margin-top: 3%;
-  width:40%;
+  width: 40%;
   height: 40rpx;
   color: rgba(16, 16, 16, 1);
   font-size: 30rpx;
@@ -66,10 +73,10 @@
   float: left;
 }
 
-.ttwo{
+.ttwo {
   text-align: center;
   margin-top: 3%;
-  width:50%;
+  width: 50%;
   height: 40rpx;
   color: rgba(16, 16, 16, 1);
   font-size: 30rpx;
@@ -78,10 +85,10 @@
 }
 
 .imgs {
-  width:720rpx;
-  height:450rpx;
-  margin-left:2%;
-  margin-top:2%;
+  width: 720rpx;
+  height: 450rpx;
+  margin-left: 2%;
+  margin-top: 2%;
   margin-bottom: 2%;
   box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;
 }
