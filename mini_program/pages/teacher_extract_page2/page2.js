@@ -35,14 +35,14 @@ Page({
     time1: '22:30',
     time2: '22:45',
     listData: [],
-    idList:[],
-    blockList:[],
-    randList:[],
+    idList: [],
+    blockList: [],
+    randList: [],
   },
 
   //设置开始时间
   bindTimeChange1: function (e) {
-  console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     time_1 = e.detail.value
     var bj_time1 = this.data.date_1 + " " + time_1
     var bj_time2 = this.data.date_1 + " " + this.data.time2
@@ -53,7 +53,7 @@ Page({
       this.setData({
         time1: e.detail.value
       })
-    }else{
+    } else {
       wx.showModal({
         title: "提示：",
         content: "开始时间不得晚于结束时间",
@@ -75,7 +75,7 @@ Page({
       this.setData({
         time2: e.detail.value
       })
-    }else{
+    } else {
       wx.showModal({
         title: "提示：",
         content: "开始时间不得晚于结束时间",
@@ -100,52 +100,75 @@ Page({
     if (time_2 == null) {
       time_2 = '22:45'
     }
-    wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/verifyResults',
-      data: {
-        department: that.data.dep,
-        grade: that.data.grade,
-        start_time: that.data.date_1 + " " + that.data.time1,
-        end_time: that.data.date_1 + " " + that.data.time2,
-        dorm_id:that.data.idList,
-        rand_num:that.data.randList
-      },
-      method: "POST",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success(res) {
-        if (res.data.error_code != 0) {
-          wx.showModal({
-            title: "提示：",
-            content: res.data.msg,
-            showCancel: false,
-            success(res) {}
-          })
-        } else if (res.data.error_code == 0) {
-          wx.showModal({
-            title: "提示：",
-            content: res.data.msg,
-            showCancel: false,
-            success(res) {},
-            complete: function (res) {
-              wx.redirectTo({
-                /*url: '/pages/teacher_extract_page3/page3?dateData=' + now_date + '&weekData=' + that.data.weekday + '&time1Data=' + that.data.time1 + '&time2Data=' + that.data.time2*/
-                url: '/pages/teacher_extract_page3/page3'
+
+    wx.showModal({
+      title: '提示',
+      content: '您是否设置好开始时间？',
+      showCancel: true, //是否显示取消按钮
+      cancelText: "否", //默认是“取消”
+      // cancelColor: 'skyblue', //取消文字的颜色
+      confirmText: "是", //默认是“确定”
+      // confirmColor: 'skyblue', //确定文字的颜色
+      success: function (res) {
+        if (res.cancel) {
+          //点击取消,默认隐藏弹框
+          console.log('用户点击取消')
+        } else {
+          //点击确定
+          console.log('用户点击确定')
+          //调用抽取接口
+          wx.request({
+            url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/verifyResults',
+            data: {
+              department: that.data.dep,
+              grade: that.data.grade,
+              start_time: that.data.date_1 + " " + that.data.time1,
+              end_time: that.data.date_1 + " " + that.data.time2,
+              dorm_id: that.data.idList,
+              rand_num: that.data.randList
+            },
+            method: "POST",
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success(res) {
+              if (res.data.error_code != 0) {
+                wx.showModal({
+                  title: "提示：",
+                  content: res.data.msg,
+                  showCancel: false,
+                  success(res) {}
+                })
+              } else if (res.data.error_code == 0) {
+                wx.showToast({
+                  title: res.data.msg,
+                  duration: 10000, //显示时长
+                  icon: 'success',
+                  mask: true,
+                  success(res) {},
+                  complete: function (res) {
+                    wx.redirectTo({
+                      /*url: '/pages/teacher_extract_page3/page3?dateData=' + now_date + '&weekData=' + that.data.weekday + '&time1Data=' + that.data.time1 + '&time2Data=' + that.data.time2*/
+                      url: '/pages/teacher_extract_page3/page3'
+                    })
+                  }
+                })
+              }
+            },
+            fail: function () {
+              wx.showModal({
+                title: '哎呀～',
+                showCancel: false,
+                content: '网络不在状态呢！',
+                success(res) {}
               })
             }
           })
         }
       },
-      fail: function () {
-        wx.showModal({
-          title: '哎呀～',
-          showCancel: false,
-          content: '网络不在状态呢！',
-          success(res) {}
-        })
-      }
+
     })
+
   },
 
   /**
@@ -162,15 +185,18 @@ Page({
       IdList.push(List[i].id)
       BlockList.push(List[i].dorm_num)
       RandList.push(List[i].rand_num)
-      newList.push({'dorm_num': List[i].dorm_num, 'rand_num': List[i].rand_num})
-    } 
+      newList.push({
+        'dorm_num': List[i].dorm_num,
+        'rand_num': List[i].rand_num
+      })
+    }
     this.setData({
       listData: newList,
-      idList:IdList,
-      blockList:BlockList,
-      randList:RandList,
-      grade : getApp().globalData.user.grade,
-      dep : getApp().globalData.user.department
+      idList: IdList,
+      blockList: BlockList,
+      randList: RandList,
+      grade: getApp().globalData.user.grade,
+      dep: getApp().globalData.user.department
     })
     //  console.log("listData:",newList)
     //  console.log("IdList:",this.data.idList)
@@ -190,8 +216,8 @@ Page({
    */
   onShow: function () {
     this.setData({
-      grade : getApp().globalData.user.grade,
-      dep : getApp().globalData.user.department
+      grade: getApp().globalData.user.grade,
+      dep: getApp().globalData.user.department
     })
     //获取星期并转为中文
     var today = new Date().getDay();
@@ -226,7 +252,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
