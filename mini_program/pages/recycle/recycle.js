@@ -55,12 +55,12 @@ Page({
                         success: function (res) {}
                     })
                 } else if (res.data.error_code == 2) {
-                    // wx.showModal({
-                    //     title: '提示！',
-                    //     showCancel: false,
-                    //     content: res.data.msg,
-                    //     success: function (res) {}
-                    // })
+                    wx.showModal({
+                        title: '提示！',
+                        showCancel: false,
+                        content: res.data.msg,
+                        success: function (res) {}
+                    })
                 } else if (res.data.error_code != 0) {
                     wx.showModal({
                         title: '哎呀～',
@@ -369,6 +369,7 @@ Page({
     //显示
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
+        totalCount = 0;
         var that = this
         getApp().globalData.pagetwo = 2
         page = getApp().globalData.pagetwo
