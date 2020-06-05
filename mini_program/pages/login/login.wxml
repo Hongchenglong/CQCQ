@@ -22,6 +22,7 @@
 	<view class="bg-gradual-blue login" bindtap="login">
 		<image src="/images/login.png"></image>
 	</view>
+	<view class="placeholder-view"></view>
 	<view class="warn" style="font-size:{{height*0.026}}rpx;">
 		<!--<navigator class="forget" hover-class="none">忘记密码</navigator>
 		<view class="bg-gradual-blue divLine"></view>-->

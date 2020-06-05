@@ -1,19 +1,19 @@
 <!--pages/teacher_mine/teacher_mine.wxml-->
 <scroll-view scroll-y class="scrollPage">
 	<view class="UCenter-bg">
-		<!--头像-->
-		<view class='avatar' mode="widthFix">
-			<open-data type="userAvatarUrl"></open-data>
-		</view>
-		<view class="margin-top-sm">
-			<view class="text-xl">{{username}}
-				<!--<text class="text-df">v2.0</text>-->
+			<!--头像-->
+			<view class='avatar' mode="widthFix">
+				<open-data type="userAvatarUrl"></open-data>
 			</view>
-		</view>
-		<view class="margin-top-sm">
-			<text decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
-		</view>
-		<image src="https://oeong.xyz/cqcq/public/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+			<view class="margin-top-sm">
+				<view class="text-xl">{{username}}
+					<!--<text class="text-df">v2.0</text>-->
+				</view>
+			</view>
+			<view class="margin-top-sm">
+				<text decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
+			</view>
+			<image src="https://oeong.xyz/cqcq/public/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 	</view>
 	<!--<view class="padding flex text-center text-grey bg-white shadow-warp">-->
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">

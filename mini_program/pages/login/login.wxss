@@ -70,10 +70,10 @@ input {
   height: 55rpx
 }
 
-/*.placeholder-view{
-  height: 50%;
+.placeholder-view{
+  height: 5%;
   width: 100%;
-}*/
+}
 
 .warn{
   width: 90%;

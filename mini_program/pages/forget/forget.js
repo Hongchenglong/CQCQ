@@ -1,10 +1,14 @@
 // pages/forget/forget.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    /*ColorList: app.globalData.ColorList,*/
     elements: [{
         title: '通过邮箱验证修改密码',
         name: 'Mail',
