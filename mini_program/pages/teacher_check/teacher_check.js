@@ -55,12 +55,12 @@ Page({
                         success: function (res) {}
                     })
                 } else if (res.data.error_code == 2) {
-                    // wx.showModal({
-                    //     title: '提示！',
-                    //     showCancel: false,
-                    //     content: res.data.msg,
-                    //     success: function (res) {}
-                    // })
+                    wx.showModal({
+                        title: '提示！',
+                        showCancel: false,
+                        content: res.data.msg,
+                        success: function (res) {}
+                    })
                 } else if (res.data.error_code == 0) {
                     that.setData({
                         showData: res.data.data
@@ -186,20 +186,20 @@ Page({
                         success: function (res) {}
                     })
                 } else if (res.data.error_code == 2) {
-                    wx.showModal({
-                      title: '提示！',
-                      showCancel: false,
-                      content: res.data.msg,
-                      success: function (res) {}
-                    })
+                    // wx.showModal({
+                    //   title: '提示！',
+                    //   showCancel: false,
+                    //   content: res.data.msg,
+                    //   success: function (res) {}
+                    // })
                     that.setData({
                         isShowLoadmore: false, // 不显示正在加载
                         isShowNoDatasTips: true, // 显示暂无数据
                     })
                     if (totalCount == 0) {
                         that.setData({
-                            isShow: true,
-                            isShowing: false,
+                            isShow: true, //显示图片
+                            isShowing: false,  //不显示搜索
                             isShowNoDatasTips: false,
                         })
                     }
@@ -354,6 +354,7 @@ Page({
     //显示
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
+        totalCount = 0;
         var that = this
         getApp().globalData.page = 2
         page = getApp().globalData.page
