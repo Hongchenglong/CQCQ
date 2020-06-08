@@ -47,7 +47,7 @@ class Draw extends BaseController
                 ->limit($numOfBoys)
                 ->select();
             for ($i = 0; $i < $numOfBoys; $i++) {
-                $boy[$i]['rand_num'] = rand(1, 10000);
+                $boy[$i]['rand_num'] = rand(1000, 10000);
             }
         }
 
@@ -62,7 +62,7 @@ class Draw extends BaseController
                 ->limit($numOfGirls)
                 ->select();
             for ($i = 0; $i < $numOfGirls; $i++) {
-                $girl[$i]['rand_num'] = rand(1, 10000);
+                $girl[$i]['rand_num'] = rand(1000, 10000);
             }
         }
         $all = array_merge_recursive($boy, $girl);
@@ -135,7 +135,7 @@ class Draw extends BaseController
 
             // 存在的宿舍
             if ($result) {
-                $result['rand_num'] = rand(1, 10000);
+                $result['rand_num'] = rand(1000, 10000);
                 array_push($dormSuc, $result);
             } else {    // 不存在的宿舍
                 array_push($dormFal, $result['dorm_num']);
