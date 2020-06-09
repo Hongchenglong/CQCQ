@@ -126,9 +126,12 @@ Page({
             showCancel: false,
             success(res) {},
             complete: function (res) {
-              wx.reLaunch({
+              wx.navigateBack({
+                delta: 1
+                })
+              /*wx.reLaunch({
                 url: '/pages/teacher_home/teacher_home',
-              })
+              })*/
             }
           })
           that.setData({
