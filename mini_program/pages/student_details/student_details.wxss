@@ -34,12 +34,12 @@
 }
 
 .texts {
-  margin-left: 10rpx;
+  margin-left: 1%;
   margin-top: 3%;
-  width: 455rpx;
+  width: 90%;
   height: 40rpx;
   color: rgba(16, 16, 16, 1);
-  font-size: 30rpx;
+  font-size: 28rpx;
   font-family: SourceHanSansSC-regular;
   float: left;
   height: 50%;

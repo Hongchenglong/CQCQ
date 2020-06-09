@@ -15,7 +15,7 @@
   font-weight: bold;
   color: #7AB8FB;
   border-radius: 28rpx;
-  box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;
+  /*box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,12 +34,12 @@
 }
 
 .texts {
-  margin-left: 10rpx;
+  margin-left: 1%;
   margin-top: 3%;
-  width: 455rpx;
+  width: 90%;
   height: 40rpx;
   color: rgba(16, 16, 16, 1);
-  font-size: 30rpx;
+  font-size: 28rpx;
   font-family: SourceHanSansSC-regular;
   float: left;
   height: 50%;
