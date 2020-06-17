@@ -369,6 +369,7 @@ Page({
     //显示
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
+        totalCount = 0;
         var that = this
         getApp().globalData.pagetwo = 2
         page = getApp().globalData.pagetwo

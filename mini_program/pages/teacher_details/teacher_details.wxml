@@ -9,18 +9,19 @@
 	bindrefresherrefresh="onRefresh" 
 	bindrefresherrestore="onRestore" 
 >
-	<view class="first" wx:if="{{time<checkData.end_time}}">
-		<text class="texts">开始时间：{{checkData.start_time}}</text>
-		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
-		<button class="btn" style="width:100px;margin-right:8px;margin-top:-42px;float:right" bindtap="onSend">
+	<view class="first" >
+		<view style="float:left;">
+			<text class="texts" style="">开始时间：{{checkData.start_time}}</text>
+			<text class="texts" style="margin-top: 0;"> 截止时间：{{checkData.end_time}}</text>
+		</view>
+		<button wx:if="{{time<checkData.end_time}}" class="btn" style="width:44%;height:50rpx;margin-right:1%;float:right;margin-top: 45rpx;" bindtap="onSend">
 			一键提醒
 		</button>
-
 	</view>
-	<view class="first" wx:if="{{time>=checkData.end_time}}">
+	<!-- <view class="first" wx:if="{{time>=checkData.end_time}}">
 		<text class="texts">开始时间：{{checkData.start_time}}</text>
 		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
-	</view>
+	</view> -->
 
 	<block wx:for="{{photoData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="second">

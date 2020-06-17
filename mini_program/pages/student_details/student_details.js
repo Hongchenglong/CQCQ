@@ -38,6 +38,37 @@ Page({
       _options: options,
       photoData: {},
     })
+    var timestamp = Date.parse(new Date());
+    timestamp = timestamp / 1000;
+    //获取当前时间  
+    var n = timestamp * 1000;
+    var date = new Date(n);
+    //年  
+    var Y = date.getFullYear();
+    //月  
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //日  
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    //时  
+    var h = date.getHours();
+    if (h < 10) {
+        h = '0' + h
+    }
+    //分  
+    var m = date.getMinutes();
+    if (m < 10) {
+        m = '0' + m
+    }
+    //秒  
+    var s = date.getSeconds();
+    if (s < 10) {
+        s = '0' + s
+    }
+    console.log("当前时间：" + Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s);
+    var time = Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
+    this.setData({
+        time: time
+    })
     var that = this
     wx.showLoading({
       title: '加载中',
