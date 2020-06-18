@@ -12,6 +12,6 @@ class Index
 
 
     public function test() {
-        // sendSms();
+        echo "test";
     }
 }
