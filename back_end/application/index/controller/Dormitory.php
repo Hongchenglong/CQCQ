@@ -112,7 +112,6 @@ class Dormitory extends BaseController
         $where['id'] = $_POST['studentId'];
         $student = db('student')->where($where)->find();
   
-
         // 查询宿舍
         $where = array();
         $where['sex'] = $_POST['sex'];
@@ -122,7 +121,9 @@ class Dormitory extends BaseController
         $dorm = Db::table('dorm')
             ->field('dorm.id, dorm_num')   // 指定字段
             ->alias('d')    // 别名
-            ->join('student s', 's.dorm = d.dorm_num')->where($where)->find();
+            ->join('student s', 's.dorm = d.dorm_num')
+            ->where($where)
+            ->find();
 
         if ($student) {
             $return_data = array();
