@@ -268,12 +268,18 @@ class Checkresults extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入系！';
             return json($return_data);
+        } else if (empty($_POST['dorm'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍！';
+            return json($return_data);
         } 
 
         // 查询条件
         $where = array();
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
+        $where['s.dorm'] = $_POST['dorm'];
 
         $record = Db::table('record')
             ->field('start_time, end_time')   // 指定字段
@@ -328,7 +334,12 @@ class Checkresults extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入结束时间！';
             return json($return_data);
-        }
+        } else if (empty($_POST['dorm'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入宿舍！';
+            return json($return_data);
+        } 
 
         // 查询条件
         $where = array();
@@ -336,6 +347,7 @@ class Checkresults extends BaseController
         $where['s.department'] = $_POST['department'];
         $where['r.start_time'] = $_POST['start_time'];
         $where['r.end_time'] = $_POST['end_time'];
+        $where['s.dorm'] = $_POST['dorm'];
 
         $record = Db::table('record')
             ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
@@ -346,7 +358,7 @@ class Checkresults extends BaseController
             ->where('r.deleted', 0)
             ->select();
 
-        if ($record) {
+            if ($record) {
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '显示查寝记录!';
