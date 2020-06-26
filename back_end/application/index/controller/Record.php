@@ -67,7 +67,7 @@ class Record extends BaseController
             ->alias('r')    // 别名
             ->field('r.id')
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('deleted', 0)
             ->find();

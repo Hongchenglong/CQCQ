@@ -39,7 +39,7 @@ class Recyclebin extends BaseController
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('r.deleted', 1)
@@ -108,7 +108,7 @@ class Recyclebin extends BaseController
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('start_time', 'between time', [$date . ' 00:00:00', $date . ' 23:59:59'])
@@ -170,7 +170,7 @@ class Recyclebin extends BaseController
         $result = Db::table('record')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->update(['record.deleted' => 0]);
 
@@ -230,7 +230,7 @@ class Recyclebin extends BaseController
             ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('r.deleted', 1)
             ->select();
