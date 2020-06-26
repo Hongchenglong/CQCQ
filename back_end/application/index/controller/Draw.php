@@ -12,7 +12,7 @@ class Draw extends BaseController
      */
     public function draw()
     {
-        // $parameter = ['department', 'grade'];   // 'numOfBoys', 'numOfGirls', 
+        // $parameter = ['department', 'grade'];   
         // 输入判断
         if (empty($_POST['grade'])) {
             $return_data = array();
@@ -40,14 +40,14 @@ class Draw extends BaseController
             $boy = Db::table('dorm')
                 ->field('dorm.id, dorm_num')   // 指定字段
                 ->alias('d')    // 别名
-                ->join('student s', 's.id = d.student_id')
+                ->join('student s', 's.dorm = d.dorm_num')
                 ->where($where)
                 ->where('sex', '男')
                 ->orderRaw('rand()')
                 ->limit($numOfBoys)
                 ->select();
             for ($i = 0; $i < $numOfBoys; $i++) {
-                $boy[$i]['rand_num'] = rand(1, 10000);
+                $boy[$i]['rand_num'] = rand(1000, 10000);
             }
         }
 
@@ -55,14 +55,14 @@ class Draw extends BaseController
             $girl = Db::table('dorm')
                 ->field('dorm.id, dorm_num')   // 指定字段
                 ->alias('d')    // 别名
-                ->join('student s', 's.id = d.student_id')
+                ->join('student s', 's.dorm = d.dorm_num')
                 ->where($where)
                 ->where('sex', '女')
                 ->orderRaw('rand()')
                 ->limit($numOfGirls)
                 ->select();
             for ($i = 0; $i < $numOfGirls; $i++) {
-                $girl[$i]['rand_num'] = rand(1, 10000);
+                $girl[$i]['rand_num'] = rand(1000, 10000);
             }
         }
         $all = array_merge_recursive($boy, $girl);
@@ -129,13 +129,13 @@ class Draw extends BaseController
             $result = Db::table('dorm')
                 ->field('dorm.id, dorm_num')   // 指定字段
                 ->alias('d')    // 别名
-                ->join('student s', 's.id = d.student_id')
+                ->join('student s', 's.dorm = d.dorm_num')
                 ->where($where)
                 ->find();
 
             // 存在的宿舍
             if ($result) {
-                $result['rand_num'] = rand(1, 10000);
+                $result['rand_num'] = rand(1000, 10000);
                 array_push($dormSuc, $result);
             } else {    // 不存在的宿舍
                 array_push($dormFal, $result['dorm_num']);
@@ -196,7 +196,7 @@ class Draw extends BaseController
         $where['block'] = $_POST['block'];
         $result = Db::table('dorm')
             ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->find();
 
@@ -331,7 +331,7 @@ class Draw extends BaseController
             ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->select();
 
@@ -380,7 +380,7 @@ class Draw extends BaseController
             ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('end_time', '> time', $now)
             ->select();
@@ -430,7 +430,7 @@ class Draw extends BaseController
             ->field('r.id, start_time, end_time')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('deleted', 0)
             ->order('r.id desc')
@@ -441,11 +441,12 @@ class Draw extends BaseController
             ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('start_time', $recentTime['start_time'])
             ->where('end_time', $recentTime['end_time'])
             ->where('deleted', 0)
+            ->distinct(true)   // 返回唯一不同的值
             ->select();
 
 
@@ -492,14 +493,14 @@ class Draw extends BaseController
         $boys = $girls = array();
         $boys = Db::table('dorm')
             ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('s.sex', '男')
             ->count('d.id');
 
         $girls = Db::table('dorm')
             ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('s.sex', '女')
             ->count('d.id');

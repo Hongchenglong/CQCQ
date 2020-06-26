@@ -39,9 +39,10 @@ class Dormitory extends BaseController
         $result = Db::table('dorm')
             ->field('block, room')   // 指定字段
             ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->order('room')
             ->where($where)
+            ->distinct(true)   // 返回唯一不同的值
             ->select();
 
         // dump($result);
@@ -104,52 +105,50 @@ class Dormitory extends BaseController
             $return_data['msg'] = '请输入9位数的学号！';
             return json($return_data);
         }
-
-        // 查询宿舍
-        $where = array();
-        $where['sex'] = $_POST['sex'];
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
-        $where['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
-
-        // 检验宿舍号是否已存在
-        $dorm = Db::table('dorm')
-            ->field('dorm.id, dorm_num')   // 指定字段
-            ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')->where($where)->find();
+        $dorm_num = $_POST['block'] . '#' . $_POST['room'];
 
         // 检验学号是否已被注册
         $where = array();
         $where['id'] = $_POST['studentId'];
         $student = db('student')->where($where)->find();
+  
+        // 查询宿舍
+        $where = array();
+        $where['sex'] = $_POST['sex'];
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+        $where['dorm_num'] = $dorm_num;
+        $dorm = Db::table('dorm')
+            ->field('dorm.id, dorm_num')   // 指定字段
+            ->alias('d')    // 别名
+            ->join('student s', 's.dorm = d.dorm_num')
+            ->where($where)
+            ->find();
 
-        if ($dorm) {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '该宿舍已存在！';
-            return json($return_data);
-        } else if ($student) {
+        if ($student) {
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '学号' . $_POST['studentId'] . '已存在！';
-
             return json($return_data);
         } else {
-            // 添加宿舍
-            $data = array();
-            $data['room'] = $_POST['room'];
-            $data['block'] = $_POST['block'];
-            $data['student_id'] = $_POST['studentId'];
-            $data['dorm_num'] = $_POST['block'] . '#' . $_POST['room'];
-            $dorm = db('dorm')->insert($data);
+            // 如果宿舍不存在，则添加
+            if (empty($dorm)) {
+                $data = array();
+                $data['room'] = $_POST['room'];
+                $data['block'] = $_POST['block'];
+                $data['dorm_num'] = $dorm_num;
+                $dorm = db('dorm')->insert($data);
+            }
 
             // 如果尚未注册，则注册
             $data = array();
             $data['id'] = $_POST['studentId'];
             $data['sex'] = $_POST['sex'];
-            $data['username'] = $_POST['block'] . '#' . $_POST['room'];
+            $data['username'] = $dorm_num;
+            $data['dorm'] = $dorm_num;
             $data['grade'] =  $_POST['grade'];
             $data['department'] = $_POST['department'];
+
             // 密码经过md5函数加密，得到32位字符串
             $data['password'] = md5($data['id']);
             $student = db('student')->insert($data);
@@ -157,7 +156,7 @@ class Dormitory extends BaseController
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '添加成功';
-            $return_data['data']['dorm'] = $_POST['block'] . '#' . $_POST['room'];
+            $return_data['data']['dorm'] = $dorm_num;
             $return_data['data']['student'] = $_POST['studentId'];
 
             return json($return_data);
@@ -211,11 +210,11 @@ class Dormitory extends BaseController
         $where['department'] = $_POST['department'];
         // $result = Db::table('dorm')
         //     ->alias('d')    // 别名
-        //     ->join('student s', 's.id = d.student_id')
+        //     ->join('student s', 's.dorm = d.dorm_num')
         //     ->where($where)
         //     ->delete();
         $result = Db::execute(
-            "delete d from dorm d join student s on s.id = d.student_id 
+            "delete d from dorm d join student s on s.dorm = d.dorm_num 
             where s.grade=:grade and s.department=:department and d.room=:room and d.block=:block",
             ['grade' => $where['grade'], 'department' => $where['department'], 'room' => $where['room'], 'block' => $where['block']]
         );
@@ -270,7 +269,7 @@ class Dormitory extends BaseController
         $result = db('dorm')
             ->field('block')
             ->alias('d')    // 别名
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->distinct(true)
             ->where($where)
             ->select();

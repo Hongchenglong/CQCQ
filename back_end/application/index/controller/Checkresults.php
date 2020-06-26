@@ -38,7 +38,7 @@ class Checkresults extends BaseController
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('r.deleted', 0)
@@ -108,7 +108,7 @@ class Checkresults extends BaseController
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('start_time', 'between time', [$date . ' 00:00:00', $date . ' 23:59:59'])
@@ -170,7 +170,7 @@ class Checkresults extends BaseController
         $result = Db::table('record')
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->update(['record.deleted' => 1]);
 
@@ -230,7 +230,7 @@ class Checkresults extends BaseController
             ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('r.deleted', 0)
             ->select();
@@ -257,7 +257,6 @@ class Checkresults extends BaseController
      */
     public function studentCheckRecords()
     {
-        // $parameter = ['grade', 'department', 'student_id'];
         // 输入判断
         if (empty($_POST['grade'])) {
             $return_data = array();
@@ -269,24 +268,18 @@ class Checkresults extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入系！';
             return json($return_data);
-        } else if (empty($_POST['student_id'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学号！';
-            return json($return_data);
-        }
+        } 
 
         // 查询条件
         $where = array();
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
-        $where['s.id'] = $_POST['student_id'];
 
         $record = Db::table('record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('r.deleted', 0)
@@ -314,7 +307,6 @@ class Checkresults extends BaseController
      */
     public function studentViewDetails()
     {
-        // $parameter = ['grade', 'department', 'start_time', 'end_time', student_id'];
         // 输入判断
         if (empty($_POST['grade'])) {
             $return_data = array();
@@ -336,11 +328,6 @@ class Checkresults extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入结束时间！';
             return json($return_data);
-        } else if (empty($_POST['student_id'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学号！';
-            return json($return_data);
         }
 
         // 查询条件
@@ -349,13 +336,12 @@ class Checkresults extends BaseController
         $where['s.department'] = $_POST['department'];
         $where['r.start_time'] = $_POST['start_time'];
         $where['r.end_time'] = $_POST['end_time'];
-        $where['s.id'] = $_POST['student_id'];
 
         $record = Db::table('record')
             ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('r.deleted', 0)
             ->select();

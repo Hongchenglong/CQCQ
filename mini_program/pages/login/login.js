@@ -44,7 +44,7 @@ Page({
       })
     } else {
       wx.request({
-        // url: 'http://localhost:8080/cqcq/back_end/public/index.php/index/user/login',
+        // url: 'https://oeong.xyz/cqcq/public/index.php/index/user/login',
         url: getApp().globalData.server + '/cqcq/public/index.php/index/user/login',
         data: {
           id: that.data.id,

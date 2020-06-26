@@ -20,15 +20,14 @@ class Getinfo extends BaseController
             ->find();
 
         if (empty($get)) { //学生
-
             $getStuInfo = Db('student')
-                ->field('id, sex, username, email, phone, grade, department, sex')
+                ->field('id, sex, username, email, phone, grade, department, dorm')
                 ->where(['id' => $_POST['id']])
-                ->select();
+                ->find();
 
             $getRoom = Db('dorm')
-                ->field('id, student_id, block, room, dorm_num')
-                ->where(['student_id' => $_POST['id']])
+                ->field('id, block, room, dorm_num')
+                ->where(['dorm_num' => $getStuInfo['dorm']])
                 ->select();
 
             $return_data = array();
@@ -37,6 +36,7 @@ class Getinfo extends BaseController
             $return_data['data']['stuInfo'] = $getStuInfo;
             $return_data['data']['roomInfo'] = $getRoom;
             return json($return_data);
+
         } else { //辅导员
             $return_data = array();
             $return_data['error_code'] = 0;

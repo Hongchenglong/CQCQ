@@ -67,7 +67,7 @@ class Record extends BaseController
             ->alias('r')    // 别名
             ->field('r.id')
             ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = d.student_id')
+            ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('deleted', 0)
             ->find();
@@ -91,7 +91,7 @@ class Record extends BaseController
                 return json($return_data);
             } else {
                 $day = date('Y-m-d');
-                $new_file_name = $day . '_' . $record['id'] . '_' . $_POST['rand_num'] . '_' . rand(1, 10000);
+                $new_file_name = $day . '_' . $record['id'] . '_' . $_POST['rand_num'] . '_' . rand(1000, 10000);
                 $new_name = $new_file_name . '.' . $extension; //新文件名
                 $path = 'upload/' . $new_name;        //upload为保存图片目录
                 if (file_exists("upload/" . $path)) {   //判断是否存在该文件
