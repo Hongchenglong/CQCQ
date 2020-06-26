@@ -279,6 +279,8 @@ class Checkresults extends BaseController
         $where = array();
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
+        $where['d.dorm_grade'] = $_POST['grade'];
+        $where['d.dorm_dep'] = $_POST['department'];
         $where['s.dorm'] = $_POST['dorm'];
 
         $record = Db::table('record')
@@ -345,6 +347,10 @@ class Checkresults extends BaseController
         $where = array();
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
+        $where['s.grade'] = $_POST['grade'];
+        $where['s.department'] = $_POST['department'];
+        $where['d.dorm_grade'] = $_POST['grade'];
+        $where['d.dorm_dep'] = $_POST['department'];
         $where['r.start_time'] = $_POST['start_time'];
         $where['r.end_time'] = $_POST['end_time'];
         $where['s.dorm'] = $_POST['dorm'];
@@ -356,6 +362,7 @@ class Checkresults extends BaseController
             ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('r.deleted', 0)
+            ->distinct(true)
             ->select();
 
             if ($record) {
