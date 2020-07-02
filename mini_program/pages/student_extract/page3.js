@@ -46,7 +46,7 @@ Page({
       dep: getApp().globalData.user.department
     })
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/displayRecentResults',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/displayRecentResults',
       data: {
         department: that.data.dep,
         grade: that.data.grade,

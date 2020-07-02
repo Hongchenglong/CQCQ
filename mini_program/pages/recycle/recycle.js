@@ -36,7 +36,7 @@ Page({
             isScroll: true
         })
         wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/index/Recyclebin/specifiedDeletedDate',
+            url: getApp().globalData.server + '/cqcq/public/index.php/api/Recyclebin/specifiedDeletedDate',
             data: {
                 department: that.data.department,
                 grade: that.data.grade,
@@ -175,7 +175,7 @@ Page({
             title: '加载中',
         })
         wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/index/Recyclebin/checkDeletedRecords',
+            url: getApp().globalData.server + '/cqcq/public/index.php/api/Recyclebin/checkDeletedRecords',
             data: {
                 department: that.data.department,
                 grade: that.data.grade,
@@ -282,7 +282,7 @@ Page({
                 if (res.confirm) {
                     console.log('用户点击确定')
                     wx.request({
-                        url: getApp().globalData.server + '/cqcq/public/index.php/index/Recyclebin/recoverRecord',
+                        url: getApp().globalData.server + '/cqcq/public/index.php/api/Recyclebin/recoverRecord',
                         data: {
                             department: that.data.department,
                             grade: that.data.grade,
