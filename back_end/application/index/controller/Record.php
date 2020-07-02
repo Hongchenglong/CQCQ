@@ -46,7 +46,6 @@ class Record extends BaseController
         }
     }
 
-
     //搜索
     public function search_date()
     {

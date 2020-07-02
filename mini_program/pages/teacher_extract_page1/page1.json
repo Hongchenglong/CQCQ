@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "i-input-number": "../../dist/input-number/index"
-  },
-  "navigationBarTitleText": "抽取宿舍"
-}
