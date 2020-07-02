@@ -69,7 +69,7 @@ class Table extends BaseController
 		$id = Request::instance()->post('id');
 		$sex = Request::instance()->post('sex');
 		$username = Request::instance()->post('username');
-		$password = Request::instance()->post('password');
+		$password = md5(Request::instance()->post('password'));
 		$email = Request::instance()->post('email');
 		$phone = Request::instance()->post('phone');
 		$grade = Request::instance()->post('grade');
@@ -208,7 +208,7 @@ class Table extends BaseController
 			if(!$data_id){
 				$data[] = [
 					'id' => $reutrn_data[$i][1],
-					'password' => $reutrn_data[$i][1],
+					'password' => md5($reutrn_data[$i][1]),
 					'sex' => $reutrn_data[$i][2],
 					'username' => $reutrn_data[$i][0],
 					'email' => $reutrn_data[$i][5],
