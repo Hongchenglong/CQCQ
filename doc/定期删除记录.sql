@@ -1,6 +1,0 @@
-CREATE EVENT delete_old_record
-ON SCHEDULE EVERY 1 DAY
-ON COMPLETION PRESERVE ENABLE
-COMMENT '每天删除超过31天且deleted=1的记录'
-DO
-DELETE FROM record WHERE end_time <= DATE_SUB(NOW(), INTERVAL 31 DAY) AND deleted = 1;
