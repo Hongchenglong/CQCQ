@@ -116,12 +116,15 @@ class Table extends BaseController
 	// 删除用户
 	public function delete()
 	{
-		$student_id = Request::instance()->get('student_id');
-		$students = explode('_', $student_id);
-		foreach($students as $id) {
-			Db::table('student')->where('id', $id)->delete();
+		if (Session::has('id')) {
+			$student_id = Request::instance()->get('student_id');
+			$students = explode('_', $student_id);
+			foreach ($students as $id) {
+				Db::table('student')->where('id', $id)->delete();
+			}
+			$this->success("删除成功");
+		} else {
+			$this->error("没有删除权限");
 		}
-		$this->success("删除成功");
 	}
-   
 }
