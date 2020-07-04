@@ -47,7 +47,7 @@ Page({
       getApp().globalData.Flag = 1
     } else {
       wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/verifyPhone',
+        url: getApp().globalData.server + '/cqcq/public/index.php/api/forget/verifyPhone',
         data: {
           phone: that.data.phone,
           captcha: that.data.num
@@ -133,7 +133,7 @@ Page({
       getApp().globalData.Flag = 1
     } else {
       wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/sendSms',
+        url: getApp().globalData.server + '/cqcq/public/index.php/api/forget/sendSms',
         data: {
           phone: that.data.phone
         },

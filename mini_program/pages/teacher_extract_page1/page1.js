@@ -11,7 +11,7 @@ Page({
     dep: '',
     grade: '',
     Boys_name: 4,
-    Girls_name: 1,
+    Girls_name: 2,
     Listdata: [],
     Boys_max: '',
     Girls_max: '',
@@ -41,9 +41,9 @@ Page({
 
   buttonList: function (e) {
     var that = this
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/Draw/draw')
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/Draw/draw')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Draw/draw',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/draw',
       data: {
         numOfBoys: that.data.Boys_name,
         numOfGirls: that.data.Girls_name,
@@ -66,18 +66,21 @@ Page({
           that.setData({
             Listdata: res.data.data.dorm
           })
-          // console.log(that.data.Listdata)
-          wx.showModal({
-            title: "提示：",
-            content: '抽取成功！',
-            showCancel: false,
-            success(res) {},
-            complete: function (res) {
-              wx.navigateTo({
-                url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.Listdata)
-              })
-            },
+          wx.navigateTo({
+            url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.Listdata)
           })
+          // console.log(that.data.Listdata)
+          // wx.showModal({
+          //   title: "提示：",
+          //   content: '抽取成功！',
+          //   showCancel: false,
+          //   success(res) {},
+          //   complete: function (res) {
+          //     wx.navigateTo({
+          //       url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.Listdata)
+          //     })
+          //   },
+          // })
         }
       },
       fail: function () {
@@ -102,9 +105,9 @@ Page({
     })
     //传最大宿舍号
     var that = this
-    console.log(getApp().globalData.server + '/cqcq/public/index.php/index/draw/getNumber')
+    console.log(getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/getNumber',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber',
       data: {
         numOfBoys: that.data.Boys_name,
         numOfGirls: that.data.Girls_name,
@@ -116,25 +119,28 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success(res) {
-        if(res.data.error_code == 2){
+        if (res.data.error_code == 2) {
           wx.showModal({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
             success(res) {},
             complete: function (res) {
-              wx.reLaunch({
+              wx.navigateBack({
+                delta: 1
+                })
+              /*wx.reLaunch({
                 url: '/pages/teacher_home/teacher_home',
-              })
+              })*/
             }
           })
           that.setData({
-            Boys_max:0,
-            Girls_max:0,
+            Boys_max: 0,
+            Girls_max: 0,
             Boys_name: 0,
             Girls_name: 0,
-          })       
-        }else if (res.data.error_code != 0) {
+          })
+        } else if (res.data.error_code != 0) {
           wx.showModal({
             title: "提示：",
             content: res.data.msg,
@@ -144,24 +150,24 @@ Page({
         } else if (res.data.error_code == 0) {
           // console.log(res.data.data.girls)
           that.setData({
-            Boys_max:res.data.data.boys,
-            Girls_max:res.data.data.girls
+            Boys_max: res.data.data.boys,
+            Girls_max: res.data.data.girls
           })
-          if(res.data.data.girls == 0){
+          if (res.data.data.girls == 0) {
             that.setData({
               Girls_name: 0,
             })
-          }else if(res.data.data.boys == 0){
+          } else if (res.data.data.boys == 0) {
             that.setData({
               Boys_name: 0,
             })
           }
-          if(res.data.data.boys < that.data.Boys_name){
+          if (res.data.data.boys < that.data.Boys_name) {
             that.setData({
               Boys_name: res.data.data.boys,
             })
           }
-          if(res.data.data.girls < that.data.Girls_name){
+          if (res.data.data.girls < that.data.Girls_name) {
             that.setData({
               Girls_name: res.data.data.girls,
             })

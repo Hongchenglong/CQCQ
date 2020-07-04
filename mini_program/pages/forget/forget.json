@@ -1,7 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
   "navigationBarTitleText": "忘记密码",
-  "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black"
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
 }

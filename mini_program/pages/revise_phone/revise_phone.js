@@ -50,7 +50,7 @@ Page({
           id: getApp().globalData.user.id,
           phone: this.data.phone,
         },
-        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/sendMessage',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/api/change/sendMessage',
         method: "POST",
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -158,7 +158,7 @@ Page({
       return false;
     } else {
       wx.request({
-        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/verifyModifyPhone',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/api/change/verifyModifyPhone',
         // 发给服务器的数据
         data: {
           id: getApp().globalData.user.id,

@@ -1,0 +1,67 @@
+<!--pages/teacher_statistics/teacher_statistics.wxml-->
+<view class="up">
+	<view class="flex flex-wrap">
+		<view class="bg-grey margin-xs padding-sm radius" style="flex-basis:80%">已签到人数</view>
+		<view class="bg-red margin-xs padding-sm radius" style="flex-basis:30%">未签到人数</view>
+	</view>
+</view>
+<view class='calendar'>
+	<!--显示当前年月日-->
+	<view class='calendar-title'>
+		<view class='item ctrl' bindtap='lastMonth'>{{lastMonth}}</view>
+		<view class='item title'>
+			<!-- 时间  -->
+			<picker mode="date" fields="month" value='' start="" end="DATE" bindchange="bindDateChange">
+				<view class='lianxi'>
+					<input type='date' disabled='true' value='{{title}}'></input>
+				</view>
+			</picker>
+		</view>
+		<view class='item ctrl' bindtap='nextMonth'>{{nextMonth}}</view>
+		<view class='item ctrl today' bindtap='today'>今天</view>
+	</view>
+
+	<!-- ============滚动展示============  -->
+	<view hidden="{{ toggleType == 'large' }}">
+		<scroll-view scroll-left="{{scrollLeft}}" scroll-x scroll-with-animation class="calendar-x">
+			<view class='grid' wx:for='{{thisMonthDays}}' wx:key="indx">
+				<view class='self' wx:if="{{ format === year+'-'+item.monthFormat+'-'+item.dateFormat }}"></view>
+				<view class="wrap {{ select === year+'-'+item.monthFormat+'-'+item.dateFormat ? 'select' :''}}" bindtap='select' data-date='{{item.date}}'>{{item.date}}</view>
+			</view>
+		</scroll-view>
+	</view>
+
+	<!-- ============平铺展示============  -->
+	<!--遍历星期-->
+	<view class='calendar-week' hidden="{{ toggleType == 'mini' }}">
+		<view wx:for='{{weekText}}' class='item' wx:key="item">{{item}}</view>
+	</view>
+	<view class='calendar-container' hidden="{{ toggleType == 'mini' }}">
+		<!--上个月占位格子-->
+		<view class='grid gray' wx:for='{{empytGridsBefore}}' wx:key="item">{{item}}</view>
+		<!--当月格子-->
+		<view class='grid' wx:for='{{thisMonthDays}}' wx:key="indx">
+			<view class='self' wx:if="{{ format === year+'-'+item.monthFormat+'-'+item.dateFormat }}"></view>
+			<view class="wrap {{ select === year+'-'+item.monthFormat+'-'+item.dateFormat ? 'select' :''}}" bindtap='select' data-date='{{item.date}}'>{{item.date}}</view>
+		</view>
+		<!--下个月占位格子-->
+		<view class='grid gray' wx:for='{{empytGridsAfter}}' wx:key="item">{{item}}</view>
+	</view>
+</view>
+<text class="name" style="text-align: center;">未签到人员名单</text>
+<view class="table">
+	<view class="tr bg-w">
+		<view class="th">学号</view>
+		<view class="th">姓名</view>
+		<view class="th">宿舍楼</view>
+		<view class="th">宿舍号</view>
+	</view>
+	<block>
+		<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
+			<view class="td">211706111</view>
+			<view class="td">123</view>
+			<view class="td">东二</view>
+			<view class="td">101</view>
+		</view>
+	</block>
+</view>

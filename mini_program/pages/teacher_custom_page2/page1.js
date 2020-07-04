@@ -1,4 +1,4 @@
-var util=require("../../utils/util.js")
+var util = require("../../utils/util.js")
 Page({
   data: {
     i: 0,
@@ -43,9 +43,9 @@ Page({
       blockList.push(List[i].block)
       roomList.push(List[i].room)
     }
-    console.log(getApp().globalData.server + '/cqcq/public/index.php/index/Draw/customize')
+    console.log(getApp().globalData.server + '/cqcq/public/index.php/api/Draw/customize')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Draw/customize',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/customize',
       data: {
         department: that.data.dep,
         grade: that.data.grade,
@@ -69,17 +69,20 @@ Page({
           that.setData({
             listdata: res.data.data.dormSuc
           })
-          wx.showModal({
-            title: "提示：",
-            content: res.data.msg,
-            showCancel: false,
-            success(res) {},
-            complete: function (res) {
-              wx.redirectTo({
-                url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
-              })
-            },
+          wx.redirectTo({
+            url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
           })
+          // wx.showModal({
+          //   title: "提示：",
+          //   content: res.data.msg,
+          //   showCancel: false,
+          //   success(res) {},
+          //   complete: function (res) {
+          //     wx.redirectTo({
+          //       url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
+          //     })
+          //   },
+          // })
         }
       },
       fail: function () {
@@ -94,8 +97,8 @@ Page({
     })
   },
 
-   // 动态添加宿舍法
-   formSubmit: util.throttle(function(e){
+  // 动态添加宿舍法
+  formSubmit: util.throttle(function (e) {
     var that = this
     var apart = this.data.Block;
     var num = this.data.Room;
@@ -110,7 +113,7 @@ Page({
       if (n == 0) {
         //判断宿舍是否存在
         wx.request({
-          url: getApp().globalData.server + '/cqcq/public/index.php/index/Draw/doesItExist',
+          url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/doesItExist',
           data: {
             department: that.data.dep,
             grade: that.data.grade,
@@ -163,7 +166,7 @@ Page({
         duration: 2000 //持续的时间
       })
     }
-  },1000),
+  }, 1000),
 
   // 动态删除宿舍
   buttonsubList: function (e) {
@@ -224,11 +227,11 @@ Page({
     })
     //console.log(this.data.grade)
     //console.log(this.data.dep)
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock')
-    
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock')
+
     // 传区号
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock',
       data: {
         department: that.data.dep,
         grade: that.data.grade,

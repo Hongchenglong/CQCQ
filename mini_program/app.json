@@ -1,8 +1,6 @@
 {
   "pages": [
-    
-    "pages/login/login",
-    "pages/student_load/student_load",
+    "pages/login/login",  
     
     "pages/recycle_bin/recycle_bin",
     "pages/recycle/recycle",
@@ -17,8 +15,6 @@
     "pages/revise_email/revise_email",
     "pages/uploadphoto/uploadphoto",
     
-    
-    "pages/student_bottom/student_bottom", 
     "pages/student_home/student_home",
 
     "pages/student_extract/page3",
@@ -30,12 +26,11 @@
     "pages/teacher_manage_page1/page1",
     "pages/teacher_manage_page2/page2",
     
-
     "pages/load/load",
     "pages/teacher_mine/teacher_mine",
     "pages/teacher_home/teacher_home",
     "pages/teacher_dorm/teacher_dorm",
-    "pages/teacher_bottom/teacher_bottom", 
+    "pages/teacher_statistics/teacher_statistics",
     
     "pages/teacher_check/teacher_check",
     "pages/forget/forget",

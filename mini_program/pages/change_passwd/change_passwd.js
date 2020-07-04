@@ -56,24 +56,57 @@ Page({
       })
     }
     else{
-      wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/changePassword',
-        data: {
-          phone:that.data.phone,
-          email:that.data.email,
-          password:that.data.passwd,
-          password_again:that.data.repasswd
-        },
-        method: "POST",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        success: function (res) {
-          console.log(res.data)
-          if (res.data.error_code != 0) {
+      if(that.data.phone==null){
+        wx.request({
+          url: getApp().globalData.server + '/cqcq/public/index.php/api/forget/changePassword',
+          data: {
+            email:that.data.email,
+            password:that.data.passwd,
+            password_again:that.data.repasswd
+          },
+          method: "POST",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (res.data.error_code != 0) {
+              wx.showModal({
+                title: '哎呀～',
+                content: '出错了呢！' + res.data.msg,
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+            }
+            else if (res.data.error_code == 0) {
+              wx.showModal({
+                title: '恭喜！',
+                showCancel: false,
+                content: '修改成功',
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                },
+                complete: function(res){
+                  wx.reLaunch({
+                    url: "../login/login"
+                  })
+              }  
+                  })
+                }
+            },
+          fail: function (res) {
             wx.showModal({
               title: '哎呀～',
-              content: '出错了呢！' + res.data.msg,
+              content: '网络不在状态呢！',
               success: function (res) {
                 if (res.confirm) {
                   console.log('用户点击确定')
@@ -83,40 +116,69 @@ Page({
               }
             })
           }
-          else if (res.data.error_code == 0) {
+        })
+      }else if(that.data.email==null){
+        wx.request({
+          url: getApp().globalData.server + '/cqcq/public/index.php/api/forget/changePassword',
+          data: {
+            phone:that.data.phone,
+            password:that.data.passwd,
+            password_again:that.data.repasswd
+          },
+          method: "POST",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (res.data.error_code != 0) {
+              wx.showModal({
+                title: '哎呀～',
+                content: '出错了呢！' + res.data.msg,
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+            }
+            else if (res.data.error_code == 0) {
+              wx.showModal({
+                title: '恭喜！',
+                showCancel: false,
+                content: '修改成功',
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                },
+                complete: function(res){
+                  wx.reLaunch({
+                    url: "../login/login"
+                  })
+              }  
+                  })
+                }
+            },
+          fail: function (res) {
             wx.showModal({
-              title: '恭喜！',
-              showCancel: false,
-              content: '修改成功',
+              title: '哎呀～',
+              content: '网络不在状态呢！',
               success: function (res) {
                 if (res.confirm) {
                   console.log('用户点击确定')
                 } else if (res.cancel) {
                   console.log('用户点击取消')
                 }
-              },
-              complete: function(res){
-                wx.reLaunch({
-                  url: "../login/login"
-                })
-            }  
-                })
               }
-          },
-        fail: function (res) {
-          wx.showModal({
-            title: '哎呀～',
-            content: '网络不在状态呢！',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
-            }
-          })
-        }
-      })
+            })
+          }
+        })
+      }
     }
   }
 })

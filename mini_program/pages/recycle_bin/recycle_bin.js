@@ -34,7 +34,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Recyclebin/viewDeletedDetails',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/Recyclebin/viewDeletedDetails',
       data: {
         department:that.data.department,
         grade:that.data.grade,

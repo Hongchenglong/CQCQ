@@ -1,19 +1,15 @@
 <!--pages/forget/forget.wxml-->
-<view>
-	<!--选择邮箱进行修改密码-->
-	<view>
-		<button class="btnone" bindtap="onClickEmail">
-			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/email.png' />
-      <text class="texts">通过邮箱验证修改密码</text>
-		</button>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">忘记密码</view>
+</cu-custom>
+<scroll-view scroll-y class="scrollPage">
+	<view class='nav-list' style="margin:30% 0 20%;">
+		<navigator open-type="navigate" hover-class='none' bindtap="click" url="/pages/{{item.page}}/{{item.page}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key style="margin-bottom: 20%;">
+			<view class="nav-title">{{item.title}}</view>
+			<view class="nav-name">{{item.name}}</view>
+			<text class='cuIcon-{{item.icon}}'></text>
+		</navigator>
 	</view>
-
-	<!--选择手机号进行修改密码-->
-	<view>
-		<button class="btntwo" bindtap="onClickPhone">
-			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/iphone.png' />
-      <text class="texts">通过手机验证修改密码</text>
-		</button>
-	</view>
-	
-</view>
+	<view class='cu-tabbar-height'></view>
+</scroll-view>

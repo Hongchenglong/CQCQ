@@ -1,11 +1,24 @@
 /* pages/jiesu/jiesu.wxss */
 .scbg {
   width: 100%;
-  height: 91%;
+  height: 97%;
   left: 0rpx;
   right: 0rpx;
   top: 0rpx;
   position: absolute;
+}
+
+.btn {
+  height: 60rpx;
+  line-height: 28rpx;
+  font-size: small;
+  font-weight: bold;
+  color: #7AB8FB;
+  border-radius: 28rpx;
+  /*box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .first {
@@ -17,17 +30,19 @@
   font-size: 30rpx;
   font-family: Roboto;
   border: 2rpx solid rgba(187, 187, 187, 1);
+  display: flex
 }
 
 .texts {
-  margin-left: 5%;
+  margin-left: 1%;
   margin-top: 3%;
-  width: 600rpx;
+  width: 90%;
   height: 40rpx;
   color: rgba(16, 16, 16, 1);
-  font-size: 30rpx;
+  font-size: 28rpx;
   font-family: SourceHanSansSC-regular;
   float: left;
+  height: 50%;
 }
 
 .one {
@@ -78,12 +93,12 @@
   box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;
 }
 
-.btn {
+/*.btn {
   height: 60rpx;
-  line-height: 32rpx;
+  line-height: 28rpx;
   font-size: small;
   font-weight: bold;
   color: #7AB8FB;
   border-radius: 28rpx;
   box-shadow: 0rpx 4rpx 12rpx 0rpx #ccc;
-}
+}*/

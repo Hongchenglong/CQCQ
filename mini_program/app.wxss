@@ -26,7 +26,7 @@
   padding: 30rpx;
   border-radius: 12rpx;
   width: 80%;
-  margin: 10% 10% 40rpx;
+  margin: 0 10% 80rpx;
   height: 220rpx;
   /*margin: 0 10% 40rpx;*/
   background-image: url(https://image.weilanwl.com/color2.0/cardBg.png);

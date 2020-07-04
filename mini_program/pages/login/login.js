@@ -1,4 +1,5 @@
 // pages/login/login.js
+const app = getApp();
 Page({
 
   /**
@@ -10,7 +11,11 @@ Page({
     password: "",
     isShow1: true,
     inputType1: "password",
-    height: ''
+    height: '',
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    /*ColorList: app.globalData.ColorList,*/
+    height:''
   },
 
   /*signup: function () {
@@ -39,8 +44,8 @@ Page({
       })
     } else {
       wx.request({
-        // url: 'http://localhost:8080/cqcq/back_end/public/index.php/index/user/login',
-        url: getApp().globalData.server + '/cqcq/public/index.php/index/user/login',
+        // url: 'https://oeong.xyz/cqcq/public/index.php/api/user/login',
+        url: getApp().globalData.server + '/cqcq/public/index.php/api/user/login',
         data: {
           id: that.data.id,
           password: that.data.password,
@@ -99,7 +104,7 @@ Page({
               data: {
                 id: getApp().globalData.user.id
               },
-              'url': getApp().globalData.server + '/cqcq/public/index.php/index/getinfo/getHomeInfo',
+              'url': getApp().globalData.server + '/cqcq/public/index.php/api/getinfo/getHomeInfo',
               method: "POST",
               header: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -127,7 +132,7 @@ Page({
     wx.getSetting({
       success: res => {
         //判断是否授权，如果授权成功
-        if (res.authSetting['scope.userInfo']) {    
+        if (res.authSetting['scope.userInfo']) {
           //获取用户信息
           wx.getUserInfo({
             success: res => {
@@ -140,7 +145,7 @@ Page({
               }
             }
           })
-        }      
+        }
       },
     })
   },
@@ -151,6 +156,18 @@ Page({
 
   passwordInput: function (e) {
     this.data.password = e.detail.value
+  },
+
+  to_forget: function () {
+    wx.showToast({
+      title: '加载中...',
+      mask: true,
+      icon: 'loading',
+      duration: 400
+    })
+    wx.navigateTo({
+      url: '../forget/forget',
+    })
   },
 
   /**

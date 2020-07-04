@@ -50,7 +50,7 @@ Page({
     } else {
       console.log(that.data.num)
       wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/verifyEmail',
+        url: getApp().globalData.server + '/cqcq/public/index.php/api/forget/verifyEmail',
         data: {
           email: that.data.email,
           captcha: that.data.num
@@ -138,7 +138,7 @@ Page({
     } else {
       console.log("success")
       wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/sendMailCaptcha',
+        url: getApp().globalData.server + '/cqcq/public/index.php/api/forget/sendMailCaptcha',
         data: {
           email: that.data.email
         },

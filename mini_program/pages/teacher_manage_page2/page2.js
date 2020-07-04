@@ -19,7 +19,7 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     /*ColorList: app.globalData.ColorList,*/
-    CustomBar: app.globalData.CustomBar ? app.globalData.StatusBar + 44 : app.globalData.CustomBar,
+    /*CustomBar: app.globalData.CustomBar ? app.globalData.StatusBar + 44 : app.globalData.CustomBar,*/
   },
 
   popSuccessTest2: function () {
@@ -101,9 +101,9 @@ Page({
       })
     } else {
   //---------------------------------------------添加到数据库 -------------------------------------------
-    console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/insert')
+    console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/insert')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/insert',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/insert',
       data: {
         grade: Grade,
         department: Dep,
@@ -165,9 +165,9 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           //---------------------------------------------从数据库删除 -------------------------------------------
-          console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/delete')
+          console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/delete')
           wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/delete',
+            url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/delete',
             data: {
               grade: list[idx].grade,
               department: list[idx].dep,
@@ -232,9 +232,9 @@ Page({
     //传区号
     var that = this
     var listblock = []
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock')
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock',
       data: {
         department: this.data.dep, //需要传全局变量
         grade: this.data.grade,

@@ -1395,6 +1395,23 @@ button.icon.lg {
 	padding-right: 90rpx
 }
 
+.cu-list.menu>.cu-item>.cu-item.arrow:before {
+	position: absolute;
+	top: 0;
+	right: 30rpx;
+	bottom: 0;
+	display: block;
+	margin: auto;
+	width: 30rpx;
+	height: 30rpx;
+	color: var(--grey);
+	content: "\e6a3";
+	text-align: center;
+	font-size: 34rpx;
+	font-family: "cuIcon";
+	line-height: 30rpx
+}
+
 .cu-list.menu>.cu-item.arrow:before {
 	position: absolute;
 	top: 0;
@@ -1412,7 +1429,13 @@ button.icon.lg {
 	line-height: 30rpx
 }
 
-.cu-list.menu>.cu-item button.content {
+.cu-list.menu>.cu-item>.cu-item.arrow content{
+	padding: 0;
+	background-color: transparent;
+	justify-content: flex-start
+}
+
+.cu-list.menu>.cu-item button.content{
 	padding: 0;
 	background-color: transparent;
 	justify-content: flex-start
@@ -1433,7 +1456,7 @@ button.icon.lg {
 
 .cu-list.menu>.cu-item .content>text[class*=cuIcon] {
 	display: inline-block;
-	margin-right: 10rpx;
+	margin-right: 0rpx;
 	width: 1.6em;
 	text-align: center
 }

@@ -13,9 +13,9 @@ Page({
   bindShowMsg() {
     var that = this
     var listblock = []
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock')
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock',
       data: {
         department: that.data.dept,
         grade: that.data.grades,
@@ -64,9 +64,9 @@ Page({
       types_name: name,
       select: false
     })
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/examine')
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/examine')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/examine',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/examine',
       data: {
         department: that.data.dept,
         grade: that.data.grades,
