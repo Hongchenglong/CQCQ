@@ -52,6 +52,10 @@
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
         </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
         </div>
     </div>
     <!-- ------------------------------------------------------------------------------------------------------------- -->
@@ -87,6 +91,7 @@
                 limits: [3, 5, 10, 20],
                 limit: 10,
                 page: true,  //开启分页
+<<<<<<< HEAD
                 first: "首页", //显示首页
                 last: "尾页", //显示尾页
                 totalRow: true,
@@ -94,6 +99,17 @@
                     var result;
                     // console.log(this);
                     // console.log(JSON.stringify(res));
+=======
+                skin: 'line', //开启合计行
+                groups: 2, //只显示 2 个连续页码
+                first: "首页", //不显示首页
+                last: "尾页", //不显示尾页
+                totalRow: true,
+                parseData: function (res) { //将原始数据解析成 table 组件所规定的数据，res为从url中get到的数据
+                    var result;
+                    console.log(this);
+                    console.log(JSON.stringify(res));
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                     if (this.page.curr) {
                         result = res.data.slice(this.limit * (this.page.curr - 1), this.limit * this.page.curr);
                     }
@@ -173,12 +189,17 @@
                 } else if (obj.event === 'delete_mul') {  // 监听删除操作
                     var checkStatus = table.checkStatus('currentTableId')
                         , data = checkStatus.data;
+<<<<<<< HEAD
                     // layer.alert(JSON.stringify(data[0].id));
                     var student_id = "";
                     for (var item in data) {
                         student_id += JSON.stringify(data[item].id) + "_";
                     }
                     window.location = "index.php?s=index/table/delete&student_id=" + student_id;
+=======
+                    layer.alert(JSON.stringify(data[0].id));
+
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                 }
             });
 
@@ -188,6 +209,7 @@
             });
 
             table.on('tool(currentTableFilter)', function (obj) {
+<<<<<<< HEAD
                 // var st_data = obj.data;
                 var st_id = obj.data.id;
                 var st_username = obj.data.username;
@@ -199,16 +221,25 @@
                 var st_email = obj.data.email;
                 console.log(obj.data);
                 if (obj.event === 'edit') { // 监听更新（编辑）操作
+=======
+                var data = obj.data;
+                if (obj.event === 'edit') {
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                     var index = layer.open({
                         title: '编辑用户',
                         type: 2,
                         shade: 0.2,
                         maxmin: true,
                         shadeClose: true,
+<<<<<<< HEAD
                         area: ['55%', '90%'],
                         content: '../table/edit/edit.html?st_id='+st_id+'&st_username='+escape(st_username)+'&st_grade='+st_grade+'&st_phone='+st_phone+
                         '&st_department='+escape(st_department)+'&st_dorm='+escape(st_dorm)+'&st_sex='+escape(st_sex)+'&st_email='+st_email,
                         
+=======
+                        area: ['60%', '85%'],
+                        content: '../table/edit/edit.html',
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                     });
                     $(window).on("resize", function () {
                         layer.full(index);
@@ -216,10 +247,45 @@
                     return false;
                 } else if (obj.event === 'delete') {
                     layer.confirm('真的删除行么', function (index) {
+<<<<<<< HEAD
                         obj.del();
                         layer.close(index);
                         var student_id = JSON.stringify(obj.data.id);
                         window.location = "index.php?s=index/table/delete&student_id=" + student_id;
+=======
+
+
+
+
+                         if (index) {
+                            $.ajax({
+                                url: 'table/delete',
+                                type: 'post',
+                                data: { id: JSON.stringify(obj.data.id) },
+                                
+                                success: function (data) {
+                                    alert('删除成功！')
+                                    // $("#demo").datagrid("reload");
+                                }
+                            });
+                        }
+
+                        obj.del();
+                        // // alert(JSON.stringify(obj.data.id));
+                        layer.close(index);
+                        // postdata.push({"id": JSON.stringify(obj.data.id)});
+                        
+
+
+
+
+
+
+
+
+
+          
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                     });
                 }
             });

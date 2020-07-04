@@ -117,6 +117,7 @@ class Table extends BaseController
 	// 删除用户
 	public function delete()
 	{
+<<<<<<< HEAD
 		if (Session::has('id')) {
 			$student_id = Request::instance()->get('student_id');
 			$students = explode('_', $student_id);
@@ -136,4 +137,11 @@ class Table extends BaseController
 
 	}
    
+=======
+		echo "suc";
+		$this->error();
+	}
+
+	
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
 }

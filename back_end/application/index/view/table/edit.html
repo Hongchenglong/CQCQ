@@ -21,6 +21,7 @@
         enctype="multipart/form-data">
         <div class="layui-form layuimini-form">
             <div class="layui-form-item">
+<<<<<<< HEAD
                 <label class="layui-form-label required">学号</label>
                 <div class="layui-input-block">
                     <input type="number" name="id" lay-verify="required" lay-reqtext="学号不能为空" placeholder="请输入学号" value=""
@@ -42,23 +43,46 @@
                 <div class="layui-input-block">
                     <input type="radio" name="sex" value="男" title="男" id="male" checked="">
                     <input type="radio" name="sex" value="女" title="女" id="female" checked="">
+=======
+                <label class="layui-form-label required">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" lay-verify="required" lay-reqtext="用户名不能为空" placeholder="请输入用户名"
+                        value="" class="layui-input">
+                    <tip>填写自己管理账号的名称。</tip>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">性别</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex" value="男" title="男" checked="">
+                    <input type="radio" name="sex" value="女" title="女">
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label required">手机</label>
                 <div class="layui-input-block">
                     <input type="number" name="phone" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机"
+<<<<<<< HEAD
                         value="" class="layui-input" style="width: 65%;">
+=======
+                        value="" class="layui-input">
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">邮箱</label>
                 <div class="layui-input-block">
+<<<<<<< HEAD
                     <input type="email" name="email" placeholder="请输入邮箱" value="" class="layui-input" style="width: 65%;">
+=======
+                    <input type="email" name="email" placeholder="请输入邮箱" value="" class="layui-input">
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                 </div>
             </div>
 
             <div class="layui-form-item">
+<<<<<<< HEAD
                 <label class="layui-form-label required">年级</label>
                 <div class="layui-input-block">
                     <input type="text" name="grade" lay-verify="required" lay-reqtext="年级不能为空" placeholder="请输入年级" value=""
@@ -84,6 +108,10 @@
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn" style="margin-left: 25%;">确认保存</button>
+=======
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认添加</button>
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
                 </div>
             </div>
         </div>
@@ -115,6 +143,7 @@
             });
 
         });
+<<<<<<< HEAD
 
         function getQueryString(name) { 
             var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i'); 
@@ -152,6 +181,8 @@
             document.getElementById("female").checked=true;
         }
 
+=======
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
     </script>
 </body>
 

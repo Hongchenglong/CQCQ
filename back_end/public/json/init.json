@@ -4,7 +4,11 @@
     "href": "page/welcome-1.html?t=1"
   },
   "logoInfo": {
+<<<<<<< HEAD
     "title": "CQCQ",
+=======
+    "title": "LAYUI MINI",
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
     "image": "images/logo.png",
     "href": ""
   },

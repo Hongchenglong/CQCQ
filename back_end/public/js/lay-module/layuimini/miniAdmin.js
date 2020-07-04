@@ -83,7 +83,11 @@ layui.define(["jquery", "miniMenu", "element","miniTab", "miniTheme"], function 
          * @param data
          */
         renderLogo: function (data) {
+<<<<<<< HEAD
             var html = '<a href="' + data.href + '"><h1>' + 'CQCQ' + '</h1></a>';
+=======
+            var html = '<a href="' + data.href + '"><img src="' + data.image + '" alt="logo"><h1>' + data.title + '</h1></a>';
+>>>>>>> 0d8647320324865129f370c2024e6edc207432e5
             $('.layuimini-logo').html(html);
         },
 
