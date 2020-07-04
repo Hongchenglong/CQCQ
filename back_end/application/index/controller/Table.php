@@ -98,7 +98,6 @@ class Table extends BaseController
 		if ($data_id) {
 			echo "false";
 			$return_data = array();
-			$return_data['error_code'] = 1;
 			$return_data['title'] = '该学号已存在';
 			$return_data['data'] = 'k';
 			$this->assign("data", $return_data);
@@ -117,9 +116,12 @@ class Table extends BaseController
 	// 删除用户
 	public function delete()
 	{
-		echo "suc";
-		$this->error();
+		$student_id = Request::instance()->get('student_id');
+		$students = explode('_', $student_id);
+		foreach($students as $id) {
+			Db::table('student')->where('id', $id)->delete();
+		}
+		$this->success("删除成功");
 	}
-
-	
+   
 }

@@ -52,7 +52,6 @@
             <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
         </script>
-
         </div>
     </div>
     <!-- ------------------------------------------------------------------------------------------------------------- -->
@@ -176,8 +175,11 @@
                 } else if (obj.event === 'delete_mul') {  // 监听删除操作
                     var checkStatus = table.checkStatus('currentTableId')
                         , data = checkStatus.data;
-                    layer.alert(JSON.stringify(data[0].id));
-
+                    var student_id = "";
+                    for (var item in data) {
+                        student_id += JSON.stringify(data[item].id) + "_";
+                    }
+                    window.location = "index.php?s=index/table/delete&student_id=" + student_id;
                 }
             });
 
@@ -204,38 +206,10 @@
                     return false;
                 } else if (obj.event === 'delete') {
                     layer.confirm('真的删除行么', function (index) {
-
-
-
-
-                         if (index) {
-                            $.ajax({
-                                url: 'table/delete',
-                                type: 'post',
-                                data: { id: JSON.stringify(obj.data.id) },
-                                
-                                success: function (data) {
-                                    alert('删除成功！')
-                                    // $("#demo").datagrid("reload");
-                                }
-                            });
-                        }
-
                         obj.del();
-                        // // alert(JSON.stringify(obj.data.id));
                         layer.close(index);
-                        // postdata.push({"id": JSON.stringify(obj.data.id)});
-                        
-
-
-
-
-
-
-
-
-
-          
+                        var student_id = JSON.stringify(obj.data.id);
+                        window.location = "index.php?s=index/table/delete&student_id=" + student_id;
                     });
                 }
             });
