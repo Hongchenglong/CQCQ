@@ -72,7 +72,7 @@ Page({
         //     title: '加载中',
         // })
         wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/viewDetails',
+            url: getApp().globalData.server + '/cqcq/public/index.php/api/Checkresults/viewDetails',
             data: {
                 department: that.data.department,
                 grade: that.data.grade,
@@ -153,7 +153,7 @@ Page({
                 if (res.confirm) {
                     console.log('用户点击确定')
                     wx.request({
-                        url: getApp().globalData.server + '/cqcq/public/index.php/index/Remind/remind',
+                        url: getApp().globalData.server + '/cqcq/public/index.php/api/Remind/remind',
                         data: {
                             department: getApp().globalData.user.department,
                             grade: getApp().globalData.user.grade,

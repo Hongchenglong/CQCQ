@@ -79,7 +79,7 @@ function upload(page, path) {
       title: "正在上传"
     }),
     wx.uploadFile({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Record/uploadPhoto',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/Record/uploadPhoto',
       filePath: path[0],
       name: 'file',
       header: {

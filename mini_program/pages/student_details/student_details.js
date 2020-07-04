@@ -74,7 +74,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/studentViewDetails',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/Checkresults/studentViewDetails',
       data: {
         grade: this.data.grade,
         department: this.data.department,

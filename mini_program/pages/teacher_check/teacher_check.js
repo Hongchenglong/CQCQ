@@ -36,7 +36,7 @@ Page({
             isScroll: true
         })
         wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/specifiedDate',
+            url: getApp().globalData.server + '/cqcq/public/index.php/api/Checkresults/specifiedDate',
             data: {
                 department: that.data.department,
                 grade: that.data.grade,
@@ -163,7 +163,7 @@ Page({
             title: '加载中',
         })
         wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/checkRecords',
+            url: getApp().globalData.server + '/cqcq/public/index.php/api/Checkresults/checkRecords',
             data: {
                 department: that.data.department,
                 grade: that.data.grade,
@@ -268,7 +268,7 @@ Page({
                 if (res.confirm) {
                     console.log('用户点击确定')
                     wx.request({
-                        url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/deleteRecord',
+                        url: getApp().globalData.server + '/cqcq/public/index.php/api/Checkresults/deleteRecord',
                         data: {
                             department: that.data.department,
                             grade: that.data.grade,

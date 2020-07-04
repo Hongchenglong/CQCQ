@@ -66,7 +66,7 @@ Page({
   //   var block = getApp().globalData.multiArray[0][e.detail.value[0]];
   //   var room = getApp().globalData.multiArray[1][e.detail.value[1]] + getApp().globalData.multiArray[2][e.detail.value[2]];
   //   wx.request({
-  //     'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeDormNumber',
+  //     'url': getApp().globalData.server + '/cqcq/public/index.php/api/change/changeDormNumber',
   //     //发给服务器的数据
   //     data: {
   //       student_id: getApp().globalData.user.id,
@@ -143,7 +143,7 @@ Page({
     var that = this;
     getApp().globalData.name = that.data.gr;
     wx.request({
-      'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeusername',
+      'url': getApp().globalData.server + '/cqcq/public/index.php/api/change/changeusername',
       //发给服务器的数据
       data: {
         id: getApp().globalData.user.id,

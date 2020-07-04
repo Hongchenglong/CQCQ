@@ -56,7 +56,7 @@ Page({
     getApp().globalData.name = this.data.gr;
     var that = this;
     wx.request({
-      'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeusername',
+      'url': getApp().globalData.server + '/cqcq/public/index.php/api/change/changeusername',
       //发给服务器的数据
       data: {
         id: getApp().globalData.user.id,
@@ -165,7 +165,7 @@ Page({
     getApp().globalData.grade = this.data.gr;
     var that = this;
     wx.request({
-      'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changegrade',
+      'url': getApp().globalData.server + '/cqcq/public/index.php/api/change/changegrade',
       //发给服务器的数据
       data: {
         id: getApp().globalData.user.id,
@@ -270,7 +270,7 @@ Page({
     getApp().globalData.department = this.data.gr;
     var that = this;
     wx.request({
-      'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/changeDepartment',
+      'url': getApp().globalData.server + '/cqcq/public/index.php/api/change/changeDepartment',
       //发给服务器的数据
       data: {
         id: getApp().globalData.user.id,
