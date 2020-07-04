@@ -45,9 +45,9 @@ Page({
       blockList.push(List[i].block)
       roomList.push(List[i].room)
     }
-    console.log(getApp().globalData.server + '/cqcq/public/index.php/index/Draw/customize')
+    console.log(getApp().globalData.server + '/cqcq/public/index.php/api/Draw/customize')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Draw/customize',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/customize',
       data: {
         department: that.data.dep,
         grade: that.data.grade,
@@ -113,7 +113,7 @@ Page({
       if (n == 0) {
         //判断宿舍是否存在
         wx.request({
-          url: getApp().globalData.server + '/cqcq/public/index.php/index/Draw/doesItExist',
+          url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/doesItExist',
           data: {
             department: that.data.dep,
             grade: that.data.grade,
@@ -215,9 +215,9 @@ Page({
     //console.log(this.data.dep)
     var that = this
     var listblock = []
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock')
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/dormitory/getBlock',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock',
       data: {
         department: that.data.dep,
         grade: that.data.grade,

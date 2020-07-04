@@ -118,7 +118,7 @@ Page({
           console.log('用户点击确定')
           //调用抽取接口
           wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/verifyResults',
+            url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/verifyResults',
             data: {
               department: that.data.dep,
               grade: that.data.grade,

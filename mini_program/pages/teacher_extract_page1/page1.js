@@ -11,7 +11,7 @@ Page({
     dep: '',
     grade: '',
     Boys_name: 4,
-    Girls_name: 1,
+    Girls_name: 2,
     Listdata: [],
     Boys_max: '',
     Girls_max: '',
@@ -41,9 +41,9 @@ Page({
 
   buttonList: function (e) {
     var that = this
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/index/Draw/draw')
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/Draw/draw')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Draw/draw',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/draw',
       data: {
         numOfBoys: that.data.Boys_name,
         numOfGirls: that.data.Girls_name,
@@ -105,9 +105,9 @@ Page({
     })
     //传最大宿舍号
     var that = this
-    console.log(getApp().globalData.server + '/cqcq/public/index.php/index/draw/getNumber')
+    console.log(getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/draw/getNumber',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber',
       data: {
         numOfBoys: that.data.Boys_name,
         numOfGirls: that.data.Girls_name,

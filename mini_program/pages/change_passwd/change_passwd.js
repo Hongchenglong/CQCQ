@@ -58,7 +58,7 @@ Page({
     else{
       if(that.data.phone==null){
         wx.request({
-          url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/changePassword',
+          url: getApp().globalData.server + '/cqcq/public/index.php/api/forget/changePassword',
           data: {
             email:that.data.email,
             password:that.data.passwd,
@@ -119,7 +119,7 @@ Page({
         })
       }else if(that.data.email==null){
         wx.request({
-          url: getApp().globalData.server + '/cqcq/public/index.php/index/forget/changePassword',
+          url: getApp().globalData.server + '/cqcq/public/index.php/api/forget/changePassword',
           data: {
             phone:that.data.phone,
             password:that.data.passwd,

@@ -10,6 +10,15 @@
 	<input value="{{ name }}" bindblur='getInput' name='gre' type='text' placeholder="请输入你的昵称，如：东二410" auto - focus />
 </modal>
 
+<!-- 学号  -->
+<view class="line"></view>
+<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
+	<view class="title">学号</view>
+	<view class="detail">
+		<text> {{id}}></text>
+	</view>
+</view>
+
 <!-- 年级 -->
 <view class="line"></view>
 <view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
@@ -39,7 +48,7 @@
 </view>
 
 <!-- 宿舍 -->
-<view class="line"></view>
+<!-- <view class="line"></view>
 <view class="item" hover-class='wsui-btn__hover_list'>
 	<picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}" class="picker">
 		<text class="title dorm_text">宿舍</text>
@@ -47,6 +56,14 @@
 		{{multiArray[0][multiIndex[0]]}}#{{multiArray[1][multiIndex[1]]}}{{multiArray[2][multiIndex[2]]}}>
 		</text>
 	</picker>
+</view> -->
+
+<view class="line"></view>
+<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
+	<view class="title">宿舍</view>
+	<view class="detail">
+		<text>{{block}}#{{room}}></text>
+	</view>
 </view>
 
 <!-- 手机号 -->
