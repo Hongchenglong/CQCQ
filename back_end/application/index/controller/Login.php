@@ -33,7 +33,7 @@ class Login extends Controller
 			Session::set('id', $data['id']);
 			Session::set('username', $data['username']);
 			Session::set('password', $data['password']);
-			$this->redirect('home/home');
+			$this->redirect('column/index');
 		} else {
 			$this->error("用户名或密码错误", url('login/index'));
 		}
