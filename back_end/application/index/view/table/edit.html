@@ -84,7 +84,8 @@
 
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button type="submit" class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn" style="margin-left: 30%;">
+                    <button type="submit" class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn" 
+                    style="margin-left: 30%;" onclick="click_btns()">
                         确认保存
                     </button>
                 </div>
@@ -95,23 +96,34 @@
     </div>
     <script src="/cqcq/back_end/public/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
     <script>
+        // var clkBool=false;
+        function click_btns(){
+            // clkBool=true;
+            //获取父层  
+            var index = parent.layer.getFrameIndex(window.name);
+            //刷新父层  
+            parent.location.reload();
+            //关闭弹出层  
+            parent.layer.close(index);  
+        }
+        
         layui.use(['form'], function () {
             var form = layui.form,
                 layer = layui.layer,
                 $ = layui.$;
             //监听提交
-            form.on('submit(saveBtn)', function (data) {
-                var index = layer.alert(JSON.stringify(data.field), {
-                    title: '最终的提交信息'
-                }, function () {
-                    // 关闭弹出层
-                    layer.close(index);
-                    var iframeIndex = parent.layer.getFrameIndex(window.name);
-                    parent.layer.close(iframeIndex);
-                });
+            // form.on('submit(saveBtn)', function (data) {
+            //     var index = layer.alert(JSON.stringify(data.field), {
+            //         title: '最终的提交信息'
+            //     }, function () {
+            //         // 关闭弹出层
+            //         layer.close(index);
+            //         var iframeIndex = parent.layer.getFrameIndex(window.name);
+            //         parent.layer.close(iframeIndex);
+            //     });
 
-                // return false;  //不注释无法提交
-            });
+            //     // return false;  //不注释无法提交
+            // });
 
         });
         

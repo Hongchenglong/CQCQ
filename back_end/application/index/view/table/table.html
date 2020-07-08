@@ -121,7 +121,10 @@
             // 监听搜索操作
             form.on('submit(data-search-btn)', function (data) {
                 if (data.field.id == '' )  {
-                    layer.alert("请输入学号",{title: '提示：'});  //无输入情况
+                    layer.alert("请输入学号",{
+                        title: '提示：',
+                        btnAlign: 'c' //按钮居中
+                    });  //无输入情况
                 }
                 else {
                     var request = new XMLHttpRequest();//建立request请求
@@ -276,10 +279,10 @@
                         area: ['55%', '90%'],
                         content: '../table/edit/edit.html?st_id='+st_id+'&st_username='+escape(st_username)+'&st_grade='+st_grade+'&st_phone='+st_phone+
                         '&st_department='+escape(st_department)+'&st_dorm='+escape(st_dorm)+'&st_sex='+escape(st_sex)+'&st_email='+st_email,
-                        cancel: function(index, layero){   //关闭窗口后实现页面刷新显示更新数据
-                            location.reload();
-                            // layer.close(index);
-                        }, 
+                        // cancel: function(index, layero){   //关闭窗口后实现页面刷新显示更新数据
+                        //     location.reload();
+                        //     // layer.close(index);
+                        // }, 
                     });
                     $(window).on("resize", function () {
                         layer.full(index);

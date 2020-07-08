@@ -1,4 +1,5 @@
 <?php
+
 namespace app\index\controller;
 
 use \think\Db;
@@ -120,13 +121,14 @@ class Table extends BaseController
 			echo " history.back();\r\n";
 			echo "</script>";
 		} else {
-			$this->error("没有删除权限,请登录",url('table/table'));
+			$this->error("没有删除权限,请登录", url('table/table'));
 			// $f->out();
 		}
 	}
 
 	// 更改用户信息
-	public function edit_user(){
+	public function edit_user()
+	{
 		$id = Request::instance()->post('id');
 		$sex = Request::instance()->post('sex');
 		$username = Request::instance()->post('username');
@@ -136,79 +138,75 @@ class Table extends BaseController
 		$department = Request::instance()->post('department');
 		$dorm = Request::instance()->post('dorm');
 
-		$result=Db('Student')
-		->where([
-			'id'  => $id
-		])
-		->update([
-			'sex' => $sex,
-			'username' => $username,
-			'email' => $email,
-			'phone' => $phone,
-			'grade' => $grade,
-			'department' => $department,
-			'dorm' => $dorm,
-		]);
-		if($result){
-			echo "<script language=\"JavaScript\">\r\n";
-			echo " alert(\"更新成功\");\r\n";
-			echo " history.back();\r\n";
-			echo "</script>";
-		}else{
-			echo "<script language=\"JavaScript\">\r\n";
-			echo " alert(\"更新失败\");\r\n";
-			echo " history.back();\r\n";
-			echo "</script>";
-		}	
+		$result = Db('Student')
+			->where([
+				'id'  => $id
+			])
+			->update([
+				'sex' => $sex,
+				'username' => $username,
+				'email' => $email,
+				'phone' => $phone,
+				'grade' => $grade,
+				'department' => $department,
+				'dorm' => $dorm,
+			]);
+		// if($result){
+		// 	echo "<script language=\"JavaScript\">\r\n";
+		// 	echo " alert(\"更新成功\");\r\n";
+		// 	echo " history.back();\r\n";
+		// 	echo "</script>";
+		// }else{
+		// 	echo "<script language=\"JavaScript\">\r\n";
+		// 	echo " alert(\"更新失败\");\r\n";
+		// 	echo " history.back();\r\n";
+		// 	echo "</script>";
+		// }	
 	}
 
 	//上传，解析csv文件
-	public function uploadFile(){
+	public function uploadFile()
+	{
 
 		// dump($_FILES["upfile"]);
-		if(is_uploaded_file($_FILES['upfile']['tmp_name'])){
-			$upfile=$_FILES["upfile"];
-			$name=$upfile['name'];
-			$tmp_name=$upfile["tmp_name"];//上传文件的临时存放路径
-			move_uploaded_file($tmp_name,$name);
+		if (is_uploaded_file($_FILES['upfile']['tmp_name'])) {
+			$upfile = $_FILES["upfile"];
+			$name = $upfile['name'];
+			$tmp_name = $upfile["tmp_name"]; //上传文件的临时存放路径
+			move_uploaded_file($tmp_name, $name);
 			// dump("上传成功");
-			}
-		else{
+		} else {
 			// dump("您还没有上传文件");
-		}	
-		if (!file_exists('uploads')){
+		}
+		if (!file_exists('uploads')) {
 			mkdir('uploads');
 		}
 
 		$data = [];
 		$n = 0;
-		$file = fopen($name,'r');
-		while(! feof($file))
-		{
-			
-			if($n==0){
+		$file = fopen($name, 'r');
+		while (!feof($file)) {
+
+			if ($n == 0) {
 				$n++;
 				$head = fgets($file);
 				$head = trim($head);
-				$head = explode(",",$head);
-				$head = mb_convert_encoding( $head, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5' );
+				$head = explode(",", $head);
+				$head = mb_convert_encoding($head, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5');
 				// dump($head);
 				// dump("--");
-			}
-			else{
+			} else {
 				$html = fgets($file);
 				$html = trim($html);
-				$html = explode(",",$html);
-				$reutrn_data[$n] = mb_convert_encoding( $html, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5' );
+				$html = explode(",", $html);
+				$reutrn_data[$n] = mb_convert_encoding($html, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5');
 				$n++;
-				
 			}
-			
 		}
-		for($i=1;$i<$n-1;$i++){
+		for ($i = 1; $i < $n - 1; $i++) {
 			$where = ['id' => $reutrn_data[$i][1]];
 			$data_id = Db('Student')->where($where)->find();
-			if(!$data_id){
+			if (!$data_id) {
 				$data[] = [
 					'id' => $reutrn_data[$i][1],
 					'password' => $reutrn_data[$i][1],
@@ -223,13 +221,13 @@ class Table extends BaseController
 			}
 		}
 
-		if($data){
+		if ($data) {
 			$result = Db('Student')->insertAll($data);
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " alert(\"导入成功\");\r\n";
 			echo " history.back();\r\n";
 			echo "</script>";
-		}else{
+		} else {
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " alert(\"导入失败\");\r\n";
 			echo " history.back();\r\n";
