@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/cqcq/back_end/public/lib/layui-v2.5.5/css/layui.css" media="all">
     <link rel="stylesheet" href="/cqcq/back_end/public/css/public.css" media="all">
+    <style>
+       
+    </style>
 </head>
 
 <body>
@@ -42,7 +45,9 @@
             <div class="layui-btn-container">
                 <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
                 <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete_mul"> 删除 </button>
-                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add_total" style="background-color:#1aa094;"> 导入 </button>
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="input_file" style="background-color:#1aa094; "> 
+                    导入 
+                </button>
             </div>
         </script>
 
@@ -58,10 +63,11 @@
     <script src="/cqcq/back_end/public/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 
     <script>
-        layui.use(['form', 'table'], function () {
+        layui.use(['form', 'table','upload'], function () {
             var $ = layui.jquery,
                 form = layui.form,
                 table = layui.table;
+                upload = layui.upload;
 
             table.render({
                 elem: '#currentTableId',
@@ -85,17 +91,15 @@
                     { title: '操作', maxWidth: 100, toolbar: '#currentTableBar', align: "center" }
                 ]],
                 limits: [3, 5, 10, 20],
-                limit: 10,
+                limit: 5,
                 page: true,  //开启分页
-                skin: 'line', //开启合计行
-                groups: 2, //只显示 2 个连续页码
-                first: "首页", //不显示首页
-                last: "尾页", //不显示尾页
+                first: "首页", //显示首页
+                last: "尾页", //显示尾页
                 totalRow: true,
                 parseData: function (res) { //将原始数据解析成 table 组件所规定的数据，res为从url中get到的数据
                     var result;
-                    console.log(this);
-                    console.log(JSON.stringify(res));
+                    // console.log(this);
+                    // console.log(JSON.stringify(res));
                     if (this.page.curr) {
                         result = res.data.slice(this.limit * (this.page.curr - 1), this.limit * this.page.curr);
                     }
@@ -116,29 +120,76 @@
 
             // 监听搜索操作
             form.on('submit(data-search-btn)', function (data) {
-                var request = new XMLHttpRequest();//建立request请求
-                request.open('post', 'index.php?s=index/table/find_info');//发送对象是Table.php 发送post
-                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');//请求头 默认即可
-                request.send("id=" + data.field.id);
-                request.onreadystatechange = function () {
-                    if (request.readyState == 4 && (request.status == 200 || request.status == 304)) {
-                        // var result = request.response;
-                        layer.alert(request.response, {
-                            title: '最终的搜索信息'
-                        });
-                    }
-
+                if (data.field.id == '' )  {
+                    layer.alert("请输入学号",{
+                        title: '提示：',
+                        btnAlign: 'c' //按钮居中
+                    });  //无输入情况
                 }
+                else {
+                    var request = new XMLHttpRequest();//建立request请求
+                    request.open('post', 'index.php?s=index/table/find_info');//发送对象是Table.php 发送post
+                    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');//请求头 默认即可
+                    request.send("id=" + data.field.id);
+                    request.onreadystatechange = function () {
+                        if (request.readyState == 4 && (request.status == 200 || request.status == 304)) {
+                            if(request.response == '查无该学号'){
+                                layer.alert(request.response, {
+                                title: '提示:',
+                                btnAlign: 'c' //按钮居中
+                            });
+                            }else{
+                                var id = '';
+                                var sex = '';
+                                var grade = '';
+                                var dorm = '';
+                                var phone = '';
+                                var department = '';
+                                var email = '';
+                                var st_data = request.response;
+                                var result = st_data.substring(1, st_data.length - 1).split(',');
+                                for (i = 0; i < result.length; i++) {
+                                    var data = result[i].split(':')
+                                    if (data[0] == '"id"') {
+                                        id = data[1];
+                                    } else if (data[0] == '"sex"') {
+                                        sex = data[1].split('"')[1];
+                                    } else if (data[0] == '"phone"') {
+                                        phone = data[1].split('"')[1];
+                                    } else if (data[0] == '"grade"') {
+                                        grade = data[1];
+                                    } else if (data[0] == '"department"') {
+                                        department = data[1].split('"')[1];
+                                    } else if (data[0] == '"dorm"') {
+                                        dorm = data[1].split('"')[1];
+                                    } else if (data[0] == '"email"') {
+                                        email = data[1].split('"')[1];
+                                    } else {
+                                        console.log("false");
+                                    }
+                                }
+                                // var reault_data =
+                                //     [
+                                //         { "学号": id },
+                                //         { "性别": sex },
+                                //         { "手机号": phone },
+                                //         { "年级": grade },
+                                //         { "邮箱": email },
+                                //         { "系别": department },
+                                //         { "宿舍号": dorm },
+                                //     ];
+                                // console.log(reault_data);
+                                var message = '系别：' + department + '<br>' + '年级：' + grade + '<br>' + '学号：' + id + '<br>' + '性别：' + sex + '<br>'
+                                    + '邮箱：' + email + '<br>' + '宿舍号：' + dorm + '<br>' + '手机号码：' + phone;
+                                layer.alert(message, {
+                                    title: '最终的搜索信息:',
+                                    btnAlign: 'c' //按钮居中
+                                });
+                            }
 
-                // var result = JSON.stringify(data.field);
-                // console.log(result);
-                // if (data.field.id == '' )  {
-                //     alert("不能为空！");
-                // }else{
-                //     layer.alert(result, {
-                //         title: '最终的搜索信息'
-                //     });
-                // }
+                        }   
+                    }
+                }
 
                 // //执行搜索重载
                 // table.reload('currentTableId', {
@@ -164,8 +215,11 @@
                         shade: 0.2,
                         maxmin: true,
                         shadeClose: true,
-                        area: ['60%', '85%'],
+                        area: ['55%', '95%'],
                         content: '../table/add/add.html',
+                        cancel: function(index, layero){   //关闭窗口后实现页面刷新
+                            location.reload();
+                        }, 
                     });
 
                     $(window).on("resize", function () {
@@ -175,12 +229,28 @@
                 } else if (obj.event === 'delete_mul') {  // 监听删除操作
                     var checkStatus = table.checkStatus('currentTableId')
                         , data = checkStatus.data;
+                    // layer.alert(JSON.stringify(data[0].id));
                     var student_id = "";
                     for (var item in data) {
                         student_id += JSON.stringify(data[item].id) + "_";
                     }
                     window.location = "index.php?s=index/table/delete&student_id=" + student_id;
-                }
+                } else if (obj.event === 'input_file') {  // 监听导入操作
+                    var index = layer.open({
+                        title: '导入文件',
+                        type: 2,
+                        shade: 0.2,
+                        maxmin: true,
+                        shadeClose: true,
+                        area: ['35%', '25%'],
+                        content: '../table/file/file.html',
+                        cancel: function(index, layero){   //关闭窗口后实现页面刷新
+                            location.reload();
+                        }, 
+                    });
+                } 
+
+
             });
 
             //监听表格复选框选择
@@ -189,23 +259,37 @@
             });
 
             table.on('tool(currentTableFilter)', function (obj) {
-                var data = obj.data;
-                if (obj.event === 'edit') {
+                // var st_data = obj.data;
+                var st_id = obj.data.id;
+                var st_username = obj.data.username;
+                var st_grade = obj.data.grade;
+                var st_department = obj.data.department;
+                var st_dorm = obj.data.dorm;
+                var st_sex = obj.data.sex;
+                var st_phone = obj.data.phone;
+                var st_email = obj.data.email;
+                // console.log(obj.data);
+                if (obj.event === 'edit') { // 监听更新（编辑）操作
                     var index = layer.open({
                         title: '编辑用户',
                         type: 2,
                         shade: 0.2,
                         maxmin: true,
                         shadeClose: true,
-                        area: ['60%', '85%'],
-                        content: '../table/edit/edit.html',
+                        area: ['55%', '90%'],
+                        content: '../table/edit/edit.html?st_id='+st_id+'&st_username='+escape(st_username)+'&st_grade='+st_grade+'&st_phone='+st_phone+
+                        '&st_department='+escape(st_department)+'&st_dorm='+escape(st_dorm)+'&st_sex='+escape(st_sex)+'&st_email='+st_email,
+                        // cancel: function(index, layero){   //关闭窗口后实现页面刷新显示更新数据
+                        //     location.reload();
+                        //     // layer.close(index);
+                        // }, 
                     });
                     $(window).on("resize", function () {
                         layer.full(index);
                     });
                     return false;
                 } else if (obj.event === 'delete') {
-                    layer.confirm('真的删除行么', function (index) {
+                    layer.confirm('确定删除该学生信息吗？', function (index) {
                         obj.del();
                         layer.close(index);
                         var student_id = JSON.stringify(obj.data.id);
@@ -215,6 +299,7 @@
             });
 
         });
+
     </script>
 
 </body>
