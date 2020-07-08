@@ -84,7 +84,7 @@
 
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button type="submit" class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn" style="margin-left: 25%;">
+                    <button type="submit" class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn" style="margin-left: 30%;">
                         确认保存
                     </button>
                 </div>
@@ -99,24 +99,22 @@
             var form = layui.form,
                 layer = layui.layer,
                 $ = layui.$;
-
             //监听提交
             form.on('submit(saveBtn)', function (data) {
                 var index = layer.alert(JSON.stringify(data.field), {
                     title: '最终的提交信息'
                 }, function () {
-
                     // 关闭弹出层
                     layer.close(index);
                     var iframeIndex = parent.layer.getFrameIndex(window.name);
                     parent.layer.close(iframeIndex);
-
                 });
 
                 // return false;  //不注释无法提交
             });
 
         });
+        
 
         //接收table.html的编辑按钮传递的参数
         function getQueryString(name) { 

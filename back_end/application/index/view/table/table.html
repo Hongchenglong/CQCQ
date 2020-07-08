@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/cqcq/back_end/public/lib/layui-v2.5.5/css/layui.css" media="all">
     <link rel="stylesheet" href="/cqcq/back_end/public/css/public.css" media="all">
+    <style>
+       
+    </style>
 </head>
 
 <body>
@@ -88,7 +91,7 @@
                     { title: '操作', maxWidth: 100, toolbar: '#currentTableBar', align: "center" }
                 ]],
                 limits: [3, 5, 10, 20],
-                limit: 10,
+                limit: 5,
                 page: true,  //开启分页
                 first: "首页", //显示首页
                 last: "尾页", //显示尾页
@@ -127,11 +130,61 @@
                     request.send("id=" + data.field.id);
                     request.onreadystatechange = function () {
                         if (request.readyState == 4 && (request.status == 200 || request.status == 304)) {
-                            // var result = request.response;
-                            layer.alert(request.response, {
-                                title: '最终的搜索信息:'
+                            if(request.response == '查无该学号'){
+                                layer.alert(request.response, {
+                                title: '提示:',
+                                btnAlign: 'c' //按钮居中
                             });
-                        }
+                            }else{
+                                var id = '';
+                                var sex = '';
+                                var grade = '';
+                                var dorm = '';
+                                var phone = '';
+                                var department = '';
+                                var email = '';
+                                var st_data = request.response;
+                                var result = st_data.substring(1, st_data.length - 1).split(',');
+                                for (i = 0; i < result.length; i++) {
+                                    var data = result[i].split(':')
+                                    if (data[0] == '"id"') {
+                                        id = data[1];
+                                    } else if (data[0] == '"sex"') {
+                                        sex = data[1].split('"')[1];
+                                    } else if (data[0] == '"phone"') {
+                                        phone = data[1].split('"')[1];
+                                    } else if (data[0] == '"grade"') {
+                                        grade = data[1];
+                                    } else if (data[0] == '"department"') {
+                                        department = data[1].split('"')[1];
+                                    } else if (data[0] == '"dorm"') {
+                                        dorm = data[1].split('"')[1];
+                                    } else if (data[0] == '"email"') {
+                                        email = data[1].split('"')[1];
+                                    } else {
+                                        console.log("false");
+                                    }
+                                }
+                                // var reault_data =
+                                //     [
+                                //         { "学号": id },
+                                //         { "性别": sex },
+                                //         { "手机号": phone },
+                                //         { "年级": grade },
+                                //         { "邮箱": email },
+                                //         { "系别": department },
+                                //         { "宿舍号": dorm },
+                                //     ];
+                                // console.log(reault_data);
+                                var message = '系别：' + department + '<br>' + '年级：' + grade + '<br>' + '学号：' + id + '<br>' + '性别：' + sex + '<br>'
+                                    + '邮箱：' + email + '<br>' + '宿舍号：' + dorm + '<br>' + '手机号码：' + phone;
+                                layer.alert(message, {
+                                    title: '最终的搜索信息:',
+                                    btnAlign: 'c' //按钮居中
+                                });
+                            }
+
+                        }   
                     }
                 }
 

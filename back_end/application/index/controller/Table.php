@@ -46,12 +46,12 @@ class Table extends BaseController
 	public function find_info()
 	{
 		$id = Request::instance()->post('id');
+		// dump($id);
 		$where = ['id' => $id];
 		$data = Db('Student')
-			->field('id,sex,phone,grade,department,dorm')
+			->field('id,sex,phone,grade,department,dorm,email')
 			->where($where)
 			->find();
-
 		if (!empty($data)) {
 			$return_data = array();
 			$return_data['error_code'] = 0;
