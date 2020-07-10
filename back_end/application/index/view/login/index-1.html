@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <div class="login-banner">
-        <div class="login-main">
-            <div class="login-box" style="right:30%">
+    <div class="login-banner" style="position:fixed;top:0px;right:0px;left:0px;height:100%;background: url(/cqcq/images/b5.jpg) center center/cover no-repeat !important;">
+        <div class="login-main" style="text-align: center;height: 100%; ">
+            <div class="login-box" style="opacity: 0.6;right:30%;display: inline-block; vertical-align: middle; width: 400px; margin: 90px 0;border-radius: 4px; padding:40px; background: lightgray">
                 <h3 class="title">后台管理系统</h3>
                 <div class="login-form">
                     <!--用户账户和密码的表单-->
@@ -22,7 +22,7 @@
                         <!-- 只有使用了multipart/form-data，才能完整地传递文件数据 -->
                         <div class="user-name">
                             <label for="user"><i class="mr-icon-user"></i></label>
-                            <input type="text" name="uaccount" placeholder="请输入账号" />
+                            <input type="text" id="user" name="uaccount" placeholder="请输入账号" />
                         </div>
                         <div class="user-pass">
                             <label for="password"><i class="mr-icon-lock"></i></label>
@@ -49,6 +49,7 @@
     function check_login() {
         var user = document.getElementById("user");           //获取账户信息
         var password = document.getElementById("password");  //获取密码信息
+        // console.log(user.value);
         //验证账号是否为空
         if (user.value === '' || user.value === null) {
             alert("账号不能为空！");
@@ -64,11 +65,16 @@
             return;
         }
         //验证密码是否符合条件
-        if (password.value.length < 8 || password.value.length > 16) {
-            alert('输入8-16位密码！');
-        } else {
-            alert('登录成功！');
-        }
+        // if (password.value.length < 8 || password.value.length > 16) {
+        //     alert('输入8-16位密码！');
+        // } else {
+        //     alert('登录成功！');
+        // }
+
+        var username = JSON.stringify(user.value);
+        console.log(username);
+        // window.location.href = "../user/user_setting.html?username="+ username;
+        window.location = "Index.php?s=index/user/user_setting&username="+ username;
     }
 </script>
 
