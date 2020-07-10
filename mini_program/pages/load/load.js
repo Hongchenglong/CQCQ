@@ -7,20 +7,20 @@ Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'), //查看微信版本是否支持微信授权 若支持则会显示 授权登陆 按钮
     current: 'mine'
-
   },
 
-  handleChange ({ detail }) {
+  handleChange({
+    detail
+  }) {
     this.setData({
-        current: detail.key
+      current: detail.key
     });
-    
- if(detail.key == 'group'){
+
+    if (detail.key == 'group') {
       wx.reLaunch({
         url: '../teacher_dorm/teacher_dorm',
       })
-    }
-    else if(detail.key == 'homepage'){
+    } else if (detail.key == 'homepage') {
       wx.reLaunch({
         url: '../teacher_home/teacher_home',
       })
@@ -37,15 +37,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-
-  onLoad: function(options) {
-
+  onLoad: function (options) {
     var that = this
-
-    /*wx.showLoading({
-      title: '加载中',
-    })*/
-
     wx.login({
       success(res) {
         if (res.code) {
@@ -64,7 +57,7 @@ Page({
                 // 已经授权，可以直接调用 getUserInfo 获取头像昵称
                 getApp().globalData.load = true
                 wx.getUserInfo({
-                  success: function(res) {
+                  success: function (res) {
                     console.log(res.userInfo)
                     getApp().globalData.userInfo = res.userInfo
                     that.next();
@@ -88,20 +81,20 @@ Page({
   bindGetUserInfo(e) {
     getApp().globalData.userInfo = e.detail.userInfo
     console.log(e.detail.userInfo)
-    if(e.detail.userInfo == undefined){
+    if (e.detail.userInfo == undefined) {
       console.log("取消")
       wx.navigateBack({
         delta: 1
-        })
+      })
     }
     //用户点击确认授权
-    else{
-     //加载中的样式
-     wx.showToast({
-      title: '加载中...',
-      mask: true,
-      icon: 'loading',
-      duration:400
+    else {
+      //加载中的样式
+      wx.showToast({
+        title: '加载中...',
+        mask: true,
+        icon: 'loading',
+        duration: 400
       })
       getApp().globalData.load = true
       if (getApp().globalData.user.user == 'counselor') {
@@ -109,13 +102,12 @@ Page({
         wx.reLaunch({
           url: "../teacher_index/teacher_index",
         })
-      } else if (getApp().globalData.user.user == 'student'){
+      } else if (getApp().globalData.user.user == 'student') {
         getApp().globalData.PageCur = 'student_mine'
         wx.reLaunch({
           url: "../student_index/student_index",
         })
       }
-      
       //console.log(getApp().globalData.PageCur)
     }
   },
@@ -131,8 +123,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏

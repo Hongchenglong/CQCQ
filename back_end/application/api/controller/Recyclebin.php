@@ -14,22 +14,12 @@ class Recyclebin extends BaseController
         // $parameter = ['grade', 'department', 'page'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['page'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入页码！';
-            return json($return_data);
-        }
-
+            return json(['error_code' => 1, 'msg' => '请输入页码！']);
+        } 
 
         // 查询条件
         $where = array();
@@ -52,14 +42,9 @@ class Recyclebin extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '显示查寝记录！';
             $return_data['data'] = $record;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无查寝记录！';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '暂无查寝记录！']);
         }
     }
 
@@ -71,32 +56,19 @@ class Recyclebin extends BaseController
         // $parameter = ['grade', 'department', 'date'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['date'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入时间！';
-            return json($return_data);
-        }
+            return json(['error_code' => 1, 'msg' => '请输入时间！']);
+        } 
 
         $date = $_POST['date'];
 
         // 判断是否非法日期
         $is_date = strtotime($date) ? strtotime($date) : false;
         if ($is_date === false && $date != "") {
-            $return_data = array();
-            $return_data['error_code'] = 3;
-            $return_data['msg'] = '日期格式非法！';
-
-            return json($return_data);
+            return json(['error_code' => 3, 'msg' => '日期格式非法！']);
         }
 
         // 查询条件
@@ -120,13 +92,11 @@ class Recyclebin extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '显示' . $date . '查寝记录！';
             $return_data['data'] = $record;
-
             return json($return_data);
         } else {
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '没有' . $date . '这天查寝记录！';
-
             return json($return_data);
         }
     }
@@ -139,25 +109,13 @@ class Recyclebin extends BaseController
         // $parameter = ['department', 'grade', 'start_time', 'end_time'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['start_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入开始时间！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入开始时间！']);
         } else if (empty($_POST['end_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入结束时间！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入结束时间！']);
         }
 
         // 查询条件
@@ -175,18 +133,9 @@ class Recyclebin extends BaseController
             ->update(['record.deleted' => 0]);
 
         if ($result) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '删除查寝记录' . $result . '条';
-            // $return_data['data'] = $result;
-
-            return json($return_data);
+            return json(['error_code' => 0, 'msg' => '恢复查寝记录！']);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '无此时间段的查寝记录';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '无此时间段的查寝记录！']);
         }
     }
 
@@ -198,25 +147,13 @@ class Recyclebin extends BaseController
         // $parameter = ['grade', 'department', 'start_time', 'end_time'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['start_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入开始时间！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入开始时间！']);
         } else if (empty($_POST['end_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入结束时间！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入结束时间！']);
         }
 
         // 查询条件
@@ -240,14 +177,9 @@ class Recyclebin extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '显示查寝记录';
             $return_data['data'] = $record;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '无该天的查寝记录';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '无该天的查寝记录！']);
         }
     }
 }
