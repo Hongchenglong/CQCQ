@@ -1,6 +1,47 @@
 {
   "homeInfo": {
     "title": "首页",
-    "href": "menu/menu.html"
-  }
+    "href": "page/welcome-1.html?t=1"
+  },
+  "logoInfo": {
+    "title": "LAYUI MINI",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "宿舍管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "宿舍管理",
+          "href": "",
+          "icon": "fa fa-home",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "title": "查寝统计",
+      "icon": "fa fa-lemon-o",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "查寝统计",
+          "href": "",
+          "icon": "fa fa-dot-circle-o",
+          "child": [
+            {
+              "title": "查寝记录",
+              "href": "",
+              "icon": "fa fa-dot-circle-o"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

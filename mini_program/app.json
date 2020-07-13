@@ -30,6 +30,7 @@
     "pages/teacher_mine/teacher_mine",
     "pages/teacher_home/teacher_home",
     "pages/teacher_dorm/teacher_dorm",
+    "pages/teacher_statistics/teacher_statistics",
     
     "pages/teacher_check/teacher_check",
     "pages/forget/forget",
