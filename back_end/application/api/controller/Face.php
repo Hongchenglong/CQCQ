@@ -4,85 +4,6 @@ namespace app\api\controller;
 
 class Face extends BaseController
 {
-    public function get_token() //获取access_token
-    {
-        $url = 'https://aip.baidubce.com/oauth/2.0/token';
-        $post_data['grant_type']       = 'client_credentials';
-        $post_data['client_id']      = 'GCjHu7F1LGrE2Dq1wm19rKGo';
-        $post_data['client_secret'] = 'TBLg5ROb7wvpLAk4gIOzM5VhWE2Hv48S';
-        $o = "";
-        foreach ($post_data as $k => $v) {
-            $o .= "$k=" . urlencode($v) . "&";
-        }
-        $post_data = substr($o, 0, -1);
-
-        $res = $this->request_post($url, $post_data);
-        $res = json_decode($res, true);
-        return $res['access_token'];
-    }
-
-    public function detect() // 人脸检测
-    {
-        $token = $this->get_token();
-        $url = 'https://aip.baidubce.com/rest/2.0/face/v3/detect?access_token=' . $token;
-
-        $img = "face5.jpg"; // 图片路径
-        $base64_data = base64_encode(file_get_contents($img)); // 转换为base64
-
-        $bodys = array(
-            'image_type' => "BASE64",
-            'face_field' => "age,beauty,expression,faceshape,gender,glasses,race,qualities,emotion,mask,spoofing",
-            // 年龄，美丽度，表情，脸型，性别，眼镜，种族，质量，情绪，口罩，合成图
-            'image' => $base64_data,
-            'max_face_num' => 10
-        );
-
-        $res = $this->request_post($url, $bodys);
-        $res = json_decode($res, true);
-        dump($res);
-    }
-
-    public function match() //人脸对比
-    {
-        $token = $this->get_token();
-        $url = 'https://aip.baidubce.com/rest/2.0/face/v3/match?access_token=' . $token;
-
-        $img = "1.jpg"; // 图片路径
-        $img2 = '3.jpg';
-        $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
-        $base64_two = base64_encode(file_get_contents($img2));
-
-        $bodys = "[{\"image\": \"$base64_one\", \"image_type\": \"BASE64\", \"face_type\": \"LIVE\", \"quality_control\": \"NONE\"},
-                    {\"image\": \"$base64_two\", \"image_type\": \"BASE64\", \"face_type\": \"LIVE\", \"quality_control\": \"NONE\"}]";
-
-        $res = $this->request_post($url, $bodys);
-
-        $res = json_decode($res, true);
-        dump($res);
-    }
-
-    public function search() // 人脸搜索
-    {
-        $token = $this->get_token();
-        $url = 'https://aip.baidubce.com/rest/2.0/face/v3/search?access_token=' . $token;
-
-        $img = "face4.jpg"; // 图片路径
-        $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
-
-        $bodys = array(
-            'image' => $base64_one,
-            'image_type' => "BASE64",
-            'group_id_list' => "Student,Teacher",
-            'quality_control' => 'LOW',
-            'liveness_control' => 'NORMAL',
-            'max_user_num' => 1
-        );
-
-        $res = $this->request_post($url, $bodys);
-
-        $res = json_decode($res, true);
-        dump($res);
-    }
 
     public function multi_search($img = '', $dorm = '') // 一张照片中多个人脸同时进行识别
     {
@@ -97,7 +18,7 @@ class Face extends BaseController
             'image_type' => "BASE64",
             'group_id_list' => $dorm,
             "max_face_num" => 10,
-            'max_user_num' =>10
+            'max_user_num' => 10
         );
 
         $res = $this->request_post($url, $bodys);
@@ -105,37 +26,41 @@ class Face extends BaseController
     }
 
 
-    public function add_face() // 添加人脸到人脸数据库
+    public function add_face($id = '', $dorm = '', $grade = '', $img = '') // 添加人脸到人脸数据库
     {
-        if (empty($_POST['id'])) {
+        if (empty($id)) {
             $return_data = array();
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入学号！';
             return json($return_data);
-        } else if (empty($_POST['block'])) {
+        } else if (empty($dorm)) {
             $return_data = array();
             $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍楼！';
+            $return_data['msg'] = '请输入宿舍！';
             return json($return_data);
-        } else if (empty($_POST['room'])) {
+        } else if (empty($grade)) {
             $return_data = array();
             $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍号！';
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($img)) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请上传照片！';
             return json($return_data);
         }
+
         $token = $this->get_token();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/add?access_token=' . $token;
 
-        $img = "face2.jpg"; // 图片路径
         $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
-        $dorm = $_POST['block'] . $_POST['room'];
         $dorm = $this->get_all_py($dorm); // 东二410
         $dorm = implode("", $dorm);
         $bodys = array(
             'image' => $base64_one,
             'image_type' => "BASE64",
-            'group_id' => $dorm,
-            'user_id' => $_POST['id'],
+            'group_id' => $grade . $dorm,
+            'user_id' => $id,
             'quality_control' => 'LOW',
             'liveness_control' => 'NORMAL',
         );
@@ -143,7 +68,109 @@ class Face extends BaseController
         $res = $this->request_post($url, $bodys);
 
         $res = json_decode($res, true);
-        dump($res);
+        if($res['error_code'] == 0){
+            dump('Add ' . $id . ' Success!');
+        }else{
+            dump('Add ' . $id . ' Failed!');
+        }
+        
+    }
+
+    public function extract()
+    {
+        if (empty($_FILES['file'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请选择.zip压缩包！';
+            return json($return_data);
+        } else if (empty($_POST['grade'])) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } 
+
+        $file = request()->file('file');  // 上传至服务器地址
+        $info = $file->move(ROOT_PATH .'public', $_FILES['file']['name']);
+        // move_uploaded_file($_FILES['file']['tmp_name'], $_FILES['file']['name']); 
+
+        $zipName = $_FILES['file']['name'];
+
+        $grade = $_POST['grade'];
+        $toDir = $grade . 'faces';
+
+        $zip = new \ZipArchive;
+        if ($zip->open($zipName) === true) {
+            $rf = zip_open($zipName);
+            $i = 0;
+
+            if (!file_exists($toDir)) {
+                mkdir($toDir, 777, true);
+            }
+
+            while ($fr = zip_read($rf)) {
+                if (zip_entry_open($rf, $fr)) {
+
+                    $fileInfo = $zip->statIndex($i, \ZipArchive::FL_ENC_RAW);
+                    $fileName = iconv('GBK', 'UTF-8', $fileInfo['name']);
+
+                    $file_path = substr($fileName, 0, strrpos($fileName, "/")); // 压缩包父文件夹
+                    $file_name = substr($fileName, strrpos($fileName, "/") + 1, -1); // 压缩包名字
+
+                    if (!is_dir($toDir . '/' . $file_path)) {  // 父文件夹存在则新建
+                        mkdir($toDir . '/' . $file_path, 0777, true);
+                    }
+
+                    if (!is_dir($toDir . '/' . $file_name)) {  // 压缩包存在则写入
+                        $content = zip_entry_read($fr, zip_entry_filesize($fr));
+                        file_put_contents($toDir . '/' . $fileName, $content);
+                    }
+
+                    zip_entry_close($fr);
+                    $i++;
+                }
+            }
+            zip_close($rf);
+        }
+
+        $zip->close();
+
+        if (!empty($zipName)) {  // 删除压缩包
+            unlink($zipName);
+        }
+
+        $name = array();
+        if (is_dir($toDir . '/' . $file_path)) {
+            $files = scandir($toDir . '/' . $file_path);  // 遍历文件夹
+            $files = array_slice($files, 2);  // 截取文件名数组
+
+            foreach ($files as $k => $v) {  // 提取文件名信息
+                $student_id = explode("_", explode(".", $v)[0])[1];
+                $dorm = explode("_", explode(".", $v)[0])[0];
+                $name[$k]['student_id'] = $student_id;
+                $name[$k]['dorm'] = $dorm;
+                $name[$k]['file_path'] = $toDir . '/' . $file_path.'/'. $v;
+            }
+        } else{
+            $files = scandir($toDir); 
+            $files = array_slice($files, 2);
+
+            foreach ($files as $k => $v) {
+                $student_id = explode("_", explode(".", $v)[0])[1];
+                $dorm = explode("_", explode(".", $v)[0])[0];
+                $name[$k]['student_id'] = $student_id;
+                $name[$k]['dorm'] = $dorm;
+                $name[$k]['file_path'] = $toDir . '/' . $v;
+            }
+        }
+        
+        foreach($name as $k => $v){
+            $this->add_face($v['student_id'], $v['dorm'], $grade, $v['file_path']);
+        }
+        $return_data = array();
+        $return_data['error_code'] = 0;
+        $return_data['msg'] = '添加人脸库结束！';
+        return json($return_data);
     }
 
 
