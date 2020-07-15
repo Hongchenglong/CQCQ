@@ -56,7 +56,7 @@
 			</button>
 		</view>
 		<!--GitHub-->
-		<view class="cu-item arrow" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/CQCQ">
+		<view class="cu-item arrow" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/cqcq">
 			<view class="content">
 				<text class="cuIcon-github text-grey"></text>
 				<text class="text-grey">GitHub</text>

@@ -46,7 +46,7 @@ Page({
       return false;
     } else {
       wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/index/change/sendMail',
+        url: getApp().globalData.server + '/cqcq/public/index.php/api/change/sendMail',
         method: "POST",
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -159,7 +159,7 @@ Page({
       return false;
     } else {
       wx.request({
-        'url': getApp().globalData.server + '/cqcq/public/index.php/index/change/verifyModifyEmail',
+        'url': getApp().globalData.server + '/cqcq/public/index.php/api/change/verifyModifyEmail',
         //发给服务器的数据
         data: {
           id: getApp().globalData.user.id,

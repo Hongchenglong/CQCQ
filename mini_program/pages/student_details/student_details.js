@@ -8,7 +8,7 @@ Page({
     photoData: {},
     grade: "",
     department: "",
-    student_id: "",
+    dorm: "",
     triggered: false, //下拉刷新状态 关闭
     _options: null,
   },
@@ -34,7 +34,7 @@ Page({
     this.setData({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department,
-      student_id: getApp().globalData.user.id,
+      dorm: getApp().globalData.user.dorm,
       _options: options,
       photoData: {},
     })
@@ -74,12 +74,12 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/index/Checkresults/studentViewDetails',
+      url: getApp().globalData.server + '/cqcq/public/index.php/api/Checkresults/studentViewDetails',
       data: {
         grade: this.data.grade,
         department: this.data.department,
         start_time: options.time,
-        student_id: this.data.student_id,
+        dorm: this.data.dorm,
         end_time: options.endtime,
       },
       method: "POST",
@@ -196,8 +196,8 @@ Page({
     this.setData({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department,
-      student_id: getApp().globalData.user.id,
+      dorm: getApp().globalData.user.dorm,
     })
-    //console.log(this.data.student_id)
+    //console.log(this.data.dorm)
   },
 })

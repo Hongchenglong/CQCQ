@@ -39,7 +39,7 @@ Page({
       })
     } else {
       wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/index/change/changePassword',
+        url: getApp().globalData.server + '/cqcq/public/index.php/api/change/changePassword',
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded'
