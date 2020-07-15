@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>CQCQ</title>
-    <meta name="keywords" content="CQCQ">
-    <meta name="description" content="CQCQ">
+    <title>cqcq</title>
+    <meta name="keywords" content="cqcq">
+    <meta name="description" content="cqcq">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -137,8 +137,7 @@
             layer = layui.layer,
             miniAdmin = layui.miniAdmin,
             miniTongji = layui.miniTongji;
-            
-
+    
         var options = {
             iniUrl: "/CQCQ/back_end/public/json/init.json",    // 初始化接口
             clearUrl: "/CQCQ/back_end/public/json/clear.json", // 缓存清理接口
@@ -164,7 +163,7 @@
 
         $('.login-out').on("click", function () {
             layer.msg('退出登录成功', function () {
-                // window.location = '/CQCQ/back_end/public/index.php/index/login/index';
+                // window.location = '/cqcq/back_end/public/index.php/index/login/index';
                 window.location = "Index.php?s=index/Column/out";
             });
         });
