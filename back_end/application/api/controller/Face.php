@@ -76,7 +76,7 @@ class Face extends BaseController
         
     }
 
-    public function extract()
+    public function extract() // 处理人脸库
     {
         if (empty($_FILES['file'])) {
             $return_data = array();
