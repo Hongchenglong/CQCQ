@@ -74,17 +74,17 @@ class Statistics extends Face
 
             if (empty($v['photo'])) {
                 $result[$k] = array_diff(array_column($dorm[$k], 'id'), $return_data);
-                echo $v['dorm_num'] . '宿舍未上传照片！';
+                // echo $v['dorm_num'] . '宿舍未上传照片！';
                 continue;
             }
 
-            dump($v['dorm_num'] . '进行人脸识别……');
+            // dump($v['dorm_num'] . '进行人脸识别……');
             $res[$k] = $this->multi_search($v['photo'], $v['dorm_num']);  // 人脸搜索
             $res[$k] = json_decode($res[$k], true);
 
-            if ($res[$k]['error_code'] == 222207) {
-                echo $v['dorm_num'] . '人脸库中不存在该照片中用户！';
-            }
+            // if ($res[$k]['error_code'] == 222207) {
+            //     echo $v['dorm_num'] . '人脸库中不存在该照片中用户！';
+            // }
 
             if (!empty($res[$k]['result'])) {
                 foreach ($res[$k]['result']['face_list'] as $key => $value) {

@@ -103,6 +103,28 @@ class Record extends BaseController
                     // 如果不存在该文件则将文件上传到 upload 目录下（将临时文件移动到 upload 下以新文件名命名）
                     // move_uploaded_file($_FILES['file']['tmp_name'], "upload/" . $day . '/' . $new_name);
 
+                    $where = array();
+                    $where['grade'] = $_POST['grade'];
+                    $where['department'] = $_POST['department'];
+                    $where['dorm_num'] = $_POST['dorm_num'];
+                    $where['rand_num'] = $_POST['rand_num'];
+                    $where['grade'] = $_POST['grade'];
+                    $where['start_time'] = $_POST['start_time'];
+                    $where['end_time'] = $_POST['end_time'];
+
+                    $photo = Db('record')
+                        ->alias('r')    // 别名
+                        ->field('r.photo')
+                        ->join('dorm d', 'd.id = r.dorm_id')
+                        ->join('student s', 's.dorm = d.dorm_num')
+                        ->where($where)
+                        ->where('deleted', 0)
+                        ->find();
+                        
+                    if(!empty($photo['photo'])){
+                        unlink($photo['photo']);
+                    }
+
                     //本地测试
                     $file = request()->file('file');
                     $info = $file->move(ROOT_PATH . 'public' . DS . 'upload' . DS . $day, $new_name);

@@ -279,7 +279,16 @@ class Draw extends BaseController
             $data['rand_num'] = $rand_num[$i];
             $data['start_time'] = $_POST['start_time'];
             $data['end_time'] = $_POST['end_time'];
-            $result = Db::table('record')->insert($data);
+            $record_id = Db::table('record')->insertGetId($data);
+
+            // 用dorm_id找到宿舍号，再用宿舍号到学生表中找该宿舍的学生学号
+            $dorm_num = db('dorm')->field('dorm_num')->where('id', '=', $data['dorm_id'])->find();
+            $students = db('student')->field('id')->where(['dorm' => $dorm_num['dorm_num']])->select();
+            // 将找到的学号和记录号依次插入到result表中
+            $cnt = sizeof($students);
+            for ($j = 0; $j < $cnt; $j++) {
+                $result = db('result')->insert(['record_id' => $record_id, 'student_id' => $students[$j]['id']]);
+            }
         }
 
         if ($result) {
