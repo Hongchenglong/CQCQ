@@ -50,5 +50,20 @@ class BaseController extends Controller
         return $data;
     }
 
+    public function get_token() //获取access_token
+    {
+        $url = 'https://aip.baidubce.com/oauth/2.0/token';
+        $post_data['grant_type']       = 'client_credentials';
+        $post_data['client_id']      = 'GCjHu7F1LGrE2Dq1wm19rKGo';
+        $post_data['client_secret'] = 'TBLg5ROb7wvpLAk4gIOzM5VhWE2Hv48S';
+        $o = "";
+        foreach ($post_data as $k => $v) {
+            $o .= "$k=" . urlencode($v) . "&";
+        }
+        $post_data = substr($o, 0, -1);
 
+        $res = $this->request_post($url, $post_data);
+        $res = json_decode($res, true);
+        return $res['access_token'];
+    }
 }
