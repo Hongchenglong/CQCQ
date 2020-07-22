@@ -1,0 +1,591 @@
+---------------------------------------------------------------
+[ 2020-04-07T10:21:14+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [0]致命错误: Function name must be a string
+---------------------------------------------------------------
+[ 2020-04-07T10:21:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [0]致命错误: Function name must be a string
+---------------------------------------------------------------
+[ 2020-04-07T10:22:34+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [0]致命错误: Function name must be a string
+---------------------------------------------------------------
+[ 2020-04-07T10:22:35+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [0]致命错误: Function name must be a string
+---------------------------------------------------------------
+[ 2020-04-07T10:22:36+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [0]致命错误: Function name must be a string
+---------------------------------------------------------------
+[ 2020-04-07T10:31:47+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.026328s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001776s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030933' LIMIT 1 [ RunTime:0.000288s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'uid' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-07T10:32:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:32:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:33:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:33:34+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:34:07+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:34:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:34:32+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:34:33+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:36:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:36:55+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:36:57+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:38:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:38:25+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:38:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:42:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:42:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:42:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:42:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T10:42:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-04-07T11:00:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002640s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001798s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000379s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000216s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'uid' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-07T11:00:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001859s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001365s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000231s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'uid' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-07T11:01:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001887s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001312s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000188s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'uid' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-07T11:02:00+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004138s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001107s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000220s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'uid' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-07T11:02:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002394s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001138s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000222s ]
+---------------------------------------------------------------
+[ 2020-04-07T11:02:54+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002364s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001116s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000243s ]
+[ error ] [2]PDO::lastInsertId() expects parameter 1 to be string, array given
+---------------------------------------------------------------
+[ 2020-04-07T11:05:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004561s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.002378s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000660s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000768s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-07T11:05:02+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001898s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000931s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000310s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-07T11:05:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001793s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001293s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000274s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-07T11:05:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002377s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001406s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000355s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000281s ]
+[ sql ] [ SQL ] INSERT INTO `user` (`username` , `phone` , `email` , `password`) VALUES ('中二#203' , '17720762997' , '8' , '202cb962ac59075b964b07152d234b70') [ RunTime:0.000563s ]
+---------------------------------------------------------------
+[ 2020-04-07T11:06:23+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001958s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001325s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '8' LIMIT 1 [ RunTime:0.000449s ]
+---------------------------------------------------------------
+[ 2020-04-07T11:06:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001652s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000980s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '84' LIMIT 1 [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000219s ]
+---------------------------------------------------------------
+[ 2020-04-07T11:06:34+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001938s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001227s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `email` = '84' LIMIT 1 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762994' LIMIT 1 [ RunTime:0.000296s ]
+[ sql ] [ SQL ] INSERT INTO `user` (`username` , `phone` , `email` , `password`) VALUES ('中二#203' , '17720762994' , '84' , '202cb962ac59075b964b07152d234b70') [ RunTime:0.000539s ]
+---------------------------------------------------------------
+[ 2020-04-07T11:08:58+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001763s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001350s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762994' LIMIT 1 [ RunTime:0.000472s ]
+[ error ] [8]未定义数组索引: id
+---------------------------------------------------------------
+[ 2020-04-07T11:09:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001754s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000874s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762994' LIMIT 1 [ RunTime:0.000393s ]
+[ error ] [8]未定义数组索引: id
+---------------------------------------------------------------
+[ 2020-04-07T11:09:36+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001934s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001413s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762994' LIMIT 1 [ RunTime:0.000399s ]
+[ error ] [8]未定义数组索引: id
+---------------------------------------------------------------
+[ 2020-04-07T11:10:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002940s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001631s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762994' LIMIT 1 [ RunTime:0.000460s ]
+---------------------------------------------------------------
+[ 2020-04-07T20:52:35+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ error ] [8]未定义数组索引: block
+---------------------------------------------------------------
+[ 2020-04-07T20:54:41+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-04-07T20:54:53+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-04-07T20:54:54+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-04-07T20:54:55+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-04-07T20:55:36+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-04-07T20:56:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-04-07T20:56:02+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-04-07T20:56:09+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-04-07T20:56:59+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002550s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001892s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#203' LIMIT 1 [ RunTime:0.000529s ]
+---------------------------------------------------------------
+[ 2020-04-07T20:58:46+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize?block=%E4%B8%AD%E4%BA%8C
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002828s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001802s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000544s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:13+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002358s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001492s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000498s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:18+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001937s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001711s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000495s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:18+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001817s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000858s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000348s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:20+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011112s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001155s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000370s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:20+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001818s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001057s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000298s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:21+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006830s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001669s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000442s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:22+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001918s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001026s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000412s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:22+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001680s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001229s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000429s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001544s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000736s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000297s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:25+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001675s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001195s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000535s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:25+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001740s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000857s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000443s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:26+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001692s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001246s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000377s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:27+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001810s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000869s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000370s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:27+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002252s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000852s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000296s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002332s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.002142s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000536s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001633s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001474s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000454s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011143s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000891s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000366s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002529s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000944s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000436s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003044s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001305s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000444s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:15:59+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002690s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.002325s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000400s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:16:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003156s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001126s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000402s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002330s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001851s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000390s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:20+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002422s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000820s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000283s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:20+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002025s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001146s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000500s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:21+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002364s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001374s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000446s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:22+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002076s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001429s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000396s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:22+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001957s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001154s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000351s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:23+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002007s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001170s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000399s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001726s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000786s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000283s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002239s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001450s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000412s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:25+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011909s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000767s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000290s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:25+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001704s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001342s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000889s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:25+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001838s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000813s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000276s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:26+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001616s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001028s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000319s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:27+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002168s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001781s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.001164s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001742s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000916s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000276s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001578s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001323s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000365s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001587s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000966s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000373s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001819s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000730s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000268s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002590s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001119s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#204' LIMIT 1 [ RunTime:0.000388s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:18:53+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002469s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001091s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#203' LIMIT 1 [ RunTime:0.000423s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:19:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001793s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001010s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#203' LIMIT 1 [ RunTime:0.000419s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:19:18+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002033s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001068s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `dormNumber` = '中二#203' LIMIT 1 [ RunTime:0.000415s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:32:46+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002526s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) from dorm [ RunTime:0.000470s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:33:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002502s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) from dorm [ RunTime:0.000433s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:33:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003266s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) from dorm [ RunTime:0.000343s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:33:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001811s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) from dorm [ RunTime:0.000378s ]
+[ error ] [8]Array to string conversion
+---------------------------------------------------------------
+[ 2020-04-07T21:33:50+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001613s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) from dorm [ RunTime:0.000295s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:34:52+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002915s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000397s ]
+[ error ] [8]未定义数组索引: cnt
+---------------------------------------------------------------
+[ 2020-04-07T21:35:00+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002169s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000460s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:35:12+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001551s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000342s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:35:14+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011896s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000773s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:35:58+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002017s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000361s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:00+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001670s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000308s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001785s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000360s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003734s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000575s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:02+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011810s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000358s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001706s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000359s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002203s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000381s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:25+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001992s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000354s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:26+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011328s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000514s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:27+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001671s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000434s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006235s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000467s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001564s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000320s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002859s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000425s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001781s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000308s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:31+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002018s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000342s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:31+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002309s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000362s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:32+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001757s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000350s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:39+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001843s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000320s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:36:39+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001726s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000294s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:41:07+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002654s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000489s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001018s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  (  id = 1 ) LIMIT 1 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  (  id = 5 ) LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  (  id = 6 ) LIMIT 1 [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  (  id = 4 ) LIMIT 1 [ RunTime:0.000305s ]
+---------------------------------------------------------------
+[ 2020-04-07T21:48:13+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002861s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001150s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `id` = 1  AND `sex` = '男' LIMIT 1 [ RunTime:0.000449s ]
+[ error ] [8]未定义数组下标: 1
+---------------------------------------------------------------
+[ 2020-04-07T21:48:50+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002389s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `id` = 5  AND `sex` = '男' LIMIT 1 [ RunTime:0.000397s ]
+[ error ] [8]未定义数组下标: 5
+---------------------------------------------------------------
+[ 2020-04-07T21:48:52+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002297s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000366s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000889s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `id` = 5  AND `sex` = '男' LIMIT 1 [ RunTime:0.000360s ]
+[ error ] [8]未定义数组下标: 5
+---------------------------------------------------------------
+[ 2020-04-07T21:49:18+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002350s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] select count(*) as cnt from dorm [ RunTime:0.000433s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001177s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `id` = 1  AND `sex` = '男' LIMIT 1 [ RunTime:0.000429s ]
+[ error ] [8]未定义数组下标: 1

@@ -1,0 +1,372 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:83:"D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html";i:1594866195;}*/ ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CQCQ</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/cqcq/back_end/public/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="/cqcq/back_end/public/css/public.css" media="all">
+    <style>
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layuimini-container">
+        <div class="layuimini-main">
+
+            <fieldset class="table-search-fieldset">
+                <legend>搜索信息</legend>
+                <div style="margin: 10px 10px 10px 10px">
+                    <!-- ***********查找模块************* -->
+                    <form class="layui-form layui-form-pane" action="index.php?s=index/Table/find_info" , method="post"
+                        ,enctype="application/x-www-form-urlencoded" name="loginForm">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">学号</label>
+                                <div class="layui-input-inline">
+                                    <input type="number" name="id" class="layui-input"
+                                        oninput="if(value.length>9)value=value.slice(0,3)">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <button type="submit" class="layui-btn layui-btn-primary" lay-submit
+                                    lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </fieldset>
+
+            <script type="text/html" id="toolbarDemo">
+            <div class="layui-btn-container">
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
+                <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete_mul"> 删除 </button>
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="input_file" style="background-color:#1aa094; "> 
+                    导入 
+                </button>
+            </div>
+        </script>
+
+            <table class="layui-hide" id="testReload" lay-filter="currentTableFilter"></table>
+
+            <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-normal layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+        </script>
+        </div>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------------------------- -->
+    <script src="/cqcq/back_end/public/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+
+    <script>
+        layui.use(['form', 'table', 'upload'], function () {
+
+            var $ = layui.jquery,
+                form = layui.form,
+                table = layui.table;
+            upload = layui.upload;
+
+            //用全局变量存放当前表格中的全部数据
+            var table_data = new Array();
+            // 存放每页多少个数据
+            var table_limit = '';
+
+
+            table.render({
+                elem: '#testReload',
+                id: 'testReload',
+                url: '/cqcq/back_end/public/index.php/index/Table/informations',
+                toolbar: '#toolbarDemo',
+                defaultToolbar: ['filter', 'exports', 'print', {
+                    title: '提示',
+                    layEvent: 'LAYTABLE_TIPS',
+                    icon: 'layui-icon-tips'
+                }],
+                cols: [[
+                    { type: "checkbox", width: 70 },
+                    { field: "id", title: '学号', maxWidth: 100, sort: true },
+                    { field: 'username', maxWidth: 100, title: '用户名' },
+                    { field: 'department', maxWidth: 130, title: '系别' },
+                    { field: 'grade', maxWidth: 100, title: '年级', sort: true },
+                    { field: 'sex', maxWidth: 100, title: '性别', sort: true },
+                    { field: 'dorm', maxWidth: 100, title: '宿舍号', sort: true },
+                    { field: 'phone', maxWidth: 120, title: '手机号' },
+                    { field: 'email', maxWidth: 200, title: '邮箱' },
+                    { title: '操作', maxWidth: 100, toolbar: '#currentTableBar', align: "center" }
+                ]],
+                limits: [3, 5, 10, 20],
+                limit: 5,
+                page: true,  //开启分页
+                first: "首页", //显示首页
+                last: "尾页", //显示尾页
+                totalRow: true,
+                parseData: function (res) { //将原始数据解析成 table 组件所规定的数据，res为从url中get到的数据
+                    var result;
+                    table_data = res.data;//设置全部数据到全局变量
+                    table_limit = this.limit //获取每页多少个数据
+
+                    // console.log(this);
+                    // console.log(JSON.stringify(res));
+                    if (this.page.curr) {
+                        result = res.data.slice(this.limit * (this.page.curr - 1), this.limit * this.page.curr);
+                    }
+                    else {
+                        result = res.data.slice(0, this.limit);
+                    }
+                    return {
+                        "code": res.code, //解析接口状态
+                        "msg": res.msg, //解析提示文本
+                        "count": res.count, //解析数据长度
+                        "data": result //解析数据列表
+                    };
+                },
+
+                // done:function(res){
+                //     //设置全部数据到全局变量
+                //     // table_data=res.data;
+                //     // console.log(res.data)
+                // }
+            });
+
+
+            // 监听搜索操作
+            form.on('submit(data-search-btn)', function (data) {
+                table.render({
+                    cols: [[
+                        { type: "checkbox", width: 70 },
+                        { field: "id", title: '学号', maxWidth: 100, sort: true },
+                        { field: 'username', maxWidth: 100, title: '用户名' },
+                        { field: 'department', maxWidth: 130, title: '系别' },
+                        { field: 'grade', maxWidth: 100, title: '年级', sort: true },
+                        { field: 'sex', maxWidth: 100, title: '性别', sort: true },
+                        { field: 'dorm', maxWidth: 100, title: '宿舍号', sort: true },
+                        { field: 'phone', maxWidth: 120, title: '手机号' },
+                        { field: 'email', maxWidth: 200, title: '邮箱' },
+                        { title: '操作', maxWidth: 100, toolbar: '#currentTableBar', align: "center" }
+                    ]],
+                });
+                if (data.field.id == '') {
+                    layer.alert("请输入学号", {
+                        title: '提示：',
+                        btnAlign: 'c' //按钮居中
+                    });  //无输入情况
+                }
+                else {
+                    var request = new XMLHttpRequest();//建立request请求
+                    request.open('post', 'index.php?s=index/table/find_info');//发送对象是Table.php 发送post
+                    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');//请求头 默认即可
+                    request.send("id=" + data.field.id);
+                    request.onreadystatechange = function () {
+                        if (request.readyState == 4 && (request.status == 200 || request.status == 304)) {
+                            if (request.response == '查无该学号') {
+                                layer.alert(request.response, {
+                                    title: '提示:',
+                                    btnAlign: 'c' //按钮居中
+                                });
+                            } else {
+                                var id = '';
+                                var sex = '';
+                                var grade = '';
+                                var dorm = '';
+                                var phone = '';
+                                var department = '';
+                                var email = '';
+                                var st_data = request.response;
+                                var result = st_data.substring(1, st_data.length - 1).split(',');
+                                for (i = 0; i < result.length; i++) {
+                                    var data = result[i].split(':')
+                                    if (data[0] == '"id"') {
+                                        id = data[1];
+                                    } else if (data[0] == '"sex"') {
+                                        sex = data[1].split('"')[1];
+                                    } else if (data[0] == '"phone"') {
+                                        phone = data[1].split('"')[1];
+                                    } else if (data[0] == '"grade"') {
+                                        grade = data[1];
+                                    } else if (data[0] == '"department"') {
+                                        department = data[1].split('"')[1];
+                                    } else if (data[0] == '"dorm"') {
+                                        dorm = data[1].split('"')[1];
+                                    } else if (data[0] == '"email"') {
+                                        email = data[1].split('"')[1];
+                                    } else {
+                                        console.log("false");
+                                    }
+                                }
+                                // var reault_data =
+                                //     [
+                                //         { "学号": id },
+                                //         { "性别": sex },
+                                //         { "手机号": phone },
+                                //         { "年级": grade },
+                                //         { "邮箱": email },
+                                //         { "系别": department },
+                                //         { "宿舍号": dorm },
+                                //     ];
+                                // console.log(reault_data);
+                                var message = '系别：' + department + '<br>' + '年级：' + grade + '<br>' + '学号：' + id + '<br>' + '性别：' + sex + '<br>'
+                                    + '邮箱：' + email + '<br>' + '宿舍号：' + dorm + '<br>' + '手机号码：' + phone;
+                                layer.alert(message, {
+                                    title: '最终的搜索信息:',
+                                    btnAlign: 'c' //按钮居中
+                                });
+
+                                //执行搜索重载
+                                var currpage = '';
+                                for (var i = 0; i < table_data.length; i++) {
+                                    if (table_data[i].id == id) {
+                                        currpage = i / table_limit + 1  //获取搜索到的数据所在的那一页页号
+                                    }
+                                }
+
+                                table.reload('testReload', {
+                                    page: {
+                                        curr: currpage
+                                    }
+                                    , where: {
+                                        'id': id
+                                    }
+                                }, 'data');
+
+                            }
+
+                        }
+                    }
+                }
+
+                return false;  //设置后不会跳转到一个新的页面
+            });
+
+            /**
+             * toolbar监听事件
+             */
+            table.on('toolbar(currentTableFilter)', function (obj) {
+                if (obj.event === 'add') {  // 监听添加操作
+                    var index = layer.open({
+                        title: '添加用户',
+                        type: 2,
+                        shade: 0.2,
+                        maxmin: true,
+                        shadeClose: true,
+                        area: ['55%', '95%'],
+                        content: '../table/add/add.html',
+                        cancel: function (index, layero) {   //关闭窗口后实现页面刷新
+                            location.reload();
+                            // var add_page = table_data.length / table_limit + 1;
+                            // table.reload('testReload', {
+                            //     page: {
+                            //         curr: add_page
+                            //     }
+                            // });
+                        },
+                    });
+
+                    $(window).on("resize", function () {
+                        layer.full(index);
+                    });
+
+                } else if (obj.event === 'delete_mul') {  // 监听批量删除操作
+                    var checkStatus = table.checkStatus('testReload')
+                        , data = checkStatus.data;
+                    // layer.alert(JSON.stringify(data[0].id));
+                    var student_id = "";
+                    for (var item in data) {
+                        student_id += JSON.stringify(data[item].id) + "_";
+                    }
+                    window.location = "index.php?s=index/table/delete&student_id=" + student_id;
+                } else if (obj.event === 'input_file') {  // 监听导入操作
+                    var index = layer.open({
+                        title: '导入文件',
+                        type: 2,
+                        shade: 0.2,
+                        maxmin: true,
+                        shadeClose: true,
+                        area: ['35%', '25%'],
+                        content: '../table/file/file.html',
+                        cancel: function (index, layero) {   //关闭窗口后实现页面刷新
+                            location.reload();
+                        },
+                    });
+                }
+
+
+            });
+
+            //监听表格复选框选择
+            table.on('checkbox(currentTableFilter)', function (obj) {
+                // console.log(obj)
+            });
+
+            table.on('tool(currentTableFilter)', function (obj) {
+                // var st_data = obj.data;
+                var st_id = obj.data.id;
+                var st_username = obj.data.username;
+                var st_grade = obj.data.grade;
+                var st_department = obj.data.department;
+                var st_dorm = obj.data.dorm;
+                var st_sex = obj.data.sex;
+                var st_phone = obj.data.phone;
+                var st_email = obj.data.email;
+                // console.log(obj.data);
+                if (obj.event === 'edit') { // 监听更新（编辑）操作
+                    var index = layer.open({
+                        title: '编辑用户',
+                        type: 2,
+                        shade: 0.2,
+                        maxmin: true,
+                        shadeClose: true,
+                        area: ['55%', '90%'],
+                        content: '../table/edit/edit.html?st_id=' + st_id + '&st_username=' + escape(st_username) + '&st_grade=' + st_grade + '&st_phone=' + st_phone +
+                            '&st_department=' + escape(st_department) + '&st_dorm=' + escape(st_dorm) + '&st_sex=' + escape(st_sex) + '&st_email=' + st_email,
+                        cancel: function (index, layero) {   //关闭窗口后实现页面刷新显示更新数据，并返回当前条所在的页面
+                            // location.reload();
+                            // layer.close(index);
+                            var edit_page = '';
+                            for (var i = 0; i < table_data.length; i++) {
+                                if (table_data[i].id == st_id) {
+                                    edit_page = i / table_limit + 1  //获取搜索到的数据所在的那一页页号
+                                }
+                            }
+
+                            table.reload('testReload', {
+                                page: {
+                                    curr: edit_page
+                                }
+                            });
+                        },
+                    });
+                    $(window).on("resize", function () {
+                        // layer.full(index);
+                    });
+                    return false;
+                } else if (obj.event === 'delete') {
+                    layer.confirm('确定删除该学生信息吗？', function (index) {
+                        obj.del();
+                        layer.close(index);
+                        var student_id = JSON.stringify(obj.data.id);
+                        window.location = "index.php?s=index/table/delete&student_id=" + student_id;
+                    });
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

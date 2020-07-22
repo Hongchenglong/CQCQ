@@ -1,0 +1,114 @@
+---------------------------------------------------------------
+[ 2020-05-04T08:16:00+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.038668s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.046636s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `start_time` = '2020-04-20 00:00:00' [ RunTime:0.120622s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:18:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002833s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001204s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0  AND `r`.`confirmed` = 1 [ RunTime:0.001712s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:18:34+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002859s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001918s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0  AND `r`.`confirmed` = 1 [ RunTime:0.001708s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:37:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayCurrentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003434s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001901s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.012208s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:38:06+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayCurrentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003081s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001822s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.004335s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:38:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayCurrentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003025s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001761s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.004729s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:41:23+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayCurrentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003859s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.002166s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `end_time` <  '2020-05-04 08:41:23' [ RunTime:0.002029s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:41:32+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayCurrentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002431s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001773s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `end_time` >  '2020-05-04 08:41:32' [ RunTime:0.001761s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:41:59+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayCurrentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002994s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001780s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `end_time` >  '2020-05-04 08:41:59' [ RunTime:0.002103s ]
+---------------------------------------------------------------
+[ 2020-05-04T08:50:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayCurrentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002490s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001619s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `end_time` >  '2020-05-04 08:50:19' [ RunTime:0.001761s ]
+---------------------------------------------------------------
+[ 2020-05-04T09:44:50+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/forget/sendSms
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006971s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.004342s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000555s ]
+---------------------------------------------------------------
+[ 2020-05-04T10:29:13+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:29:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:30:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:30:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:30:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:30:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:30:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:30:27+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:30:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:31:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:31:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:31:43+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:31:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/index/test
+[ error ] [0]致命错误: Call to undefined function app\index\controller\sendSms()
+---------------------------------------------------------------
+[ 2020-05-04T10:35:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/forget/sendSms
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008064s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.003818s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000537s ]
+---------------------------------------------------------------
+[ 2020-05-04T12:06:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/forget/sendSms
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006917s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.003922s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `phone` = '17720762997' LIMIT 1 [ RunTime:0.000654s ]
+---------------------------------------------------------------
+[ 2020-05-04T16:41:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.221103s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.040972s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0 [ RunTime:0.111665s ]
+---------------------------------------------------------------
+[ 2020-05-04T16:42:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002171s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001261s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0 [ RunTime:0.001504s ]

@@ -1,0 +1,443 @@
+---------------------------------------------------------------
+[ 2020-04-06T10:27:43+08:00 ] 0.0.0.0 GET localhost:8080/treehole_tp5/public/index.php
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ';'
+---------------------------------------------------------------
+[ 2020-04-06T10:27:48+08:00 ] 0.0.0.0 GET localhost:8080/treehole_tp5/public/index.php
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ';'
+---------------------------------------------------------------
+[ 2020-04-06T10:27:49+08:00 ] 0.0.0.0 GET localhost:8080/treehole_tp5/public/index.php
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ';'
+---------------------------------------------------------------
+[ 2020-04-06T10:28:49+08:00 ] 0.0.0.0 GET localhost:8080/treehole_tp5/public/index.php
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-04-06T10:28:51+08:00 ] 0.0.0.0 GET localhost:8080/treehole_tp5/public/index.php
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-04-06T10:28:58+08:00 ] 0.0.0.0 GET localhost:8080/treehole_tp5/public/index.php/index/index
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-04-06T10:41:42+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007281s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.122396s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '17720762999' LIMIT 1 [ RunTime:0.000785s ]
+---------------------------------------------------------------
+[ 2020-04-06T10:42:02+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: username
+---------------------------------------------------------------
+[ 2020-04-06T10:42:53+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: username
+---------------------------------------------------------------
+[ 2020-04-06T10:43:04+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: phone
+---------------------------------------------------------------
+[ 2020-04-06T10:43:30+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: phone
+---------------------------------------------------------------
+[ 2020-04-06T10:43:43+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: phone
+---------------------------------------------------------------
+[ 2020-04-06T10:44:06+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: phone
+---------------------------------------------------------------
+[ 2020-04-06T10:44:08+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: phone
+---------------------------------------------------------------
+[ 2020-04-06T10:44:42+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: phone
+---------------------------------------------------------------
+[ 2020-04-06T10:44:44+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: phone
+---------------------------------------------------------------
+[ 2020-04-06T10:44:59+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ error ] [8]未定义数组索引: phone
+---------------------------------------------------------------
+[ 2020-04-06T10:47:21+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003328s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.008329s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000570s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:47:59+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002698s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.007109s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000488s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:48:00+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002496s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.004003s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000457s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:48:01+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002665s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006343s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000449s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:48:21+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002315s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.003948s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000411s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:48:22+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002302s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.005852s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000338s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:48:23+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002698s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.007165s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000446s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:48:33+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002455s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006484s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000496s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:49:01+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002428s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.004532s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000362s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:49:02+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.004605s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000426s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:49:28+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002248s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.004582s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000414s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T10:49:30+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002468s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.004649s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000380s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:11:22+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002919s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.005035s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000499s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:11:48+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002333s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.004623s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000339s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:12:19+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002360s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006685s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000478s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:12:57+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011791s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000944s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000412s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:16:15+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002902s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001306s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000468s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:16:18+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002118s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001030s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000372s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:16:31+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002560s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001291s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000380s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:16:32+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002270s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000795s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000314s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:16:45+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005995s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001186s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000405s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:16:46+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012350s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001383s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000511s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:16:59+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002372s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001050s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000326s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:17:35+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002133s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000994s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000349s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:17:46+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002150s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001003s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000304s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:17:54+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011880s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001273s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000457s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:19:10+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002191s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001064s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000317s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:19:11+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001987s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001060s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000354s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:19:29+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002435s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001150s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] INSERT INTO `user` (`username` , `phone` , `password` , `face_url`) VALUES ('aha?' , '15359030939' , '202cb962ac59075b964b07152d234b70' , '123.jpg') [ RunTime:0.084690s ]
+---------------------------------------------------------------
+[ 2020-04-06T11:22:06+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002357s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000752s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030939' LIMIT 1 [ RunTime:0.000318s ]
+---------------------------------------------------------------
+[ 2020-04-06T11:22:12+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011720s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001240s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030931' LIMIT 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] INSERT INTO `user` (`username` , `phone` , `password`) VALUES ('aha?' , '15359030931' , '202cb962ac59075b964b07152d234b70') [ RunTime:0.077924s ]
+[ error ] [8]未定义数组索引: face_url
+---------------------------------------------------------------
+[ 2020-04-06T11:22:47+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002625s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001210s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030931' LIMIT 1 [ RunTime:0.000413s ]
+---------------------------------------------------------------
+[ 2020-04-06T11:22:59+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002144s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001115s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030932' LIMIT 1 [ RunTime:0.000342s ]
+[ sql ] [ SQL ] INSERT INTO `user` (`username` , `phone` , `password`) VALUES ('aha?' , '15359030932' , '202cb962ac59075b964b07152d234b70') [ RunTime:0.076885s ]
+---------------------------------------------------------------
+[ 2020-04-06T11:23:51+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002545s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001495s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030933' LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] INSERT INTO `user` (`username` , `phone` , `password`) VALUES ('aha?' , '15359030933' , '202cb962ac59075b964b07152d234b70') [ RunTime:0.083709s ]
+---------------------------------------------------------------
+[ 2020-04-06T17:28:39+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015529s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.037413s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030933' LIMIT 1 [ RunTime:0.001499s ]
+---------------------------------------------------------------
+[ 2020-04-06T17:38:04+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/publish_new_message
+[ error ] [8]未定义变量: User
+---------------------------------------------------------------
+[ 2020-04-06T17:38:45+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/publish_new_message
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002411s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.031753s ]
+[ sql ] [ SQL ] INSERT INTO `message` (`user_id` , `username` , `face_url` , `content` , `total_likes` , `send_timestamp`) VALUES (2 , 'aha?' , '123.jpg' , 'hello, world!' , 0 , 1586165925) [ RunTime:0.030224s ]
+---------------------------------------------------------------
+[ 2020-04-06T17:41:13+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_all_messages
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002962s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.006986s ]
+[ sql ] [ SQL ] SELECT * FROM `message` ORDER BY `id` DESC [ RunTime:0.000537s ]
+---------------------------------------------------------------
+[ 2020-04-06T17:56:04+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:56:16+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_all_messages
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003155s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.007505s ]
+[ sql ] [ SQL ] SELECT * FROM `message` ORDER BY `id` DESC [ RunTime:0.000421s ]
+---------------------------------------------------------------
+[ 2020-04-06T17:56:49+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_all_messages
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001845s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.004497s ]
+[ sql ] [ SQL ] SELECT * FROM `message` ORDER BY `id` DESC [ RunTime:0.000456s ]
+---------------------------------------------------------------
+[ 2020-04-06T17:56:59+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:57:28+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:57:29+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:57:30+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:57:52+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:57:54+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:58:09+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:58:10+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:58:24+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ error ] [8]未定义数组索引: user_id
+---------------------------------------------------------------
+[ 2020-04-06T17:59:52+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/get_one_user_all_messages
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002933s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.006361s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `user_id` = 2 [ RunTime:0.000786s ]
+---------------------------------------------------------------
+[ 2020-04-06T18:01:43+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ error ] [8]未定义数组索引: message_id
+---------------------------------------------------------------
+[ 2020-04-06T18:02:42+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002319s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.005836s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000438s ]
+---------------------------------------------------------------
+[ 2020-04-06T18:02:46+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002530s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.006866s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000608s ]
+[ error ] [0]method not exist:think\db\Query->save
+---------------------------------------------------------------
+[ 2020-04-06T18:02:52+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002557s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.005540s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 3 LIMIT 1 [ RunTime:0.000387s ]
+[ error ] [0]method not exist:think\db\Query->save
+---------------------------------------------------------------
+[ 2020-04-06T18:02:56+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002357s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.006155s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000401s ]
+---------------------------------------------------------------
+[ 2020-04-06T18:03:40+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002604s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.005921s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000417s ]
+---------------------------------------------------------------
+[ 2020-04-06T18:03:43+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002293s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.005675s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000420s ]
+[ error ] [0]method not exist:think\db\Query->save
+---------------------------------------------------------------
+[ 2020-04-06T18:04:26+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002081s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.004988s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000489s ]
+[ error ] [0]method not exist:think\db\Query->save
+---------------------------------------------------------------
+[ 2020-04-06T18:04:30+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002495s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.005624s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000478s ]
+[ error ] [0]method not exist:think\db\Query->save
+---------------------------------------------------------------
+[ 2020-04-06T18:04:31+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001808s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.005449s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000477s ]
+[ error ] [0]method not exist:think\db\Query->save
+---------------------------------------------------------------
+[ 2020-04-06T18:04:54+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002948s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.006851s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000565s ]
+[ error ] [0]method not exist:think\db\Query->save
+---------------------------------------------------------------
+[ 2020-04-06T18:05:19+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002326s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.003751s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000419s ]
+[ error ] [0]method not exist:think\db\Query->save
+---------------------------------------------------------------
+[ 2020-04-06T18:05:57+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001898s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000379s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'user_id' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-06T18:05:59+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001897s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000921s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000332s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'user_id' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-06T18:06:31+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012209s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001659s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000418s ]
+[ error ] [10501]SQLSTATE[HY000]: General error: 1364 Field 'user_id' doesn't have a default value
+---------------------------------------------------------------
+[ 2020-04-06T18:08:13+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001998s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001172s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000332s ]
+[ sql ] [ SQL ] UPDATE `message`  SET `total_likes`=1  WHERE  `id` = 2 [ RunTime:0.035375s ]
+---------------------------------------------------------------
+[ 2020-04-06T18:08:17+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/do_like
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002449s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.001193s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000433s ]
+[ sql ] [ SQL ] UPDATE `message`  SET `total_likes`=2  WHERE  `id` = 2 [ RunTime:0.077113s ]
+---------------------------------------------------------------
+[ 2020-04-06T18:10:01+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/message/delete_specific_message
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002465s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `message` [ RunTime:0.000880s ]
+[ sql ] [ SQL ] SELECT * FROM `message` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000428s ]
+[ sql ] [ SQL ] DELETE FROM `message`    WHERE  `id` = 2 [ RunTime:0.101148s ]
+---------------------------------------------------------------
+[ 2020-04-06T20:09:08+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003145s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.005701s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030933' LIMIT 1 [ RunTime:0.000516s ]
+---------------------------------------------------------------
+[ 2020-04-06T20:09:19+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002370s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006017s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030934' LIMIT 1 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] INSERT INTO `user` (`username` , `phone` , `password`) VALUES ('oeong666' , '15359030934' , '202cb962ac59075b964b07152d234b70') [ RunTime:0.077670s ]
+---------------------------------------------------------------
+[ 2020-04-06T20:10:36+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002488s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.006055s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030934' LIMIT 1 [ RunTime:0.000421s ]
+---------------------------------------------------------------
+[ 2020-04-06T20:10:42+08:00 ] 0.0.0.0 POST localhost:8080/treehole_tp5/public/index.php/index/user/sign
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001635s ] mysql:host=127.0.0.1;dbname=treehole;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000749s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `phone` = '15359030935' LIMIT 1 [ RunTime:0.000376s ]
+[ sql ] [ SQL ] INSERT INTO `user` (`username` , `phone` , `password`) VALUES ('oeong666' , '15359030935' , '202cb962ac59075b964b07152d234b70') [ RunTime:0.077057s ]

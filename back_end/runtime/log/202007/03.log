@@ -1,0 +1,2155 @@
+---------------------------------------------------------------
+[ 2020-07-03T22:52:44+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.053753s] [吞吐率：18.60req/s] [内存消耗：1,327.69kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:52:46+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/page/welcome-1.html?t=1
+[运行时间：0.064004s] [吞吐率：15.62req/s] [内存消耗：1,149.37kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'page',
+    2 => 'welcome-1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  't' => '1',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:52:46+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.077792s] [吞吐率：12.85req/s] [内存消耗：1,337.38kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:52:47+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.083516s] [吞吐率：11.97req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:52:47+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.115460s] [吞吐率：8.66req/s] [内存消耗：2,073.18kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002521s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.002738s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.001019s ]
+---------------------------------------------------------------
+[ 2020-07-03T22:55:04+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.104553s] [吞吐率：9.56req/s] [内存消耗：1,327.75kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:55:06+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/page/welcome-1.html?t=1
+[运行时间：0.062960s] [吞吐率：15.88req/s] [内存消耗：1,149.37kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'page',
+    2 => 'welcome-1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  't' => '1',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:55:07+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.152534s] [吞吐率：6.56req/s] [内存消耗：1,337.38kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:55:07+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.151270s] [吞吐率：6.61req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:55:08+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.141391s] [吞吐率：7.07req/s] [内存消耗：2,073.18kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002301s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.004801s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.002757s ]
+---------------------------------------------------------------
+[ 2020-07-03T22:58:09+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.073100s] [吞吐率：13.68req/s] [内存消耗：1,327.75kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:58:10+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/page/welcome-1.html?t=1
+[运行时间：0.045405s] [吞吐率：22.02req/s] [内存消耗：1,149.37kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'page',
+    2 => 'welcome-1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  't' => '1',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:58:10+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.048376s] [吞吐率：20.67req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:58:10+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.083619s] [吞吐率：11.96req/s] [内存消耗：1,337.38kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:58:11+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.074109s] [吞吐率：13.49req/s] [内存消耗：2,073.18kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002934s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001980s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.000631s ]
+---------------------------------------------------------------
+[ 2020-07-03T22:58:48+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.066483s] [吞吐率：15.04req/s] [内存消耗：1,327.75kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:58:50+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/page/welcome-1.html?t=1
+[运行时间：0.065024s] [吞吐率：15.38req/s] [内存消耗：1,149.37kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'page',
+    2 => 'welcome-1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  't' => '1',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:58:50+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.053980s] [吞吐率：18.53req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:58:50+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.084200s] [吞吐率：11.88req/s] [内存消耗：1,337.38kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T22:58:51+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.092391s] [吞吐率：10.82req/s] [内存消耗：2,073.18kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002136s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001970s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.000628s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:02:32+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.183327s] [吞吐率：5.45req/s] [内存消耗：1,326.70kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:02:35+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/page/welcome-1.html?t=1
+[运行时间：0.053531s] [吞吐率：18.68req/s] [内存消耗：1,149.37kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'page',
+    2 => 'welcome-1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  't' => '1',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:02:35+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.071051s] [吞吐率：14.07req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:03:34+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.083280s] [吞吐率：12.01req/s] [内存消耗：1,328.08kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:03:37+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.061012s] [吞吐率：16.39req/s] [内存消耗：1,327.75kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:03:37+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.071470s] [吞吐率：13.99req/s] [内存消耗：1,337.38kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:03:37+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.116286s] [吞吐率：8.60req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:03:39+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.145514s] [吞吐率：6.87req/s] [内存消耗：2,073.18kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002868s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.005832s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.002405s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:03:39+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.053918s] [吞吐率：18.55req/s] [内存消耗：1,337.38kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:03:39+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.049395s] [吞吐率：20.24req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:03:40+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.041186s] [吞吐率：24.28req/s] [内存消耗：2,073.18kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001474s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001024s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.000380s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:04:37+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.051607s] [吞吐率：19.38req/s] [内存消耗：1,328.08kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:04:40+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/page/welcome-1.html?t=1
+[运行时间：0.054274s] [吞吐率：18.43req/s] [内存消耗：1,149.37kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'page',
+    2 => 'welcome-1',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  't' => '1',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:04:40+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.120271s] [吞吐率：8.31req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:07:15+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.091347s] [吞吐率：10.95req/s] [内存消耗：1,328.08kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:07:18+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/table/table.html
+[运行时间：0.052843s] [吞吐率：18.92req/s] [内存消耗：1,146.52kb] [文件加载：35]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'table',
+    1 => 'table',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:07:18+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.046045s] [吞吐率：21.72req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:07:54+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.073428s] [吞吐率：13.62req/s] [内存消耗：1,328.08kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:07:56+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.061054s] [吞吐率：16.38req/s] [内存消耗：1,337.38kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:07:56+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.064034s] [吞吐率：15.62req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:07:56+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.098005s] [吞吐率：10.20req/s] [内存消耗：2,073.18kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002194s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001809s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.000607s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:12:30+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column.html
+[运行时间：0.041864s] [吞吐率：23.89req/s] [内存消耗：1,328.08kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:12:31+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.067557s] [吞吐率：14.80req/s] [内存消耗：1,337.38kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:12:31+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/images/logo.png
+[运行时间：0.057441s] [吞吐率：17.41req/s] [内存消耗：1,147.73kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'images',
+    2 => 'logo.png',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:12:32+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.079268s] [吞吐率：12.62req/s] [内存消耗：2,073.18kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001967s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001502s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.000448s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:28:57+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/index/index
+[运行时间：0.058440s] [吞吐率：17.11req/s] [内存消耗：1,148.00kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:29:02+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/index
+[运行时间：0.060702s] [吞吐率：16.47req/s] [内存消耗：1,147.88kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:29:06+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/index/index
+[运行时间：0.044264s] [吞吐率：22.59req/s] [内存消耗：1,148.65kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'purpose' => 'prefetch',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:29:32+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/index%E3%80%82html
+[运行时间：0.030461s] [吞吐率：32.83req/s] [内存消耗：1,145.65kb] [文件加载：35]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index。html',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:29:36+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/index.html
+[运行时间：0.039605s] [吞吐率：25.25req/s] [内存消耗：1,148.02kb] [文件加载：36]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:30:31+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/login/login
+[运行时间：0.039243s] [吞吐率：25.48req/s] [内存消耗：1,416.63kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:30:43+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/login/index
+[运行时间：0.046070s] [吞吐率：21.71req/s] [内存消耗：1,507.15kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'purpose' => 'prefetch',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Login.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:30:46+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/login/index.php?s=index/login/valid
+[运行时间：0.214574s] [吞吐率：4.66req/s] [内存消耗：2,093.65kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'valid',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/login/index',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundary9ACjS7mHZKDUDYW3',
+  'origin' => 'http://localhost:8080',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'content-length' => '242',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'uaccount' => '1234',
+  'password' => '1234',
+)
+[ info ] [ RUN ] app\index\controller\Login->valid[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002005s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.086256s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 1234  AND `password` = '81dc9bdb52d04dc20036dbd8313ed055' LIMIT 1 [ RunTime:0.034889s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:30:46+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.031992s] [吞吐率：31.26req/s] [内存消耗：1,337.90kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/login/index',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:30:46+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.067860s] [吞吐率：14.74req/s] [内存消耗：2,073.87kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002011s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001755s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.000659s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:31:49+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column/index.html
+[运行时间：0.323330s] [吞吐率：3.09req/s] [内存消耗：1,327.84kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:31:51+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.040776s] [吞吐率：24.52req/s] [内存消耗：1,337.57kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:31:51+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column/images/logo.png
+[运行时间：0.058334s] [吞吐率：17.14req/s] [内存消耗：1,415.23kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column/index.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:31:51+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.048197s] [吞吐率：20.75req/s] [内存消耗：2,073.87kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001070s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000721s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.000656s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:32:27+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/login/index
+[运行时间：0.033186s] [吞吐率：30.13req/s] [内存消耗：1,325.07kb] [文件加载：40]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Login->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Login.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:32:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/login/index.php?s=index/login/valid
+[运行时间：0.045216s] [吞吐率：22.12req/s] [内存消耗：2,093.95kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'valid',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/login/index',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryas6urAVq4IITOF71',
+  'origin' => 'http://localhost:8080',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'content-length' => '242',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'uaccount' => '1234',
+  'password' => '1234',
+)
+[ info ] [ RUN ] app\index\controller\Login->valid[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002413s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001789s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 1234  AND `password` = '81dc9bdb52d04dc20036dbd8313ed055' LIMIT 1 [ RunTime:0.000480s ]
+---------------------------------------------------------------
+[ 2020-07-03T23:32:28+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column/index.html
+[运行时间：0.027004s] [吞吐率：37.03req/s] [内存消耗：1,328.33kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/login/index',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Column->index[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Column.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:32:29+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/table/table.html
+[运行时间：0.039418s] [吞吐率：25.37req/s] [内存消耗：1,337.57kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'table',
+    2 => 'table',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Table->table[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\table\table.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:32:29+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/column/images/logo.png
+[运行时间：0.072792s] [吞吐率：13.74req/s] [内存消耗：1,415.23kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'column',
+    2 => 'images',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/column/index.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-07-03T23:32:30+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Table/informations?page=1&limit=10
+[运行时间：0.054561s] [吞吐率：18.33req/s] [内存消耗：2,073.87kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\CQCQ\back_end\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Table',
+    2 => 'informations',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Webstorm-d93263c1=cbb6e18c-e6ea-4796-a1eb-ffc34b6c9b40; Hm_lvt_5a0acc897fd96474a2c8f4deac84611a=1574086459; _xsrf=2|74e8975d|7bf5f2679241f4478139be1f32478d10|1592005860; username-localhost-8888="2|1:0|10:1593509498|23:username-localhost-8888|44:ODNjYWNmNzJjMTY0NGQ0NmFmYmYyNjdhZDc5ZmE3ODk=|058f27f6810fe0ea3a364c28873c718ae6b1d2c25af4201b1eaf7937b770e0a3"; PHPSESSID=nrct8c17qkpsbsbn3nonak0v7s',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://localhost:8080/cqcq/back_end/public/index.php/index/table/table.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'localhost:8080',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '10',
+)
+[ info ] [ RUN ] app\index\controller\Table->informations[ D:\phpstudy_pro\WWW\CQCQ\back_end\application\index\controller\Table.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001145s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000790s ]
+[ sql ] [ SQL ] SELECT * FROM `student` [ RunTime:0.001138s ]

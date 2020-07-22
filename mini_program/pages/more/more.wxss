@@ -1,0 +1,76 @@
+/* pages/more/more.wxss */
+@import"/colorui/main.wxss";
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #777777;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 32rpx;
+  font-weight: bold;
+  display: inline-block;
+  width: 50%;
+  color: #777777;
+}
+
+.on {
+  color: #7EC4F8;
+  border-bottom: 5rpx solid #7EC4F8;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-box view {
+  text-align: center;
+}
+
+.up {
+  width: 95%;
+  margin: 0rpx auto;
+}
+
+.progress {
+  width: 95%;
+  margin: 20rpx;
+}
+
+.table {
+  width: 95%;
+  margin: 10rpx auto;
+  background-color: #fff;
+  border: 0rpx solid #eff4f8;
+  font-size: 12px;
+  flex-direction: column;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  height: 2rem;
+}
+
+.td,
+.th {
+  display: flex;
+  justify-content: center;
+  /*水平居中 */
+  align-items: center;
+  /*垂直居中*/
+  width: 100%;
+  border: 1rpx solid #eff4f8;
+  height: 2rem;
+  border-bottom: 1px solid #eff4f8;
+  border-right: 1px solid #eff4f8;
+}
+
+.bg-w {
+  background: #b2dffe;
+}

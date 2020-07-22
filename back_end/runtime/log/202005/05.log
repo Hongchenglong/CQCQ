@@ -1,0 +1,851 @@
+---------------------------------------------------------------
+[ 2020-05-05T07:12:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.020418s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.002729s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000498s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000879s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000311s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:12:40+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002784s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.002042s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000630s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.002194s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000534s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:12:48+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002040s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001643s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000474s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001577s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000337s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:12:49+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002728s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001906s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000550s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001625s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000458s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:13:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002964s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001647s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000543s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001825s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000374s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:13:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002467s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001957s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000565s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001746s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000500s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:13:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002803s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001790s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001701s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000512s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:13:25+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002300s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001518s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000483s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001562s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000370s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:13:37+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002931s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001808s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000618s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001723s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000467s ]
+[ error ] [8]未定义数组索引: password
+---------------------------------------------------------------
+[ 2020-05-05T07:13:53+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002974s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001757s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000613s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001359s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000353s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:09+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011786s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001251s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000475s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001071s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000328s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002770s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001928s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001606s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000530s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:12+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003428s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001684s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000614s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001821s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000537s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002794s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001694s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666666 LIMIT 1 [ RunTime:0.000529s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001427s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666666 LIMIT 1 [ RunTime:0.000380s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002763s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001838s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666666 LIMIT 1 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001256s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666666 LIMIT 1 [ RunTime:0.000495s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:27+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003301s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001466s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666666 LIMIT 1 [ RunTime:0.000606s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001260s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666666 LIMIT 1 [ RunTime:0.000448s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002775s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001232s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666666 LIMIT 1 [ RunTime:0.000534s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001498s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666666 LIMIT 1 [ RunTime:0.000519s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:33+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002684s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001436s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000496s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001262s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000476s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:33+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002928s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001343s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001334s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000481s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:34+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002468s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001160s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000823s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000315s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:35+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002975s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001557s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001332s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000543s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:36+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002161s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001285s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001080s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000448s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:36+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002279s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001092s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001368s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000704s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:37+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003303s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001318s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000584s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001277s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000453s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:37+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002627s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001099s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001157s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000429s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:38+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002826s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001255s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000520s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001130s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000466s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:38+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002219s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.000878s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000355s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000921s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000394s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:39+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002599s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001130s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000405s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000975s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000501s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:15:39+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002907s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001342s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000556s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001103s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000362s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:16:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002259s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001282s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000501s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:32+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002549s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001521s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000518s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:36+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002816s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001414s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000553s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:37+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002086s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001229s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000366s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:38+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002576s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001252s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000582s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:43+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002848s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001314s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000497s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002978s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001392s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000509s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002826s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001325s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000815s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:46+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002543s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.000923s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000376s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:46+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002670s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001099s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000564s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:47+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003299s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001331s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000519s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:17:48+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002291s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001004s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000458s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:18:02+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002583s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001318s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000526s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:18:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002838s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001313s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000479s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:18:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002816s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.002260s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000610s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:18:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002125s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.000956s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000512s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003178s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001260s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000551s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002054s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.000957s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000404s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002082s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.000952s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000530s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:20+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002379s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001296s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000638s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:21+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002421s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001033s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000454s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:22+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001821s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.000847s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000366s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:23+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002657s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001300s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000474s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002682s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001421s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 211706174 LIMIT 1 [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000801s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 211706174 LIMIT 1 [ RunTime:0.000340s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:38+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002734s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001405s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 211706001 LIMIT 1 [ RunTime:0.000501s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001167s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 211706001 LIMIT 1 [ RunTime:0.032865s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:19:40+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002947s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001410s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 211706001 LIMIT 1 [ RunTime:0.000625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001331s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 211706001 LIMIT 1 [ RunTime:0.000476s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:20:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012975s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001568s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 21205 LIMIT 1 [ RunTime:0.000522s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:20:39+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002170s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001161s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000710s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000298s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:20:40+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001857s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.000841s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000777s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000306s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:23:58+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/viewDetails
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002272s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001919s ]
+[ sql ] [ SQL ] SELECT `start_time`,`end_time`,`photo`,`d`.`dorm_num`,`r`.`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2020-04-30 00:00:00'  AND `r`.`deleted` = 0 ORDER BY `start_time` [ RunTime:0.342663s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:24:47+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001903s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001355s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0 ORDER BY `start_time` [ RunTime:0.001802s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:25:07+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002430s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001793s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0 ORDER BY `start_time` [ RunTime:0.002501s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:25:08+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001935s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001140s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0 ORDER BY `start_time` [ RunTime:0.002034s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:25:14+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004500s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001511s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0 ORDER BY `start_time` ASC [ RunTime:0.002928s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:25:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002803s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001403s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0 ORDER BY `start_time` ASC [ RunTime:0.002183s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:25:54+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/checkRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002708s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001704s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0 ORDER BY `start_time` DESC [ RunTime:0.002708s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:37:42+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003107s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001863s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cqcq.d.dorm_num' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+---------------------------------------------------------------
+[ 2020-05-05T07:39:56+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002532s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001242s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'grade' in 'where clause'
+---------------------------------------------------------------
+[ 2020-05-05T07:39:57+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001909s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001308s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'grade' in 'where clause'
+---------------------------------------------------------------
+[ 2020-05-05T07:39:58+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002611s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001738s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'grade' in 'where clause'
+---------------------------------------------------------------
+[ 2020-05-05T07:40:11+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002888s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001816s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'grade' in 'where clause'
+---------------------------------------------------------------
+[ 2020-05-05T07:40:42+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002571s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001717s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+---------------------------------------------------------------
+[ 2020-05-05T07:40:43+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002727s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001842s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+---------------------------------------------------------------
+[ 2020-05-05T07:40:55+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002141s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001246s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+---------------------------------------------------------------
+[ 2020-05-05T07:40:56+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002444s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001432s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+---------------------------------------------------------------
+[ 2020-05-05T07:41:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002183s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000863s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.000593s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:41:08+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002867s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001209s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.001034s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:41:09+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002439s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001350s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.000778s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:41:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002128s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001078s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.000538s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:41:11+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002118s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001102s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.000490s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:41:12+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002561s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001244s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.000769s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:41:12+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002378s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000934s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.000519s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:42:06+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002407s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001123s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.000651s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:42:07+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002545s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001316s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.001451s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:42:08+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002729s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001246s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' LIMIT 1 [ RunTime:0.001408s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:42:32+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ error ] [0]语法解析错误: syntax error, unexpected '->' (T_OBJECT_OPERATOR)
+---------------------------------------------------------------
+[ 2020-05-05T07:42:33+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ error ] [0]语法解析错误: syntax error, unexpected '->' (T_OBJECT_OPERATOR)
+---------------------------------------------------------------
+[ 2020-05-05T07:42:34+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ error ] [0]语法解析错误: syntax error, unexpected '->' (T_OBJECT_OPERATOR)
+---------------------------------------------------------------
+[ 2020-05-05T07:42:42+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003015s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001500s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+---------------------------------------------------------------
+[ 2020-05-05T07:42:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002706s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001335s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+---------------------------------------------------------------
+[ 2020-05-05T07:42:49+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001843s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000865s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+---------------------------------------------------------------
+[ 2020-05-05T07:42:50+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003008s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001465s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in order clause is ambiguous
+---------------------------------------------------------------
+[ 2020-05-05T07:43:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002898s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001240s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003375s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002610s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001554s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003081s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002881s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001272s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` ASC LIMIT 1 [ RunTime:0.003466s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:11+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002701s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001353s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` ASC LIMIT 1 [ RunTime:0.003177s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:12+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001897s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` ASC LIMIT 1 [ RunTime:0.002023s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:13+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002151s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001020s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` ASC LIMIT 1 [ RunTime:0.002775s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002145s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001164s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` ASC LIMIT 1 [ RunTime:0.001923s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:20+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002487s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001421s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` ASC LIMIT 1 [ RunTime:0.002206s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:21+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002678s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000940s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` ASC LIMIT 1 [ RunTime:0.002020s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:22+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002822s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001319s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` ASC LIMIT 1 [ RunTime:0.003026s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002677s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000854s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.002100s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:43:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002732s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001316s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003279s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:13+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002137s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000910s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003784s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:14+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002692s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001221s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.001817s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:14+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002538s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001225s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003455s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002591s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001311s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.004488s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004149s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001308s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003804s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002455s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001744s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003366s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002849s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001309s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003739s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:18+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002303s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000993s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003336s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:44:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002881s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001314s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003795s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'd.dorm_num' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:46:13+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002837s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001176s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.002938s ]
+[ error ] [0]查询表达式错误:= time
+---------------------------------------------------------------
+[ 2020-05-05T07:46:14+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010428s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001124s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.002694s ]
+[ error ] [0]查询表达式错误:= time
+---------------------------------------------------------------
+[ 2020-05-05T07:46:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002696s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001349s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003445s ]
+[ error ] [0]查询表达式错误:= time
+---------------------------------------------------------------
+[ 2020-05-05T07:46:27+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002487s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001068s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.002805s ]
+[ error ] [0]查询表达式错误:= time
+---------------------------------------------------------------
+[ 2020-05-05T07:47:09+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002815s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001314s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.004037s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.003653s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:47:55+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002810s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000911s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.001838s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `start_time` = '2020-04-24 00:00:00' [ RunTime:0.000769s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:47:56+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002529s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001185s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.002602s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `start_time` = '2020-04-24 00:00:00' [ RunTime:0.000524s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:47:58+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002775s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001398s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.004284s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `start_time` = '2020-04-24 00:00:00' [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:49:08+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003011s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001068s ]
+[ sql ] [ SQL ] SELECT `r`.`id`,`start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' ORDER BY `r`.`id` DESC LIMIT 1 [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `d`.`dorm_num`,`r`.`rand_num`,`r`.`start_time`,`r`.`end_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `start_time` = '2020-04-24 00:00:00' [ RunTime:0.000504s ]
+---------------------------------------------------------------
+[ 2020-05-05T07:49:55+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004407s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001450s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cqcq.d.dorm_num' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+---------------------------------------------------------------
+[ 2020-05-05T07:50:09+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012539s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001055s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cqcq.d.dorm_num' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+---------------------------------------------------------------
+[ 2020-05-05T07:50:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002569s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000962s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cqcq.d.dorm_num' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+---------------------------------------------------------------
+[ 2020-05-05T07:50:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002165s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000882s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cqcq.d.dorm_num' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+---------------------------------------------------------------
+[ 2020-05-05T07:50:54+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002793s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001178s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rd' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:50:55+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002923s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001209s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rd' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:50:58+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003169s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001244s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.rd' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-05T07:51:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002079s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000843s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cqcq.d.dorm_num' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+---------------------------------------------------------------
+[ 2020-05-05T07:51:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002650s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001407s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cqcq.d.dorm_num' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+---------------------------------------------------------------
+[ 2020-05-05T07:51:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayRecentResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002837s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001462s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'cqcq.d.dorm_num' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+---------------------------------------------------------------
+[ 2020-05-05T10:30:42+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:30:56+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:31:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:31:38+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:31:52+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:06+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:07+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:08+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:09+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:18+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:32:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-05T10:36:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008086s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.002466s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 211706001 LIMIT 1 [ RunTime:0.000645s ]
+[ sql ] [ SQL ] UPDATE `student`  SET `face_url`='face_url/211706001.jpg'  WHERE  `id` = 211706001 [ RunTime:0.000768s ]
+---------------------------------------------------------------
+[ 2020-05-05T10:36:08+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/change/uploadFace
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003053s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001420s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 211706001 LIMIT 1 [ RunTime:0.000533s ]
+[ sql ] [ SQL ] UPDATE `student`  SET `face_url`='face_url/211706001.jpg'  WHERE  `id` = 211706001 [ RunTime:0.000584s ]
+---------------------------------------------------------------
+[ 2020-05-05T12:10:52+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/record/uploadFaceurl
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003144s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001431s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 211706001 LIMIT 1 [ RunTime:0.000582s ]
+[ sql ] [ SQL ] UPDATE `student`  SET `face_url`='face_url/211706001.jpg'  WHERE  `id` = 211706001 [ RunTime:0.000596s ]
+---------------------------------------------------------------
+[ 2020-05-05T13:54:26+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/studentCheckRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004434s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.002200s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `s`.`id` = '211706001'  AND `r`.`deleted` = 0 ORDER BY `start_time` DESC [ RunTime:0.001839s ]
+---------------------------------------------------------------
+[ 2020-05-05T13:54:31+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/studentCheckRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002906s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001509s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `s`.`id` = '211706002'  AND `r`.`deleted` = 0 ORDER BY `start_time` DESC [ RunTime:0.001560s ]
+---------------------------------------------------------------
+[ 2020-05-05T13:54:36+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/studentCheckRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006497s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001469s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `s`.`id` = '211706009'  AND `r`.`deleted` = 0 ORDER BY `start_time` DESC [ RunTime:0.001819s ]
+---------------------------------------------------------------
+[ 2020-05-05T13:54:49+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/studentCheckRecords
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002757s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001564s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `s`.`id` = '211706010'  AND `r`.`deleted` = 0 ORDER BY `start_time` DESC [ RunTime:0.001493s ]
+---------------------------------------------------------------
+[ 2020-05-05T13:56:59+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Checkresults/studentViewDetails
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002425s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001041s ]
+[ sql ] [ SQL ] SELECT `start_time`,`end_time`,`photo`,`d`.`dorm_num`,`r`.`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `s`.`grade` = '2017'  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2020-04-20 00:00:00'  AND `s`.`id` = '211706010'  AND `r`.`deleted` = 0 [ RunTime:0.000693s ]

@@ -1,0 +1,473 @@
+---------------------------------------------------------------
+[ 2020-05-01T10:14:19+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008558s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.037298s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '男' ORDER BY rand() LIMIT 4 [ RunTime:0.059456s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '女' ORDER BY rand() LIMIT 2 [ RunTime:0.002337s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.039732s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (19 , 1947) [ RunTime:0.009285s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (10 , 1902) [ RunTime:0.000562s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (27 , 4928) [ RunTime:0.000442s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (55 , 4291) [ RunTime:0.000363s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (72 , 2096) [ RunTime:0.000418s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (59 , 8182) [ RunTime:0.000418s ]
+---------------------------------------------------------------
+[ 2020-05-01T10:50:37+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/customize
+[ error ] [8]未定义数组索引: amount
+---------------------------------------------------------------
+[ 2020-05-01T10:56:02+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/customize
+[ error ] [8]未定义数组索引: amount
+---------------------------------------------------------------
+[ 2020-05-01T10:57:07+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/customize
+[ error ] [8]未定义数组索引: amount
+---------------------------------------------------------------
+[ 2020-05-01T10:57:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/customize
+[ error ] [8]未定义数组索引: amount
+---------------------------------------------------------------
+[ 2020-05-01T10:57:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/customize
+[ error ] [8]未定义数组索引: amount
+---------------------------------------------------------------
+[ 2020-05-01T10:57:22+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/customize
+[ error ] [8]未定义数组索引: amount
+---------------------------------------------------------------
+[ 2020-05-01T11:11:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011016s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.005427s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `dorm_num` = '[#[' LIMIT 1 [ RunTime:0.001735s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `dorm_num` = '\'#\'' LIMIT 1 [ RunTime:0.001513s ]
+---------------------------------------------------------------
+[ 2020-05-01T14:45:47+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007881s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.004450s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.006327s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:15:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/redraw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003605s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] delete r from record r join dorm d 
+            on r.dorm_id = d.id join student s on s.id = d.student_id 
+            where confirmed = 0 and s.grade='2017' and s.department='计算机工程系' [ RunTime:0.005933s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:20:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/redraw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003258s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] delete r from record r join dorm d 
+            on r.dorm_id = d.id join student s on s.id = d.student_id 
+            where confirmed = 0 and s.grade='2017' and s.department='计算机工程系' [ RunTime:0.002436s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:20:14+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002559s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.002683s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '男' ORDER BY rand() LIMIT 4 [ RunTime:0.002395s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '女' ORDER BY rand() LIMIT 2 [ RunTime:0.001030s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001590s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (10 , 32) [ RunTime:0.000479s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (21 , 9948) [ RunTime:0.000425s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (33 , 6218) [ RunTime:0.000736s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (53 , 9826) [ RunTime:0.001610s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (58 , 3130) [ RunTime:0.000399s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (66 , 4783) [ RunTime:0.000426s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:20:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002802s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.002171s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '男' ORDER BY rand() LIMIT 4 [ RunTime:0.002350s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '女' ORDER BY rand() LIMIT 2 [ RunTime:0.001771s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001587s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (18 , 2587) [ RunTime:0.000430s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (27 , 4583) [ RunTime:0.000303s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (32 , 5986) [ RunTime:0.000276s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (56 , 8461) [ RunTime:0.000285s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (61 , 1912) [ RunTime:0.000270s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (62 , 5732) [ RunTime:0.000379s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:20:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003652s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.002580s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '男' ORDER BY rand() LIMIT 4 [ RunTime:0.002417s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '女' ORDER BY rand() LIMIT 2 [ RunTime:0.000765s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001562s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (40 , 2007) [ RunTime:0.000487s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (9 , 3315) [ RunTime:0.000420s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (16 , 3503) [ RunTime:0.000718s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (18 , 506) [ RunTime:0.000702s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (68 , 6742) [ RunTime:0.000649s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (70 , 1596) [ RunTime:0.000697s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:20:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014955s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001817s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.002473s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:20:31+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/redraw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003853s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] delete r from record r join dorm d 
+            on r.dorm_id = d.id join student s on s.id = d.student_id 
+            where confirmed = 0 and s.grade='2017' and s.department='计算机工程系' [ RunTime:0.003102s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:21:06+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003006s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001821s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '男' ORDER BY rand() LIMIT 4 [ RunTime:0.002163s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '女' ORDER BY rand() LIMIT 2 [ RunTime:0.000843s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001462s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (7 , 203) [ RunTime:0.000525s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (39 , 3826) [ RunTime:0.000494s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (13 , 8919) [ RunTime:0.000832s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (47 , 4577) [ RunTime:0.000668s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (64 , 3415) [ RunTime:0.000350s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (67 , 9562) [ RunTime:0.000437s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:21:18+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002540s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001830s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.001891s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:21:27+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/redraw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002576s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] delete r from record r join dorm d 
+            on r.dorm_id = d.id join student s on s.id = d.student_id 
+            where confirmed = 0 and s.grade='2017' and s.department='计算机工程系' [ RunTime:0.002627s ]
+---------------------------------------------------------------
+[ 2020-05-01T15:21:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/redraw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006579s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] delete r from record r join dorm d 
+            on r.dorm_id = d.id join student s on s.id = d.student_id 
+            where confirmed = 0 and s.grade='2017' and s.department='计算机工程系' [ RunTime:0.001883s ]
+---------------------------------------------------------------
+[ 2020-05-01T16:36:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义变量: number
+---------------------------------------------------------------
+[ 2020-05-01T16:57:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: grade
+---------------------------------------------------------------
+[ 2020-05-01T16:57:06+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: grade
+---------------------------------------------------------------
+[ 2020-05-01T17:00:52+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: grade
+---------------------------------------------------------------
+[ 2020-05-01T17:02:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: grade
+---------------------------------------------------------------
+[ 2020-05-01T17:02:46+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: grade
+---------------------------------------------------------------
+[ 2020-05-01T17:02:47+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: grade
+---------------------------------------------------------------
+[ 2020-05-01T17:02:52+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: grade
+---------------------------------------------------------------
+[ 2020-05-01T17:03:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: grade
+---------------------------------------------------------------
+[ 2020-05-01T17:06:34+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:10:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006594s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001611s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '男' ORDER BY rand() LIMIT 4 [ RunTime:0.002983s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '女' ORDER BY rand() LIMIT 2 [ RunTime:0.002280s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.002124s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (55 , 3321) [ RunTime:0.000688s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (14 , 460) [ RunTime:0.000485s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (44 , 3024) [ RunTime:0.000474s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (12 , 7595) [ RunTime:0.000441s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (58 , 2203) [ RunTime:0.000412s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (70 , 2179) [ RunTime:0.000366s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:10:33+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002397s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001856s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.001136s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:10:48+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/redraw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002435s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] delete r from record r join dorm d 
+            on r.dorm_id = d.id join student s on s.id = d.student_id 
+            where confirmed = 0 and s.grade='2017' and s.department='计算机工程系' [ RunTime:0.002017s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:10:54+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003418s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001465s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.006005s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:11:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002586s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001423s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.001085s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:11:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002347s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000902s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.000466s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:11:12+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/redraw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004735s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] delete r from record r join dorm d 
+            on r.dorm_id = d.id join student s on s.id = d.student_id 
+            where confirmed = 0 and s.grade='2017' and s.department='计算机工程系' [ RunTime:0.000725s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:11:20+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002732s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001420s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.001448s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:12:26+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002336s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001581s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `confirmed` = 0  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.000660s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:13:43+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:13:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:14:21+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002749s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001530s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `confirmed` = 0  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.001389s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:15:00+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/displayUnconfirmedResults
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002818s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000962s ]
+[ sql ] [ SQL ] SELECT `dorm_num`,`rand_num` FROM `record` `r` INNER JOIN `dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `confirmed` = 0  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.000458s ]
+---------------------------------------------------------------
+[ 2020-05-01T17:16:42+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:16:55+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:17:03+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:17:05+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:17:09+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:17:24+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:18:55+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-05-01T17:18:56+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-05-01T17:24:00+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:26:18+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: room
+---------------------------------------------------------------
+[ 2020-05-01T17:26:30+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: opt
+---------------------------------------------------------------
+[ 2020-05-01T17:27:42+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:27:43+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:27:44+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:27:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:27:56+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:27:57+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:28:54+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:29:04+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:29:05+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:29:12+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:29:22+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:34:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: name
+---------------------------------------------------------------
+[ 2020-05-01T17:35:04+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:35:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:36:23+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:39:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:39:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [8]未定义数组索引: data
+---------------------------------------------------------------
+[ 2020-05-01T17:40:58+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [0]致命错误: Call to undefined function app\index\controller\length()
+---------------------------------------------------------------
+[ 2020-05-01T17:41:17+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [0]致命错误: Call to undefined function app\index\controller\length()
+---------------------------------------------------------------
+[ 2020-05-01T17:41:47+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ error ] [0]致命错误: Call to undefined function app\index\controller\size()
+---------------------------------------------------------------
+[ 2020-05-01T17:45:11+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002237s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000850s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `dorm_num` = '东二#411' LIMIT 1 [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `dorm_num` = '中二#203' LIMIT 1 [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000658s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (22 , 3178) [ RunTime:0.000353s ]
+---------------------------------------------------------------
+[ 2020-05-01T18:56:00+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001856s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000859s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-01T18:57:23+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003278s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001301s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'field list'
+---------------------------------------------------------------
+[ 2020-05-01T18:57:32+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002759s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001077s ]
+[ sql ] [ SQL ] SELECT `d`.`id` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `block` = '东二'  AND `room` = '411' LIMIT 1 [ RunTime:0.000667s ]
+[ sql ] [ SQL ] SELECT `d`.`id` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `block` = '中二'  AND `room` = '203' LIMIT 1 [ RunTime:0.000411s ]
+[ error ] [8]未定义数组索引: dorm_num
+---------------------------------------------------------------
+[ 2020-05-01T19:11:40+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001993s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001940s ]
+[ sql ] [ SQL ] SELECT `d`.`id` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `block` = '东二'  AND `room` = '411' LIMIT 1 [ RunTime:0.000706s ]
+[ sql ] [ SQL ] SELECT `d`.`id` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `block` = '中二'  AND `room` = '203' LIMIT 1 [ RunTime:0.000629s ]
+[ error ] [8]未定义数组索引: dorm_num
+---------------------------------------------------------------
+[ 2020-05-01T19:31:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Draw/customize
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003213s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001431s ]
+[ sql ] [ SQL ] SELECT `d`.`id` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `block` = '东二'  AND `room` = '411' LIMIT 1 [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.000907s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (58 , 9931) [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SELECT `d`.`id` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `block` = '中二'  AND `room` = '203' LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] INSERT INTO `record` (`dorm_id` , `rand_num`) VALUES (22 , 8283) [ RunTime:0.000235s ]
+---------------------------------------------------------------
+[ 2020-05-01T21:00:51+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003165s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001390s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000582s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001324s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `d`.`id` = '72'  AND `d`.`student_id` = 's.id' LIMIT 1 [ RunTime:0.000722s ]
+---------------------------------------------------------------
+[ 2020-05-01T21:01:12+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003526s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001800s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000949s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001099s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `d`.`id` = '72'  AND `d`.`student_id` = 's.id' LIMIT 1 [ RunTime:0.000569s ]
+---------------------------------------------------------------
+[ 2020-05-01T21:02:06+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003538s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.002379s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000974s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `d`.`id` = '72'  AND `d`.`student_id` = 's.id' [ RunTime:0.000407s ]
+---------------------------------------------------------------
+[ 2020-05-01T21:05:00+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003389s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001725s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000657s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001407s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 )' at line 1
+---------------------------------------------------------------
+[ 2020-05-01T21:05:15+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004809s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001886s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000600s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001313s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `d`.`id` = '72'  AND `d`.`student_id` = 's.id'  AND `end_time` = '2020-05-03 00:00:00' [ RunTime:0.000790s ]
+---------------------------------------------------------------
+[ 2020-05-01T21:05:34+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002741s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001597s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001286s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `d`.`id` = '72'  AND `d`.`student_id` = 's.id'  AND `end_time` = '2020-05-03 00:00:00' [ RunTime:0.000670s ]
+---------------------------------------------------------------
+[ 2020-05-01T21:05:35+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002486s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001422s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001715s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `d`.`id` = '72'  AND `d`.`student_id` = 's.id'  AND `end_time` = '2020-05-03 00:00:00' [ RunTime:0.001082s ]
+---------------------------------------------------------------
+[ 2020-05-01T21:05:54+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002704s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001622s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001773s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `end_time` = '2020-05-03 00:00:00' [ RunTime:0.000632s ]
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-01T21:08:13+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002152s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001081s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000405s ]
+[ error ] [8]未定义数组索引: s.id
+---------------------------------------------------------------
+[ 2020-05-01T21:08:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002937s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001604s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000559s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001274s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `d`.`id` = '72'  AND `d`.`student_id` = '52' [ RunTime:0.000551s ]
+---------------------------------------------------------------
+[ 2020-05-01T21:10:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004224s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001589s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000630s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001314s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` [ RunTime:0.001647s ]
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-01T21:15:28+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002972s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001712s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000691s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001318s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` [ RunTime:0.000414s ]
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'dorm_id' in 'where clause'
+---------------------------------------------------------------
+[ 2020-05-01T21:15:58+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003173s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001573s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001748s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` [ RunTime:0.000942s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.001238s ]
+[ error ] [8]未定义数组索引: file
+---------------------------------------------------------------
+[ 2020-05-01T21:16:26+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/Record/uploadPhoto
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003570s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.001509s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 52 LIMIT 1 [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001174s ]
+[ sql ] [ SQL ] SELECT `dorm_id` FROM `dorm` `d` INNER JOIN `record` `r` ON `r`.`dorm_id`=`d`.`id` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` [ RunTime:0.000703s ]
+[ sql ] [ SQL ] SELECT * FROM `dorm` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000713s ]
+[ error ] [8]未定义数组索引: file

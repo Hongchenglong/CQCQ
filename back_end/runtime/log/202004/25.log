@@ -1,0 +1,117 @@
+---------------------------------------------------------------
+[ 2020-04-25T10:24:26+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/examine
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016677s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.002180s ]
+[ sql ] [ SQL ] SELECT `room` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `block` = '中二'  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.000943s ]
+---------------------------------------------------------------
+[ 2020-04-25T10:25:23+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/examine
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003831s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001177s ]
+[ sql ] [ SQL ] SELECT `room` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `block` = '东二'  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.000822s ]
+---------------------------------------------------------------
+[ 2020-04-25T10:26:14+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/examine
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002063s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001508s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous
+---------------------------------------------------------------
+[ 2020-04-25T10:26:23+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/examine
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001606s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000944s ]
+[ sql ] [ SQL ] SELECT `block`,`room` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `block` = '东二'  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.000701s ]
+---------------------------------------------------------------
+[ 2020-04-25T10:26:47+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/examine
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002117s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.000914s ]
+[ sql ] [ SQL ] SELECT `block`,`room` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `block` = '东二'  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.000634s ]
+---------------------------------------------------------------
+[ 2020-04-25T10:26:54+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/examine
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014316s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.003261s ]
+[ sql ] [ SQL ] SELECT `block`,`room` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `block` = '东二'  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.002005s ]
+---------------------------------------------------------------
+[ 2020-04-25T10:27:10+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/examine
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001877s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001580s ]
+[ sql ] [ SQL ] SELECT `block`,`room` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `block` = '东'  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.001667s ]
+---------------------------------------------------------------
+[ 2020-04-25T10:42:33+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/examine
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002085s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001097s ]
+[ sql ] [ SQL ] SELECT `block`,`room` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `block` = '东二'  AND `grade` = '2017'  AND `department` = '计算机工程系' [ RunTime:0.000999s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:31:53+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001931s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001104s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `phone` = '15359030935' LIMIT 1 [ RunTime:0.000330s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:32:37+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015388s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.003160s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `phone` = '123' LIMIT 1 [ RunTime:0.001220s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:32:46+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002292s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001781s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `phone` = '125' LIMIT 1 [ RunTime:0.000440s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:36:41+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002192s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001462s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `phone` = '125' LIMIT 1 [ RunTime:0.000300s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:40:16+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004422s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001387s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000565s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:40:33+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003950s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001158s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000478s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001109s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000628s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:52:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002776s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.000997s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000350s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.002508s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `id` = 666 LIMIT 1 [ RunTime:0.000640s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:52:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002970s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001365s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 211706004 LIMIT 1 [ RunTime:0.000511s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:53:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003513s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001355s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `email` = '125@emai.com' LIMIT 1 [ RunTime:0.000621s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001735s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `email` = '125@emai.com' LIMIT 1 [ RunTime:0.000667s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:54:11+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004761s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001429s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `email` = '125@mai.com' LIMIT 1 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001677s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `email` = '125@mai.com' LIMIT 1 [ RunTime:0.000542s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:54:12+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004324s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001343s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `email` = '125@mai.com' LIMIT 1 [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.001745s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `email` = '125@mai.com' LIMIT 1 [ RunTime:0.000584s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:54:29+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002815s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001233s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `email` = '125@mail.com' LIMIT 1 [ RunTime:0.000522s ]
+---------------------------------------------------------------
+[ 2020-04-25T11:56:35+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/user/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002517s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.001212s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `email` = '125@email.com' LIMIT 1 [ RunTime:0.000605s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `counselor` [ RunTime:0.003159s ]
+[ sql ] [ SQL ] SELECT * FROM `counselor` WHERE  `email` = '125@email.com' LIMIT 1 [ RunTime:0.000475s ]

@@ -1,0 +1,13 @@
+---------------------------------------------------------------
+[ 2020-05-25T13:21:48+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/dormitory/insert
+[ sql ] [ DB ] CONNECT:[ UseTime:0.069635s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.034590s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `sex` = '男'  AND `grade` = '2017'  AND `department` = '计算机工程系'  AND `dorm_num` = '中二#222' LIMIT 1 [ RunTime:0.060895s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `student` [ RunTime:0.005717s ]
+[ sql ] [ SQL ] SELECT * FROM `student` WHERE  `id` = 123456789 LIMIT 1 [ RunTime:0.001958s ]
+---------------------------------------------------------------
+[ 2020-05-25T13:43:01+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/back_end/public/index.php/index/draw/draw
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002684s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dorm` [ RunTime:0.001500s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '男' ORDER BY rand() LIMIT 4 [ RunTime:0.022182s ]
+[ sql ] [ SQL ] SELECT `d`.`id`,`dorm_num` FROM `dorm` `d` INNER JOIN `student` `s` ON `s`.`id`=`d`.`student_id` WHERE  `grade` = '2017'  AND `department` = '计算机工程系'  AND `sex` = '女' ORDER BY rand() LIMIT 2 [ RunTime:0.000993s ]

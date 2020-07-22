@@ -1,0 +1,33 @@
+---------------------------------------------------------------
+[ 2020-06-11T13:17:09+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:17:19+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/test
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:18:24+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/test
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:18:29+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/test
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:18:29+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/test
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:18:29+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/test
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:18:29+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/test
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:18:32+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:18:39+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:25:36+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'
+---------------------------------------------------------------
+[ 2020-06-11T13:27:56+08:00 ] 0.0.0.0 GET localhost:8080/back_end/public/index.php/index/index/test
+[ error ] [0]语法解析错误: syntax error, unexpected '}', expecting ',' or ';'

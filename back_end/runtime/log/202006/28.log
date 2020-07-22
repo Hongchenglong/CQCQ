@@ -1,0 +1,9 @@
+---------------------------------------------------------------
+[ 2020-06-28T16:24:22+08:00 ] 0.0.0.0 POST localhost:8080/back_end/public/index.php/index/Face/detect
+[ error ] [2]file_get_contents(face2.jpg): failed to open stream: No such file or directory
+---------------------------------------------------------------
+[ 2020-06-28T16:24:31+08:00 ] 0.0.0.0 POST localhost:8080/back_end/public/index.php/index/Face/detect
+[ error ] [2]file_get_contents(face2.jpg): failed to open stream: No such file or directory
+---------------------------------------------------------------
+[ 2020-06-28T16:35:07+08:00 ] 0.0.0.0 POST localhost:8080/back_end/public/index.php/index/Face/match
+[ error ] [2]file_get_contents(face2.png): failed to open stream: No such file or directory
