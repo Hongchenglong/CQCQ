@@ -30,9 +30,13 @@ class Login extends Controller
 			->find();
 		
 		if (!empty($data)) {
+			$_SESSION['grade'] = $data['grade'];
+			$_SESSION['department'] = $data['department'];
 			Session::set('id', $data['id']);
 			Session::set('username', $data['username']);
 			Session::set('password', $data['password']);
+			Session::set('grade', $data['grade']);
+			Session::set('department', $data['department']);
 			$this->redirect('/cqcq/back_end/public/column');
 		} else {
 			$this->error("用户名或密码错误", url('/login'));
