@@ -44,7 +44,6 @@ Page({
       })
     } else {
       wx.request({
-        // url: 'https://oeong.xyz/cqcq/public/index.php/api/user/login',
         url: getApp().globalData.server + '/cqcq/public/index.php/api/user/login',
         data: {
           id: that.data.id,
@@ -190,8 +189,8 @@ Page({
         });
         getApp().globalData.height = that.data.height
         //getApp().globalData.height=that.data.height
-        console.log(that.data.height)
-        console.log(getApp().globalData.height)
+        // console.log(that.data.height)
+        // console.log(getApp().globalData.height)
         //console.log(that.data.height*0.7)
       }
     });
