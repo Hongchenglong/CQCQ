@@ -233,6 +233,7 @@ class Checkresults extends BaseController
             ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('r.deleted', 0)
+            ->distinct(true)
             ->select();
 
         if ($record) {

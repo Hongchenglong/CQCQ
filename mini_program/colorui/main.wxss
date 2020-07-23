@@ -1295,10 +1295,10 @@ button.icon.lg {
 	align-items: center
 }
 
-.cu-list.menu-avatar>.cu-item>.cu-avatar {
+/* .cu-list.menu-avatar>.cu-item>.cu-avatar {
 	position: absolute;
 	left: 30rpx
-}
+} */
 
 .cu-list.menu-avatar>.cu-item .flex .text-cut {
 	max-width: 510rpx
@@ -1306,7 +1306,8 @@ button.icon.lg {
 
 .cu-list.menu-avatar>.cu-item .content {
 	position: absolute;
-	left: 146rpx;
+	left: 30rpx;
+	/* left: 146rpx; */
 	width: calc(100% - 96rpx - 60rpx - 120rpx - 20rpx);
 	line-height: 1.6em;
 }

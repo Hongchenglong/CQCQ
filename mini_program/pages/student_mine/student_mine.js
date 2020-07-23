@@ -218,14 +218,15 @@ Component({
       })
     },
 
-    to_phone:function(){
+    to_situation:function(){
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url: '../revise_phone/revise_phone',
+        url:"../situation/situation"
       })
+      wx.hideLoading()
     },
 
     to_about:function(){

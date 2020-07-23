@@ -13,6 +13,16 @@
         body {
             background-color: #ffffff;
         }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -22,19 +32,19 @@
         enctype="multipart/form-data">
         <div class="layui-form layuimini-form">
             <div class="layui-form-item">
-                <label class="layui-form-label required">学号</label>
+                <label class="layui-form-label ">学号</label>
                 <div class="layui-input-block">
-                    <input type="number" name="id" lay-verify="required" lay-reqtext="学号不能为空"  value=""
-                        class="layui-input" maxlength="9" readonly="readonly" style="width: 65%; border: none;" >
+                    <input type="number" name="id" lay-verify="required" lay-reqtext="学号不能为空" value=""
+                        class="layui-input" maxlength="9" readonly="readonly" style="width: 65%; border: none;">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label required">用户名</label>
                 <div class="layui-input-block">
-                    <input type="text" name="username" lay-verify="required" lay-reqtext="用户名不能为空" 
-                        value="" class="layui-input" style="width: 65%;">
-                    <tip>填写自己管理账号的名称。</tip>
+                    <input type="text" name="username" lay-reqtext="用户名不能为空" value="" class="layui-input"
+                        style="width: 65%;">
+                    <!-- <tip>填写自己管理账号的名称。</tip> -->
                 </div>
             </div>
 
@@ -48,8 +58,8 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">手机</label>
                 <div class="layui-input-block">
-                    <input type="number" name="phone" lay-reqtext="手机不能为空" value="" 
-                    class="layui-input" style="width: 65%;">
+                    <input type="number" name="phone" lay-reqtext="手机不能为空" value="" class="layui-input"
+                        style="width: 65%;">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -62,15 +72,15 @@
             <div class="layui-form-item">
                 <label class="layui-form-label required">年级</label>
                 <div class="layui-input-block">
-                    <input type="text" name="grade" lay-verify="required" lay-reqtext="年级不能为空"  value=""
+                    <input type="number" name="grade" lay-verify="required" lay-reqtext="年级不能为空" value=""
                         class="layui-input" style="width: 65%;">
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label required">系别</label>
                 <div class="layui-input-block">
-                    <input type="text" name="department" lay-verify="required" lay-reqtext="系别不能为空" 
-                        value="" class="layui-input" style="width: 65%;">
+                    <input type="text" name="department" lay-verify="required" lay-reqtext="系别不能为空" value=""
+                        class="layui-input" style="width: 65%;">
                 </div>
             </div>
 
@@ -81,11 +91,19 @@
                         class="layui-input" style="width: 65%;">
                 </div>
             </div>
+            <!-- <div class="layui-form-item">
+                <label class="layui-form-label">新密码</label>
+                <div class="layui-input-block">
+                    <input type="password" name="password"  placeholder="请输入新密码"
+                        value="" class="layui-input" style="width: 65%;">
+                </div>
+            </div> -->
 
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button type="submit" class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn" 
-                    style="margin-left: 30%;" onclick="click_btns()">
+                    <button type="submit" class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn"
+                        style="margin-left: 30%;">
+                        <!--onclick="click_btns()"-->
                         确认保存
                     </button>
                 </div>
@@ -96,17 +114,17 @@
     </div>
     <script src="/cqcq/back_end/public/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
     <script>
-        // var clkBool=false;
-        function click_btns(){
-            // clkBool=true;
-            //获取父层  
-            var index = parent.layer.getFrameIndex(window.name);
-            //刷新父层  
-            parent.location.reload();
-            //关闭弹出层  
-            parent.layer.close(index);  
-        }
-        
+        //实现点击确认保存，刷新table.html页面
+        // function click_btns(){
+        //     // clkBool=true;
+        //     //获取父层  
+        //     var index = parent.layer.getFrameIndex(window.name);
+        //     //刷新父层  
+        //     parent.location.reload();
+        //     //关闭弹出层  
+        //     parent.layer.close(index);  
+        // }
+
         layui.use(['form'], function () {
             var form = layui.form,
                 layer = layui.layer,
@@ -126,18 +144,18 @@
             // });
 
         });
-        
+
 
         //接收table.html的编辑按钮传递的参数
-        function getQueryString(name) { 
-            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i'); 
-            var r = window.location.search.substr(1).match(reg); 
-            if (r != null) { 
-                return unescape(r[2]); 
-            } 
-            return null; 
+        function getQueryString(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
         }
-        
+
         var phone = getQueryString("st_phone");
         var id = getQueryString("st_id");
         var username = unescape(getQueryString("st_username"));
@@ -146,7 +164,7 @@
         var email = getQueryString("st_email");
         var department = unescape(getQueryString("st_department"));
         var sex = unescape(getQueryString("st_sex"));
-    
+
         //将参数赋值给input输入框
         document.getElementsByName("phone")[0].value = phone;
         document.getElementsByName("id")[0].value = id;
@@ -157,12 +175,12 @@
         document.getElementsByName("grade")[0].value = grade;
 
         //使弹窗打开可根据传入性别选中对应选项
-        if(sex=='男'){
-            document.getElementById("male").checked=true;
-            document.getElementById("female").checked=false;
-        }else{
-            document.getElementById("male").checked=false;
-            document.getElementById("female").checked=true;
+        if (sex == '男') {
+            document.getElementById("male").checked = true;
+            document.getElementById("female").checked = false;
+        } else {
+            document.getElementById("male").checked = false;
+            document.getElementById("female").checked = true;
         }
     </script>
 </body>
