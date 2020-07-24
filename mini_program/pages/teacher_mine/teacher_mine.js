@@ -1,6 +1,5 @@
 // pages/teacher_mine/teacher_mine.js
 //const { $Message } = require('../../dist/base/index');
-var CODE = '';
 Page({
   /**
    * 页面的初始数据
@@ -194,12 +193,11 @@ Component({
       var that = this
       wx.login({
         success: function (res) {
-          CODE = res.code; //code  
-          console.log("code: ", CODE)
+          console.log("code: ", res.code)
           wx.request({
             url: getApp().globalData.server + '/cqcq/public/index.php/api/user/wxbinding',
             data: {
-              code: CODE,
+              code: res.code,
               id: getApp().globalData.user.id,
               user: getApp().globalData.user.user,
             },
@@ -208,9 +206,7 @@ Component({
               "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function (res) {
-              if (res.data.error_code == 2) {
-                // 等于2时，不提示，让用户自己再点一次
-              } else if (res.data.error_code == 1) {
+              if (res.data.error_code != 0) {
                 wx.showModal({
                   title: '提示！',
                   content: res.data.msg,
