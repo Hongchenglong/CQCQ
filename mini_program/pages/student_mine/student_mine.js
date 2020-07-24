@@ -1,4 +1,5 @@
 // pages/student_mine/student_mine.js
+var CODE = '';
 const app = getApp();
 Page({
   /**
@@ -178,7 +179,51 @@ Component({
       },
     },
 
-    to_info:function(){
+    // 绑定微信
+    wx_binding: function () {
+      var that = this
+      wx.login({
+        success: function (res) {
+          CODE = res.code; //code  
+          console.log("code: ", CODE)
+        }
+      })
+      wx.request({
+        url: getApp().globalData.server + '/cqcq/public/index.php/api/user/wxbinding',
+        data: {
+          code: CODE,
+          id: getApp().globalData.user.id,
+          user: getApp().globalData.user.user,
+        },
+        method: "POST",
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        success: function (res) {
+          if (res.data.error_code == 2) {
+            // 等于2时，不提示，让用户自己再点一次
+          } else if (res.data.error_code == 1) {
+            wx.showModal({
+              title: '提示！',
+              content: res.data.msg,
+              confirmColor: '#7EC4F8',
+              showCancel: false,
+              success(res) {}
+            })
+          } else if (res.data.error_code == 0) {
+            wx.showModal({
+              title: '提示！',
+              content: res.data.msg,
+              confirmColor: '#7EC4F8',
+              showCancel: false,
+              success(res) {}
+            })
+          }
+        },
+      })
+    },
+
+    to_info: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,
@@ -188,7 +233,7 @@ Component({
       })
     },
 
-    to_pass:function(){
+    to_pass: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,
@@ -198,7 +243,7 @@ Component({
       })
     },
 
-    to_mail:function(){
+    to_mail: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,
@@ -208,7 +253,7 @@ Component({
       })
     },
 
-    to_phone:function(){
+    to_phone: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,
@@ -218,18 +263,18 @@ Component({
       })
     },
 
-    to_situation:function(){
+    to_situation: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url:"../situation/situation"
+        url: "../situation/situation"
       })
       wx.hideLoading()
     },
 
-    to_about:function(){
+    to_about: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,

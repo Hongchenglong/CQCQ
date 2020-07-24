@@ -3,6 +3,7 @@
 namespace app\api\controller;
 
 use \think\Db;
+use \think\Exception;
 
 class User extends BaseController
 {
@@ -25,7 +26,7 @@ class User extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入密码！';
             return json($return_data);
-        } 
+        }
         $where['id'] = $_POST['id'];
 
         // 先从辅导员表中查询，若不存在从学生表中查询
@@ -50,6 +51,7 @@ class User extends BaseController
 
                 return json($return_data);
             } else {
+                unset($user['password']);   // 删除密码
                 $return_data = array();
                 $return_data['error_code'] = 0;
                 $return_data['msg'] = '登录成功';
@@ -57,8 +59,7 @@ class User extends BaseController
 
                 return json($return_data);
             }
-        } 
-        else {
+        } else {
             // 用户不存在
             $return_data = array();
             $return_data['error_code'] = 2;
@@ -68,6 +69,152 @@ class User extends BaseController
         }
     }
 
+    /**
+     * 根据微信API获取sessionkey和openid的方法
+     */
+    function httpCurl($url, $params, $method = 'GET', $header = array(), $multi = false)
+    {
+        date_default_timezone_set('PRC');
+        $opts = array(
+            CURLOPT_TIMEOUT        => 30,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_HTTPHEADER     => $header,
+            CURLOPT_COOKIESESSION  => true,
+            CURLOPT_FOLLOWLOCATION => 1,
+            CURLOPT_COOKIE
+            => session_name() . '=' . session_id(),
+        );
+
+        /* 根据请求类型设置特定参数 */
+        switch (strtoupper($method)) {
+            case 'GET':
+                // $opts[CURLOPT_URL] = $url . '?' . http_build_query($params);
+                // 链接后拼接参数  &  非？
+                $opts[CURLOPT_URL] = $url . '?' . http_build_query($params);
+                break;
+            case 'POST':                //判断是否传输文件
+                $params = $multi ? $params : http_build_query($params);
+                $opts[CURLOPT_URL] = $url;
+                $opts[CURLOPT_POST] = 1;
+                $opts[CURLOPT_POSTFIELDS] = $params;
+                break;
+            default:
+                throw new Exception('不支持的请求方式！');
+        }
+
+        /* 初始化并执行curl请求 */
+        $ch = curl_init();
+        curl_setopt_array($ch, $opts);
+        $data  = curl_exec($ch);
+        $error = curl_error($ch);
+        curl_close($ch);
+        if ($error) throw new Exception('请求发生错误：' . $error);
+        return  $data;
+    }
+
+    /**
+     * 微信登录
+     * @return [type] [description]
+     */
+    public function wxLogin()
+    {
+        // if (empty($_POST['code'])) {
+        //     return json(['error_code' => '1', 'msg' => '请输入code！']);
+        // }
+        $url = "https://api.weixin.qq.com/sns/jscode2session";
+        // 参数
+        $params = array();
+        $params['appid'] = 'wx8d1d67d42a68281f';
+        $params['secret'] = '587d0b9eace3cdf1e21fe5684b644e50';
+        $params['js_code'] = $_POST['code'];
+        $params['grant_type'] = 'authorization_code';
+
+        // 微信API返回的session_key 和 openid
+        $arr = $this->httpCurl($url, $params, 'POST');
+        $arr = json_decode($arr, true);
+
+        // 判断是否成功
+        if (isset($arr['errcode']) && !empty($arr['errcode'])) {
+            return json(['error_code' => '2', 'msg' => $arr['errmsg'], "result" => null]);
+        }
+
+        $openid = $arr['openid'];
+        // $session_key = $arr['session_key'];
+
+        // 从数据库中查找是否有该openid
+        // 先从辅导员表中查询，若不存在从学生表中查询
+        $user = db('counselor')->where('openid', $openid)->find();
+        if ($user) $user['user'] = 'counselor';
+
+        if (empty($user)) {
+            $user = db('student')->where('openid', $openid)->find();
+            if ($user) $user['user'] = 'student';
+        }
+
+        if ($user) {
+            unset($user['openid']);  // 删除openid
+            unset($user['password']);  // 删除密码
+            return json(['error_code' => '0', 'msg' => '登录成功', 'data' => $user]);
+
+        } else {
+            // 该微信用户没有绑定账号
+            return json(['error_code' => '1', 'msg' => '您没有绑定账号，请登录后在“我的”页面绑定~']);
+        }
+    }
+
+    /**
+     * 微信绑定
+     * @return [type] [description]
+     */
+    public function wxBinding()
+    {
+        if (empty($_POST['id'])) {
+            return json(['error_code' => '1', 'msg' => '请输入用户id！']);
+        } else if (empty($_POST['user'])) {
+            return json(['error_code' => '1', 'msg' => '请输入用户身份！']);
+        } 
+        // else if (empty($_POST['code'])) {
+        //     return json(['error_code' => '1', 'msg' => '请输入code！']);
+        // }
+
+        $user = $_POST['user'];
+        $unbind = db($user)->where('id', $_POST['id'])->find();
+
+        // 如果数据库中已有openid，则解除绑定
+        if (!empty($unbind['openid'])) {
+            db($user)->where('id', $_POST['id'])->update(['openid' => null]);
+            return json(['error_code' => '0', 'msg' => '解除绑定，您下次登录时需要使用账号密码']);
+        }
+
+        $url = "https://api.weixin.qq.com/sns/jscode2session";
+        // 参数
+        $params = array();
+        $params['appid'] = 'wx8d1d67d42a68281f';
+        $params['secret'] = '587d0b9eace3cdf1e21fe5684b644e50';
+        $params['js_code'] = $_POST['code'];
+        $params['grant_type'] = 'authorization_code';
+
+        // 微信API返回的session_key 和 openid
+        $arr = $this->httpCurl($url, $params, 'POST');
+        $arr = json_decode($arr, true);
+
+        // 判断是否成功
+        if (isset($arr['errcode']) && !empty($arr['errcode'])) {
+            return json(['error_code' => '2', 'msg' => $arr['errmsg'], "result" => null]);
+        }
+        $openid = $arr['openid'];
+
+        // 插入openid
+        $bind = db($user)->where('id', $_POST['id'])->update(['openid' => $openid]);
+        if ($bind) {
+            return json(['error_code' => '0', 'msg' => '绑定成功']);
+        } else {
+            // 找不到账号
+            return json(['error_code' => '1', 'msg' => '绑定失败']);
+        }
+    }
 
     /**
      * 用户注册
@@ -102,7 +249,7 @@ class User extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入手机号！';
             return json($return_data);
-        } 
+        }
 
         // 检验两次密码是否输入一致
         if ($_POST['password'] != $_POST['password_again']) {
