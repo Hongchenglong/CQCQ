@@ -16,11 +16,7 @@ class Face extends BaseController
         $bodys = array(
             'image' => $base64_one,
             'image_type' => "BASE64",
-<<<<<<< HEAD
-            'group_id_list' => $dorm,
-=======
             'group_id_list' => $grade . $dorm,
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
             "max_face_num" => 10,
             'max_user_num' => 10
         );
@@ -30,11 +26,7 @@ class Face extends BaseController
     }
 
 
-<<<<<<< HEAD
-    public function add_face($id = '', $dorm = '', $grade = '', $img = '') // 添加人脸到人脸数据库
-=======
     public function add_face($id = '', $dorm = '', $grade = '', $img = '') // 添加人脸到人脸数据库（批量）
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
     {
         if (empty($id)) {
             $return_data = array();
@@ -68,29 +60,12 @@ class Face extends BaseController
             'image' => $base64_one,
             'image_type' => "BASE64",
             'group_id' => $grade . $dorm,
-<<<<<<< HEAD
-            'user_id' => $id,
-            'quality_control' => 'LOW',
-            'liveness_control' => 'NORMAL',
-=======
             'user_id' => $id
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
         );
 
         $res = $this->request_post($url, $bodys);
 
         $res = json_decode($res, true);
-<<<<<<< HEAD
-        if($res['error_code'] == 0){
-            dump('Add ' . $id . ' Success!');
-        }else{
-            dump('Add ' . $id . ' Failed!');
-        }
-        
-    }
-
-    public function extract()
-=======
         if ($res['error_code'] == 0) {
             dump('Add ' . $id . ' Success!');
         } else {
@@ -99,7 +74,6 @@ class Face extends BaseController
     }
 
     public function extract() // 处理人脸库
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
     {
         if (empty($_FILES['file'])) {
             $return_data = array();
@@ -111,27 +85,16 @@ class Face extends BaseController
             $return_data['error_code'] = 1;
             $return_data['msg'] = '请输入年级！';
             return json($return_data);
-<<<<<<< HEAD
-        } 
-
-        $file = request()->file('file');  // 上传至服务器地址
-        $info = $file->move(ROOT_PATH .'public', $_FILES['file']['name']);
-=======
         }
 
         $file = request()->file('file');  // 压缩包上传至服务器地址
         $info = $file->move(ROOT_PATH . 'public', $_FILES['file']['name']);
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
         // move_uploaded_file($_FILES['file']['tmp_name'], $_FILES['file']['name']); 
 
         $zipName = $_FILES['file']['name'];
 
         $grade = $_POST['grade'];
-<<<<<<< HEAD
-        $toDir = $grade . 'faces';
-=======
         $toDir = 'face';
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
 
         $zip = new \ZipArchive;
         if ($zip->open($zipName) === true) {
@@ -176,28 +139,17 @@ class Face extends BaseController
         $name = array();
         if (is_dir($toDir . '/' . $file_path)) {
             $files = scandir($toDir . '/' . $file_path);  // 遍历文件夹
-<<<<<<< HEAD
-            $files = array_slice($files, 2);  // 截取文件名数组
-=======
             $files = array_slice($files, 3);  // 截取文件名数组
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
 
             foreach ($files as $k => $v) {  // 提取文件名信息
                 $student_id = explode("_", explode(".", $v)[0])[1];
                 $dorm = explode("_", explode(".", $v)[0])[0];
                 $name[$k]['student_id'] = $student_id;
                 $name[$k]['dorm'] = $dorm;
-<<<<<<< HEAD
-                $name[$k]['file_path'] = $toDir . '/' . $file_path.'/'. $v;
-            }
-        } else{
-            $files = scandir($toDir); 
-=======
                 $name[$k]['file_path'] = $toDir . '/' . $file_path . '/' . $v;
             }
         } else {
             $files = scandir($toDir);
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
             $files = array_slice($files, 2);
 
             foreach ($files as $k => $v) {
@@ -208,13 +160,8 @@ class Face extends BaseController
                 $name[$k]['file_path'] = $toDir . '/' . $v;
             }
         }
-<<<<<<< HEAD
-        
-        foreach($name as $k => $v){
-=======
 
         foreach ($name as $k => $v) {
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
             $this->add_face($v['student_id'], $v['dorm'], $grade, $v['file_path']);
         }
         $return_data = array();
@@ -223,8 +170,6 @@ class Face extends BaseController
         return json($return_data);
     }
 
-<<<<<<< HEAD
-=======
     public function add_face_single() // 添加人脸到人脸数据库（单次）
     {
         if (empty($_POST['id'])) {
@@ -320,7 +265,6 @@ class Face extends BaseController
             }
         }
     }
->>>>>>> f033dffc49cc0291c37c501eb11d5307530b933f
 
     // 拼音
     private $dict_list  = array(
