@@ -120,9 +120,9 @@ class User extends BaseController
      */
     public function wxLogin()
     {
-        // if (empty($_POST['code'])) {
-        //     return json(['error_code' => '1', 'msg' => '请输入code！']);
-        // }
+        if (empty($_POST['code'])) {
+            return json(['error_code' => '1', 'msg' => '请输入code！']);
+        }
         $url = "https://api.weixin.qq.com/sns/jscode2session";
         // 参数
         $params = array();

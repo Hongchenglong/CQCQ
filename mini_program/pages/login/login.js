@@ -147,75 +147,76 @@ Page({
       success: function (res) {
         CODE = res.code; //code  
         console.log("code: ", CODE)
-      }
-    })
-    wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/api/user/wxlogin',
-      data: {
-        code: CODE,
-      },
-      method: "POST",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        if (res.data.error_code == 2) {
-          // 等于2时，不提示，让用户自己再点一次
-        } else if (res.data.error_code == 1) {
-          wx.showModal({
-            title: '提示！',
-            content: res.data.msg,
-            confirmColor: '#7EC4F8',
-            showCancel: false,
-            success(res) {}
-          })
-        } else if (res.data.error_code == 0) {
-          getApp().globalData.user = res.data.data
-          console.log('getApp().globalData.user: ', getApp().globalData.user)
-          console.log('getApp().globalData.user.user: ', getApp().globalData.user.user)
-          //加载中的样式
-          wx.showToast({
-            title: '加载中...',
-            mask: true,
-            icon: 'loading',
-            duration: 400
-          })
-          if (getApp().globalData.user.user == 'counselor') {
-            wx.reLaunch({
-              url: '/pages/teacher_index/teacher_index'
-            })
-          } else if (getApp().globalData.user.user == 'student') {
-            wx.reLaunch({
-              url: '/pages/student_index/student_index'
+        wx.request({
+          url: getApp().globalData.server + '/cqcq/public/index.php/api/user/wxlogin',
+          data: {
+            code: CODE,
+          },
+          method: "POST",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            if (res.data.error_code == 2) {
+              // 等于2时，不提示，让用户自己再点一次
+            } else if (res.data.error_code == 1) {
+              wx.showModal({
+                title: '提示！',
+                content: res.data.msg,
+                confirmColor: '#7EC4F8',
+                showCancel: false,
+                success(res) {}
+              })
+            } else if (res.data.error_code == 0) {
+              getApp().globalData.user = res.data.data
+              console.log('getApp().globalData.user: ', getApp().globalData.user)
+              console.log('getApp().globalData.user.user: ', getApp().globalData.user.user)
+              //加载中的样式
+              wx.showToast({
+                title: '加载中...',
+                mask: true,
+                icon: 'loading',
+                duration: 400
+              })
+              if (getApp().globalData.user.user == 'counselor') {
+                wx.reLaunch({
+                  url: '/pages/teacher_index/teacher_index'
+                })
+              } else if (getApp().globalData.user.user == 'student') {
+                wx.reLaunch({
+                  url: '/pages/student_index/student_index'
+                })
+              }
+              var _this = this;
+              wx.request({
+                data: {
+                  id: getApp().globalData.user.id
+                },
+                url: getApp().globalData.server + '/cqcq/public/index.php/api/getinfo/getHomeInfo',
+                method: "POST",
+                header: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                success: function (res) {
+                  getApp().globalData.userInfomation = res.data.data;
+                  console.log(getApp().globalData.userInfomation);
+                }
+              })
+            }
+          },
+          fail: function (res) {
+            wx.showModal({
+              title: '哎呀～',
+              showCancel: false,
+              confirmColor: '#7EC4F8',
+              content: '网络不在状态呢！',
+              success(res) {}
             })
           }
-          var _this = this;
-          wx.request({
-            data: {
-              id: getApp().globalData.user.id
-            },
-            url: getApp().globalData.server + '/cqcq/public/index.php/api/getinfo/getHomeInfo',
-            method: "POST",
-            header: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-              getApp().globalData.userInfomation = res.data.data;
-              console.log(getApp().globalData.userInfomation);
-            }
-          })
-        }
-      },
-      fail: function (res) {
-        wx.showModal({
-          title: '哎呀～',
-          showCancel: false,
-          confirmColor: '#7EC4F8',
-          content: '网络不在状态呢！',
-          success(res) {}
         })
       }
     })
+    
 
     // 若已经授权，则获取用户信息
     wx.getSetting({
