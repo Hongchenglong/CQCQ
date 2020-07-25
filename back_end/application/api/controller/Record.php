@@ -11,43 +11,22 @@ class Record extends BaseController
     {
         //$parameter = ['grade', 'department', 'dorm_num', 'rand_num', 'start_time', 'end_time', 'file'];
         // 输入判断
-        if (empty($_FILES['file'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请选择照片！';
-            return json($return_data);
-        } else if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
-        } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
-        } else if (empty($_POST['dorm_num'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍号！';
-            return json($return_data);
-        } else if (empty($_POST['rand_num'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入随机号！';
-            return json($return_data);
-        } else if (empty($_POST['start_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入开始时间！';
-            return json($return_data);
-        } else if (empty($_POST['end_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入截止时间！';
-            return json($return_data);
-        }
 
+        if (empty($_POST['grade'])) {
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
+        } else if (empty($_POST['department'])) {
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
+        } else if (empty($_POST['start_time'])) {
+            return json(['error_code' => 1, 'msg' => '请输入开始时间！']);
+        } else if (empty($_POST['end_time'])) {
+            return json(['error_code' => 1, 'msg' => '请输入结束时间！']);
+        } else if (empty($_FILES['file'])) {
+            return json(['error_code' => 1, 'msg' => '请选择照片！']);
+        } else if (empty($_POST['dorm_num'])) {
+            return json(['error_code' => 1, 'msg' => '请输入宿舍号！']);
+        } else if (empty($_POST['rand_num'])) {
+            return json(['error_code' => 1, 'msg' => '请输入随机号！']);
+        }
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
@@ -68,10 +47,7 @@ class Record extends BaseController
             ->find();
 
         if (!$record) {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '没有您的查寝记录！';
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '没有您的查寝记录！']);
         }
 
         $type = array("gif", "jpeg", "jpg", "png", "bmp");  // 允许上传的图片后缀
@@ -79,21 +55,14 @@ class Record extends BaseController
         $extension = $temp[count($temp) - 1];     // 获取文件后缀名
         if (in_array($extension, $type) && $_FILES["file"]["size"] < 5242880) {
             if ($_FILES["file"]["error"] > 0) {
-
-                $return_data = array();
-                $return_data['error_code'] = 4;
-                $return_data['msg'] = '文件上传错误！';
-                return json($return_data);
+                return json(['error_code' => 4, 'msg' => '文件上传错误！']);
             } else {
                 $day = date('Y-m-d');
                 $new_file_name = $day . '_' . $record['id'] . '_' . $_POST['rand_num'] . '_' . rand(1000, 10000);
                 $new_name = $new_file_name . '.' . $extension; //新文件名
                 $path = 'upload/' . $new_name;        //upload为保存图片目录
                 if (file_exists("upload/" . $path)) {   //判断是否存在该文件
-                    $return_data = array();
-                    $return_data['error_code'] = 5;
-                    $return_data['msg'] = '文件已存在！';
-                    return json($return_data);
+                    return json(['error_code' => 5, 'msg' => '文件已存在！']);
                 } else {
                     // 如果不存在该文件则将文件上传到 upload 目录下（将临时文件移动到 upload 下以新文件名命名）
                     // move_uploaded_file($_FILES['file']['tmp_name'], "upload/" . $day . '/' . $new_name);
@@ -140,10 +109,7 @@ class Record extends BaseController
                 }
             }
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 6;
-            $return_data['msg'] = '文件格式错误！';
-            return json($return_data);
+            return json(['error_code' => 6, 'msg' => '文件格式错误！']);
         }
     }
 }
