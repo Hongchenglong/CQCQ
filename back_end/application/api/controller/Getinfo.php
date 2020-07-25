@@ -14,6 +14,9 @@ class Getinfo extends BaseController
      */
     public function getHomeInfo()
     {
+        if (empty($_POST['id'])) {
+            return json(['error_code' => 1, 'msg' => '请输入用户id！']);
+        }
 
         $get = Db('counselor')
             ->field('id, username, email, phone, grade, department')
@@ -50,15 +53,9 @@ class Getinfo extends BaseController
     {
 
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         }
 
         // 获取宿舍总数
@@ -170,7 +167,7 @@ class Getinfo extends BaseController
         }
         array_multisort(array_column($unsignStu30_, 'count'), SORT_DESC, array_column($unsignStu30_, 'student_id'), SORT_ASC, $unsignStu30_); // 数量降序 学号升序
 
-        foreach ($unsign7_ as $k => $v) { 
+        foreach ($unsign7_ as $k => $v) {
             unset($unsign7_[$k]['student_id']); // 删除学号显示
         }
         foreach ($unsign30_ as $k => $v) {

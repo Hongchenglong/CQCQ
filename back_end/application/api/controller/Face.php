@@ -28,26 +28,14 @@ class Face extends BaseController
 
     public function add_face($id = '', $dorm = '', $grade = '', $img = '') // 添加人脸到人脸数据库（批量）
     {
-        if (empty($id)) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学号！';
-            return json($return_data);
+        if (empty($grade)) {
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
+        } else if (empty($id)) {
+            return json(['error_code' => 1, 'msg' => '请输入学号！']);
         } else if (empty($dorm)) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍！';
-            return json($return_data);
-        } else if (empty($grade)) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍！']);
         } else if (empty($img)) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请上传照片！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请上传照片！']);
         }
 
         $token = $this->get_token();
@@ -76,15 +64,9 @@ class Face extends BaseController
     public function extract() // 处理人脸库
     {
         if (empty($_FILES['file'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请选择.zip压缩包！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请选择.zip压缩包！']);
         } else if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         }
 
         $file = request()->file('file');  // 压缩包上传至服务器地址
@@ -164,40 +146,24 @@ class Face extends BaseController
         foreach ($name as $k => $v) {
             $this->add_face($v['student_id'], $v['dorm'], $grade, $v['file_path']);
         }
-        $return_data = array();
-        $return_data['error_code'] = 0;
-        $return_data['msg'] = '添加人脸库结束！';
-        return json($return_data);
+
+        return json(['error_code' => 0, 'msg' => '添加人脸库结束！']);
     }
 
     public function add_face_single() // 添加人脸到人脸数据库（单次）
     {
         if (empty($_POST['id'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学号！';
-            return json($return_data);
-        } else if (empty($_POST['dorm'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍！';
-            return json($return_data);
-        } else if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入学号！']);
+        }else if (empty($_POST['grade'])) {
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_FILES['img'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请上传照片！';
-            return json($return_data);
-        }
+            return json(['error_code' => 1, 'msg' => '请上传照片！']);
+        } else if (empty($_POST['dorm'])) {
+            return json(['error_code' => 1, 'msg' => '请输入宿舍！']);
+        } 
+
         $type = array("jpeg", "jpg", "png", "bmp");  // 允许上传的图片后缀
         $temp = explode(".", $_FILES['img']['name']);  // 图片名
         $extension = $temp[count($temp) - 1];     // 获取文件后缀名
@@ -205,14 +171,11 @@ class Face extends BaseController
         if (in_array($extension, $type) && $_FILES["img"]["size"] < 5242880) {
 
             if ($_FILES["img"]["error"] > 0) {
-                $return_data = array();
-                $return_data['error_code'] = 4;
-                $return_data['msg'] = '文件上传错误！';
-                return json($return_data);
+                return json(['error_code' => 2, 'msg' => '文件上传错误！']);
             } else {
                 $new_file_name = $_POST['id'];
                 $new_name = $new_file_name . '.' . $extension; // 新文件名 学号.jpg
-                
+
                 $dir = 'face/' . $_POST['grade'] . '/' . $_POST['department'];
                 $path = $dir . '/' . $new_name; //face为保存图片目录
 
@@ -253,15 +216,9 @@ class Face extends BaseController
                     ->where('id', $_POST['id'])
                     ->setField('face', $path);
 
-                $return_data = array();
-                $return_data['error_code'] = 0;
-                $return_data['msg'] = '添加人脸库成功';
-                return json($return_data);
+                return json(['error_code' => 0, 'msg' => '添加人脸库成功！']);
             } else {
-                $return_data = array();
-                $return_data['error_code'] = 2;
-                $return_data['msg'] = '添加人脸库失败';
-                return json($return_data);
+                return json(['error_code' => 3, 'msg' => '添加人脸库失败！']);
             }
         }
     }
