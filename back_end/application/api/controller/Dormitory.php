@@ -14,20 +14,11 @@ class Dormitory extends BaseController
         // $parameter = ['grade', 'department', 'block'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['block'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍楼！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍楼！']);
         }
 
         // 查询条件
@@ -51,14 +42,9 @@ class Dormitory extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '查看成功！';
             $return_data['data'] = $result;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '无该区的宿舍信息！';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '无该区的宿舍信息！']);
         }
     }
 
@@ -69,49 +55,30 @@ class Dormitory extends BaseController
     {
         // $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
         // 输入判断
+
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
-        } else if (empty($_POST['sex'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入性别！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['block'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍楼！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍楼！']);
         } else if (empty($_POST['room'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍号！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍号！']);
+        } else if (empty($_POST['sex'])) {
+            return json(['error_code' => 1, 'msg' => '请输入性别！']);
         } else if (empty($_POST['studentId'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学号！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入学号！']);
         } else if (strlen($_POST['studentId']) != 9) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入9位数的学号！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入9位数的学号！']);
         }
+
         $dorm_num = $_POST['block'] . '#' . $_POST['room'];
 
         // 检验学号是否已被注册
         $where = array();
         $where['id'] = $_POST['studentId'];
         $student = db('student')->where($where)->find();
-  
+
         // 查询宿舍
         $where = array();
         $where['sex'] = $_POST['sex'];
@@ -126,10 +93,7 @@ class Dormitory extends BaseController
             ->find();
 
         if ($student) {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '学号' . $_POST['studentId'] . '已存在！';
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '学号' . $_POST['studentId'] . '已存在！']);
         } else {
             // 如果宿舍不存在，则添加
             if (empty($dorm)) {
@@ -158,7 +122,6 @@ class Dormitory extends BaseController
             $return_data['msg'] = '添加成功';
             $return_data['data']['dorm'] = $dorm_num;
             $return_data['data']['student'] = $_POST['studentId'];
-
             return json($return_data);
         }
     }
@@ -171,35 +134,17 @@ class Dormitory extends BaseController
         // $parameter = ['grade', 'department', 'sex', 'block', 'room', 'studentId'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
-        } else if (empty($_POST['sex'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入性别！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['block'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍楼！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍楼！']);
         } else if (empty($_POST['room'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍号！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍号！']);
+        } else if (empty($_POST['sex'])) {
+            return json(['error_code' => 1, 'msg' => '请输入性别！']);
         } else if (empty($_POST['studentId'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学生号！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入学号！']);
         }
 
         // 删除宿舍
@@ -230,17 +175,9 @@ class Dormitory extends BaseController
             ->delete();
 
         if ($result) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '删除成功!';
-
-            return json($return_data);
+            return json(['error_code' => 0, 'msg' => '删除成功！']);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '没有可删除的宿舍!';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '没有可删除的宿舍！']);
         }
     }
 
@@ -252,16 +189,11 @@ class Dormitory extends BaseController
         // $parameter = ['grade', 'department'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
-        } 
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
+        }
+
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
@@ -279,13 +211,9 @@ class Dormitory extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '成功获取区号!';
             $return_data['data'] = $result;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无区号!';
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '暂无区号！']);
         }
     }
 }
