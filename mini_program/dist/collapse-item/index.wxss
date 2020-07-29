@@ -1,0 +1,42 @@
+.i-collapse-item {
+  padding: 2px 8px;
+  border-bottom: 1px solid #dddee1
+}
+
+.i-collapse-item-title {
+  vertical-align: middle
+}
+
+.i-collapse-item-title-wrap {
+  padding: 5px 0 5px;
+}
+
+.i-collapse-item-content {
+  padding: 6px;
+  display: none
+}
+
+.i-collapse-item-show-content {
+  display: block
+}
+
+.appear{
+  display: flex;
+  float: right;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.i-collapse-item-arrow {
+  transition: transform .2s ease-in-out;
+  display: flex;
+  float: right;
+}
+
+.i-collapse-item-arrow-show {
+  transition: transform .2s ease-in-out;
+  transform: rotate(90deg);
+  display: flex;
+  float: right;
+}

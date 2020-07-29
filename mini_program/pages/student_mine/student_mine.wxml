@@ -17,6 +17,20 @@
 	</view>
 	<!--<view class="padding flex text-center text-grey bg-white shadow-warp">-->
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+	<!--绑定微信/解绑微信-->
+		<view class="cu-item arrow" bindtap="wx_binding">
+			<view class="content" url="" hover-class="none">
+				<text class="cuIcon-write text-mauve"></text>
+				<text class="text-grey">绑定/解绑微信</text>
+			</view>
+		</view>
+	<!--签到情况-->
+		<view class="cu-item arrow" bindtap="to_situation">
+			<view class="content" hover-class="none">
+				<text class="cuIcon-rank text-green"></text>
+				<text class="text-grey">签到情况</text>
+			</view>
+		</view>
 		<!--修改信息-->
 		<view class="cu-item arrow" bindtap="to_info">
 			<view class="content" hover-class="none"><!--url="../revise_information/revise_information"  bindtap="click"-->

@@ -15,15 +15,9 @@ class Draw extends BaseController
         // $parameter = ['department', 'grade'];   
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         }
 
         $numOfBoys = $_POST['numOfBoys'];
@@ -72,14 +66,9 @@ class Draw extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '抽签成功!';
             $return_data['data']['dorm'] = $all;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '抽签失败，没有选择宿舍!';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '抽签失败，没有选择宿舍！']);
         }
     }
 
@@ -92,25 +81,13 @@ class Draw extends BaseController
         // $parameter = ['department', 'grade', 'block', 'room'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['block'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍楼！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍楼！']);
         } else if (empty($_POST['room'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍号！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍号！']);
         }
 
         $dormSuc = array();
@@ -148,14 +125,9 @@ class Draw extends BaseController
             $return_data['msg'] = '指定成功!';
             $return_data['data']['dormSuc'] = $dormSuc;
             $return_data['data']['dormFal'] = $dormFal;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '指定了不存在的宿舍!';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '指定了不存在的宿舍！']);
         }
     }
 
@@ -167,25 +139,13 @@ class Draw extends BaseController
         // $parameter = ['department', 'grade', 'block', 'room'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['block'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍楼！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍楼！']);
         } else if (empty($_POST['room'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍号！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍号！']);
         }
 
         // 查询条件
@@ -201,17 +161,9 @@ class Draw extends BaseController
             ->find();
 
         if ($result) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '存在该宿舍!';
-
-            return json($return_data);
+            return json(['error_code' => 0, 'msg' => '存在该宿舍！']);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '该宿舍不存在!';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '该宿舍不存在！']);
         }
     }
 
@@ -227,37 +179,18 @@ class Draw extends BaseController
         // dorm_id, rand_num是列表
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['start_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入开始时间！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入开始时间！']);
         } else if (empty($_POST['end_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入结束时间！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入结束时间！']);
         } else if (empty($_POST['dorm_id'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入宿舍id！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入宿舍id！']);
         } else if (empty($_POST['rand_num'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入随机数！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入随机数！']);
         }
-
 
         // 先查看是否有这个时间段的记录，有则删除
         $where = array();
@@ -292,18 +225,9 @@ class Draw extends BaseController
         }
 
         if ($result) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '确认成功!';
-            // $return_data['data'] = $result;
-
-            return json($return_data);
+            return json(['error_code' => 0, 'msg' => '确认成功！']);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '没有可确认的抽签结果!';
-
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '没有可确认的抽签结果！']);
         }
     }
 
@@ -315,20 +239,11 @@ class Draw extends BaseController
         // $parameter = ['department', 'grade', 'start_time'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['start_time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入开始时间！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入开始时间！']);
         }
 
         // 查询条件
@@ -349,14 +264,9 @@ class Draw extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '显示抽签结果!';
             $return_data['data'] = $result;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无抽签结果!';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '暂无抽签结果！']);
         }
     }
 
@@ -368,15 +278,9 @@ class Draw extends BaseController
         // $parameter = ['department', 'grade'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         }
 
         $now = date('Y-m-d H:i:s', time());
@@ -399,14 +303,9 @@ class Draw extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '显示抽签结果!';
             $return_data['data'] = $result;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无抽签结果!';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '暂无抽签结果！']);
         }
     }
 
@@ -418,15 +317,9 @@ class Draw extends BaseController
         // $parameter = ['department', 'grade'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         }
 
         // 查询条件
@@ -464,14 +357,9 @@ class Draw extends BaseController
             $return_data['error_code'] = 0;
             $return_data['msg'] = '显示抽签结果!';
             $return_data['data'] = $result;
-
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '暂无抽签结果!';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '暂无抽签结果！']);
         }
     }
 
@@ -483,15 +371,9 @@ class Draw extends BaseController
         // $parameter = ['department', 'grade'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         }
 
         // 查询条件
@@ -523,11 +405,7 @@ class Draw extends BaseController
 
             return json($return_data);
         } else {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '该系暂无宿舍，请导入!';
-
-            return json($return_data);
+            return json(['error_code' => 2, 'msg' => '该系暂无宿舍，请导入！']);
         }
     }
 }

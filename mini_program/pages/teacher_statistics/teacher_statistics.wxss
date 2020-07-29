@@ -1,14 +1,24 @@
 /* pages/teacher_statistics/teacher_statistics.wxss */
 @import"/colorui/main.wxss";
 
-.up{
+/* .per {
+  margin: 30rpx auto;
+  background-color: white;
+  width: 95%;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 0px 2px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4); 
+  padding-top: 10rpx;
+} */
+
+.up {
   width: 95%;
   margin: 0rpx auto;
 }
 
-.name{
-  width:95%;
-  margin-top: 30rpx;
+.name {
+  width: 95%;
+  /* margin-top: 10rpx; */
   font-size: 13px;
   display: flex;
   align-items: center;
@@ -17,7 +27,7 @@
 }
 
 .table {
-  width:95%;
+  width: 95%;
   margin: 10rpx auto;
   background-color: #fff;
   border: 0rpx solid #eff4f8;
@@ -50,11 +60,11 @@
 }
 
 .calendar {
-  width: 95%;
+  /* width: 95%; */
   text-align: center;
   font-size: 30rpx;
   box-sizing: border-box;
-  margin: 30rpx auto;
+  margin: 0 auto;
 }
 
 /* 标题 */
@@ -68,7 +78,7 @@
 
 .calendar-title .ctrl {
   display: inline-block;
-  padding: 0 20rpx; 
+  padding: 0 20rpx;
   border-radius: 10rpx;
 }
 
@@ -85,7 +95,16 @@
 
 .calendar-title .today {
   float: right;
+  display: flex;
+  align-items: center;
   margin-top:10rpx ;
+}
+
+.more{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 25rpx;
+  /* border: 1rpx solid; */
 }
 
 /* 星期 */
@@ -119,14 +138,26 @@
   z-index: 1;
 }
 
+/* 有记录的样式 */
 .calendar-container .grid .self {
+  position: absolute;
+  top: 0rpx;
+  left: 45%;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #b3c7e6;
+  /* border: 3rpx solid #fff; */
+}
+
+.calendar-container .grid .format {
   position: absolute;
   top: 0rpx;
   right: 0rpx;
   width: 15rpx;
   height: 15rpx;
-  border-radius: 50%;
-  background: #7EC4F8;
+  border-radius: 30rpx;
+  background: #bfbfbf;
   border: 3rpx solid #fff;
 }
 
@@ -134,13 +165,23 @@
   color: #ccc;
 }
 
+/* 被选中的颜色 */
 .calendar-container .grid .wrap.select {
-  background: #7EC4F8;
-  border-radius: 10rpx;
+  background: #86b0ed;
+  border-radius: 80%;
+  color: #fff;
+  width: 68%;
+  margin: 0 auto;
+}
+
+
+/* .calendar-container .grid .wrap.oldrecord {
+  background: rgb(98, 233, 208);
+  border-radius: 50%;
   color: #fff;
   width: 80%;
   margin: 0 auto;
-}
+} */
 
 /* 滚动展示 */
 .calendar-x {
@@ -160,7 +201,8 @@
   border-radius: 10rpx;
   margin-left: 20rpx;
 }
-.calendar-x .grid:last-child{
+
+.calendar-x .grid:last-child {
   margin-right: 20rpx;
 }
 
@@ -186,12 +228,21 @@
   margin: 0 auto;
 }
 
-/* .lianxi{
-  margin: 0 20rpx;
-  padding: 20rpx;
-  display: flex;
+.calendar-x .grid .warp.oldrecord {
+  background: rgb(98, 233, 208);
+  border-radius: 15rpx;
+  color: #fff;
+  margin: 0 auto;
 }
 
-.lianxi input{
-  font-size: 26rpx;
-} */
+.progress {
+  width: 60%;
+  margin: 20rpx;
+}
+
+.name_{
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

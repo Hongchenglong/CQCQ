@@ -10,15 +10,9 @@ class Resultsday
         // $parameter = ['department', 'grade'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         }
 
         $where = array();
@@ -55,20 +49,11 @@ class Resultsday
         // $parameter = ['department', 'grade', 'time'];
         // 输入判断
         if (empty($_POST['grade'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入年级！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入系！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入时间（年月日）！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入时间（年月日）！']);
         }
 
         $where = array();
@@ -107,15 +92,9 @@ class Resultsday
         // $parameter = ['id', 'time'];
         // 输入判断
         if (empty($_POST['id'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入学号！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入学号！']);
         } else if (empty($_POST['time'])) {
-            $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '请输入时间（年月）！';
-            return json($return_data);
+            return json(['error_code' => 1, 'msg' => '请输入时间（年月）！']);
         }
 
         $where = array();
