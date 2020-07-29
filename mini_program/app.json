@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",  
+    "pages/teacher_index/teacher_index",
     
     "pages/recycle_bin/recycle_bin",
     "pages/recycle/recycle",
@@ -31,6 +32,8 @@
     "pages/teacher_home/teacher_home",
     "pages/teacher_dorm/teacher_dorm",
     "pages/teacher_statistics/teacher_statistics",
+    "pages/more/more",
+    "pages/situation/situation",
     
     "pages/teacher_check/teacher_check",
     "pages/forget/forget",
@@ -40,7 +43,6 @@
     "pages/student_details/student_details",
     "pages/teacher_details/teacher_details",
 
-    "pages/teacher_index/teacher_index",
     "pages/student_index/student_index",
 
     "pages/index/index",

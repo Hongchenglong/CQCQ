@@ -16,4 +16,19 @@
 		</view>
 		<image bindtap='clickImg' class="imgs" mode="widthFix" src="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}" data-photo="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}" />
 	</block>
+		<view class="shadow" style="padding-top: 30rpx;padding-bottom: 30rpx">
+		<text class="name" style="text-align: center;">未签到人员名单</text>
+		<view class="table">
+			<view class="tr bg-w">
+				<view class="th">学号</view>
+				<view class="th">Y/N</view>
+			</view>
+			<block wx:for='{{list}}' wx:key="item">
+					<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
+						<view class="td">{{item}}</view>
+						<view class="td">未签到</view>
+					</view>
+			</block>
+		</view>
+	</view>
 </scroll-view>

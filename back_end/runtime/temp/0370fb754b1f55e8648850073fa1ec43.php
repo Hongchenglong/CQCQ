@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:84:"E:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html";i:1591038935;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:84:"E:\phpstudy_pro\WWW\CQCQ\back_end\public/../application/index\view\column\index.html";i:1591171048;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>

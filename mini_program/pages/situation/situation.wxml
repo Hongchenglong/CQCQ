@@ -1,0 +1,70 @@
+<!--pages/situation/situation.wxml-->
+<!-- 选择年月 -->
+<view class="picker_group">
+	<picker mode="date" value="{{date}}" end="{{date2}}" fields='month' bindchange="bindDateChange">
+		<view class="picker">
+			{{date}}
+		</view>
+	</picker>
+</view>
+<view class="row">
+	<text class="left">签到汇总</text>
+	<text class="right">本月应签到{{record_num}}次</text>
+</view>
+<view class="caption-wrap">
+	<i-collapse name="{{name}}">
+
+		<i-collapse-item title="已签到" num="{{sign_num}}次" name="name2" style='height:80rpx;line-height:80rpx'>
+			<block wx:for="{{sign_day}}" wx:for-item="i">
+
+				<view slot="content" i-class-content="green-text">
+					<view class="cu-list menu-avatar">
+						<!-- 每条记录 -->
+						<view class="cu-item" style="background-color: #f1f1f1;">
+							<view class="content">
+								<view class="text-grey" style="color:black">{{i.day}}</view>
+								<view class="text-gray text-sm flex">
+									<text class="text-cut">
+							<text class="margin-right-xs"></text> {{i.start}}-{{i.end}}
+									</text>
+								</view>
+							</view>
+							<view class="action">
+								<view class="text-black text-xs" style="font-size:30rpx;color:#21d33d">已签到</view>
+							</view>
+						</view>
+
+					</view>
+				</view>
+			</block>
+		</i-collapse-item>
+
+		<!-- <block wx:for="{{unsign_num}}" wx:for-item="itemName" wx:for-index="id"> -->
+		<i-collapse-item title="未签到" num="{{unsign_num}}次" name="name3" style='height:80rpx;line-height:80rpx'>
+			<!-- <view slot="content">
+			</view> -->
+			<block wx:for="{{unsign_day}}" wx:for-item="i">
+
+				<view slot="content" i-class-content="green-text">
+					<view class="cu-list menu-avatar">
+						<!-- 每条记录 -->
+						<view class="cu-item" style="background-color: #f1f1f1;">
+							<view class="content">
+								<view class="text-grey" style="color:black">{{i.day}}</view>
+								<view class="text-gray text-sm flex" style='color:#b2b2b2'>
+									<text class="text-cut">
+							<text class="margin-right-xs"></text> {{i.start}}-{{i.end}}
+									</text>
+								</view>
+							</view>
+							<view class="action">
+								<view class="text-black text-xs" style="font-size:30rpx;color:#ff1200">未签到</view>
+							</view>
+						</view>
+
+					</view>
+				</view>
+			</block>
+		</i-collapse-item>
+	</i-collapse>
+</view>
