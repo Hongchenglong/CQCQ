@@ -1,4 +1,5 @@
 <?php
+
 namespace app\index\controller;
 
 use \think\Db;
@@ -120,13 +121,14 @@ class Table extends BaseController
 			echo " history.back();\r\n";
 			echo "</script>";
 		} else {
-			$this->error("没有删除权限,请登录",url('table/table'));
+			$this->error("没有删除权限,请登录", url('table/table'));
 			// $f->out();
 		}
 	}
 
 	// 更改用户信息
-	public function edit_user(){
+	public function edit_user()
+	{
 		$id = Request::instance()->post('id');
 		$sex = Request::instance()->post('sex');
 		$username = Request::instance()->post('username');
@@ -136,76 +138,73 @@ class Table extends BaseController
 		$department = Request::instance()->post('department');
 		$dorm = Request::instance()->post('dorm');
 
-		$result=Db('Student')
-		->where([
-			'id'  => $id
-		])
-		->update([
-			'sex' => $sex,
-			'username' => $username,
-			'email' => $email,
-			'phone' => $phone,
-			'grade' => $grade,
-			'department' => $department,
-			'dorm' => $dorm,
-		]);
+		$result = Db('Student')
+			->where([
+				'id'  => $id
+			])
+			->update([
+				'sex' => $sex,
+				'username' => $username,
+				'email' => $email,
+				'phone' => $phone,
+				'grade' => $grade,
+				'department' => $department,
+				'dorm' => $dorm,
+			]);
 		if ($result) {
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " alert(\"更新成功\");\r\n";
 			echo " history.back();\r\n";
 			echo "</script>";
-			
-		} 
+		}
 	}
-	
+
 
 	//上传，解析csv文件
-	public function uploadFile(){
+	public function uploadFile()
+	{
 
 		// dump($_FILES["upfile"]);
-		if(is_uploaded_file($_FILES['upfile']['tmp_name'])){
-			$upfile=$_FILES["upfile"];
-			$name=$upfile['name'];
-			$tmp_name=$upfile["tmp_name"];//上传文件的临时存放路径
-			move_uploaded_file($tmp_name,$name);
+		if (is_uploaded_file($_FILES['upfile']['tmp_name'])) {
+			$upfile = $_FILES["upfile"];
+			$name = $upfile['name'];
+			$tmp_name = $upfile["tmp_name"]; //上传文件的临时存放路径
+			move_uploaded_file($tmp_name, $name);
 			// dump("上传成功");
-			}
-		else{
+		} else {
 			// dump("您还没有上传文件");
-		}	
-		if (!file_exists('uploads')){
+		}
+		if (!file_exists('uploads')) {
 			mkdir('uploads');
 		}
 
+		$update_id = 0;
+		$insert_id = 0;
 		$data = [];
 		$n = 0;
-		$file = fopen($name,'r');
-		while(! feof($file))
-		{
-			
-			if($n==0){
+		$file = fopen($name, 'r');
+		while (!feof($file)) {
+
+			if ($n == 0) {
 				$n++;
 				$head = fgets($file);
 				$head = trim($head);
-				$head = explode(",",$head);
-				$head = mb_convert_encoding( $head, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5' );
+				$head = explode(",", $head);
+				$head = mb_convert_encoding($head, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5');
 				// dump($head);
 				// dump("--");
-			}
-			else{
+			} else {
 				$html = fgets($file);
 				$html = trim($html);
-				$html = explode(",",$html);
-				$reutrn_data[$n] = mb_convert_encoding( $html, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5' );
+				$html = explode(",", $html);
+				$reutrn_data[$n] = mb_convert_encoding($html, 'UTF-8', 'UTF-8,GBK,GB2312,BIG5');
 				$n++;
-				
 			}
-			
 		}
-		for($i=1;$i<$n-1;$i++){
+		for ($i = 1; $i < $n - 1; $i++) {
 			$where = ['id' => $reutrn_data[$i][1]];
 			$data_id = Db('Student')->where($where)->find();
-			if(!$data_id){
+			if (!$data_id) {
 				$data[] = [
 					'id' => $reutrn_data[$i][1],
 					'password' => md5($reutrn_data[$i][1]),
@@ -217,22 +216,48 @@ class Table extends BaseController
 					'department' => $reutrn_data[$i][7],
 					'dorm' => $reutrn_data[$i][3],
 				];
+				$insert_id = $insert_id + 1;
+			} else {
+				$result = Db('Student')
+					->where(['id'  => $reutrn_data[$i][1]])
+					->update([
+						'sex' => $reutrn_data[$i][2],
+						'username' => $reutrn_data[$i][0],
+						'email' => $reutrn_data[$i][5],
+						'phone' => $reutrn_data[$i][4],
+						'grade' => $reutrn_data[$i][6],
+						'department' => $reutrn_data[$i][7],
+						'dorm' => $reutrn_data[$i][3],
+					]);
+				if ($result) {
+					$update_id = $update_id + 1;
+				}
 			}
 		}
 
-		if($data){
-			$result = Db('Student')->insertAll($data);
+		$in_result = Db('Student')->insertAll($data);
+
+		if ($in_result && $update_id) {
 			echo "<script language=\"JavaScript\">\r\n";
-			echo " alert(\"导入成功\");\r\n";
+			echo " alert(\"{$insert_id}条信息导入成功，{$update_id}条信息更改成功\");\r\n";
 			echo " history.back();\r\n";
 			echo "</script>";
-		}else{
+		} else if ($in_result) {
 			echo "<script language=\"JavaScript\">\r\n";
-			echo " alert(\"导入失败，所有学生信息已全部导入\");\r\n";
+			echo " alert(\"{$insert_id}条信息导入成功，未有数据被更改\");\r\n";
+			echo " history.back();\r\n";
+			echo "</script>";
+		} else if ($update_id) {
+			echo "<script language=\"JavaScript\">\r\n";
+			echo " alert(\"{$update_id}条信息替换成功，未新增数据\");\r\n";
+			echo " history.back();\r\n";
+			echo "</script>";
+		} else {
+			echo "<script language=\"JavaScript\">\r\n";
+			echo " alert(\"导入失败，所有学生信息已全部导入，且未发生更改\");\r\n";
 			echo " history.back();\r\n";
 			echo "</script>";
 		}
-		// dump($result);
 		fclose($file);
 	}
 }
