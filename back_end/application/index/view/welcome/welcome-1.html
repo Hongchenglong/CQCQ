@@ -317,7 +317,7 @@
         //未签次数多的学生
         $.ajax({
           type: "POST",
-          url: "index.php?s=index/welcome/get_more",
+          url: "index.php?s=index/welcome/more",
           async: false,
           success: function (msg) {
             let bd = document.getElementsByName("more")[0];
@@ -400,7 +400,7 @@
 
         $.ajax({
           type: "POST",
-          url: "index.php?s=index/welcome/get_time",
+          url: "index.php?s=index/welcome/time",
           async: false,
           success: function (msg) {
             let bd = document.getElementsByName("records")[0];
@@ -455,7 +455,7 @@
 
                 $.ajax({
                   type: "POST",
-                  url: "index.php?s=index/welcome/get_records",
+                  url: "index.php?s=index/welcome/records",
                   async: false,
                   data: {
                     start_time: msg.data[k].start_time,

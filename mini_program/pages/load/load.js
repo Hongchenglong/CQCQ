@@ -108,7 +108,6 @@ Page({
           url: "../student_index/student_index",
         })
       }
-
       //console.log(getApp().globalData.PageCur)
     }
   },
