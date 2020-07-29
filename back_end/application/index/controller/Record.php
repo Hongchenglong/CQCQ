@@ -23,6 +23,10 @@ class Record extends BaseController
         // $department = Request::instance()->post('department');
         $grade = Session::get('grade');
         $department = Session::get('department');
+
+        //当前时间
+        $time = date('Y-m-d H:i:s', time());
+
         $record = Db::table('record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
@@ -36,11 +40,25 @@ class Record extends BaseController
 
         if (!empty($record)) {
             $return_data = array();
+            $j = 0;
             rsort($record);  //排序
-            $return_data['code'] = 0;
-            $return_data['msg'] = '';
+
+            for ($i = 0; $i < count($record); $i++) {
+                if ($time < $record[$i]['start_time']) {
+                    $return_data[$j]['msg'] = '未开始';
+                    $return_data[$j]['data'] = $record[$i];
+                    $j++;
+                } else if ($time >= $record[$i]['start_time'] & $time <= $record[$i]['end_time']) {
+                    $return_data[$j]['msg'] = '进行中';
+                    $return_data[$j]['data'] = $record[$i];
+                    $j++;
+                } else if ($time > $record[$i]['end_time']) {
+                    $return_data[$j]['msg'] = '已结束';
+                    $return_data[$j]['data'] = $record[$i];
+                    $j++;
+                }
+            }
             $return_data['count'] = count($record);
-            $return_data['data'] = $record;
             return json($return_data);
         } else {
             echo false;
@@ -67,12 +85,28 @@ class Record extends BaseController
             ->where(['department' => $department])
             ->where(['deleted' => 0])
             ->select();
+
+        //当前时间
+        $time = date('Y-m-d H:i:s', time());
         if (!empty($drecord)) {
             $data = array();
             rsort($drecord);  //排序
-            $data['code'] = 0;
-            $data['msg'] = '';
-            $data['data'] = $drecord;
+            $j = 0;
+            for ($i = 0; $i < count($drecord); $i++) {
+                if ($time < $drecord[$i]['start_time']) {
+                    $data[$j]['msg'] = '未开始';
+                    $data[$j]['data'] = $drecord[$i];
+                    $j++;
+                } else if ($time >= $drecord[$i]['start_time'] & $time <= $drecord[$i]['end_time']) {
+                    $data[$j]['msg'] = '进行中';
+                    $data[$j]['data'] = $drecord[$i];
+                    $j++;
+                } else if ($time > $drecord[$i]['end_time']) {
+                    $data[$j]['msg'] = '已结束';
+                    $data[$j]['data'] = $drecord[$i];
+                    $j++;
+                }
+            }
             $data['count'] = count($drecord);
             return json($data);
         } else {
@@ -80,13 +114,13 @@ class Record extends BaseController
         }
     }
 
-    //统计未签到
-    public function statistics()
+    //获取查寝签到情况
+    public function dorm()
     {
-        // session_start();
-        // $parameter = ['grade', 'department', 'start_time', 'end_time'];
+        session_start();
         $grade = Session::get('grade');
         $department = Session::get('department');
+
         // 输入判断
         if (empty($grade)) {
             $return_data = array();
@@ -110,65 +144,34 @@ class Record extends BaseController
             return json($return_data);
         }
 
-        date_default_timezone_set("PRC"); //时区标识符 解决时差8小时
-        if (date("Y-m-d H:i:s") < $_POST['start_time']) {
+        //条件
+        $where = array();
+        $where['s.grade'] = $grade;
+        $where['s.department'] = $department;
+        $where['r.start_time'] = $_POST['start_time'];
+        $where['r.end_time'] = $_POST['end_time'];
+        $where['r.deleted'] = 0;
+
+
+        $dorm = Db('result')  // 该条记录信息
+            ->field('d.dorm_num, s.id, re.sign')
+            ->alias('re')
+            ->join('record r', 're.record_id = r.id')
+            ->join('dorm d', 'd.id = r.dorm_id')
+            ->join('student s', 's.id = re.student_id')
+            ->where($where)
+            ->distinct(true)
+            ->select();
+
+        // return json($dorm);
+        if (!empty($dorm)) {
             $return_data = array();
-            $return_data['error_code'] = 1;
-            $return_data['msg'] = '该次抽查尚未开始！';
-            return json($return_data);
-        } else if (date("Y-m-d H:i:s") < $_POST['end_time']) {
-            $return_data = array();
-            $return_data['error_code'] = 2;
-            $return_data['msg'] = '该查寝尚未结束！';
+            rsort($dorm);  //排序
+            $return_data['count'] = count($dorm);
+            $return_data['data'] = $dorm;
             return json($return_data);
         } else {
-            $return_data = array();
-
-            $where = array();
-            $where['s.grade'] = $grade;
-            $where['s.department'] = $department;
-            $where['r.start_time'] = $_POST['start_time'];
-            $where['r.end_time'] = $_POST['end_time'];
-            $where['r.deleted'] = 0;
-
-            $where['t.sign'] = 0;
-            $list = Db('result')   // 查找未签到人员信息
-                ->field('s.id, s.username, d.dorm_num')
-                ->alias('t')
-                ->join('record r', 't.record_id = r.id')
-                ->join('dorm d', 'd.id = r.dorm_id')
-                ->join('student s', 's.id = t.student_id')
-                ->where($where)
-                ->distinct(true)
-                ->select();
-
-            foreach ($list as $k => $v) {
-                $list[$k]['block'] = explode('#', $v['dorm_num'])[0];
-                $list[$k]['room'] = explode('#', $v['dorm_num'])[1];
-                unset($list[$k]['dorm_num']); //销毁变量 
-            }
-
-            $where['t.sign'] = 1;
-            $num = Db('result')   // 查找未签到人员信息
-                ->field('s.id, s.username, d.dorm_num')
-                ->alias('t')
-                ->join('record r', 't.record_id = r.id')
-                ->join('dorm d', 'd.id = r.dorm_id')
-                ->join('student s', 's.id = t.student_id')
-                ->where($where)
-                ->distinct(true)
-                ->select();
-
-            $sign_num = count($num);   // 已签到人数
-            $unsign_num = count($list);  // 未签到人数
-
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '统计结束！';
-            $return_data['data']['sign_num'] = $sign_num;
-            $return_data['data']['unsign_num'] = $unsign_num;
-            $return_data['data']['unsign_list'] = $list;
-            return json($return_data);
+            echo false;
         }
     }
 }
