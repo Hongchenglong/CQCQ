@@ -33,6 +33,7 @@ class Table extends BaseController
 	{
 		Db::connect();
 		$result = db('Student', [], false)->select();
+		sort($result);
 		if ($result) {
 			$return_data = array();
 			$return_data['code'] = 0;

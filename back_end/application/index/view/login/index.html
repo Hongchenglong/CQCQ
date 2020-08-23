@@ -1,79 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>登录页面</title>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="/tp5/public/css/mr-basic.css" />
-    <link href="/tp5/public/css/mr-login.css" rel="stylesheet" type="text/css">
+<head>
+	<title>CQCQ后台管理系统</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/cqcq/back_end/public/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/cqcq/back_end/public/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/cqcq/back_end/public/lib/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="/cqcq/back_end/public/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/cqcq/back_end/public/css/main.css">
 </head>
 
 <body>
-    <div class="login-banner" style="position:fixed;top:0px;right:0px;left:0px;height:100%;background: url(/cqcq/images/b5.jpg) center center/cover no-repeat !important;">
-        <div class="login-main" style="text-align: center;height: 100%; ">
-            <div class="login-box" style="opacity: 0.6;right:30%;display: inline-block; vertical-align: middle; width: 400px; margin: 90px 0;border-radius: 4px; padding:40px; background: lightgray">
-                <h3 class="title">后台管理系统</h3>
-                <div class="login-form">
-                    <!--用户账户和密码的表单-->
-                    <form onSubmit="return check_login()" id="loginForm" action="index.php?s=index/login/valid"
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/cqcq/back_end/public/images/b5.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form" action="index.php?s=index/login/valid"
                         name="loginForm" method="post" enctype="multipart/form-data">
-                        <!-- 只有使用了multipart/form-data，才能完整地传递文件数据 -->
-                        <div class="user-name">
-                            <label for="user"><i class="mr-icon-user"></i></label>
-                            <input type="text" id="user" name="uaccount" placeholder="请输入账号" />
-                        </div>
-                        <div class="user-pass">
-                            <label for="password"><i class="mr-icon-lock"></i></label>
-                            <input type="password" id='password' name="password" placeholder="请输入密码" />
-                        </div>
-                </div>
+					<span class="login100-form-title p-b-49">后台管理系统</span>
 
-                <!--    <div class="login-links">
-                    <label for="remember-me"><input class="checkbox" id="remember-me" type="checkbox">记住密码</label>
-                    <br />
-                </div>  -->
+					<div class="wrap-input100 validate-input m-b-23" data-validate="请输入账号">
+						<span class="label-input100">账号</span>
+						<input class="input100" type="text" name="uaccount" placeholder="请输入账号" autocomplete="off">
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
 
-                <div class="mr-cf">
-                    <input type="submit" name="" value="登 录" onclick="check_login()"
-                        class="mr-btn mr-btn-primary mr-btn-sm">
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+					<div class="wrap-input100 validate-input" data-validate="请输入密码">
+						<span class="label-input100">密码</span>
+						<input class="input100" type="password" name="password" placeholder="请输入密码">
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+
+					<div class="text-right p-t-8 p-b-31">
+						<!-- <a href="javascript:">忘记密码？</a> -->
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">登 录</button>
+						</div>
+					</div>
+
+					<!-- <div class="txt1 text-center p-t-54 p-b-20">
+						<span>第三方登录</span>
+					</div>
+
+					<div class="flex-c-m">
+						<a href="#" class="login100-social-item bg1">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="#" class="login100-social-item bg2">
+							<i class="fa fa-twitter"></i>
+						</a>
+
+						<a href="#" class="login100-social-item bg3">
+							<i class="fa fa-google"></i>
+						</a>
+					</div>
+
+					<div class="flex-col-c p-t-175">
+						<a href="javascript:" class="txt2">立即注册</a>
+					</div> -->
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="/cqcq/back_end/public/js/jquery-3.2.1.min.js"></script>
+	<script src="/cqcq/back_end/public/js/main.js"></script>
 </body>
-
-<script language="javascript">
-    function check_login() {
-        var user = document.getElementById("user");           //获取账户信息
-        var password = document.getElementById("password");  //获取密码信息
-        // console.log(user.value);
-        //验证账号是否为空
-        if (user.value === '' || user.value === null) {
-            alert("账号不能为空！");
-            user.focus();
-            user.style.backgroundColor = 'bisque';
-            return;
-        }
-        //验证密码是否为空
-        if (password.value === '' || password.value === null) {
-            alert("密码不能为空！");
-            password.focus();
-            password.style.backgroundColor = 'bisque';
-            return;
-        }
-        //验证密码是否符合条件
-        // if (password.value.length < 8 || password.value.length > 16) {
-        //     alert('输入8-16位密码！');
-        // } else {
-        //     alert('登录成功！');
-        // }
-
-        var username = user.value;
-        window.localStorage.name = username;
-    }
-</script>
 
 </html>
