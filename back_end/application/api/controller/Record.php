@@ -86,7 +86,7 @@ class Record extends BaseController
                         ->find();
 
                     if (!empty($photo['photo'])) {
-                        unlink($photo['photo']);
+                        unlink($photo['photo']);  // 删除服务器上的照片
                     }
 
                     //本地测试
