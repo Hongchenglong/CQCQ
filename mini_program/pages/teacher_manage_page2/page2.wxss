@@ -47,11 +47,15 @@ button{
   display: flex;
   /* justify-content: center;
   align-items: center; */
-  width: 95%;
+  width: 100%;
   height: 2rem;
-  font-weight: normal;
+  /* font-weight: normal; */
   font-size: 11.5px;
-  color: #8a8e94;
+  /* color: #8a8e94; */
+  border-right: 1rpx solid #d0ebff;
+  border-left: 1rpx solid #d0ebff;
+  border-bottom: 1px solid #edf2ff;
+  background: #b2dffe;
 }
 
 .td,
@@ -60,9 +64,8 @@ button{
   justify-content: center;  /*水平居中 */
   align-items: center; /*垂直居中*/
   width: 100%;
-  /*border: 1px solid darkgray;*/
   height: 2rem;
-  border: 1px solid #d9e0e7;
+  border: 1px solid #eff4f8;
 }
 
 
@@ -80,30 +83,20 @@ thead th {
   white-space: nowrap;
 }
 
-.line {
+.title-new {
   display: flex;
-  justify-content: center;
-  /*水平居中 */
   align-items: center;
-  /*垂直居中 */
-  margin-top: 50rpx;
   width: 100%;
-  height: 10%;
-  color: rgb(42, 169, 228);
+  position: relative;
+  padding: 10rpx 0;
 }
 
-.view1 {
-  border: 1rpx solid rgb(22, 137, 191);
-  width: 200rpx;
-  height: 0rpx;
-  margin-right: 55rpx;
-  float: left
-}
-
-.view2 {
-  border: 1rpx solid rgb(22, 137, 191);
-  width: 200rpx;
-  height: 0rpx;
-  margin-left: 55rpx;
-  float: left
+.title-left {
+  width: 5px;
+  height: 23px;
+  background: #7EC4F8;
+  display: inline-block;
+  margin: 3px 0;
+  vertical-align: top;
+  margin-right: 10px;
 }

@@ -11,7 +11,7 @@ Page({
     dep: '',
     grade: '',
     Boys_name: 4,
-    Girls_name: 2,
+    Girls_name: 1,
     Listdata: [],
     Boys_max: '',
     Girls_max: '',

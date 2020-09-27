@@ -1,16 +1,12 @@
 <!--pages/chang_passwd/chang_passwd.wxml-->
-<view class='content'>
-	<form>
-		<view class='contentAbout'>
-			<view class='contentPass'>
-				<input password='true' placeholder='请输入新密码' bindinput="passwdInput" value='{{newpwd}}' />
-			</view>
-			<view class='contentPass'>
-				<input password='true' placeholder='请确认一遍密码' bindinput="repasswdInput" value='{{newpwd2}}' />
-			</view>
-		</view>
-		<button style="width:70%;background-color: #7EC4F8;border-radius: 30px;" type='primary' form-type="submit" bindtap="onLaunch">
-			<image src="https://oeong.xyz/cqcq/public/images/click.png"></image><text decode="{{true}}">&nbsp;提交</text>
-		</button>
-	</form>
-</view>
+<form>
+	<view class="cu-form-group">
+		<input password='true' placeholder='请输入新密码' bindinput='passwdInput' value='{{newpwd}}'></input>
+	</view>
+	<view class="cu-form-group">
+		<input password='true' placeholder='请确认一遍密码' bindinput='repasswdInput' value='{{newpwd2}}'></input>
+	</view>
+	<view class="flex padding flex-direction">
+		<button class="cu-btn bg-grey lg" style="width:700rpx;background-color:#7EC4F8" bindtap="onLaunch">提交</button>
+	</view>
+</form>

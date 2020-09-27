@@ -1,45 +1,64 @@
 /* pages/more/more.wxss */
 @import"/colorui/main.wxss";
+/* page{
+  background-color: #fff;
+} */
 
-.swiper-tab {
-  width: 100%;
-  border-bottom: 2rpx solid #777777;
-  text-align: center;
-  line-height: 80rpx;
+.bord {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 30rpx;
 }
 
-.swiper-tab-list {
-  font-size: 32rpx;
-  font-weight: bold;
+.title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 10rpx 0;
+}
+
+.title-left {
+  width: 5px;
+  height: 23px;
+  background: #7EC4F8;
   display: inline-block;
-  width: 50%;
-  color: #777777;
+  margin: 3px 0;
+  vertical-align: top;
+  margin-right: 10px;
 }
 
-.on {
-  color: #7EC4F8;
-  border-bottom: 5rpx solid #7EC4F8;
+.bold {
+  font-weight: bold;
 }
 
-.swiper-box {
-  display: block;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+.title-right {
+  position: absolute;
+  right: 10px;
 }
 
-.swiper-box view {
-  text-align: center;
+.menu {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  position: relative;
 }
 
-.up {
-  width: 95%;
-  margin: 0rpx auto;
+.menu_left {
+  flex: 1;
+  align-items: center;
+  margin-left: 10rpx;
 }
 
-.progress {
-  width: 95%;
-  margin: 20rpx;
+.menu_right {
+  position: relative;
+  align-items:center;
+}
+
+.pai{
+  margin-right: 30rpx;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .table {
@@ -73,4 +92,19 @@
 
 .bg-w {
   background: #b2dffe;
+}
+
+canvas{
+  height: 100%;
+  width: 100%;
+}
+
+#mychart-one {
+  position: relative;  
+  display: block;
+}
+
+#mychart-two {
+  position: relative;  
+  display: block;
 }

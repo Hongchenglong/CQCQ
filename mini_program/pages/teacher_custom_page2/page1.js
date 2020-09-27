@@ -3,29 +3,43 @@ Page({
   data: {
     i: 0,
     select: false,
-    hiddenName3: false,
+    // hiddenName3: false,
     Block: '-楼号-', //区号输入框里的内容
     Room: '', //室号输入框的内容
     Apart: [], //区号列表
     dep: '',
     grade: '',
     listData: [], //区号+楼号
+    listblock: []
   },
 
-  bindShowMsg() {
+  bindKeyInput5: function (e) {
+    var that = this
+
     this.setData({
-      select: !this.data.select
+      index: e.detail.value,
+      block: that.data.listblock[e.detail.value],
+      Block: that.data.listblock[e.detail.value]
     })
+    // that.mySelect(e)
+    console.log('block：', that.data.block)
   },
+
+  // bindShowMsg() {
+  //   this.setData({
+  //     select: !this.data.select
+  //   })
+  // },
+
   //改变楼号输入框里的内容
-  mySelect(e) {
-    console.log(e)
-    var name = e.currentTarget.dataset.name
-    this.setData({
-      Block: name,
-      select: false
-    })
-  },
+  // mySelect(e) {
+  //   console.log(e)
+  //   var name = e.currentTarget.dataset.name
+  //   this.setData({
+  //     Block: name,
+  //     select: false
+  //   })
+  // },
   //改变室号输入框里的内容
   bindKeyInput: function (e) {
     this.setData({
@@ -69,8 +83,16 @@ Page({
           that.setData({
             listdata: res.data.data.dormSuc
           })
-          wx.redirectTo({
-            url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
+          wx.showModal({
+            title: "提示：",
+            content: res.data.msg,
+            showCancel: false,
+            success(res) { },
+            complete: function (res) {
+              wx.redirectTo({
+                url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
+              })
+            },
           })
           // wx.showModal({
           //   title: "提示：",
@@ -191,7 +213,7 @@ Page({
           console.log('用户点击确定')
           that.setData({
             listData: [],
-            listblock: [],
+            // listblock: [],
             listroom: []
           })
         } else if (res.cancel) {
@@ -253,7 +275,7 @@ Page({
             listblock.push(res.data.data[i].block)
           }
           that.setData({
-            Apart: listblock
+            listblock: listblock
           })
         }
       },

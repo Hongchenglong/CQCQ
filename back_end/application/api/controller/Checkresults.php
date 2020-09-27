@@ -133,7 +133,7 @@ class Checkresults extends BaseController
             ->update(['record.deleted' => 1]);
 
         if ($result) {
-            return json(['error_code' => 2, 'msg' => '删除查寝记录' . $result . '条']);
+            return json(['error_code' => 0, 'msg' => '删除查寝记录' . $result . '条']);
         } else {
             return json(['error_code' => 2, 'msg' => '无此时间段的查寝记录！']);
         }
@@ -197,6 +197,8 @@ class Checkresults extends BaseController
             return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['dorm'])) {
             return json(['error_code' => 1, 'msg' => '请输入宿舍！']);
+        } else if (empty($_POST['page'])) {
+            return json(['error_code' => 1, 'msg' => '请输入页码！']);
         }
 
         // 查询条件
@@ -216,6 +218,7 @@ class Checkresults extends BaseController
             ->where($where)
             ->where('r.deleted', 0)
             ->order('start_time desc')
+            ->page($_POST['page'] - 1, 7)    // page('第几页','每页显示的数量')
             ->select();
 
         if ($record) {

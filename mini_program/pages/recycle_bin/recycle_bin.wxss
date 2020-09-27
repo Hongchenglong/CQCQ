@@ -16,18 +16,30 @@
   color: rgba(16, 16, 16, 1);
   font-size: 30rpx;
   font-family: Roboto;
-  border: 2rpx solid rgba(187, 187, 187, 1);
+  /* border: 2rpx solid rgba(187, 187, 187, 1); */
+  display: flex
 }
 
 .texts {
-  margin-left: 5%;
-  margin-top: 3%;
-  width: 600rpx;
+  margin-left: 1%;
+  margin-top: 2%;
+  color: #2f3542;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.te{
+  display: flex;
+  width: 90%;
   height: 40rpx;
-  color: rgba(16, 16, 16, 1);
-  font-size: 30rpx;
-  font-family: SourceHanSansSC-regular;
-  float: left;
+  /* padding-top: 1%; */
+  margin-top: 2%;
+}
+
+.text2{
+  margin-left: 1%;
+  margin-top: 2%;
+  font-size: 28rpx;
 }
 
 .one {

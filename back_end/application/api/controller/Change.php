@@ -119,12 +119,11 @@ class Change extends BaseController
     /**
      * 修改宿舍号
      */
-    /*
+    
     public function changeDormNumber()
     {
 
-        // $parameter = ['student_id', 'block', 'room'];
-
+        // $parameter = ['id', 'block', 'room'];
         // 输入判断
         if (empty($_POST['id'])) {
             return json(['error_code' => 1, 'msg' => '请输入用户id！']);
@@ -136,34 +135,25 @@ class Change extends BaseController
 
         // 组合宿舍号dorm_num
         $dormNumber = $_POST['block'] . '#' . $_POST['room'];
-        $data = array('block' => $_POST['block'], 'room' => $_POST['room'], 'dorm_num' => $dormNumber);
-
-        // 数据库里是否已存在该宿舍
-        $get = Db('dorm')
-            ->where(['dorm_num' => $dormNumber])
-            ->find();
 
         // 获取自己信息里的宿舍
         $judge = Db('dorm')
             ->field('dorm_num')
-            ->where(['student_id' => $_POST['student_id']])
+            ->where(['id' => $_POST['id']])
             ->find();
 
         // 更新数据
-        // 数据库不存在该宿舍=>允许修改
-        if (!$get) {
-            $result = Db('dorm')->where(['student_id' => $_POST['student_id']])->setField($data);
-        } else if ($get && $judge['dorm_num'] == $dormNumber) { // 数据库存在该宿舍 && 与自己的原宿舍一致 =>不允许修改
+        if ($judge['dorm_num'] == $dormNumber) { // 与自己的原宿舍一致 =>不允许修改
             $result = 0;
-        } else {
-            return json(['error_code' => 2, 'msg' => '请输入自己的宿舍！']);
+        }else{
+            $result = Db('student')->where(['id' => $_POST['id']])->setField('dorm', $dormNumber);
         }
 
         if ($result) {
             $return_data = array();
             $return_data['error_code'] = 0;
             $return_data['msg'] = '修改成功';
-            $return_data['data']['student_id'] = $_POST['student_id'];
+            $return_data['data']['id'] = $_POST['id'];
             $return_data['data']['block'] = $_POST['block'];
             $return_data['data']['room'] = $_POST['room'];
             $return_data['data']['dorm_num'] = $dormNumber;
@@ -173,7 +163,7 @@ class Change extends BaseController
             return json(['error_code' => 3, 'msg' => '请勿输入原宿舍号！']);
         }
     }
-    */
+    
 
     /**
      * 修改密码

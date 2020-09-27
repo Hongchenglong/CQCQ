@@ -9,11 +9,6 @@ i-collapse-item {
   font-size: 30rpx;
 }
 
-.cu-item {
-  /* border-bottom: 1rpx solid #dddee1 ; */
-  margin-bottom: 10rpx;
-}
-
 /* 日期选择 */
 .picker_group {
   height: 85rpx;
@@ -28,24 +23,21 @@ i-collapse-item {
 
 .picker_group picker {
   /* background-color: yellow; */
-  color: #64bff1;
+  color: #74c0fc;
   height: 55rpx;
   line-height: 55rpx;
   margin: 0 2%;
   padding: 0 2%;
-  /* border: 1rpx solid #64bff1; */
+  border: 1rpx solid #74c0fc;
   border-radius: 30rpx;
-  /* background-color: #f1f1f1; */
 }
 
 .row {
   width: 100%;
   height: 80rpx;
   line-height: 80rpx;
-  /* padding: 5px 0 5px; */
-  /* border-top: 1rpx solid #dddee1;
-  border-bottom: 1rpx solid #dddee1; */
-  background-color: rgba(126, 166, 248, 0.33);
+  background-color: #a5d8ff;
+  color: white;
 }
 
 .left {

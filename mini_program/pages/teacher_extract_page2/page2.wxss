@@ -75,7 +75,7 @@
 }
 
 .submit{
-  font-weight: normal;
+  /* font-weight: normal; */
   color: #fff;
   display: flex;
   justify-content: center;  /*水平居中 */

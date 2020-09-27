@@ -28,20 +28,6 @@ Page({
     }
   },
 
-  //跳转至修改图片
-  /*changeImage:function(){
-    wx.navigateTo({
-      url: '',
-    })
-  },
-
-  //跳转至修改昵称
-  changeName:function(){
-    wx.navigateTo({
-      url: '',
-    })
-  },*/
-
   //退出登录
   turnLogin: function () {
     wx.redirectTo({
@@ -177,49 +163,19 @@ Component({
         console.log(456)
       },
     },
-
-    // 绑定微信
-    wx_binding: function () {
-      var that = this
-      wx.login({
-        success: function (res) {
-          console.log("code: ", res.code)
-          wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/api/user/wxbinding',
-            data: {
-              code: res.code,
-              id: getApp().globalData.user.id,
-              user: getApp().globalData.user.user,
-            },
-            method: "POST",
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            success: function (res) {
-              if (res.data.error_code != 0) {
-                wx.showModal({
-                  title: '提示！',
-                  content: res.data.msg,
-                  confirmColor: '#7EC4F8',
-                  showCancel: false,
-                  success(res) { }
-                })
-              } else if (res.data.error_code == 0) {
-                wx.showModal({
-                  title: '提示！',
-                  content: res.data.msg,
-                  confirmColor: '#7EC4F8',
-                  showCancel: false,
-                  success(res) {}
-                })
-              }
-            },
-          })
-        }
+    
+    to_situation:function(){
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
       })
+      wx.navigateTo({
+        url:"../situation/situation"
+      })
+      wx.hideLoading()
     },
 
-    to_info: function () {
+    to_info:function(){
       wx.showLoading({
         title: '加载中',
         mask: true,
@@ -229,48 +185,18 @@ Component({
       })
     },
 
-    to_pass: function () {
+    to_safe:function(){
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url: '../revise_password/revise_password',
-      })
-    },
-
-    to_mail: function () {
-      wx.showLoading({
-        title: '加载中',
-        mask: true,
-      })
-      wx.navigateTo({
-        url: '../revise_email/revise_email',
-      })
-    },
-
-    to_phone: function () {
-      wx.showLoading({
-        title: '加载中',
-        mask: true,
-      })
-      wx.navigateTo({
-        url: '../revise_phone/revise_phone',
-      })
-    },
-
-    to_situation: function () {
-      wx.showLoading({
-        title: '加载中',
-        mask: true,
-      })
-      wx.navigateTo({
-        url: "../situation/situation"
+        url:"../safe/safe"
       })
       wx.hideLoading()
     },
 
-    to_about: function () {
+    to_about:function(){
       wx.showLoading({
         title: '加载中',
         mask: true,

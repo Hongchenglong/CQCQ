@@ -1,86 +1,55 @@
-<!-- 昵称 -->
-<view class="line"></view>
-<view class="item" bindtap="modalinput" hover-class='wsui-btn__hover_list'>
-	<view class="title">昵称</view>
-	<view class="detail">
-		<text> {{gr1}}></text>
+<view class="cu-list menu margin-bottom-xl shadow-lg radius">
+	<!-- 昵称 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="modalinput" data-target="Modal">
+		<text class="text-black">昵称</text>
+		<text class="text-grey">{{gr1}}</text>
 	</view>
-</view>
-<modal style="display:{{config.tipsshow}}" id="modal" hidden="{{hiddenmodalput}}" title="输入昵称" confirm - text="提交" cancel - text="取消" bindcancel="cancel" bindconfirm="confirm">
-	<input value="{{ name }}" bindblur='getInput' name='gre' type='text' placeholder="请输入你的昵称，如：东二410" auto - focus />
-</modal>
-
-<!-- 学号  -->
-<view class="line"></view>
-<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
-	<view class="title">学号</view>
-	<view class="detail">
-		<text> {{id}}></text>
+	<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+		<view class="cu-dialog">
+			<view class="cu-bar bg-white justify-end">
+				<view class="content">输入昵称</view>
+			</view>
+			<input style="line-height: 1;min-height: 1;" value="{{name}}" bindblur='getInput' type='text' placeholder="请输入你的昵称，如：东二410" />
+			<view class="cu-bar bg-white">
+				<view class="action text-green" bindtap="confirm">确定</view>
+				<view class="action text-blue" bindtap="cancel">取消</view>
+			</view>
+		</view>
 	</view>
-</view>
 
-<!-- 年级 -->
-<view class="line"></view>
-<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
-	<view class="title">年级</view>
-	<text></text>
-	<view class="detail">
-		<text> {{gr2}}级></text>
+	<!-- 年级 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="popSuccessTest">
+		<text class="text-black">年级</text>
+		<text class="text-grey">{{gr2}}级</text>
 	</view>
-</view>
 
-<!-- 系 -->
-<view class="line"></view>
-<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
-	<view class="title">系</view>
-	<view class="detail">
-		<text> {{gr3}}></text>
+	<!-- 系 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="popSuccessTest">
+		<text class="text-black">系</text>
+		<text class="text-grey">{{gr3}}</text>
 	</view>
-</view>
 
-<!-- 性别 -->
-<view class="line"></view>
-<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
-	<view class="title">性别</view>
-	<view class="detail">
-		<text> {{gr5}}></text>
+	<!-- 性别 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="popSuccessTest">
+		<text class="text-black">性别</text>
+		<text class="text-grey">{{gr5}}</text>
 	</view>
-</view>
 
-<!-- 宿舍 -->
-<!-- <view class="line"></view>
-<view class="item" hover-class='wsui-btn__hover_list'>
-	<picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}" class="picker">
-		<text class="title dorm_text">宿舍</text>
-		<text class="dorm_picker">
-		{{multiArray[0][multiIndex[0]]}}#{{multiArray[1][multiIndex[1]]}}{{multiArray[2][multiIndex[2]]}}>
-		</text>
+	<!-- 宿舍 -->
+	<picker class="cu-item arrow flex solid-bottom padding justify-between" mode="multiSelector" bindchange="bindMultiPickerChange" value="{{multiIndex}}" range="{{multiArray}}">
+			<text class="text-black">宿舍</text>
+			<text class="text-grey text">{{multiArray[0][multiIndex[0]]}}#{{multiArray[1][multiIndex[1]]}}{{multiArray[2][multiIndex[2]]}}</text>
 	</picker>
-</view> -->
 
-<view class="line"></view>
-<view class="item" bindtap="popSuccessTest" hover-class='wsui-btn__hover_list'>
-	<view class="title">宿舍</view>
-	<view class="detail">
-		<text>{{block}}#{{room}}></text>
+	<!-- 手机号 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="popSuccessTest2">
+		<text class="text-black">手机号</text>
+		<text class="text-grey">{{gr6}}</text>
+	</view>
+
+	<!-- 邮箱 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
+		<text class="text-black">邮箱</text>
+		<text class="text-grey">{{gr7}}</text>
 	</view>
 </view>
-
-<!-- 手机号 -->
-<view class="line"></view>
-<view class="item" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
-	<view class="title">手机号</view>
-	<view class="detail">
-		<text> {{gr6}}></text>
-	</view>
-</view>
-
-<!-- 邮箱 -->
-<view class="line"></view>
-<view class="item" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
-	<view class="title">邮箱</view>
-	<view class="detail">
-		<text> {{gr7}}></text>
-	</view>
-</view>
-<view class="line"></view>

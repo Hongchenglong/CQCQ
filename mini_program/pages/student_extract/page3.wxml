@@ -2,11 +2,6 @@
 <!-- <text>pages/teacher/extract/page3/page3.wxml</text> -->
 <view class="Section">
 
-	<!--<view class="turn" bindtap="buttonchange">
-		<image src="https://oeong.xyz/cqcq/public/images/right.png" style="width:23px;height:23px"></image>
-		<text decode="{{true}}">&nbsp;返回首页</text>
-	</view>-->
-
 	<view class="Start">
 		<image src="/images/startTime.png" class="date"></image>
 		<!--https://oeong.xyz/cqcq/public/images/startTime.png-->
@@ -28,7 +23,7 @@
 		<view class="th">号码</view>
 	</view>
 	<block wx:for="{{Listdata}}" wx:key="navItems">
-		<view class="tr" style="background-color:{{dorm==item.dorm_num?'#fad0dd':'#ffffff'}}">
+		<view class="tr" style="background-color:{{dorm==item.dorm_num?'#dbe4ff':'#ffffff'}}">
 			<view class="td">{{item.dorm_num}}</view>
 			<view class="td">{{item.rand_num}}</view>
 		</view>

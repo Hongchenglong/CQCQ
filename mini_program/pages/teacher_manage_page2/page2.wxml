@@ -1,8 +1,3 @@
-<!--表单-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-	<view slot="backText">返回</view>
-	<view slot="content">宿舍管理</view>
-</cu-custom>
 <form>
 	<!--年级-->
 	<view class="cu-form-group" bindtap="popSuccessTest2">
@@ -18,7 +13,8 @@
 	<!--输入学号-->
 	<view class="cu-form-group">
 		<view class="title">学号：</view>
-		<input value="{{ no }}" type="number" title="学号：" placeholder="学号" bind:change="bindKeyInput3" maxlength="9"></input>
+		<input value="{{ no }}" type="number" title="学号：" placeholder="学号" bind:change="bindKeyInput3"
+			maxlength="9"></input>
 	</view>
 
 	<!--选择性别-->
@@ -46,59 +42,41 @@
 
 <!--点击添加宿舍-->
 <view class="de">
-	<button class="margin-top bg-gradual-blue shadow bg-gradual-blue" style="width:80%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonaddList'>
-		<image src="/images/click2.png"></image><text decode="{{true}}">&nbsp;添加</text>
-		<!--https://oeong.xyz/cqcq/public/images/click2.png-->
+	<button class="margin-top bg-gradual-blue shadow bg-gradual-blue" style="width:80%;border-radius: 30px;"
+		hover-class="plain-hover" bindtap='buttonaddList'>
+		<text decode="{{true}}">添加</text>
 	</button>
 </view>
 
+
 <!-- 分割线 -->
-<view class="line">
-	<view class="view1"></view>
-	<view>新增宿舍</view>
-	<view class="view2"></view>
-</view>
-
-
-<view class="table">
-	<view class="tr bg-w">
-		<!--<view class="th" style="width:10%">年级</view>
-		<view class="th" style="width:30%">系别</view>
-		<view class="th" style="width:23%">学号</view>
-		<view class="th" style="width:10%">性别</view>
-		<view class="th" style="width:10%">楼号</view>
-		<view class="th" style="width:10%">室号</view>
-		<view class="th" style="width:10%"></view>-->
-		<view class="th" >学号</view>
-		<view class="th" >性别</view>
-		<view class="th" >楼号</view>
-		<view class="th" >室号</view>
-		<view class="th" ></view>
+<view hidden="{{isHidden}}">
+	<view class="title-new  bg-white solid-bottom margin-top" style="font-size: 30rpx;">
+		<view class="title-left"></view>
+		<text style="font-weight:bold">新增宿舍</text>
 	</view>
-	<block wx:for="{{listData}}" wx:key="index">
-		<view class="tr">
-			<!--<view class="td" style="width:10%">{{item.grade}}</view>
-			<view class="td" style="width:30%">{{item.dep}}</view>-->
-			<view class="td" >{{item.no}}</view><!--style="width:23%"-->
-			<view class="td" >{{item.sex}}</view><!--style="width:10%"-->
-			<view class="td" >{{item.block}}</view><!--style="width:10%"-->
-			<view class="td" >{{item.room}}</view><!--style="width:10%"-->
-			<view class="td" data-idx='{{index}}' bindtap="buttondelete" style="color:red;">删除</view><!--width:10%-->
-		</view>
-	</block>
 
-	<div class="table-cont">
-		<table>
-			<thead>
-				<tr>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	<view class="cu-card article no-card">
+		<view class="cu-item shadow">
+			<view class="table">
+				<view class="tr bg-w">
+					<view class="th">学号</view>
+					<view class="th">性别</view>
+					<view class="th">楼号</view>
+					<view class="th">室号</view>
+					<view class="th"></view>
+				</view>
+				<block wx:for="{{listData}}" wx:key="index">
+					<view class="tr" style="background-color:#ffffff">
+						<view class="td">{{item.no}}</view>
+						<view class="td">{{item.sex}}</view>
+						<view class="td">{{item.block}}</view>
+						<view class="td">{{item.room}}</view>
+						<view class="td" data-idx='{{index}}' bindtap="buttondelete" style="color:red;">删除</view>
+					</view>
+				</block>
+
+			</view>
+		</view>
+	</view>
 </view>

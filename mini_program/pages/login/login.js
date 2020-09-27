@@ -1,6 +1,7 @@
 // pages/login/login.js
 const app = getApp();
 Page({
+
   /**
    * 页面的初始数据
    */
@@ -14,6 +15,7 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     /*ColorList: app.globalData.ColorList,*/
+    height:''
   },
 
   /*signup: function () {
@@ -42,6 +44,7 @@ Page({
       })
     } else {
       wx.request({
+        // url: 'http://localhost:8080/cqcq/back_end/public/index.php/api/user/login',
         url: getApp().globalData.server + '/cqcq/public/index.php/api/user/login',
         data: {
           id: that.data.id,
@@ -52,7 +55,7 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded"
         },
         success: function (res) {
-          // console.log(res.data)
+          console.log(res.data)
           if (res.data.error_code == 1 || res.data.error_code == 2 || res.data.error_code == 3) {
             wx.showModal({
               title: '提示！',
@@ -67,11 +70,18 @@ Page({
               content: '出错了呢！' + res.data.data.msg,
               confirmColor: '#7EC4F8',
               showCancel: false,
+              /*success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }*/
             })
           } else if (res.data.error_code == 0) {
             getApp().globalData.user = res.data.data
-            // console.log('getApp().globalData.user', getApp().globalData.user)
-            console.log('getApp().globalData.user.user', getApp().globalData.user.user)
+            console.log(getApp().globalData.user)
+            console.log(getApp().globalData.user.user)
             //加载中的样式
             wx.showToast({
               title: '加载中...',
@@ -126,7 +136,7 @@ Page({
           //获取用户信息
           wx.getUserInfo({
             success: res => {
-              // console.log(res);
+              console.log(res);
               getApp().globalData.userInfo = res.userInfo
               getApp().globalData.load = true
               //网络延迟，回调函数
@@ -139,6 +149,59 @@ Page({
       },
     })
   },
+
+  idInput: function (e) {
+    this.data.id = e.detail.value
+  },
+
+  passwordInput: function (e) {
+    this.data.password = e.detail.value
+  },
+
+  to_forget: function () {
+    wx.showToast({
+      title: '加载中...',
+      mask: true,
+      icon: 'loading',
+      duration: 400
+    })
+    wx.navigateTo({
+      url: '../forget/forget',
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        // 获取可使用窗口宽度
+        var clientHeight = res.windowHeight;
+        // 获取可使用窗口高度
+        var clientWidth = res.windowWidth;
+        // 算出比例
+        let ratio = 750 / clientWidth;
+        //height = clientHeight * ratio;
+        // 设置高度
+        that.setData({
+          height: clientHeight * ratio
+        });
+        getApp().globalData.height = that.data.height
+        getApp().globalData.width = that.data.width
+        //getApp().globalData.height=that.data.height
+        console.log(that.data.height)
+        console.log(getApp().globalData.height)
+        //console.log(that.data.height*0.7)
+      }
+    });
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (res) {},
 
   wxlogin: function () {
     var that = this
@@ -232,57 +295,5 @@ Page({
         }
       },
     })
-  },
-
-  idInput: function (e) {
-    this.data.id = e.detail.value
-  },
-
-  passwordInput: function (e) {
-    this.data.password = e.detail.value
-  },
-
-  to_forget: function () {
-    wx.showToast({
-      title: '加载中...',
-      mask: true,
-      icon: 'loading',
-      duration: 400
-    })
-    wx.navigateTo({
-      url: '../forget/forget',
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    var that = this;
-    wx.getSystemInfo({
-      success: function (res) {
-        // 获取可使用窗口宽度
-        var clientHeight = res.windowHeight;
-        // 获取可使用窗口高度
-        var clientWidth = res.windowWidth;
-        // 算出比例
-        let ratio = 750 / clientWidth;
-        //height = clientHeight * ratio;
-        // 设置高度
-        that.setData({
-          height: clientHeight * ratio
-        });
-        getApp().globalData.height = that.data.height
-        //getApp().globalData.height=that.data.height
-        // console.log(that.data.height)
-        // console.log(getApp().globalData.height)
-        //console.log(that.data.height*0.7)
-      }
-    });
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function (res) {}
+  }
 })

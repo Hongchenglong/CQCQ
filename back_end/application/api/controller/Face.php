@@ -38,10 +38,14 @@ class Face extends BaseController
             return json(['error_code' => 1, 'msg' => '请上传照片！']);
         }
 
+        $data = array('face' => $img);
+        Db('student')->where(['id' => $id])->setField($data);
+
         $token = $this->get_token();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/add?access_token=' . $token;
 
         $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
+        $dorm = explode("#", $dorm)[0] . explode("#", $dorm)[1];
         $dorm = $this->get_all_py($dorm); // 东二410
         $dorm = implode("", $dorm);
         $bodys = array(
@@ -120,26 +124,24 @@ class Face extends BaseController
 
         $name = array();
         if (is_dir($toDir . '/' . $file_path)) {
-            $files = scandir($toDir . '/' . $file_path);  // 遍历文件夹
-            $files = array_slice($files, 3);  // 截取文件名数组
-
+            $files = scandir($toDir . '/' . $file_path);  // 遍历文件夹          
+            $files = array_slice($files, 2);  // 截取文件名数组
             foreach ($files as $k => $v) {  // 提取文件名信息
-                $student_id = explode("_", explode(".", $v)[0])[1];
-                $dorm = explode("_", explode(".", $v)[0])[0];
+                $student_id = explode("_", explode(".", $v)[0])[0];
                 $name[$k]['student_id'] = $student_id;
-                $name[$k]['dorm'] = $dorm;
                 $name[$k]['file_path'] = $toDir . '/' . $file_path . '/' . $v;
+                $name[$k]['dorm'] = Db('student')->where(['id' => $student_id])->field('dorm')->find()['dorm'];
             }
         } else {
             $files = scandir($toDir);
             $files = array_slice($files, 2);
 
             foreach ($files as $k => $v) {
-                $student_id = explode("_", explode(".", $v)[0])[1];
-                $dorm = explode("_", explode(".", $v)[0])[0];
+                $student_id = explode("_", explode(".", $v)[0])[0];
+
                 $name[$k]['student_id'] = $student_id;
-                $name[$k]['dorm'] = $dorm;
                 $name[$k]['file_path'] = $toDir . '/' . $v;
+                $name[$k]['dorm'] = Db('student')->where(['id' => $student_id])->field('dorm')->find()['dorm'];
             }
         }
 
@@ -176,7 +178,7 @@ class Face extends BaseController
                 $new_file_name = $_POST['id'];
                 $new_name = $new_file_name . '.' . $extension; // 新文件名 学号.jpg
 
-                $dir = 'face/' . $_POST['grade'] . '/' . $_POST['department'];
+                $dir = 'face/' . $_POST['grade'] . $_POST['department'];
                 $path = $dir . '/' . $new_name; //face为保存图片目录
 
                 if (file_exists($path)) {   //是否存在该文件
@@ -188,7 +190,7 @@ class Face extends BaseController
                     if (!file_exists($dir)) { // 路径不存在新建
                         mkdir($dir, 0777, true);
                     }
-                    move_uploaded_file($_FILES['img']['tmp_name'], $path); // 上传至服务器 face/年级/系 下
+                    move_uploaded_file($_FILES['img']['tmp_name'], $path); // 上传至服务器 face/年级系 下
                 }
             }
 
@@ -221,6 +223,44 @@ class Face extends BaseController
                 return json(['error_code' => 3, 'msg' => '添加人脸库失败！']);
             }
         }
+    }
+
+    public function getList() // 组列表查询
+    {
+        $token = $this->get_token();
+        $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/group/getlist?access_token=' . $token;
+
+        $bodys = array(
+            'start' => 0
+        );
+
+        $res = $this->request_post($url, $bodys);
+        return $res;
+    }
+
+    public function getAllUser()  //获取所有已经上传人脸库的名单
+    {
+        $res = $this->getlist();
+        $res = json_decode($res, true);
+        $res = $res['result']['group_id_list'];
+        foreach ($res as $k => $v) {
+            $list[$v] = json_decode($this->getusers($v), true)['result']['user_id_list'];
+        }
+
+        return json($list);
+    }
+
+    public function getUsers($group_id = '') // 获取用户列表
+    {
+        $token = $this->get_token();
+        $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/group/getusers?access_token=' . $token;
+
+        $bodys = array(
+            'group_id' => $group_id,
+        );
+
+        $res = $this->request_post($url, $bodys);
+        return $res;
     }
 
     // 拼音

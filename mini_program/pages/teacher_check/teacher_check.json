@@ -1,5 +1,9 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "loadmore": "../../lin-ui/loadmore/index",
+    "status-show": "../../lin-ui/status-show/index",
+    "i-icon":"../../dist/icon/index"
+  },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "查看查寝记录",

@@ -8,27 +8,26 @@
 	</view>
 	<view class="info">
 		<view class="row">
-			<image class="pic" src="/images/id.png"></image>
 			<!--输入账号-->
+			<text class="cuIcon-people text-gray" style="font-size:50rpx;padding-left:40rpx"></text>
 			<input type="number" placeholder="账号" bindinput="idInput"></input>
 		</view>
 		<view class="row" style="margin-top: 7%;">
-			<image class="pic" src="/images/pass.png"></image>
 			<!--输入密码-->
+			<text class="cuIcon-lock text-gray" style="font-size:50rpx;padding-left:40rpx"></text>
 			<input placeholder="密码" type="password" bindinput="passwordInput"></input>
-			<image bindtap="to_forget" class="for" src="/images/forget.png"></image>
 		</view>
+	</view>
+	<view class="flex padding justify-around">
+		<text class="text-blue" bindtap="to_forget">忘记密码</text>
+		<text class="text-green" bindtap="wxlogin">微信登录</text>
 	</view>
 	<view class="bg-gradual-blue login" bindtap="login">
 		<image src="/images/login.png"></image>
 	</view>
-		
-	<view bindtap="wxlogin"><image src="/images/owl.png"></image></view>
 
 	<view class="placeholder-view"></view>
-	<view class="warn" style="font-size:{{height*0.026}}rpx;">
-		<!--<navigator class="forget" hover-class="none">忘记密码</navigator>
-		<view class="bg-gradual-blue divLine"></view>-->
+	<view class="warn" style="font-size:{{height*0.015}}rpx;">
 		<view class='text'>本小程序用于协助辅导员查寝，登录是为保证用户信息的安全性，防止非本校人员登录，请先登录，谢谢您的配合。</view>
 	</view>
 </scroll-view>

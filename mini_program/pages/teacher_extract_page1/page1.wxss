@@ -1,4 +1,8 @@
 /* pages/teacher_extract_page1/teacher_extract_page1.wxss */
+@import"/colorui/main.wxss";
+page{
+  background-color: #fff;
+}
 .wrap{
   width: 90%;
   height: 500rpx;
@@ -32,6 +36,7 @@ button{
   justify-content: center;  
   color: #fff;
   border: 0;
+  height: 60rpx;
 }
 
 image{

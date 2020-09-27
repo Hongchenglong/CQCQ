@@ -1,34 +1,35 @@
 <view class="total">
-	<view class="top">
-		<view class="grade">
-			<image src="/images/nianji1.png" class="src" style="width:22px;height:22px"></image>
-			<view class="text">所属年级：{{grades}}</view>
-		</view>
-		<view class="dept">
-			<image src="/images/zhuanye.png" class="src" style="width:20px;height:20px"></image>
-			<view class="text">所属系：{{dept}}</view>
-		</view>
+	<view class="flex padding justify-around">
+		<text style="color:#4facfe">所属年级：<text class="text-gray">{{grades}}</text></text>
+		<text style="color:#4facfe">所属系：<text class="text-gray">{{dept}}</text></text>
 	</view>
 
-  <!-- 分割线 -->
-<view class="line">
-	<view class="view1"></view>
-	<view style="font-size:12px">宿舍详情</view>
-	<view class="view2"></view>
-</view>
+	<!-- 分割线 -->
+	<view class="line">
+		<view class="view1"></view>
+		<view style="font-size:12px">宿舍详情</view>
+		<view class="view2"></view>
+	</view>
 
 	<view class="selected_top">
+
 		<!-- 下拉框 -->
-		<view class='selected' bindtap='bindShowMsg'>
+		<!-- <view class='selected' bindtap='bindShowMsg'>
 			<text>{{types_name}}</text>
 			<image src='https://oeong.xyz/cqcq/public/images/xialajiantou.png' class="one_jt"></image>
-		</view>
+		</view> -->
 		<!-- 下拉需要显示的列表 -->
-		<view class="select_box" wx:if="{{select}}">
+		<!-- <view class="select_box" wx:if="{{select}}">
 			<view wx:for="{{types}}" wx:key="navItems">
 				<view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
 			</view>
-		</view>
+		</view> -->
+
+		<picker value="{{index}}" range="{{listBlock}}" bindchange="bindKeyInput5">
+			<view class="picker">
+				{{index?listBlock[index]:'选择楼号'}}
+			</view>
+		</picker>
 
 		<view class="table">
 			<view class="tr bg-w">

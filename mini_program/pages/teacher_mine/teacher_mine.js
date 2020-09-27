@@ -1,22 +1,21 @@
 // pages/teacher_mine/teacher_mine.js
 //const { $Message } = require('../../dist/base/index');
+
 Page({
-  /**
+    /**
    * 页面的初始数据
    */
   data: {
     current: 'mine',
-    modalHidden: true, //是否隐藏对话框
+    modalHidden:true,//是否隐藏对话框
     username: '',
     grade: '',
     department: ''
   },
 
-  handleChange({
-    detail
-  }) {
+  handleChange ({ detail }) {
     this.setData({
-      current: detail.key
+        current: detail.key
     });
     /*if(detail.key == 'mine'){
       console.log(getApp().globalData.load)
@@ -29,38 +28,41 @@ Page({
           url: '../teacher_mine/teacher_mine',
         })
       }
-    }else*/
-    if (detail.key == 'group') {
+    }else*/ if(detail.key == 'group'){
       wx.reLaunch({
         url: '../teacher_dorm/teacher_dorm',
       })
-    } else if (detail.key == 'homepage') {
+    }
+    else if(detail.key == 'homepage'){
       wx.reLaunch({
         url: '../teacher_home/teacher_home',
       })
     }
-  },
+},
 
-  /*changeImage:function(){
-    wx.navigateTo({
-      url: '../image/image',
-    })
-  },
-  changeName:function(){
-    wx.navigateTo({
-      url: '../name/name',
-    })
-  },
-  turnLogin:function(){
-    wx.redirectTo({
-      url: '../login/login',
-    })
-  },*/
+/*changeImage:function(){
+  wx.navigateTo({
+    url: '../image/image',
+  })
+},
+changeName:function(){
+  wx.navigateTo({
+    url: '../name/name',
+  })
+},
+turnLogin:function(){
+  wx.redirectTo({
+    url: '../login/login',
+  })
+},*/
+
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -73,7 +75,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    getApp().globalData.pagetwo = 2
+    getApp().globalData.pagetwo=2
     this.setData({
       username: getApp().globalData.user.username,
       grade: getApp().globalData.user.grade,
@@ -122,8 +124,9 @@ Page({
 })
 
 Component({
+
   pageLifetimes: {
-    show: function () {
+    show: function() {
       // 页面被展示时刷新
       this.setData({
         username: getApp().globalData.user.username,
@@ -137,7 +140,7 @@ Component({
 
   data: {
     current: 'mine',
-    modalHidden: true, //是否隐藏对话框
+    modalHidden:true,//是否隐藏对话框
     username: '',
     grade: '',
     department: ''
@@ -148,8 +151,8 @@ Component({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department
     })
-  },
-
+  },  
+  
   methods: {
     coutNum(e) {
       if (e > 1000 && e < 10000) {
@@ -183,120 +186,57 @@ Component({
     },
     methods: {
       /// 显示 actionsheet
-      show: function () {
+      show: function() {
         console.log(456)
       },
     },
 
-    // 绑定微信
-    wx_binding: function () {
-      var that = this
-      wx.login({
-        success: function (res) {
-          console.log("code: ", res.code)
-          wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/api/user/wxbinding',
-            data: {
-              code: res.code,
-              id: getApp().globalData.user.id,
-              user: getApp().globalData.user.user,
-            },
-            method: "POST",
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            success: function (res) {
-              if (res.data.error_code != 0) {
-                wx.showModal({
-                  title: '提示！',
-                  content: res.data.msg,
-                  confirmColor: '#7EC4F8',
-                  showCancel: false,
-                  success(res) {}
-                })
-              } else if (res.data.error_code == 0) {
-                wx.showModal({
-                  title: '提示！',
-                  content: res.data.msg,
-                  confirmColor: '#7EC4F8',
-                  showCancel: false,
-                  success(res) {}
-                })
-              }
-            },
-          })
-        }
-      })
-    },
-
-    to_info: function () {
+    to_info:function(){
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url: "../teacher_information/teacher_information"
+        url:"../teacher_information/teacher_information" 
       })
       wx.hideLoading()
     },
 
-    to_pass: function () {
+    to_re:function(){
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url: "../revise_password/revise_password"
+        url:"../recycle/recycle"
       })
       wx.hideLoading()
     },
 
-    to_mail: function () {
+    to_about:function(){
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url: "../revise_email/revise_email"
+        url:"../revise_about/revise_about"
       })
       wx.hideLoading()
     },
 
-    to_phone: function () {
+    to_safe:function(){
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url: "../revise_phone/revise_phone"
+        url:"../safe/safe"
       })
       wx.hideLoading()
     },
 
-    to_re: function () {
-      wx.showLoading({
-        title: '加载中',
-        mask: true,
-      })
-      wx.navigateTo({
-        url: "../recycle/recycle"
-      })
-      wx.hideLoading()
-    },
-
-    to_about: function () {
-      wx.showLoading({
-        title: '加载中',
-        mask: true,
-      })
-      wx.navigateTo({
-        url: "../revise_about/revise_about"
-      })
-      wx.hideLoading()
-    },
-
-    //点击加载样式
-    click: function () {
+     //点击加载样式
+     click: function () {
       //加载中的样式
       wx.showLoading({
         title: '加载中',
@@ -306,22 +246,22 @@ Component({
     },
 
     //事件处理函数
-    bindViewTap: function () {
+    bindViewTap: function() {
       this.setData({
-        modalHidden: !this.data.modalHidden
+        modalHidden:!this.data.modalHidden
       })
     },
-
+        
     //事件处理函数
-    bindViewTap: function () {
+    bindViewTap: function() {
       /*this.setData({
         modalHidden:!this.data.modalHidden
       })*/
       wx.showModal({
         title: '退出登录',
         content: '确认退出登录？',
-        confirmColor: "#FF0000",
-        success(res) {
+        confirmColor:"#FF0000",
+        success (res) {
           if (res.confirm) {
             //点击确认退出
             wx.reLaunch({
@@ -330,20 +270,20 @@ Component({
           } else if (res.cancel) {
             //点击取消
             console.log('用户点击取消')
-          } else {
+          }else {
             //异常
             wx.showLoading({
-              title: '系统异常',
-              fail
+             title: '系统异常',
+             fail
             })
             setTimeout(function () {
-              wx.hideLoading()
+             wx.hideLoading()
             }, 2000)
-          }
-
+           }
+      
         }
       })
     },
 
-  }
+}
 })

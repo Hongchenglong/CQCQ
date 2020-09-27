@@ -17,7 +17,8 @@
 <scroll-view class='scbg' scroll-y='{{isScroll}}' bindscrolltolower="onScrollLower" bindscroll="onPull">
 	<block wx:for="{{showData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="first" wx:if="{{time<itemName.end_time}}">
-			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/delete.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}" />
+			<!-- <image class="imgs" src='https://oeong.xyz/cqcq/public/images/delete.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}" /> -->
+			<image class="imgs" src='../../images/delete_blue.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}" />
 			<view bindtap="onClick" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">
 				<text class="texts" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">{{itemName.start_time}}</text>
 				<button class="buttons" style="width:100px;margin-right:5%" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">
@@ -26,7 +27,8 @@
 			</view>
 		</view>
 		<view class="second" wx:if="{{time>=itemName.end_time}}">
-			<image class="imgs" src='https://oeong.xyz/cqcq/public/images/delete.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}" />
+			<image class="imgs" src='../../images/delete_gray.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}"/>
+			<!-- <image class="imgs" src='https://oeong.xyz/cqcq/public/images/delete.png' bindtap="onLike" data-time="{{itemName.start_time}}" data-end_time="{{itemName.end_time}}"/> -->
 			<view bindtap="onClick" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">
 				<text class="texts" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">{{itemName.start_time}}</text>
 				<button class="buttons" style="width:100px;margin-right:5%" data-times="{{itemName.start_time}}" data-endtime="{{itemName.end_time}}">
@@ -38,9 +40,9 @@
 </scroll-view>
 <!-- 懒加载 -->
 <view class='warn_text' hidden='{{!isShowLoadmore}}'>
-	<view class='loadmore_tips'>————正在加载————</view>
+	<loadmore show="true" type="loading" line="true"></loadmore>
 </view>
 <view class="warn_text" hidden='{{!isShowNoDatasTips}}'>
-	<view class="loadmore_tips">————暂无数据————</view>
+	<loadmore show="true" type="end" end-text="已经到底啦~" line="true"></loadmore>
 </view>
-<image class="image" src="/images/data.png" mode="widthFix" hidden='{{!isShow}}'></image>
+<status-show show="{{isShow}}" image="/images/nodata.png" describe="暂无数据哦~"></status-show>

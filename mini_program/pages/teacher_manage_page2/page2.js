@@ -18,6 +18,7 @@ Page({
     flag:true,
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    isHidden: true
     /*ColorList: app.globalData.ColorList,*/
     /*CustomBar: app.globalData.CustomBar ? app.globalData.StatusBar + 44 : app.globalData.CustomBar,*/
   },
@@ -133,7 +134,8 @@ Page({
               success(res) {},
             }),
             that.setData({
-              listData: list
+              listData: list,
+              isHidden: false
             });
         }
       },
@@ -200,8 +202,14 @@ Page({
                   return index != idx
                 })
                 that.setData({
-                  listData: filterRes
+                  listData: filterRes,
                 })
+                if(that.data.listData.length == 0){
+                  that.setData({
+                    isHidden: true
+                  })
+                }
+                  
               }
             },
             fail: function () {

@@ -2,30 +2,25 @@
 <!-- <text>pages/teacher/custom/page1/page1.wxml</text> -->
 <view class='tatol'>
 	<view class='two'>
-	  <!--<view class='text'>指定宿舍</view>-->
+		<!--<view class='text'>指定宿舍</view>-->
 		<view class="apartment">
-			<!-- 栋 -->
-			<view class='selected' bindtap='bindShowMsg'>
-				<text>{{Block}}</text>
-				<image src='https://oeong.xyz/cqcq/public/images/xialajiantou.png' class="two_jt1"></image>
-			</view>
-			<!-- 下拉需要显示的列表-->
-			<view class="two_select_box_1" wx:if="{{select}}" hidden="{{hiddenName3}}">
-				<view wx:for="{{Apart}}" wx:key="unique">
-					<view class="select_one" bindtap="mySelect" data-name="{{item}}">{{item}}</view>
+
+			<picker value="{{index}}" range="{{listblock}}" bindchange="bindKeyInput5">
+				<view class="picker">
+					{{index?listblock[index]:'请选择'}}
 				</view>
-			</view>
+			</picker>
 			<view class='text_3'>栋</view>
 
 			<!-- 室 -->
 			<view class='selected'>
-				<input class="input_room" auto-focus placeholder="--室号--" bindinput="bindKeyInput" type="number"/>
+				<input class="input_room" placeholder="请输入" bindinput="bindKeyInput" type="number" placeholder-class="placeholder-class" />
 			</view>
-			<view class='text_3'>室</view>		
+			<view class='text_3'>室</view>
 
 			<!-- 按钮 -->
-			<image src='https://oeong.xyz/cqcq/public/images/jiahao.png' class="add" bindtap="formSubmit"></image>
-			<image src='https://oeong.xyz/cqcq/public/images/qingkong2.png' class="clear" bindtap="buttonclearList"></image>
+			<image src='../../images/add.png' class="add" bindtap="formSubmit"></image>
+			<image src='../../images/delete.png' class="clear" bindtap="buttonclearList"></image>
 		</view>
 	</view>
 
@@ -40,12 +35,12 @@
 				<view class="td">{{item.block}}</view>
 				<view class="td">{{item.room}}</view>
 				<view class="td td1">
-					<image src='https://oeong.xyz/cqcq/public/images/jianhao.png' data-idx='{{index}}' class="sub" bindtap="buttonsubList"></image>
+					<image src='../../images/reduce.png'  style="height:40rpx;width:40rpx" data-idx='{{index}}' class="sub"
+						bindtap="buttonsubList"></image>
 				</view>
 			</view>
 		</block>
 	</view>
-	<button style="width:60%;border-radius: 30px;" class="submit" bindtap='buttonsubmit'>
-	<image src="/images/sure.png"></image><text decode="{{true}}">&nbsp;确认</text></button>
-	<!--https://oeong.xyz/cqcq/public/images/sure.png-->
+	<button style="width:60%;border-radius: 30px;background-color: #7AB8FB" class="submit" bindtap='buttonsubmit'>
+		<text decode="{{true}}">确认</text></button>
 </view>

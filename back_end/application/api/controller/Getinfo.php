@@ -72,9 +72,8 @@ class Getinfo extends BaseController
             ->select();
         $numOfDorm = count($dorm);
 
-
         // 获取7天、30天的一天被抽中的宿舍数
-        $today = date('Y-m-d');
+        $today = date('Y-m-d 23:59:59');
         $recent7 = date('Y-m-d', strtotime("-6 days")); // 近7天
         $recent30 = date('Y-m-d', strtotime("-29 days")); // 近30天
 
@@ -93,8 +92,12 @@ class Getinfo extends BaseController
             ->distinct(true)
             ->select();
 
-        $where['r.start_time'] = array('between', array($recent30, $today));
+        if (empty($recordDay7)) {
+            return json(['error_code' => 2, 'msg' => '近七天无数据！']);
+        }
 
+
+        $where['r.start_time'] = array('between', array($recent30, $today));
         $recordDay30 = Db('record')  // 30天内的记录时间
             ->alias('r')
             ->field('r.start_time, d.dorm_num')
@@ -103,6 +106,10 @@ class Getinfo extends BaseController
             ->where($where)
             ->distinct(true)
             ->select();
+
+        if (empty($recordDay30)) {
+            return json(['error_code' => 2, 'msg' => '近三十天无数据！']);
+        }
 
         $where = array();
         $where['s.grade'] = $_POST['grade'];
@@ -141,6 +148,40 @@ class Getinfo extends BaseController
         $unsign7_ = $this->common($unsign7);
         $unsign30_ = $this->common($unsign30);
 
+        $day7 = []; // 获取7天日期
+        for ($i = 0; $i < 7; $i++) {
+            $day7[$i] = date('Y-m-d', strtotime('-' . $i . ' days'));
+        }
+
+        for ($i = 0; $i < 7; $i++) { // 对7天被抽到宿舍进行数据填充
+            if (array_key_exists($day7[$i], $recordDay7_)) {
+                continue;
+            } else {
+                $recordDay7_[$day7[$i]]['start_time'] = $day7[$i];
+                $recordDay7_[$day7[$i]]['dorm_count'] = 0;
+            }
+        }
+
+        for ($i = 0; $i < 7; $i++) { // 对7天未签到宿舍进行数据填充
+            if (array_key_exists($day7[$i], $unsign7_)) {
+                continue;
+            } else {
+                $unsign7_[$day7[$i]]['start_time'] = $day7[$i];
+                $unsign7_[$day7[$i]]['dorm_count'] = 0;
+            }
+        }
+        ksort($unsign7_); // 对键进行排序
+
+        ksort($recordDay7_);
+
+        $day7 = array_column($recordDay7_, 'start_time');
+        $dorm7 = array_column($recordDay7_, 'dorm_count');
+        $unsignDorm7 = array_column($unsign7_, 'dorm_count');
+
+        $day30 = array_column($recordDay30_, 'start_time');
+        $dorm30 = array_column($recordDay30_, 'dorm_count');
+        $unsignDorm30 = array_column($unsign30_, 'dorm_count');
+
         // 7天排行榜
         $unsignStu7 = array_column($unsign7_, 'student_id'); // 提取学号
         $unsignStu7 = array_reduce($unsignStu7, 'array_merge', array()); // 转一维数组
@@ -153,6 +194,18 @@ class Getinfo extends BaseController
             $i++;
         }
         array_multisort(array_column($unsignStu7_, 'count'), SORT_DESC, array_column($unsignStu7_, 'student_id'), SORT_ASC, $unsignStu7_); // 数量降序 学号升序
+        $i = 1;
+        foreach ($unsignStu7_ as $key => $value) {
+            if ($key == 0) {
+                $unsignStu7_[$key]['index'] = 1;
+            } else {
+                if ($unsignStu7_[$key - 1]['count'] == $unsignStu7_[$key]['count']) {
+                    $unsignStu7_[$key]['index'] = $i;
+                } else {
+                    $unsignStu7_[$key]['index'] = ++$i;
+                }
+            }
+        }
 
         // 30天排行榜
         $unsignStu30 = array_column($unsign30_, 'student_id'); // 提取学号
@@ -166,6 +219,18 @@ class Getinfo extends BaseController
             $i++;
         }
         array_multisort(array_column($unsignStu30_, 'count'), SORT_DESC, array_column($unsignStu30_, 'student_id'), SORT_ASC, $unsignStu30_); // 数量降序 学号升序
+        $i = 1;
+        foreach ($unsignStu30_ as $key => $value) {
+            if ($key == 0) {
+                $unsignStu30_[$key]['index'] = 1;
+            } else {
+                if ($unsignStu30_[$key - 1]['count'] == $unsignStu30_[$key]['count']) {
+                    $unsignStu30_[$key]['index'] = $i;
+                } else {
+                    $unsignStu30_[$key]['index'] = ++$i;
+                }
+            }
+        }
 
         foreach ($unsign7_ as $k => $v) {
             unset($unsign7_[$k]['student_id']); // 删除学号显示
@@ -174,16 +239,23 @@ class Getinfo extends BaseController
             unset($unsign30_[$k]['student_id']); // 删除学号显示
         }
 
+        $countStu7 = count($unsignStu7_);
+
+        $countStu30 = count($unsignStu30_);
         $return_data = array();
         $return_data['error_code'] = 0;
         $return_data['msg'] = '统计结束！';
         $return_data['data']['numOfDorm'] = $numOfDorm;
-        $return_data['data']['recordDay7'] = $recordDay7_;
-        $return_data['data']['recordDay30'] = $recordDay30_;
-        $return_data['data']['unsign7'] = $unsign7_;
-        $return_data['data']['unsign30'] = $unsign30_;
+        $return_data['data']['day7'] = $day7;
+        $return_data['data']['dorm7'] = $dorm7;
+        $return_data['data']['unsignDorm7'] = $unsignDorm7;
+        $return_data['data']['day30'] = $day30;
+        $return_data['data']['dorm30'] = $dorm30;
+        $return_data['data']['unsignDorm30'] = $unsignDorm30;
         $return_data['data']['unsignStu7'] = $unsignStu7_;
         $return_data['data']['unsignStu30'] = $unsignStu30_;
+        $return_data['data']['countStu7'] = $countStu7;
+        $return_data['data']['countStu30'] = $countStu30;
         return json($return_data);
     }
 
@@ -216,7 +288,7 @@ class Getinfo extends BaseController
         }
 
         asort($array_); // 根据日期升序排序
-        $array_ = array_values($array_);
+        // $array_ = array_values($array_);
         return $array_;
     }
 }

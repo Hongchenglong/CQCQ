@@ -1,48 +1,67 @@
-<view class="line"></view>
+<view class="cu-list menu margin-bottom-xl shadow-lg radius">
+	<!-- 昵称 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="modalinput" data-target="Modal">
+		<text class="text-black">昵称</text>
+		<text class="text-grey">{{gr1}}</text>
+	</view>
+	<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+		<view class="cu-dialog">
+			<view class="cu-bar bg-white justify-end">
+				<view class="content">输入昵称</view>
+			</view>
+			<input value="{{name}}" bindblur='getInput' type='text' placeholder="请输入你的昵称"/>
+			<view class="cu-bar bg-white">
+				<view class="action text-green" bindtap="confirm">确定</view>
+				<view class="action text-blue" bindtap="cancel">取消</view>
+			</view>
+		</view>
+	</view>
 
-<view class="item" bindtap="modalinput">
-<view class="title">昵称</view>
-	<view class="detail4">
-		<text> {{gr1}}></text>
+	<!-- 年级 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="modalinput2" data-target="Modal2">
+		<text class="text-black">年级</text>
+		<text class="text-grey">{{gr2}}级</text>
 	</view>
-</view>
-<modal style="display:{{config.tipsshow}}" id="modal" hidden="{{hiddenmodalput}}" title="输入昵称" confirm - text="提交" cancel - text="取消" bindcancel="cancel" bindconfirm="confirm">
-	<input value="{{ name }}" bindblur='getInput' name='gre' type='text' placeholder="请输入你的昵称" auto - focus />
-</modal>
+	<view class="cu-modal {{modalName=='Modal2'?'show':''}}">
+		<view class="cu-dialog">
+			<view class="cu-bar bg-white justify-end">
+				<view class="content">输入年级</view>
+			</view>
+			<input value="{{grade}}" bindblur='getInput2' type='number' placeholder="请输入你的年级，如：2017" />
+			<view class="cu-bar bg-white">
+				<view class="action text-green" bindtap="confirm2">确定</view>
+				<view class="action text-blue" bindtap="cancel2">取消</view>
+			</view>
+		</view>
+	</view>
 
-<view class="line"></view>
-<view class="item"  bindtap="modalinput2">
-	<view class="title">年级</view>
-	<view class="detail5">
-		<text> {{gr2}}级></text>
+	<!-- 系 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="modalinput3" data-target="Modal3">
+		<text class="text-black">系</text>
+		<text class="text-grey">{{gr3}}</text>
 	</view>
-</view>
-<modal style="display:{{config1.tipsshow}}" id="modal2" hidden="{{hiddenmodalput2}}" title="输入年级" confirm - text="提交" cancel - text="取消" bindcancel="cancel2" bindconfirm="confirm2">
-	<input value="{{grade}}" bindblur='getInput2' name='gre2' type='number' placeholder="请输入你的年级，如：2017" auto - focus />
-</modal>
+	<view class="cu-modal {{modalName=='Modal3'?'show':''}}">
+		<view class="cu-dialog">
+			<view class="cu-bar bg-white justify-end">
+				<view class="content">输入系</view>
+			</view>
+			<input value="{{department}}" bindblur='getInput3' type='text' placeholder="请输入系全称，如：计算机工程系" />
+			<view class="cu-bar bg-white">
+				<view class="action text-green" bindtap="confirm3">确定</view>
+				<view class="action text-blue" bindtap="cancel3">取消</view>
+			</view>
+		</view>
+	</view>
 
-<view class="line"></view>
-<view class="item" bindtap="modalinput3">
-	<view class="title">系</view>
-	<view class="detail6">
-		<text> {{gr3}}></text>
+	<!-- 手机号 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
+		<text class="text-black">手机号</text>
+		<text class="text-grey">{{gr6}}</text>
+	</view>
+
+	<!-- 邮箱 -->
+	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
+		<text class="text-black">邮箱</text>
+		<text class="text-grey">{{gr7}}</text>
 	</view>
 </view>
-<modal style="display:{{config2.tipsshow}}" id="modal3" hidden="{{hiddenmodalput3}}" title="输入系" confirm - text="提交" cancel - text="取消" bindcancel="cancel3" bindconfirm="confirm3">
-	<input value="{{department}}" bindblur='getInput3' name='gre3' type='text' placeholder="请输入系全称：如计算机工程系" auto - focus />
-</modal>
-<view class="line"></view>
-<view class="item7" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
-	<view class="title">手机号</view>
-	<view class="detail2">
-		<text> {{gr6}}></text>
-	</view>
-</view>
-<view class="line"></view>
-<view class="item7" bindtap="popSuccessTest2" hover-class='wsui-btn__hover_list'>
-	<view class="title">邮箱</view>
-	<view class="detail3">
-		<text> {{gr7}}></text>
-	</view>
-</view>
-<view class="line"></view>

@@ -1,18 +1,13 @@
 <!--pages/phone/phone.wxml-->
-<view class="wrap">
-	<view class="head">
-
-		<view class="one">
-		<image src="/images/phone.png"></image>
-			<input type="text" style="width:90%" placeholder='请输入手机号' bindinput="phoneInput"/>
-		</view>
-
-		<view class='two'>
-			<image src="/images/captcha.png"></image>
-			<input placeholder='请输入验证码' bindinput="numInput" style="width:40%"/>
-			<button style="width:40%" class='num' bindtap="onClick" disabled='{{disabled}}'>{{codename}}</button>
-		</view>
-
+<form>
+	<view class="cu-form-group margin-top">
+		<input placeholder="请输入手机号" bindinput='phoneInput'></input>
 	</view>
-	<button bindtap="onInput" style="border-radius: 30px;width:80%" class='de'><image src="/images/click.png"></image><text style="color:white" decode="{{true}}">&nbsp;下一步</text></button>
-</view>
+	<view class="cu-form-group">
+		<input placeholder="请输入验证码" bindinput='numInput'></input>
+		<button class="cu-btn bg-white" style="width:200rpx;color:#7EC4F8" bindtap='onClick' disabled='{{disabled}}'>{{codename}}</button>
+	</view>
+	<view class="padding flex flex-direction">
+		<button class="cu-btn bg-grey lg" style="width:700rpx;background-color:#7EC4F8" bindtap='onInput'>下一步</button>
+	</view>
+</form>
