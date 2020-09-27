@@ -88,6 +88,7 @@ class Statistics extends Face
         $return_data['error_code'] = 0;
         $return_data['msg'] = '人脸识别完成！';
         $return_data['unsign_stu'] = $unsign_stu;
+        $return_data['sign_stu'] = $data;
         return json($return_data);
     }
 

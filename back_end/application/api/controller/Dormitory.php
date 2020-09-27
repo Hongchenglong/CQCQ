@@ -147,22 +147,29 @@ class Dormitory extends BaseController
             return json(['error_code' => 1, 'msg' => '请输入学号！']);
         }
 
-        // 删除宿舍
+        // 删除宿舍 学生数量少于1
         $where = array();
         $where['room'] = $_POST['room'];
         $where['block'] = $_POST['block'];
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
+        $result = Db('dorm')
+            ->alias('d')
+            ->field('s.id')
+            ->join('student s', 's.dorm = d.dorm_num')
+            ->where($where)
+            ->select();
+        if (count($result) == 1) {
+            $result = Db::execute(
+                "delete d from dorm d join student s on s.dorm = d.dorm_num 
+            where s.grade=:grade and s.department=:department and d.room=:room and d.block=:block",
+                ['grade' => $where['grade'], 'department' => $where['department'], 'room' => $where['room'], 'block' => $where['block']]
+            );
+        }
         // $result = Db::table('dorm')
         //     ->alias('d')    // 别名
         //     ->join('student s', 's.dorm = d.dorm_num')
         //     ->where($where)
         //     ->delete();
-        $result = Db::execute(
-            "delete d from dorm d join student s on s.dorm = d.dorm_num 
-            where s.grade=:grade and s.department=:department and d.room=:room and d.block=:block",
-            ['grade' => $where['grade'], 'department' => $where['department'], 'room' => $where['room'], 'block' => $where['block']]
-        );
+        
 
         // 删除账号
         $where = array();
