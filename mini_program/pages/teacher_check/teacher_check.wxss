@@ -1,5 +1,10 @@
 /* pages/chakan/chakan.wxss */
 /*@import "/pages/teacher_check/teacher_check";*/
+@import"/colorui/icon.wxss";
+@import"/colorui/main.wxss";
+page{
+  background-color: #fff;
+}
 
 .scbg {
   width: 100%;

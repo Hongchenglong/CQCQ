@@ -38,8 +38,10 @@
 		<!--当月格子-->
 		<view class='grid' wx:for='{{thisMonthDays}}' wx:for-item="i">
 			<view wx:for='{{days}}' wx:for-item="j">
-				<view class="self" wx:if="{{ j === year+'-'+i.monthFormat+'-'+i.dateFormat }}"></view>
+				<!-- <view class="self" wx:if="{{ j === year+'-'+i.monthFormat+'-'+i.dateFormat }}"></view> -->
+				<view class="{{ select === year+'-'+i.monthFormat+'-'+i.dateFormat ? 'self' :'nonself'}}" wx:if="{{ j === year+'-'+i.monthFormat+'-'+i.dateFormat }}"></view>
 			</view>
+
 			<view class="wrap {{ select === year+'-'+i.monthFormat+'-'+i.dateFormat ? 'select' :'oldrecord'}}" bindtap='select' data-date='{{i.date}}'>{{i.date}}</view>
 		</view>
 		<!--下个月占位格子-->
@@ -54,9 +56,9 @@
 			<text  class="name" style="text-align: center;">{{year}}年{{month}}月{{date}}日 查寝占比</text>
 			<view class="up">
 				<view class="flex flex-wrap">
-					<progress class="progress" percent='{{unsign_percent}}' stroke-width='20rpx' activeColor='red' active></progress>
+					<progress class="progress" percent='{{unsign_percent}}' stroke-width='20rpx' activeColor='#edafda' active></progress>
 					<text class="name_">  未签到人数:{{unsign_num}}人</text>
-					<progress class="progress" percent='{{sign_percent}}' stroke-width='20rpx' activeColor='blue' active></progress>
+					<progress class="progress" percent='{{sign_percent}}' stroke-width='20rpx' activeColor='#516b91' active></progress>
 					<text class="name_">  已签到人数:{{sign_num}}人</text>
 				</view>
 			</view>

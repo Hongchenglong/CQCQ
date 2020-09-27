@@ -58,7 +58,9 @@ image{
   display: flex;
   width: 90%;
   height: 2rem;
-  border: 1rpx solid #eff4f8;
+  border-right: 1rpx solid #d0ebff;
+  border-left: 1rpx solid #d0ebff;
+  border-bottom: 1px solid #edf2ff;
   background: #b2dffe;
   /* justify-content: space-between; */
 }
@@ -68,7 +70,6 @@ image{
   justify-content: center;  /*水平居中 */
   align-items: center; /*垂直居中*/
   width: 100%;
-  /*border: 1px solid darkgray;*/
   height: 2rem;
   border: 1px solid #eff4f8;
 }

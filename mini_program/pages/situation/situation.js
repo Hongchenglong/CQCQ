@@ -12,7 +12,6 @@ Page({
     time: [], //记录的起止时间
     date: '',
     date2: '',
-    name: 'name2',
     times: '12', //应签到次数
     unsign_day: [],
     unsign_time:[],

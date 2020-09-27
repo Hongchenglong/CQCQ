@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "更多",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "tabpanel": "../../lin-ui/tabpanel/index",
+    "tabs": "../../lin-ui/tabs/index",
+    "status-show": "../../lin-ui/status-show/index"
+  },
+  "navigationBarBackgroundColor": "#fff"
 }

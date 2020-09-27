@@ -17,51 +17,33 @@
 	</view>
 	<!--<view class="padding flex text-center text-grey bg-white shadow-warp">-->
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-	<!--绑定微信/解绑微信-->
-		<view class="cu-item arrow" bindtap="wx_binding">
-			<view class="content" url="" hover-class="none">
-				<text class="cuIcon-write text-mauve"></text>
-				<text class="text-grey">绑定/解绑微信</text>
-			</view>
-		</view>
-	<!--签到情况-->
-		<view class="cu-item arrow" bindtap="to_situation">
+			<!--签到情况-->
+			<view class="cu-item arrow" bindtap="to_situation">
 			<view class="content" hover-class="none">
-				<text class="cuIcon-rank text-green"></text>
+				<text class="cuIcon-rank text-blue"></text>
 				<text class="text-grey">签到情况</text>
 			</view>
 		</view>
-		<!--修改信息-->
+		<!--基本信息-->
 		<view class="cu-item arrow" bindtap="to_info">
-			<view class="content" hover-class="none"><!--url="../revise_information/revise_information"  bindtap="click"-->
+			<view class="content" hover-class="none">
+				<!--url="../revise_information/revise_information"  bindtap="click"-->
 				<text class="cuIcon-write text-mauve"></text>
-				<text class="text-grey">修改信息</text>
+				<text class="text-grey">基本信息</text>
 			</view>
 		</view>
-		<!--修改密码-->
-		<view class="cu-item arrow" bindtap="to_pass">
-			<view class="content" hover-class="none"><!--url="../revise_password/revise_password"  bindtap="click"-->
-				<text class="cuIcon-lock text-brown"></text>
-				<text class="text-grey">修改密码</text>
-			</view>
-		</view>
-		<!--修改邮箱-->
-		<view class="cu-item arrow" bindtap="to_mail">
-			<view class="content" hover-class="none"><!--url="../revise_email/revise_email"  bindtap="click"-->
-				<text class="cuIcon-mail text-newblue"></text>
-				<text class="text-grey">修改邮箱</text>
-			</view>
-		</view>
-		<!--修改手机-->
-		<view class="cu-item arrow" bindtap="to_phone">
-			<view class="content" hover-class="none"><!--url="../revise_phone/revise_phone"  bindtap="click"-->
-				<text class="cuIcon-mobile text-mei_red"></text>
-				<text class="text-grey">修改手机</text>
+		<!-- 安全设置 -->
+		<view class="cu-item arrow" bindtap="to_safe">
+			<view class="content" hover-class="none">
+				<text class="cuIcon-safe text-red"></text>
+				<text class="text-grey">安全设置</text>
 			</view>
 		</view>
 		<!--意见反馈-->
 		<view class="cu-item" style="padding:0">
-			<button class="cu-item arrow" open-type="feedback" style="width:100%;height:100%;border:none; padding-left: 30rpx;margin: 0;background-color: transparent;font-weight:normal" hover-class="none" bindtap="click">
+			<button class="cu-item arrow" open-type="feedback"
+				style="width:100%;height:100%;border:none; padding-left: 30rpx;margin: 0;background-color: transparent;font-weight:normal"
+				hover-class="none" bindtap="click">
 				<!--padding-top: 0;padding-bottom: 0;-->
 				<view class="content" style="margin-left: 0;text-align: left;">
 					<text class="cuIcon-creative text-cyan"></text>
@@ -70,22 +52,24 @@
 			</button>
 		</view>
 		<!--GitHub-->
-		<view class="cu-item arrow" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/cqcq">
+		<view class="cu-item arrow" bindtap="CopyLink" data-link="https://github.com/Hongchenglong/CQCQ">
 			<view class="content">
 				<text class="cuIcon-github text-grey"></text>
 				<text class="text-grey">GitHub</text>
 			</view>
 		</view>
 		<!--关于-->
-		<view class="cu-item arrow"  bindtap="to_about">
-			<view class="content" hover-class="none"><!--url="../revise_about/revise_about"  bindtap="click"-->
+		<view class="cu-item arrow" bindtap="to_about">
+			<view class="content" hover-class="none">
+				<!--url="../revise_about/revise_about"  bindtap="click"-->
 				<text class="cuIcon-question text-yellow"></text>
 				<text class="text-grey">关于</text>
 			</view>
 		</view>
 	</view>
 	<view class="exit">
-		<button  class="bg-gradual-blue" hover-class="other-button-hover" style="width: 90%;border-radius: 30px;" bindtap="bindViewTap">
+		<button class="bg-gradual-blue" hover-class="other-button-hover" style="width: 90%;border-radius: 30px;"
+			bindtap="bindViewTap">
 			<image src="/images/exit.png"></image><text decode="{{true}}">&nbsp;&nbsp;退出登录</text>
 		</button>
 		<!--https://oeong.xyz/cqcq/public/images/exit.png-->

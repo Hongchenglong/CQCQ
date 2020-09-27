@@ -3,13 +3,24 @@ Page({
 
   data: {
     select: false,
-    types_name: '--请选择--',
+    types_name: '请选择',
     types: [],
     listData: [],
-    grades:'',
-    dept:''
-
+    grades: '',
+    dept: '',
+    listBlock: []
   },
+
+  bindKeyInput5: function (e) {
+    var that = this
+    this.setData({
+      index: e.detail.value,
+      block: that.data.listBlock[e.detail.value]
+    })
+    that.mySelect(e)
+    console.log('block：',that.data.block)
+  },
+
   bindShowMsg() {
     var that = this
     var listblock = []
@@ -17,7 +28,7 @@ Page({
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock',
       data: {
-        department: that.data.dept,
+        department: that.data.dept, //需要传全局变量
         grade: that.data.grades,
       },
       method: "POST",
@@ -32,13 +43,12 @@ Page({
             showCancel: false,
             success(res) {}
           })
-        } 
-        else if (res.data.error_code == 0) { 
-          for(var i=0;i<res.data.data.length;i++){
+        } else if (res.data.error_code == 0) {
+          for (var i = 0; i < res.data.data.length; i++) {
             listblock.push(res.data.data[i].block)
           }
           that.setData({
-            types:listblock
+            listBlock: listblock
           })
         }
       },
@@ -52,25 +62,24 @@ Page({
         })
       }
     })
-    this.setData({
-      select: !this.data.select
-    })
+    // this.setData({
+    //   select: !this.data.select
+    // })
   },
   mySelect(e) {
     var that = this
     console.log(e)
-    var name = e.currentTarget.dataset.name
-    this.setData({
-      types_name: name,
-      select: false
-    })
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/examine')
+    // var name = e.currentTarget.dataset.name
+    // this.setData({
+      // types_name: name,
+    //   select: false
+    // })
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/examine',
       data: {
         department: that.data.dept,
         grade: that.data.grades,
-        block: name,
+        block: that.data.block,
       },
       method: "POST",
       header: {
@@ -106,9 +115,10 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      grades : getApp().globalData.user.grade,
-      dept : getApp().globalData.user.department
+      grades: getApp().globalData.user.grade,
+      dept: getApp().globalData.user.department
     })
+    this.bindShowMsg()
   },
 
   /**

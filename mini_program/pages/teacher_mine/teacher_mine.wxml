@@ -1,59 +1,35 @@
 <!--pages/teacher_mine/teacher_mine.wxml-->
 <scroll-view scroll-y class="scrollPage">
 	<view class="UCenter-bg">
-			<!--头像-->
-			<view class='avatar' mode="widthFix">
-				<open-data type="userAvatarUrl"></open-data>
+		<!--头像-->
+		<view class='avatar' mode="widthFix">
+			<open-data type="userAvatarUrl"></open-data>
+		</view>
+		<view class="margin-top-sm">
+			<view class="text-xl">{{username}}
+				<!--<text class="text-df">v2.0</text>-->
 			</view>
-			<view class="margin-top-sm">
-				<view class="text-xl">{{username}}
-					<!--<text class="text-df">v2.0</text>-->
-				</view>
-			</view>
-			<view class="margin-top-sm">
-				<text decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
-			</view>
-			<image src="https://oeong.xyz/cqcq/public/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+		</view>
+		<view class="margin-top-sm">
+			<text decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
+		</view>
+		<image src="https://oeong.xyz/cqcq/public/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 	</view>
 	<!--<view class="padding flex text-center text-grey bg-white shadow-warp">-->
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-	<!--绑定微信/解绑微信-->
-		<view class="cu-item arrow" bindtap="wx_binding">
-			<view class="content" url="" hover-class="none">
-				<text class="cuIcon-write text-mauve"></text>
-				<text class="text-grey">绑定/解绑微信</text>
-			</view>
-		</view>
-		<!--修改信息-->
+		<!--基本信息-->
 		<view class="cu-item arrow" bindtap="to_info">
 			<view class="content" url="" hover-class="none">
 				<!--url="../teacher_information/teacher_information"  bindtap="click"-->
 				<text class="cuIcon-write text-mauve"></text>
-				<text class="text-grey">修改信息</text>
+				<text class="text-grey">基本信息</text>
 			</view>
 		</view>
-		<!--修改密码-->
-		<view class="cu-item arrow" bindtap="to_pass">
+		<!-- 安全设置 -->
+		<view class="cu-item arrow" bindtap="to_safe">
 			<view class="content" hover-class="none">
-				<!--url="../revise_password/revise_password"  bindtap="click"-->
-				<text class="cuIcon-lock text-brown"></text>
-				<text class="text-grey">修改密码</text>
-			</view>
-		</view>
-		<!--修改邮箱-->
-		<view class="cu-item arrow" bindtap="to_mail">
-			<view class="content" hover-class="none">
-				<!--url="../revise_email/revise_email"  bindtap="click"-->
-				<text class="cuIcon-mail text-newblue"></text>
-				<text class="text-grey">修改邮箱</text>
-			</view>
-		</view>
-		<!--修改手机-->
-		<view class="cu-item arrow" bindtap="to_phone">
-			<view class="content" hover-class="none">
-				<!--url="../revise_phone/revise_phone"  bindtap="click"-->
-				<text class="cuIcon-mobile text-mei_red"></text>
-				<text class="text-grey">修改手机</text>
+				<text class="cuIcon-safe text-red"></text>
+				<text class="text-grey">安全设置</text>
 			</view>
 		</view>
 		<!--意见反馈-->

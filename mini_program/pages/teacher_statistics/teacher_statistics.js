@@ -118,9 +118,9 @@ Component({
 
         // 记录
         recordDay: [],
-
         flag: '',
-        isShow: false
+        isShow: false,
+        sign: false
     },
 
     ready: function () {
@@ -129,6 +129,7 @@ Component({
 
     //页面初次加载时的数据加载
     attached() {
+        console.log("attached")
         // 页面被展示时刷新
         var that = this;
         wx.request({
@@ -150,16 +151,22 @@ Component({
                         showCancel: false,
                         success: function (res) {}
                     })
-                    console.log(res);
+                    // console.log(res);
                 } else {
                     that.setData({
                         days: res.data.data.day
                     })
-                    console.log(that.data.days);
+                    // console.log(that.data.days);
                 }
+                that.data.flag = that.data.year + '-' + that.zero(that.data.month) + '-' + that.zero(that.data.date)
+                // console.log("ready", that.data.flag)
+                that.exists(that.data.flag, that.data.year, that.data.month, that.data.date)
+                // console.log(that.data.isShow)
             },
         })
-
+        // this.data.flag = year + '-' + this.zero(month) + '-' + this.zero(date)
+        // console.log(this.data.flag)
+        // this.exists(this.data.flag, this.data.year, this.data.month, this.data.date)
     },
 
     methods: {
@@ -169,6 +176,7 @@ Component({
             this.setData({
                 toggleType: this.data.toggleType == 'mini' ? 'large' : 'mini'
             })
+            console.log("监听")
             //初始化日历组件UI
             this.display(this.data.year, this.data.month, this.data.date);
         },
@@ -189,8 +197,6 @@ Component({
                 listData: []
             })
             this.exists(this.data.flag, this.data.year, this.data.month, this.data.date)
-            console.log("6");
-            // console.log(year, month, date)
             var that = this,
                 scrollLeft = 0;
             wx.getSystemInfo({
@@ -213,25 +219,6 @@ Component({
             })
         },
 
-        // 判断当天是否有查寝记录
-        exists: function (flag, year, month, date) {
-            for (var i = 0; this.data.days[i] != flag && i < this.data.days.length; i++) {}
-            if (i == this.data.days.length) {
-                this.setData({
-                    isShow: false
-                })
-            } else {
-                this.getRecordDay(year, month, date);
-                for (var i = 0; i < this.data.recordDay.length; i++) {
-                    this.signSituation(this.data.recordDay[i]['start_time'], this.data.recordDay[i]['end_time'], i);
-                }
-                this.setData({
-                    isShow: true
-                })
-            }
-            // console.log(this.data.isShow)
-        },
-
         to_more: function () {
             wx.showToast({
                 title: '加载中...',
@@ -252,11 +239,19 @@ Component({
                 date,
                 title: year + '年' + this.zero(month) + '月'
             })
+            if (this.data.sign == true) {
+                let select = this.data.year + '-' + this.zero(this.data.month) + '-' + this.zero(date);
+                this.setData({
+                    select: select,
+                    sign: false
+                })
+            }
             this.createDays(year, month);
             this.createEmptyGrids(year, month);
             //滚动模糊 初始界面
             this.scrollCalendar(year, month, date, );
         },
+
         //默认选中当天 并初始化组件
         today: function () {
             let DATE = this.data.defaultValue ? new Date(this.data.defaultValue) : new Date(),
@@ -292,7 +287,7 @@ Component({
                 select: select,
                 year: this.data.year,
                 month: this.data.month,
-                date: date
+                date: date,
             });
             //发送事件监听
             this.triggerEvent('select', select);
@@ -300,20 +295,27 @@ Component({
             //滚动日历到选中日期
             this.scrollCalendar(this.data.year, this.data.month, date);
         },
+
         //上个月
         lastMonth: function () {
             let month = this.data.month == 1 ? 12 : this.data.month - 1;
             let year = this.data.month == 1 ? this.data.year - 1 : this.data.year;
+            this.setData({
+                sign: true
+            })
             //初始化日历组件UI
-            this.display(year, month, 0);
-            console.log(this.data.year, this.data.month, this.data.date);
+            this.display(year, month, 1);
         },
+
         //下个月
         nextMonth: function () {
             let month = this.data.month == 12 ? 1 : this.data.month + 1;
             let year = this.data.month == 12 ? this.data.year + 1 : this.data.year;
+            this.setData({
+                sign: true
+            })
             //初始化日历组件UI
-            this.display(year, month, 0);
+            this.display(year, month, 1);
         },
         //获取当月天数
         getThisMonthDays: function (year, month) {
@@ -376,12 +378,37 @@ Component({
                 month: parseInt(e.detail.value.substring(5, 7)),
                 title: this.data.year + '年' + this.zero(this.data.month) + '月'
             })
-            this.display(this.data.year, this.data.month, 0);
+            this.setData({
+                sign: true
+            })
+            this.display(this.data.year, this.data.month, 1);
             // console.log(parseInt(this.data.year))
             // console.log(parseInt(this.data.month))
-            console.log(this.data.title)
+            // console.log(this.data.title)
             // console.log(this.data.dates.substring(5, 7))
             // console.log(this.data.date.substring(8, 10))
+        },
+
+        // 判断当天是否有查寝记录
+        exists: function (flag, year, month, date) {
+            for (var i = 0; this.data.days[i] != flag && i < this.data.days.length; i++) {}
+            if (i == this.data.days.length) {
+                this.setData({
+                    isShow: false
+                })
+            } else {
+                this.setData({
+                    isShow: true
+                })
+                this.getRecordDay(year, month, date);
+            }
+            // console.log(this.data.isShow)
+        },
+
+        display_isShow: function () {
+            for (var i = 0; i < this.data.recordDay.length; i++) {
+                this.signSituation(this.data.recordDay[i]['start_time'], this.data.recordDay[i]['end_time'], i);
+            }
         },
 
         // 获取当天的所有记录
@@ -409,12 +436,13 @@ Component({
                             showCancel: false,
                             success: function (res) {}
                         })
-                        console.log(res);
+                        // console.log(res);
                     } else if (res.data.error_code == 0) {
                         that.setData({
                             recordDay: res.data.data.day
                         })
-                        console.log(that.data.recordDay);
+                        console.log("查询", that.data.recordDay, "的查寝记录");
+                        that.display_isShow()
                     }
                 },
                 fail: function (res) {
@@ -476,11 +504,11 @@ Component({
                             unsign_percent: unsign_percent,
                             sign_percent: sign_percent
                         })
-                        console.log(that.data.listData);
-                        console.log('sign_num:' + that.data.sign_num);
-                        console.log('unsign_num:' + that.data.unsign_num);
-                        console.log('unsign_percent:' + that.data.unsign_percent);
-                        console.log('sign_percent:' + that.data.sign_percent);
+                        // console.log(that.data.listData);
+                        // console.log('sign_num:' + that.data.sign_num);
+                        // console.log('unsign_num:' + that.data.unsign_num);
+                        // console.log('unsign_percent:' + that.data.unsign_percent);
+                        // console.log('sign_percent:' + that.data.sign_percent);
                     }
                 },
                 fail: function (res) {

@@ -1,21 +1,12 @@
-<view class="wrap">
-	<view class="head">
-
-		<view class='one'>
-			<image src="/images/mail.png"></image>
-			<input type="text" style="width:90%" placeholder='请输入邮箱' bindinput='getEmailValue' value='{{email}}' />
-		</view>
-
-		<view class='two'>
-			<image src="/images/captcha.png"></image>
-			<input style="width:40%"  placeholder='请输入验证码' bindinput='getCodeValue' value='{{code}}' />
-			<button style="border-radius: 5px;width:40%" class='num' bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
-		</view>
+<form>
+	<view class="cu-form-group margin-top">
+		<input placeholder="请输入邮箱" bindinput='getEmailValue' value='{{email}}'></input>
 	</view>
-
-	<button class="de" style="border-radius: 30px;width:80%" bindtap='save' hover-class="other-button-hover">
-		<image src="/images/click.png"></image><text decode="{{true}}">&nbsp;提交</text>
-		<!--https://oeong.xyz/cqcq/public/images/click.png-->
-	</button>
-
-</view>
+	<view class="cu-form-group">
+		<input placeholder="请输入验证码" bindinput='getCodeValue' value='{{code}}'></input>
+		<button class="cu-btn bg-white" style="width:200rpx;color:#7EC4F8" bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
+	</view>
+	<view class="padding flex flex-direction">
+		<button class="cu-btn bg-grey lg" style="width:700rpx;background-color:#7EC4F8" bindtap='save' hover-class="other-button-hover">提交</button>
+	</view>
+</form>

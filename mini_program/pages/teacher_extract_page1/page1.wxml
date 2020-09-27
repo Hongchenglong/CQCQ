@@ -24,11 +24,8 @@
 		<text class="foot">间</text>
 	</view>
 	<view class="other">
-		<button style="width:100%;border-radius: 30px;" hover-class="plain-hover" bindtap='buttonList'>
-			<image src="/images/click.png"></image>随机抽取
-			<!--https://oeong.xyz/cqcq/public/images/click.png-->
-		</button>
-		<view class="definition">不喜欢随机抽取？试试<view bindtap="buttonListener" style="font-weight:bold;color:#7AB8FB;">自定义抽取</view>
+		<button class="cu-btn round bg-blue lg" style="width:100%;background-color: #7AB8FB" hover-class="plain-hover" bindtap='buttonList'>随机抽取</button>
+		<view class="definition" style="padding-top:2%">不喜欢随机抽取？试试<view bindtap="buttonListener" style="font-weight:bold;color:#7AB8FB;">自定义抽取</view>
 		</view>
 	</view>
 </view>

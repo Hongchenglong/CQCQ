@@ -11,10 +11,10 @@ Page({
   onShow: function (options) {
     var _this = this;
     if (getApp().globalData.user.phone == null) {
-      getApp().globalData.user.phone = "无";
+      getApp().globalData.user.phone = "暂无";
     }
     if (getApp().globalData.user.email == null) {
-      getApp().globalData.user.email = "无";
+      getApp().globalData.user.email = "暂无";
     }
     _this.setData({
       gr1: getApp().globalData.user.username,
@@ -26,7 +26,7 @@ Page({
   },
   data: {
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框 
-    hiddenmodalput: true,
+    // hiddenmodalput: true,
     gr1: '',
     name: '',
     gr: '',
@@ -34,21 +34,15 @@ Page({
   },
 
   //点击按钮弹窗指定的hiddenmodalput弹出框 
-  modalinput: function () {
+  modalinput: function (e) {
     this.setData({
-      config: {
-        tipsshow: "block"
-      },
-      hiddenmodalput: !this.data.hiddenmodalput,
+      modalName: e.currentTarget.dataset.target
     })
   },
-  cancel: function () {
+  cancel: function (e) {
     this.setData({
-      config: {
-        tipsshow: "none",
-      },
-      hiddenmodalput: true,
-      name: ''
+      name: '',
+      modalName: null
     });
   },
   //确认 
@@ -79,7 +73,7 @@ Page({
             config: {
               tipsshow: "none"
             },
-            hiddenmodalput: true,
+            modalName: null,
             name: '',
           })
           wx.showModal({
@@ -135,29 +129,22 @@ Page({
 
   //年级
   data2: {
-    hiddenmodalput2: true,
     gr2: '',
     grade: '',
     gr: ''
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框 
   },
   //点击按钮弹窗指定的hiddenmodalput弹出框 
-  modalinput2: function () {
+  modalinput2: function (e) {
     this.setData({
-      config1: {
-        tipsshow: "block"
-      },
-      hiddenmodalput2: !this.data2.hiddenmodalput2
+      modalName: e.currentTarget.dataset.target
     });
   },
   //取消按钮 
-  cancel2: function () {
+  cancel2: function (e) {
     this.setData({
-      config1: {
-        tipsshow: "none"
-      },
-      hiddenmodalput2: true,
-      grade: ''
+      grade: '',
+      modalName: null
     });
   },
   //确认 
@@ -188,7 +175,7 @@ Page({
             config1: {
               tipsshow: "none"
             },
-            hiddenmodalput2: true,
+            modalName: null,
             grade: '',
           })
           wx.showModal({
@@ -239,29 +226,22 @@ Page({
     })
   },
   data3: {
-    hiddenmodalput3: true,
     gr3: '',
     department: '',
     gr: '',
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框 
   },
   //点击按钮弹窗指定的hiddenmodalput弹出框 
-  modalinput3: function () {
+  modalinput3: function (e) {
     this.setData({
-      config2: {
-        tipsshow: "block"
-      },
-      hiddenmodalput3: !this.data3.hiddenmodalput3
+      modalName: e.currentTarget.dataset.target
     });
   },
   //取消按钮 
   cancel3: function () {
     this.setData({
-      config2: {
-        tipsshow: "none"
-      },
-      hiddenmodalput3: true,
-      department: ''
+      department: '',
+      modalName: null
     });
     console.log(this.data.department)
   },
@@ -293,7 +273,7 @@ Page({
             config2: {
               tipsshow: "none"
             },
-            hiddenmodalput3: true,
+            modalName: null,
             department: '',
           })
           wx.showModal({

@@ -35,7 +35,7 @@
   border: 1px solid #ADADAD;
   border-radius: 5px;
   padding: 0 10rpx;
-  font-size: 32rpx;
+  font-size: 30rpx;
   position: relative;
 }
 
@@ -130,7 +130,7 @@
 }
 
 button{
-  background-color:#7EC4F8 ;
+  background-color:#1195db ;
   color: #fff;
   display: flex;
   justify-content: center;  /*水平居中 */
@@ -140,4 +140,28 @@ button{
 button image{
   width: 55rpx;
   height: 55rpx;
+}
+
+picker{
+  color: #ADADAD;
+  width: 25%;
+  height: 46rpx;
+  margin:8rpx 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ADADAD;
+  border-radius: 5px;
+  padding: 0 10rpx;
+  font-size: 30rpx;
+  position: relative;
+}
+
+.text_3{
+  padding-top:3px;
+}
+
+.placeholder-class{
+  color: #ADADAD;
+  font-size: 30rpx;
 }

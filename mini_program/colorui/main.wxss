@@ -1295,10 +1295,10 @@ button.icon.lg {
 	align-items: center
 }
 
-/* .cu-list.menu-avatar>.cu-item>.cu-avatar {
+.cu-list.menu-avatar>.cu-item>.cu-avatar {
 	position: absolute;
 	left: 30rpx
-} */
+}
 
 .cu-list.menu-avatar>.cu-item .flex .text-cut {
 	max-width: 510rpx
@@ -1306,8 +1306,7 @@ button.icon.lg {
 
 .cu-list.menu-avatar>.cu-item .content {
 	position: absolute;
-	left: 30rpx;
-	/* left: 146rpx; */
+	left: 146rpx;
 	width: calc(100% - 96rpx - 60rpx - 120rpx - 20rpx);
 	line-height: 1.6em;
 }
@@ -2504,8 +2503,8 @@ button.icon.lg {
 	opacity: 0;
 	outline: 0;
 	text-align: center;
-	-ms-transform: scale(1.185);
-	transform: scale(1.185);
+	/* -ms-transform: scale(1.185);  placeholder偏移*/  
+	/* transform: scale(1.185); */
 	backface-visibility: hidden;
 	perspective: 2000rpx;
 	background: rgba(0, 0, 0, 0.6);
@@ -2513,7 +2512,7 @@ button.icon.lg {
 	pointer-events: none;
 }
 
-.cu-modal::before {
+ .cu-modal::before {
 	content: "\200B";
 	display: inline-block;
 	height: 100%;
@@ -2541,7 +2540,7 @@ button.icon.lg {
 	background-color: #f8f8f8;
 	border-radius: 10rpx;
 	overflow: hidden;
-}
+} 
 
 .cu-modal.bottom-modal::before {
 	vertical-align: bottom;

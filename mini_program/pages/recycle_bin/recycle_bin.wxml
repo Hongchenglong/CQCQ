@@ -1,8 +1,10 @@
 <!--pages/recycle_bin/recycle_bin.wxml-->
 <scroll-view class='scbg' scroll-y='true'>
 	<view class="first">
-		<text class="texts">开始时间：{{checkData.start_time}}</text>
-		<text class="texts"> 截止时间：{{checkData.end_time}}</text>
+		<view style="float:left;width:500rpx">
+			<view class="te"><text class="texts">开始时间：</text><text class="text2">{{checkData.start_time}}</text></view>
+			<view class="te"><text class="texts" style="padding-top: 2%;">截止时间：</text><text class="text2" style="padding-top: 2%;">{{checkData.end_time}}</text></view>
+	</view>
 	</view>
 	<block wx:for="{{photoData}}" wx:for-item="itemName" wx:for-index="id">
 		<view class="second">

@@ -1,43 +1,77 @@
 <!--pages/more/more.wxml-->
-<view class="swiper-tab">
-	<view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">近7天</view>
-	<view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">近30天</view>
+<view hidden="{{!isData}}">
+	<tabs bind:linchange="swichNav" animated-for-line="true" animated="true">
+		<tabpanel tab="近7天" key="one" slot="one">
+			<view class="tab-content">
+				<view class="title bg-white solid-bottom margin-top" style="font-size: 30rpx;">
+					<view class="title-left"></view>
+					<text class="bold">近七天查寝折线图</text>
+				</view>
+				<view class="cu-card article no-card">
+					<view class="cu-item shadow">
+						<ec-canvas id="mychart-one" canvas-id="mychart-line-one" ec="{{ ecOne }}" style="height:{{winHeight}}rpx">
+						</ec-canvas>
+					</view>
+				</view>
+				<!-- </view> -->
+				<view class="title  bg-white solid-bottom margin-top" style="font-size: 30rpx;">
+					<view class="title-left"></view>
+					<text class="bold">未签到人员</text>
+					<view class="title-right">共<text class="bold"> {{countStu7}} </text>人参与排名</view>
+				</view>
+				<!-- 排行榜 -->
+				<view class="cu-card article no-card">
+					<view class="cu-item shadow">
+						<view class="menu" style="font-size: 30rpx;" wx:for='{{unsignStu7}}' wx:key='navItems'>
+							<view class="menu_left">
+								<text class="pai">{{item.index}}</text>
+								<text class="name">{{item.student_id}}</text>
+							</view>
+							<view class="menu_right">
+								<text class="times">{{item.count}} 次</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</tabpanel>
+
+		<tabpanel tab="近30天" key="two" slot="two">
+			<view class="tab-content">
+				<view class="title bg-white solid-bottom margin-top" style="font-size: 30rpx;">
+					<view class="title-left"></view>
+					<text class="bold">近三十天查寝折线图</text>
+				</view>
+
+				<view class="cu-card article no-card">
+					<view class="cu-item shadow">
+						<ec-canvas id="mychart-two" canvas-id="mychart-line-two" ec="{{ ecTwo }}" style="height:{{winHeight}}rpx">
+						</ec-canvas>
+					</view>
+				</view>
+
+				<view class="title bg-white solid-bottom margin-top" style="font-size: 30rpx;">
+					<view class="title-left"></view>
+					<text class="bold">未签到人员</text>
+					<view class="title-right">共<text class="bold"> {{countStu30}} </text>人参与排名</view>
+				</view>
+				<!-- 排行榜 -->
+				<view class="cu-card article no-card">
+					<view class="cu-item shadow">
+						<view class="menu" style="font-size: 30rpx;" wx:for='{{unsignStu30}}' wx:key='navItems'>
+							<view class="menu_left">
+								<text class="pai">{{item.index}}</text>
+								<text class="name">{{item.student_id}}</text>
+							</view>
+							<view class="menu_right">
+								<text class="times">{{item.count}} 次</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+		</tabpanel>
+	</tabs>
 </view>
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
-	<!-- 一周 -->
-	<swiper-item>
-		<view class="padding-xl radius shadow bg-white" style="width:97%;margin: 10rpx auto;">
-    <!-- 未签到人员比例 -->
-			<view class="up">
-				<view class="flex flex-wrap">
-					<progress class="progress" percent='{{unsign_percent}}' stroke-width='20rpx' activeColor='red' active>未签到人数:{{unsign_num}}人</progress>
-					<progress class="progress" percent='{{sign_percent}}' stroke-width='20rpx' activeColor='blue' active>已签到人数:{{sign_num}}人</progress>
-				</view>
-			</view>
-		</view>
-    	<!-- 未签到人员名单 -->
-	<view style="padding-top: 30rpx;">
-		<text class="name" style="text-align: center;">未签到人员名单</text>
-		<view class="table">
-			<view class="tr bg-w">
-				<view class="th">学号</view>
-				<view class="th">姓名</view>
-				<view class="th">宿舍楼</view>
-				<view class="th">宿舍号</view>
-			</view>
-			<block wx:for='{{listData}}' wx:key='navItems'>
-				<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
-					<view class="td">{{item.id}}</view>
-					<view class="td">{{item.username}}</view>
-					<view class="td">{{item.block}}</view>
-					<view class="td">{{item.room}}</view>
-				</view>
-			</block>
-		</view>
-	</view>
-	</swiper-item>
-	<!-- 一个月 -->
-	<swiper-item>
-		<view>一个月的查寝记录</view>
-	</swiper-item>
-</swiper>
+<status-show show="{{!isData}}" image="/images/nodata.png" describe="暂无数据哦~"></status-show>

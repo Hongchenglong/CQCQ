@@ -74,6 +74,7 @@
   text-align: left;
   padding: 0 20rpx;
   box-sizing: border-box;
+  /* align-items: center; */
 }
 
 .calendar-title .ctrl {
@@ -138,7 +139,7 @@
   z-index: 1;
 }
 
-/* 有记录的样式 */
+/* 有记录的圆点样式 */
 .calendar-container .grid .self {
   position: absolute;
   top: 0rpx;
@@ -146,7 +147,18 @@
   width: 10rpx;
   height: 10rpx;
   border-radius: 50%;
-  background: #b3c7e6;
+  background: #fff;
+  /* border: 3rpx solid #fff; */
+}
+
+.calendar-container .grid .nonself {
+  position: absolute;
+  top: 0rpx;
+  left: 45%;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #9bbff5;
   /* border: 3rpx solid #fff; */
 }
 
@@ -165,7 +177,7 @@
   color: #ccc;
 }
 
-/* 被选中的颜色 */
+/* 被选中的日期格子颜色 */  
 .calendar-container .grid .wrap.select {
   background: #86b0ed;
   border-radius: 80%;
@@ -206,7 +218,7 @@
   margin-right: 20rpx;
 }
 
-.calendar-x .grid .self {
+/* .calendar-x .grid .self {
   position: absolute;
   top: 0rpx;
   right: 0rpx;
@@ -215,7 +227,7 @@
   border-radius: 50%;
   background: #7EC4F8;
   border: 3rpx solid #fff;
-}
+} */
 
 .calendar-x .grid.gray {
   color: #ccc;
@@ -237,7 +249,7 @@
 
 .progress {
   width: 60%;
-  margin: 20rpx;
+  margin: 20rpx 5rpx;
 }
 
 .name_{
@@ -246,3 +258,7 @@
   align-items: center;
   justify-content: center;
 }
+
+/* .flex.flex-wrap{
+  border: 1rpx solid;
+} */

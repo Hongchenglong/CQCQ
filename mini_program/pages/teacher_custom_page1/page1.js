@@ -1,33 +1,44 @@
-var util=require("../../utils/util.js")
+var util = require("../../utils/util.js")
 Page({
   data: {
     i: 0,
     select: false,
-    hiddenName3: false,
+    // hiddenName3: false,
     Block: '-楼号-',
     Room: '',
-    Apart: [],
+    // Apart: [],
     listData: [],
     dep: '',
     grade: '',
-    buttonClicked: false,
-    timer:''
+    listblock: []
   },
 
-  bindShowMsg() {
+  bindKeyInput5: function (e) {
+    var that = this
+
     this.setData({
-      select: !this.data.select
+      index: e.detail.value,
+      block: that.data.listblock[e.detail.value],
+      Block: that.data.listblock[e.detail.value]
     })
+    // that.mySelect(e)
+    console.log('block：', that.data.block)
   },
 
-  mySelect(e) {
-    console.log(e)
-    var name = e.currentTarget.dataset.name
-    this.setData({
-      Block: name,
-      select: false
-    })
-  },
+  // bindShowMsg() {
+  //   this.setData({
+  //     select: !this.data.select
+  //   })
+  // },
+
+  // mySelect(e) {
+  //   console.log(e)
+  //   var name = e.currentTarget.dataset.name
+  //   this.setData({
+  //     Block: name,
+  //     select: false
+  //   })
+  // },
 
   bindKeyInput: function (e) {
     this.setData({
@@ -65,7 +76,7 @@ Page({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
-            success(res) {}
+            success(res) { }
           })
         } else if (res.data.error_code == 0) {
           that.setData({
@@ -75,8 +86,8 @@ Page({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
-            success(res) {},
-            complete: function (res) {
+            success(res) { },
+            complete: function (res) {  
               wx.redirectTo({
                 url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
               })
@@ -90,7 +101,7 @@ Page({
           title: '哎呀～',
           showCancel: false,
           content: '网络不在状态呢！',
-          success(res) {}
+          success(res) { }
         })
       }
 
@@ -98,7 +109,7 @@ Page({
 
   },
   // 动态添加宿舍法
-  formSubmit: util.throttle(function(e){
+  formSubmit: util.throttle(function (e) {
     var that = this
     var apart = this.data.Block;
     var num = this.data.Room;
@@ -130,7 +141,7 @@ Page({
                 title: "提示：",
                 content: res.data.msg,
                 showCancel: false,
-                success(res) {}
+                success(res) { }
               })
             } else if (res.data.error_code == 0) {
               list.push({
@@ -147,7 +158,7 @@ Page({
               title: '哎呀～',
               showCancel: false,
               content: '网络不在状态呢！',
-              success(res) {}
+              success(res) { }
             })
           }
         })
@@ -167,9 +178,9 @@ Page({
       })
     }
 
-  },1000),
+  }, 1000),
 
-  
+
   // 动态删除宿舍
   buttonsubList: function (e) {
     var idx = e.currentTarget.dataset.idx;
@@ -193,8 +204,8 @@ Page({
           console.log('用户点击确定')
           that.setData({
             listData: [],
-            listblock: [],
-            listroom: []
+            // listblock: [],
+            listroom: [],
           })
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -211,11 +222,9 @@ Page({
       grade: getApp().globalData.user.grade,
       dep: getApp().globalData.user.department
     })
-    //console.log(this.data.grade)
-    //console.log(this.data.dep)
+
     var that = this
     var listblock = []
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock')
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock',
       data: {
@@ -232,14 +241,14 @@ Page({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
-            success(res) {}
+            success(res) { }
           })
         } else if (res.data.error_code == 0) {
           for (var i = 0; i < res.data.data.length; i++) {
             listblock.push(res.data.data[i].block)
           }
           that.setData({
-            Apart: listblock
+            listblock: listblock
           })
         }
       },
@@ -248,7 +257,7 @@ Page({
           title: '哎呀～',
           showCancel: false,
           content: '网络不在状态呢！',
-          success(res) {}
+          success(res) { }
         })
       }
     })

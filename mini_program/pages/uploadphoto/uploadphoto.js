@@ -8,7 +8,17 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     /*ColorList: app.globalData.ColorList,*/
-    height: ''
+    height:'',
+    width: app.globalData.width,
+    width_img:''
+  },
+
+  getwidth:function(e){
+    this.setData({
+      width_img: e.detail.width
+    })
+    console.log(this.data.width_img)
+    console.log(this.data.width)
   },
 
   Img: function () {
@@ -168,7 +178,6 @@ function upload(page, path) {
       },
       complete: function () {
         wx.hideToast(); //隐藏Toast
-
       }
     })
 }

@@ -1,68 +1,27 @@
-.item {
-  /*display: flex;*/
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.wsui-btn__hover_list {
-  opacity: 0.9;
-  background: #f7f7f7;
-}
-
-.title {
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
-  padding-left: 30rpx;
-  font-size: 30rpx;
-}
-
-/*.detail2 {
-  font-size: 30rpx;
-  position: absolute;
-  right: 20rpx;
-  height: 100rpx;
-  line-height: 100rpx;
-  color: #888;
-}*/
-
-.detail{
-  font-size: 30rpx;
-  position: absolute;
-  right: 20rpx;
-  /*float: right;
-  margin-right: 0rpx;*/
-  height: 100rpx;
-  line-height: 100rpx;
-  color: #888;
-}
-
-.picker{
-  height: 100rpx;
-  min-height: 100rpx;
-  width:100%;
-  font-size:30rpx;
-  line-height:35rpx;
-}
-
-.dorm_picker{
-  color: #888;
-  height:100rpx;
-  float:right;
-  margin-right:20rpx;
-}
-
-.dorm_text{
-  width:150rpx;
-  line-height:100rpx;
-}
-
-.line {
-  border: 1rpx solid #ccc;
-  opacity: 0.2;
-}
+@import"/colorui/icon.wxss";
+@import"/colorui/main.wxss";
+@import "/colorui/animation.wxss";
 
 modal {
   display: none;
 }
 
+.cu-bar .action:first-child {
+  margin-left: 150rpx;
+}
+
+.cu-bar .action:last-child {
+  margin-right: 150rpx;
+}
+
+input {
+  margin: 40rpx
+}
+
+.text{
+  position:absolute;
+  right:90rpx;
+  height:100rpx;
+  width:100%;
+  text-align:right;
+}

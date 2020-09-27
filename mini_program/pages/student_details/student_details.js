@@ -11,7 +11,8 @@ Page({
     dorm: "",
     triggered: false, //下拉刷新状态 关闭
     _options: null,
-    list: []
+    list: [],  //未签
+    sign_list: [] //已签
   },
 
   //点击图片预览
@@ -22,9 +23,9 @@ Page({
     wx.previewImage({
       urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
       current: imgUrl, // 当前显示图片的http链接，默认是第一个
-      success: function (res) {},
-      fail: function (res) {},
-      complete: function (res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
 
@@ -93,14 +94,14 @@ Page({
             title: '提示！',
             showCancel: false,
             content: res.data.msg,
-            success: function (res) {}
+            success: function (res) { }
           })
         } else if (res.data.error_code == 2) {
           wx.showModal({
             title: '提示！',
             showCancel: false,
             content: res.data.msg,
-            success: function (res) {}
+            success: function (res) { }
           })
         } else if (res.data.error_code != 0) {
           wx.showModal({
@@ -166,7 +167,7 @@ Page({
             title: '提示',
             content: res.data.msg,
             showCancel: false,
-            success: function (res) {}
+            success: function (res) { }
           })
           console.log(res);
         } else if (res.data.error_code == 2) {
@@ -176,9 +177,10 @@ Page({
           console.log(that.data.list);
         } else if (res.data.error_code == 0) {
           that.setData({
-            list: res.data.unsign_stu
+            list: res.data.unsign_stu,
+            sign_list: res.data.sign_stu
           })
-          console.log(that.data.list);
+          // console.log(that.data.list);
         }
       },
       fail: function (res) {
@@ -203,7 +205,7 @@ Page({
   onSend: function (e) {
     getApp().globalData.imgSrc = ''
     // wx.navigateTo({  // 保留当前页面，跳转到应用内的某个页面。
-    wx.redirectTo({ // 关闭当前页面，跳转到应用内的某个页面。
+    wx.redirectTo({  // 关闭当前页面，跳转到应用内的某个页面。
       url: "../uploadphoto/uploadphoto?time=" + e.target.dataset.times + "&&endtime=" + e.target.dataset.endtime
     })
   },

@@ -15,7 +15,6 @@ Page({
         dateValue: " - - ",
         department: '',
         grade: '',
-        loadMoreText: '加载更多',
         isShowLoadmore: false, //正在加载 
         isShowNoDatasTips: false, //暂无数据
         isShow: false,
@@ -52,14 +51,14 @@ Page({
                         title: '提示！',
                         showCancel: false,
                         content: res.data.msg,
-                        success: function (res) {}
+                        success: function (res) { }
                     })
                 } else if (res.data.error_code == 2) {
                     wx.showModal({
                         title: '提示！',
                         showCancel: false,
                         content: res.data.msg,
-                        success: function (res) {}
+                        success: function (res) { }
                     })
                 } else if (res.data.error_code == 0) {
                     that.setData({
@@ -108,13 +107,16 @@ Page({
             }
         })
     },
+    
     //全部记录
     onAll: function (options) {
+        console.log("onALL")
         this.setData({
             showData: [],
             isScroll: true
         })
         getApp().globalData.page = 2
+        console.log("onLoad")
         this.onLoad();
     },
 
@@ -159,9 +161,9 @@ Page({
             isScroll: true
         })
         var that = this
-        wx.showLoading({
-            title: '加载中',
-        })
+        // wx.showLoading({
+        //     title: '加载中',
+        // })
         wx.request({
             url: getApp().globalData.server + '/cqcq/public/index.php/api/Checkresults/checkRecords',
             data: {
@@ -183,7 +185,7 @@ Page({
                         title: '提示！',
                         showCancel: false,
                         content: res.data.msg,
-                        success: function (res) {}
+                        success: function (res) { }
                     })
                 } else if (res.data.error_code == 2) {
                     // wx.showModal({
@@ -217,6 +219,7 @@ Page({
                     })
                 } else if (res.data.error_code == 0) {
                     //懒加载
+                    console.log(that.data.showData)
                     getApp().globalData.page += 1;
                     if (res.data.data.length > 0) {
                         that.setData({
@@ -227,9 +230,9 @@ Page({
                         count = res.data.data.length;
                         totalCount += count;
                     } else {
-                        that.setData({
-                            loadMoreText: '没有数据了'
-                        })
+                        // that.setData({
+                        //     loadMoreText: '没有数据了'
+                        // })
                     }
                     console.log(that.data.showData)
                     console.log(res)
@@ -285,14 +288,14 @@ Page({
                                     title: '提示！',
                                     showCancel: false,
                                     content: res.data.msg,
-                                    success: function (res) {}
+                                    success: function (res) { }
                                 })
                             } else if (res.data.error_code == 2) {
                                 wx.showModal({
                                     title: '提示！',
                                     showCancel: false,
                                     content: res.data.msg,
-                                    success: function (res) {}
+                                    success: function (res) { }
                                 })
                             } else if (res.data.error_code != 0) {
                                 wx.showModal({
@@ -336,7 +339,7 @@ Page({
                                 }
                             })
                         },
-                        complete: function (res) {}
+                        complete: function (res) { }
                     })
                 } else if (res.cancel) {
                     console.log('用户点击取消')

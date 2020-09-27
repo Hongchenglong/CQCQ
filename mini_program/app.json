@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/login/login",  
-    "pages/teacher_index/teacher_index",
     
     "pages/recycle_bin/recycle_bin",
     "pages/recycle/recycle",
@@ -12,6 +11,7 @@
     "pages/teacher_information/teacher_information",
     "pages/revise_information/revise_information",
     "pages/student_mine/student_mine", 
+    "pages/situation/situation",
     "pages/revise_about/revise_about",
     "pages/revise_email/revise_email",
     "pages/uploadphoto/uploadphoto",
@@ -33,7 +33,6 @@
     "pages/teacher_dorm/teacher_dorm",
     "pages/teacher_statistics/teacher_statistics",
     "pages/more/more",
-    "pages/situation/situation",
     
     "pages/teacher_check/teacher_check",
     "pages/forget/forget",
@@ -43,10 +42,13 @@
     "pages/student_details/student_details",
     "pages/teacher_details/teacher_details",
 
+    "pages/teacher_index/teacher_index",
     "pages/student_index/student_index",
 
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+
+    "pages/safe/safe"
   ],
   "window": {
     "backgroundTextStyle": "light",

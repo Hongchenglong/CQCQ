@@ -1,5 +1,11 @@
 /* pages/teacher/manage/page1/page1.wxss */
+@import"/colorui/icon.wxss";
+@import"/colorui/main.wxss";
+@import "/colorui/animation.wxss";
 /* 下拉框 */
+page{
+  background-color: #fff;
+}
 .top {
   width: 100%;
   height: 160rpx;
@@ -14,9 +20,9 @@
   font-size: 13px;
 }
 
-.text{
+/* .text{
   color: #7D7D82;
-}
+} */
 
 .src{
   margin-right: 10rpx;
@@ -43,7 +49,7 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 5px;
-  font-size: 32rpx;
+  font-size: 28rpx;
   padding-left: 15rpx;
 }
 
@@ -51,7 +57,7 @@
 .select_box {
   display: flex;
   position: absolute;
-  top: 308rpx;
+  top: 280rpx;
   flex-direction: column;
   /* margin-left: 5rpx; */
   width: 74%;
@@ -140,7 +146,7 @@
 }
 
 .view1 {
-  border: 1rpx solid lavender;
+  border: 1rpx solid lightgray;
   width: 215rpx;
   height: 0rpx;
   margin-right: 55rpx;
@@ -148,9 +154,24 @@
 }
 
 .view2 {
-  border: 1rpx solid lavender;
+  border: 1rpx solid lightgray;
   width: 215rpx;
   height: 0rpx;
   margin-left: 55rpx;
   float: left
+}
+
+picker{
+  width: 550rpx;
+  height: 60rpx;
+  border: 1px solid #ADADAD;
+  border-radius: 50rpx;
+  color: #ADADAD;
+}
+
+.picker{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 60rpx;
 }
