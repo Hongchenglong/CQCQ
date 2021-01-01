@@ -37,9 +37,9 @@ class Login extends Controller
 			Session::set('password', $data['password']);
 			Session::set('grade', $data['grade']);
 			Session::set('department', $data['department']);
-			$this->redirect('/cqcq/back_end/public/column');
+			$this->redirect('/cqcq/back_end/public/index.php/index/column');
 		} else {
-			$this->error("用户名或密码错误", url('/login'));
+			$this->error("用户名或密码错误", url('index/login/index'));
 		}
 
 	}

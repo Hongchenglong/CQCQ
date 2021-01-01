@@ -105,10 +105,11 @@
                     if (data[0] == '"phone"') {
                         phone = data[1].split('"')[1];
                     } else if (data[0] == '"grade"') {
+                        window.localStorage.user_grade = data[1];
                         grade = data[1];
                     } else if (data[0] == '"department"') {
                         department = data[1].split('"')[1];
-                    }else if (data[0] == '"email"') {
+                    } else if (data[0] == '"email"' & data[1].split('"')[1] != null) {
                         email = data[1].split('"')[1];
                     } else {
                         console.log("false");
@@ -124,7 +125,7 @@
                 document.getElementsByName("phone")[0].value = reault_data[0].phone;
                 document.getElementsByName("grade")[0].value = reault_data[1].grade;
                 document.getElementsByName("email")[0].value = reault_data[2].email;
-                document.getElementsByName("department")[0].value = reault_data[3].department; 
+                document.getElementsByName("department")[0].value = reault_data[3].department;
             }
         }
 

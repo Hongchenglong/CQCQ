@@ -28,12 +28,26 @@ class Table extends BaseController
 		return $this->fetch();
 	}
 
+	public function file_face()
+	{
+		return $this->fetch();
+	}
+
 	//返回表中所有宿舍信息
 	public function informations()
 	{
 		Db::connect();
 		$result = db('Student', [], false)->select();
 		sort($result);
+		foreach ($result as &$res){
+		    if(!$res['face']){
+		 		$res['face'] = '否';
+		 	}else{
+		 		$res['face'] = '是';
+		 	}
+		 }
+
+		
 		if ($result) {
 			$return_data = array();
 			$return_data['code'] = 0;
@@ -122,7 +136,7 @@ class Table extends BaseController
 			echo " history.back();\r\n";
 			echo "</script>";
 		} else {
-			$this->error("没有删除权限,请登录", url('table/table'));
+			$this->error("没有删除权限,请登录", url('/cqcq/back_end/public/index.php/index/table/table'));
 			// $f->out();
 		}
 	}

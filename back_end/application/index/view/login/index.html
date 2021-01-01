@@ -15,21 +15,22 @@
 <body>
 
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('/cqcq/back_end/public/images/b5.jpg');">
+		<div class="container-login100" style="background-image: url('/cqcq/back_end/public/images/b2.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form" action="index.php?s=index/login/valid"
-                        name="loginForm" method="post" enctype="multipart/form-data">
+				<form class="login100-form validate-form" action="index.php?s=index/login/valid" name="loginForm"
+					method="post" enctype="multipart/form-data">
 					<span class="login100-form-title p-b-49">后台管理系统</span>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate="请输入账号">
 						<span class="label-input100">账号</span>
-						<input class="input100" type="text" name="uaccount" placeholder="请输入账号" autocomplete="off">
+						<input class="input100" type="text" id="user" name="uaccount" placeholder="请输入账号"
+							autocomplete="off">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="请输入密码">
 						<span class="label-input100">密码</span>
-						<input class="input100" type="password" name="password" placeholder="请输入密码">
+						<input class="input100" type="password" id='password' name="password" placeholder="请输入密码">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 
@@ -40,7 +41,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">登 录</button>
+							<button class="login100-form-btn" onclick="check_login()">登 录</button>
 						</div>
 					</div>
 
@@ -69,6 +70,15 @@
 			</div>
 		</div>
 	</div>
+	<script language="javascript">
+		function check_login() {
+			var user = document.getElementById("user");      //获取账户信息
+			var password = document.getElementById("password");  //获取密码信息
+
+			var username = user.value;
+			window.localStorage.name = username;
+		}
+	</script>
 
 	<script src="/cqcq/back_end/public/js/jquery-3.2.1.min.js"></script>
 	<script src="/cqcq/back_end/public/js/main.js"></script>

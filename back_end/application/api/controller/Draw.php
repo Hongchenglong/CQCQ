@@ -43,13 +43,12 @@ class Draw extends BaseController
                 ->distinct("d.dorm_num")
                 ->select();
             shuffle($boy); // 打乱数组
-            $boy = array_slice($boy, 0, $numOfBoys-1); // 截取前n个
-            for ($i = 0; $i < $numOfBoys-1; $i++) {
+            $boy = array_slice($boy, 0, $numOfBoys); // 截取前n个
+            for ($i = 0; $i < $numOfBoys; $i++) {
                 if (empty($boy[$i])) continue;
                 $boy[$i]['rand_num'] = rand(1000, 9999);
             }
         }
-
 
         if ($numOfGirls) {
             $girl = Db::table('dorm')
@@ -63,8 +62,8 @@ class Draw extends BaseController
                 ->distinct("d.dorm_num")
                 ->select();
             shuffle($girl); // 打乱数组
-            $girl = array_slice($girl, 0, $numOfGirls-1); // 截取前n个
-            for ($i = 0; $i < $numOfGirls-1; $i++) {
+            $girl = array_slice($girl, 0, $numOfGirls); // 截取前n个
+            for ($i = 0; $i < $numOfGirls; $i++) {
                 if (empty($girl[$i])) continue;
                 $girl[$i]['rand_num'] = rand(1000, 9999);
             }

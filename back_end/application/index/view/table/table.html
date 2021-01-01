@@ -55,7 +55,10 @@
                 <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="add"> 添加 </button>
                 <button class="layui-btn layui-btn-sm layui-btn-danger data-delete-btn" lay-event="delete_mul"> 删除 </button>
                 <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="input_file" style="background-color:#1aa094; "> 
-                    导入 
+                    导入学生信息 
+                </button>
+                <button class="layui-btn layui-btn-normal layui-btn-sm data-add-btn" lay-event="input_file_face" style="background-color:#FF8C00; "> 
+                    批量导入人脸 
                 </button>
             </div>
         </script>
@@ -72,12 +75,15 @@
     <script src="/cqcq/back_end/public/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 
     <script>
+        
         layui.use(['form', 'table', 'upload'], function () {
 
             var $ = layui.jquery,
                 form = layui.form,
                 table = layui.table;
             upload = layui.upload;
+
+            var documentWidth = $(document).width();  //获取屏幕的宽度
 
             //用全局变量存放当前表格中的全部数据
             var table_data = new Array();
@@ -96,16 +102,17 @@
                     icon: 'layui-icon-tips'
                 }],
                 cols: [[
-                    { type: "checkbox", width: 70 },
-                    { field: "id", title: '学号', maxWidth: 100, sort: true },
-                    { field: 'username', maxWidth: 100, title: '用户名' },
-                    { field: 'department', maxWidth: 130, title: '系别' },
-                    { field: 'grade', maxWidth: 100, title: '年级', sort: true },
-                    { field: 'sex', maxWidth: 100, title: '性别', sort: true },
-                    { field: 'dorm', maxWidth: 100, title: '宿舍号', sort: true },
-                    { field: 'phone', maxWidth: 120, title: '手机号' },
-                    { field: 'email', maxWidth: 200, title: '邮箱' },
-                    { title: '操作', maxWidth: 100, toolbar: '#currentTableBar', align: "center" }
+                { type: "checkbox", width: documentWidth*50/1200 },
+                    { field: "id", title: '学号', width: documentWidth*120/1200, sort: true },
+                    { field: 'username', width: documentWidth*100/1200, title: '姓名' },
+                    { field: 'department', width: documentWidth*120/1200, title: '系别' },
+                    { field: 'grade', width: documentWidth*85/1200, title: '年级', sort: true ,align: "center"},
+                    { field: 'sex', width: documentWidth*85/1200, title: '性别', sort: true ,align: "center"},
+                    { field: 'dorm', width: documentWidth*115/1200, title: '宿舍号', sort: true },
+                    { field: 'phone', width: documentWidth*120/1200, title: '手机号' },
+                    { field: 'email', width: documentWidth*120/1200, title: '邮箱' },
+                    { field: 'face', width: documentWidth*70/1200, title: '人脸',align: "center"},
+                    { title: '操作', maxWidth: documentWidth*100/1200, toolbar: '#currentTableBar', align: "center" }
                 ]],
                 limits: [3, 5, 10, 20],
                 limit: 5,
@@ -146,16 +153,16 @@
             form.on('submit(data-search-btn)', function (data) {
                 table.render({
                     cols: [[
-                        { type: "checkbox", width: 70 },
-                        { field: "id", title: '学号', maxWidth: 100, sort: true },
-                        { field: 'username', maxWidth: 100, title: '用户名' },
-                        { field: 'department', maxWidth: 130, title: '系别' },
-                        { field: 'grade', maxWidth: 100, title: '年级', sort: true },
-                        { field: 'sex', maxWidth: 100, title: '性别', sort: true },
-                        { field: 'dorm', maxWidth: 100, title: '宿舍号', sort: true },
-                        { field: 'phone', maxWidth: 120, title: '手机号' },
-                        { field: 'email', maxWidth: 200, title: '邮箱' },
-                        { title: '操作', maxWidth: 100, toolbar: '#currentTableBar', align: "center" }
+                    { type: "checkbox", width: documentWidth*50/1200 },
+                    { field: "id", title: '学号', maxWidth: documentWidth*120/1200, sort: true },
+                    { field: 'username', maxWidth: documentWidth*100/1200, title: '姓名' },
+                    { field: 'department', maxWidth: documentWidth*130/1200, title: '系别' },
+                    { field: 'grade', width: documentWidth*85/1200, title: '年级', sort: true },
+                    { field: 'sex', width: documentWidth*85/1200, title: '性别', sort: true },
+                    { field: 'dorm', width: documentWidth*115/1200, title: '宿舍号', sort: true },
+                    { field: 'phone', width: documentWidth*130/1200, title: '手机号' },
+                    { field: 'email', maxWidth: documentWidth*150/1200, title: '邮箱' },
+                    { title: '操作', width: documentWidth*120/1200, toolbar: '#currentTableBar', align: "center" }
                     ]],
                 });
                 if (data.field.id == '') {
@@ -289,13 +296,26 @@
                     window.location = "index.php?s=index/table/delete&student_id=" + student_id;
                 } else if (obj.event === 'input_file') {  // 监听导入操作
                     var index = layer.open({
-                        title: '导入文件',
+                        title: '导入学生信息',
                         type: 2,
                         shade: 0.2,
                         maxmin: true,
                         shadeClose: true,
                         area: ['35%', '25%'],
                         content: '../table/file/file.html',
+                        cancel: function (index, layero) {   //关闭窗口后实现页面刷新
+                            location.reload();
+                        },
+                    });
+                }else if (obj.event === 'input_file_face') {  // 监听导入操作
+                    var index = layer.open({
+                        title: '批量导入人脸',
+                        type: 2,
+                        shade: 0.2,
+                        maxmin: true,
+                        shadeClose: true,
+                        area: ['40%', '40%'],
+                        content: '../table/file_face/file_face.html',
                         cancel: function (index, layero) {   //关闭窗口后实现页面刷新
                             location.reload();
                         },
@@ -328,7 +348,7 @@
                         shade: 0.2,
                         maxmin: true,
                         shadeClose: true,
-                        area: ['55%', '90%'],
+                        area: ['70%', '90%'],
                         content: '../table/edit/edit.html?st_id=' + st_id + '&st_username=' + escape(st_username) + '&st_grade=' + st_grade + '&st_phone=' + st_phone +
                             '&st_department=' + escape(st_department) + '&st_dorm=' + escape(st_dorm) + '&st_sex=' + escape(st_sex) + '&st_email=' + st_email,
                         cancel: function (index, layero) {   //关闭窗口后实现页面刷新显示更新数据，并返回当前条所在的页面

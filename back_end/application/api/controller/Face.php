@@ -4,8 +4,8 @@ namespace app\api\controller;
 
 class Face extends BaseController
 {
-
-    public function multi_search($img = '', $dorm = '', $grade = '') // 一张照片中多个人脸同时进行识别
+    // 一张照片中多个人脸同时进行识别
+    public function multi_search($img = '', $dorm = '', $grade = '')
     {
         $token = $this->get_token();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/multi-search?access_token=' . $token;
@@ -25,8 +25,8 @@ class Face extends BaseController
         return $res;
     }
 
-
-    public function add_face($id = '', $dorm = '', $grade = '', $img = '') // 添加人脸到人脸数据库（批量）
+    // 添加人脸到人脸数据库（批量）
+    public function add_face($id = '', $dorm = '', $grade = '', $img = '')
     {
         if (empty($grade)) {
             return json(['error_code' => 1, 'msg' => '请输入年级！']);
@@ -156,7 +156,7 @@ class Face extends BaseController
     {
         if (empty($_POST['id'])) {
             return json(['error_code' => 1, 'msg' => '请输入学号！']);
-        }else if (empty($_POST['grade'])) {
+        } else if (empty($_POST['grade'])) {
             return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
             return json(['error_code' => 1, 'msg' => '请输入系！']);
@@ -164,7 +164,7 @@ class Face extends BaseController
             return json(['error_code' => 1, 'msg' => '请上传照片！']);
         } else if (empty($_POST['dorm'])) {
             return json(['error_code' => 1, 'msg' => '请输入宿舍！']);
-        } 
+        }
 
         $type = array("jpeg", "jpg", "png", "bmp");  // 允许上传的图片后缀
         $temp = explode(".", $_FILES['img']['name']);  // 图片名

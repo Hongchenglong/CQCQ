@@ -33,7 +33,7 @@
     
 </head>
 
-<body>
+<body style="text-align:center;">
     <meta charset="UTF-8">        
     <div class="file-box"> 
         <form id="uploadForm" action="index.php?s=index/Table/uploadFile" enctype="multipart/form-data" method="post"> 
@@ -41,8 +41,9 @@
             <input type="button" class="btn" value="浏览..." /> 
             <input type="file" name="upfile" class="file" id="upfile" onchange="document.getElementById('textfield').value=this.files[0].name"/> 
             <input type="submit" class="btn" value="上传" /> 
-        </form> 
+        </form>
     </div>
+    <label style="color:red; font-size: 13px; width: 100%; margin:0 auto;">仅支持csv文件</label>
               
     
     <script src="/cqcq/back_end/public/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
@@ -54,14 +55,14 @@
                 layer = layui.layer,
                 $ = layui.$;
 
-            //监听提交
-            // form.on('submit(saveBtn)', function (data) {
-            //     console.log(data);
-            //     // var upfile = JSON.stringify(data['field'].upfile);
-            //     var upfile = data['field'].upfile;
-            //     // window.location = "index.php?s=index/Table/uploadFile&upfile=" + upfile;
-            //     // console.log(upfile);
-            // });
+            监听提交
+            form.on('submit(saveBtn)', function (data) {
+                console.log(data);
+                // var upfile = JSON.stringify(data['field'].upfile);
+                var upfile = data['field'].upfile;
+                // window.location = "index.php?s=index/Table/uploadFile&upfile=" + upfile;
+                // console.log(upfile);
+            });
 
         });
 

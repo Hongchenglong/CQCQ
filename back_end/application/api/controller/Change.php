@@ -14,7 +14,7 @@ class Change extends BaseController
         if (empty($_POST['id'])) {
             return json(['error_code' => 1, 'msg' => '请输入用户id！']);
         } else if (empty($_POST['username'])) {
-            return json(['error_code' => 1, 'msg' => '请输入用户名！']);
+            return json(['error_code' => 1, 'msg' => '请输入姓名！']);
         }
 
         //验证规则（昵称）
@@ -49,6 +49,7 @@ class Change extends BaseController
             return json(['error_code' => 3, 'msg' => '请勿输入原昵称！']);
         }
     }
+
     /**
      * 修改年级
      */
@@ -119,7 +120,6 @@ class Change extends BaseController
     /**
      * 修改宿舍号
      */
-    
     public function changeDormNumber()
     {
 
@@ -300,7 +300,6 @@ class Change extends BaseController
             return json(['error_code' => 5, 'msg' => '发送验证码失败！']);
         }
     }
-
 
     /**
      * 手机修改验证

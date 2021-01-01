@@ -11,10 +11,6 @@ use \think\Validate;
 
 class Welcome extends BaseController
 {
-    public function test()
-    {
-        return $this->fetch();
-    }
 
     public function welcome()
     {
