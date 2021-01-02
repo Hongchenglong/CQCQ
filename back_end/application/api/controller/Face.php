@@ -160,10 +160,10 @@ class Face extends BaseController
             return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
             return json(['error_code' => 1, 'msg' => '请输入系！']);
-        } else if (empty($_FILES['img'])) {
-            return json(['error_code' => 1, 'msg' => '请上传照片！']);
         } else if (empty($_POST['dorm'])) {
             return json(['error_code' => 1, 'msg' => '请输入宿舍！']);
+        } else if (empty($_FILES['img'])) {
+            return json(['error_code' => 1, 'msg' => '请上传照片！']);
         }
 
         $type = array("jpeg", "jpg", "png", "bmp");  // 允许上传的图片后缀
@@ -181,28 +181,31 @@ class Face extends BaseController
                 $dir = 'face/' . $_POST['grade'] . $_POST['department'];
                 $path = $dir . '/' . $new_name; //face为保存图片目录
 
-                if (file_exists($path)) {   //是否存在该文件
-                    $return_data = array();
-                    $return_data['error_code'] = 5;
-                    $return_data['msg'] = '文件已存在！';
-                    return json($return_data);
+                $token = $this->get_token();
+
+                //是否存在该文件,存在则更新,否则添加
+                if (file_exists($path)) {
+                    // $return_data = array();
+                    // $return_data['error_code'] = 5;
+                    // $return_data['msg'] = '文件已存在！';
+                    // return json($return_data);
+                    // 更新
+                    $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/update?access_token=' . $token;
                 } else {
                     if (!file_exists($dir)) { // 路径不存在新建
                         mkdir($dir, 0777, true);
                     }
-                    move_uploaded_file($_FILES['img']['tmp_name'], $path); // 上传至服务器 face/年级系 下
+                    // 添加
+                    $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/add?access_token=' . $token;
                 }
+                move_uploaded_file($_FILES['img']['tmp_name'], $path); // 上传至服务器 face/年级系 下
             }
 
-            $token = $this->get_token();
-            $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/add?access_token=' . $token;
 
             $base64_one = base64_encode(file_get_contents($path)); // 转换为base64
-
             $dorm = str_replace("#", '', $_POST['dorm']); // 替换掉#
-            $dorm = $this->get_all_py($dorm); // 东二410
+            $dorm = $this->get_all_py($dorm); // 中二203
             $dorm = implode("", $dorm);
-
             $bodys = array(
                 'image' => $base64_one,
                 'image_type' => "BASE64",
@@ -212,12 +215,11 @@ class Face extends BaseController
 
             $res = $this->request_post($url, $bodys);
             $res = json_decode($res, true);
-            if ($res['error_code'] == 0) {
 
+            if ($res['error_code'] == 0) {
                 Db('student') // 保存人脸照片路径至服务器
                     ->where('id', $_POST['id'])
                     ->setField('face', $path);
-
                 return json(['error_code' => 0, 'msg' => '添加人脸库成功！']);
             } else {
                 return json(['error_code' => 3, 'msg' => '添加人脸库失败！']);
