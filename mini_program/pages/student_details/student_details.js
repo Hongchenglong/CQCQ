@@ -12,7 +12,9 @@ Page({
     triggered: false, //下拉刷新状态 关闭
     _options: null,
     list: [],  //未签
-    sign_list: [] //已签
+    list_name: [],  //未签
+    sign_list: [], //已签
+    sign_list_name: [] //已签
   },
 
   //点击图片预览
@@ -172,13 +174,16 @@ Page({
           console.log(res);
         } else if (res.data.error_code == 2) {
           that.setData({
-            list: res.data.unsign_stu
+            list: res.data.unsign_stu,
+            list_name: res.data.unsign_stu_name
           })
           console.log(that.data.list);
         } else if (res.data.error_code == 0) {
           that.setData({
             list: res.data.unsign_stu,
-            sign_list: res.data.sign_stu
+            list_name: res.data.unsign_stu_name,
+            sign_list: res.data.sign_stu,
+            sign_list_name: res.data.sign_stu_name
           })
           // console.log(that.data.list);
         }

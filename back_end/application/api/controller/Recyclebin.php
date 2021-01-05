@@ -19,12 +19,22 @@ class Recyclebin extends BaseController
             return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['page'])) {
             return json(['error_code' => 1, 'msg' => '请输入页码！']);
-        } 
+        }
 
         // 查询条件
         $where = array();
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
+
+        // 删除上月的数据
+        Db::table('record')->alias('r')    // 别名
+            ->join('dorm d', 'd.id = r.dorm_id')
+            ->join('student s', 's.dorm = d.dorm_num')
+            ->where($where)
+            ->where('r.deleted', 1)
+            ->whereTime('create_time', 'last month')
+            ->delete();
+
         $record = Db::table('record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
@@ -61,7 +71,7 @@ class Recyclebin extends BaseController
             return json(['error_code' => 1, 'msg' => '请输入系！']);
         } else if (empty($_POST['date'])) {
             return json(['error_code' => 1, 'msg' => '请输入时间！']);
-        } 
+        }
 
         $date = $_POST['date'];
 
@@ -162,7 +172,7 @@ class Recyclebin extends BaseController
         $where['s.department'] = $_POST['department'];
         $where['r.start_time'] = $_POST['start_time'];
         $where['r.end_time'] = $_POST['end_time'];
-        
+
         $record = Db::table('record')
             ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
             ->alias('r')    // 别名

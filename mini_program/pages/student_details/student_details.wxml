@@ -5,7 +5,8 @@
 	<view class="first">
 		<view style="float:left;width:500rpx">
 			<view class="te"><text class="texts">开始时间：</text><text class="text2">{{checkData.start_time}}</text></view>
-			<view class="te"><text class="texts" style="padding-top: 2%;">截止时间：</text><text class="text2" style="padding-top: 2%;">{{checkData.end_time}}</text></view>
+			<view class="te"><text class="texts" style="padding-top: 2%;">截止时间：</text><text class="text2"
+					style="padding-top: 2%;">{{checkData.end_time}}</text></view>
 		</view>
 		<button wx:if="{{time<checkData.end_time}}" class="cu-btn round bg-white shadow"
 			style="width:90px;height:50rpx;margin-right:3%;float:right;margin-top: 45rpx;color:#82b1ff" bindtap="onSend">
@@ -22,15 +23,17 @@
 			data-photo="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}" />
 	</block>
 	<view class="shadow" style="padding-top: 30rpx;padding-bottom: 30rpx">
-		<text class="name" style="text-align: center;">未签到人员名单</text>
+		<text class="name" style="text-align: center;">宿舍成员</text>
 		<view class="table">
 			<view class="tr bg-w">
 				<view class="th">学号</view>
+				<view class="th">姓名</view>
 				<view class="th">Y/N</view>
 			</view>
 			<block wx:for='{{list}}' wx:key="item">
 				<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
 					<view class="td">{{item}}</view>
+					<view class="td">{{list_name[index]}}</view>
 					<view class="td" style="color: red">未签到</view>
 				</view>
 			</block>
@@ -38,6 +41,7 @@
 			<block wx:for='{{sign_list}}' wx:key="item">
 				<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
 					<view class="td">{{item}}</view>
+					<view class="td">{{sign_list_name[index]}}</view>
 					<view class="td" style="color: #1e90ff;">已签到</view>
 				</view>
 			</block>

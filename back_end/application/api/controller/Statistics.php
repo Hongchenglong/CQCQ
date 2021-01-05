@@ -18,7 +18,7 @@ class Statistics extends Face
             return json(['error_code' => 1, 'msg' => '请输入结束时间！']);
         } else if (empty($_POST['dorm'])) {
             return json(['error_code' => 1, 'msg' => '请输入宿舍号！']);
-        } 
+        }
 
         $where = array();
         $where['s.grade'] = $_POST['grade'];
@@ -37,8 +37,8 @@ class Statistics extends Face
             ->distinct(true)
             ->select();
 
-        $stu = array_column($img, 'id');
-        $photo = array_unique(array_column($img, 'photo'))[0];
+        $stu = array_column($img, 'id'); // 提取id列
+        $photo = array_unique(array_column($img, 'photo'))[0]; // 移除重复的值
 
         Db('record')   // 本宿舍中的学号下的sign清零
             ->alias('r')
@@ -49,7 +49,6 @@ class Statistics extends Face
             ->setField('t.sign', 0);
 
         $data = array();
-
         $dorm = str_replace("#", '', $_POST['dorm']);
 
         if (empty($photo)) {
@@ -67,7 +66,7 @@ class Statistics extends Face
             foreach ($res['result']['face_list'] as $key => $value) {
                 if (!empty($res['result']['face_list'][$key]['user_list'])) {
                     $data[$key] = intval($res['result']['face_list'][$key]['user_list'][0]['user_id']); // 提取学号转换为整型
-
+                    
                     $where = array();
                     $where['r.start_time'] = $_POST['start_time'];
                     $where['r.end_time'] = $_POST['end_time'];
@@ -83,12 +82,34 @@ class Statistics extends Face
             }
         }
 
-        $unsign_stu = array_diff($stu, $data);
+        $unsign_stu = array_diff($stu, $data); // 比较两个数组的值，并返回差集
+        $unsign_stu = array_merge($unsign_stu); // 扁平化
         $return_data = array();
         $return_data['error_code'] = 0;
         $return_data['msg'] = '人脸识别完成！';
         $return_data['unsign_stu'] = $unsign_stu;
         $return_data['sign_stu'] = $data;
+        
+        foreach ($unsign_stu as $key => $value) {
+            $name = Db('student')  
+            ->field('username')
+            ->where('id', $unsign_stu[$key])
+            ->where(['grade'=> $_POST['grade'], 'department'=>$_POST['department']])
+            ->find();
+            $return_data['unsign_stu_name'][$key] = $name['username'];
+        }
+        $return_data['unsign_stu_name'] = array_merge($return_data['unsign_stu_name']); // 扁平化
+
+        foreach ($data as $key => $value) {
+            $name = Db('student')  
+            ->field('username')
+            ->where('id', $data[$key])
+            ->where(['grade' => $_POST['grade'], 'department' => $_POST['department']])
+            ->find();
+            $return_data['sign_stu_name'][$key] = $name['username'];
+        }
+        $return_data['sign_stu_name'] = array_merge($return_data['sign_stu_name']); // 扁平化
+
         return json($return_data);
     }
 
@@ -104,8 +125,8 @@ class Statistics extends Face
             return json(['error_code' => 1, 'msg' => '请输入开始时间！']);
         } else if (empty($_POST['end_time'])) {
             return json(['error_code' => 1, 'msg' => '请输入结束时间！']);
-        } 
-        
+        }
+
         $where = array();
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];

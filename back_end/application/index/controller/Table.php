@@ -124,8 +124,6 @@ class Table extends BaseController
 	// 删除用户
 	public function delete()
 	{
-		// include_once("Column.php");//引用处理类文件
-		// $f = new Column(); 
 		if (Session::has('id')) {
 			$student_id = Request::instance()->get('student_id');
 			$students = explode('_', $student_id);
@@ -137,7 +135,6 @@ class Table extends BaseController
 			echo "</script>";
 		} else {
 			$this->error("没有删除权限,请登录", url('/cqcq/back_end/public/index.php/index/table/table'));
-			// $f->out();
 		}
 	}
 
@@ -154,9 +151,7 @@ class Table extends BaseController
 		$dorm = Request::instance()->post('dorm');
 
 		$result = Db('Student')
-			->where([
-				'id'  => $id
-			])
+			->where(['id'  => $id])
 			->update([
 				'sex' => $sex,
 				'username' => $username,
@@ -173,7 +168,6 @@ class Table extends BaseController
 			echo "</script>";
 		}
 	}
-
 
 	//上传，解析csv文件
 	public function uploadFile()

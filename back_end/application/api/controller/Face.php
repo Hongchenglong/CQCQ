@@ -56,7 +56,6 @@ class Face extends BaseController
         );
 
         $res = $this->request_post($url, $bodys);
-
         $res = json_decode($res, true);
         if ($res['error_code'] == 0) {
             dump('Add ' . $id . ' Success!');
@@ -152,7 +151,7 @@ class Face extends BaseController
         return json(['error_code' => 0, 'msg' => '添加人脸库结束！']);
     }
 
-    public function add_face_single() // 添加人脸到人脸数据库（单次）
+    public function add_face_single() // 添加及更新人脸（单次）
     {
         if (empty($_POST['id'])) {
             return json(['error_code' => 1, 'msg' => '请输入学号！']);
