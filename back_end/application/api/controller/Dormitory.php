@@ -163,13 +163,7 @@ class Dormitory extends BaseController
             where s.grade=:grade and s.department=:department and d.room=:room and d.block=:block",
                 ['grade' => $where['grade'], 'department' => $where['department'], 'room' => $where['room'], 'block' => $where['block']]
             );
-        }
-        // $result = Db::table('dorm')
-        //     ->alias('d')    // 别名
-        //     ->join('student s', 's.dorm = d.dorm_num')
-        //     ->where($where)
-        //     ->delete();
-        
+        }   
 
         // 删除账号
         $where = array();

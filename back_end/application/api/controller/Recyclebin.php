@@ -8,6 +8,7 @@ class Recyclebin extends BaseController
 {
     /**
      * 查看被删除的查寝记录
+     * 先删除一个月以前的记录，再返回一个月内的记录
      */
     public function checkDeletedRecords()
     {
@@ -26,16 +27,22 @@ class Recyclebin extends BaseController
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
 
-        // 删除上月的数据
-        Db::table('record')->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
-            ->where($where)
-            ->where('r.deleted', 1)
-            ->whereTime('create_time', 'last month')
-            ->delete();
+        // 删除一个月之前的数据
+        $result = Db::query(
+            "select * from dorm d join student s on s.dorm = d.dorm_num join record r on d.id = r.dorm_id
+            where s.grade=:grade and s.department=:department and deleted = 1
+            and date_format(end_time,'%Y-%m-%d') <= date_format(DATE_SUB(curdate(), INTERVAL 1 MONTH),'%Y-%m-%d')",
+            ['grade' => $_POST['grade'], 'department' => $_POST['department']]
+        );
+        foreach($result as $k => $v) {
+            db('record')->where('id', $result[$k]['id'])->delete();
+            db('result')->where('record_id', $result[$k]['id'])->delete();
+            $file = "/cqcq/public/" . $result[$k]['photo'];
+            if(file_exists($file))
+                unlink($file);
+        }
 
-        $record = Db::table('record')
+        $record = db('record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
             ->join('dorm d', 'd.id = r.dorm_id')
