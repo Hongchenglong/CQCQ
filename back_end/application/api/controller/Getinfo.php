@@ -49,9 +49,12 @@ class Getinfo extends BaseController
         }
     }
 
+    /**
+     * 折线图 
+     * 返回近7/30天每天抽到的宿舍，未签到的宿舍，以及学生未签到次数
+     */
     public function lineInfo()
     {
-
         if (empty($_POST['grade'])) {
             return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
@@ -96,7 +99,6 @@ class Getinfo extends BaseController
             return json(['error_code' => 2, 'msg' => '近七天无数据！']);
         }
 
-
         $where['r.start_time'] = array('between', array($recent30, $today));
         $recordDay30 = Db('record')  // 30天内的记录时间
             ->alias('r')
@@ -119,7 +121,7 @@ class Getinfo extends BaseController
         $where['t.sign'] = 0;
 
         $unsign7 = Db('result')   // 7天内的未签到
-            ->field('r.start_time, d.dorm_num, t.student_id')
+            ->field('r.start_time, d.dorm_num, t.student_id, s.username')
             ->alias('t')
             ->join('student s', 's.id = t.student_id')
             ->join('record r', 't.record_id = r.id')
@@ -131,7 +133,7 @@ class Getinfo extends BaseController
         $where['r.start_time'] = array('between', array($recent30, $today));
 
         $unsign30 = Db('result')   // 30天内的未签到
-            ->field('r.start_time, d.dorm_num, t.student_id')
+            ->field('r.start_time, d.dorm_num, t.student_id, s.username')
             ->alias('t')
             ->join('student s', 's.id = t.student_id')
             ->join('record r', 't.record_id = r.id')
@@ -240,7 +242,6 @@ class Getinfo extends BaseController
         }
 
         $countStu7 = count($unsignStu7_);
-
         $countStu30 = count($unsignStu30_);
         $return_data = array();
         $return_data['error_code'] = 0;
@@ -259,6 +260,9 @@ class Getinfo extends BaseController
         return json($return_data);
     }
 
+    /**
+     * 日期升序
+     */
     public function common($array)
     {
         foreach ($array as $k => $v) {
@@ -281,6 +285,7 @@ class Getinfo extends BaseController
             $array_[$k]['dorm_num'] = explode(',', $v['dorm_num']);
             $array_[$k]['dorm_num'] = array_unique($array_[$k]['dorm_num']); // 宿舍去重
             $array_[$k]['dorm_count'] = count($array_[$k]['dorm_num']); // 计数
+            // isset是检测变量是否设置，并且不是 NULL。
             if (isset($v['student_id'])) {
                 $array_[$k]['student_id'] = explode(',', $v['student_id']);
             }

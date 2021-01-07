@@ -1,6 +1,5 @@
 // pages/teacher_statistics/teacher_statistics.js
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -158,15 +157,13 @@ Component({
                     })
                     // console.log(that.data.days);
                 }
+                // 年-月-日
                 that.data.flag = that.data.year + '-' + that.zero(that.data.month) + '-' + that.zero(that.data.date)
                 // console.log("ready", that.data.flag)
                 that.exists(that.data.flag, that.data.year, that.data.month, that.data.date)
                 // console.log(that.data.isShow)
             },
         })
-        // this.data.flag = year + '-' + this.zero(month) + '-' + this.zero(date)
-        // console.log(this.data.flag)
-        // this.exists(this.data.flag, this.data.year, this.data.month, this.data.date)
     },
 
     methods: {
@@ -459,10 +456,9 @@ Component({
                     })
                 }
             })
-
         },
 
-        // 进行统计
+        // 统计一天中的某次签到结果
         signSituation: function (start_time, end_time, i) {
             var that = this;
             var num = Number(i);
@@ -504,7 +500,7 @@ Component({
                             unsign_percent: unsign_percent,
                             sign_percent: sign_percent
                         })
-                        // console.log(that.data.listData);
+                        // console.log(res.data.data.unsign_list);
                         // console.log('sign_num:' + that.data.sign_num);
                         // console.log('unsign_num:' + that.data.unsign_num);
                         // console.log('unsign_percent:' + that.data.unsign_percent);

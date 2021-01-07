@@ -1,6 +1,5 @@
 // pages/teacher_index/teacher_index.js
 Page({
-
   /**
    * 页面的初始数据
    */

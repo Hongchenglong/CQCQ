@@ -39,7 +39,6 @@ function initOne(chart, day7, dorm7, unsignDorm7) {
       //   rotate:40,
       //   interval:0
       // }
-
     },
     yAxis: {
       x: 'center',
@@ -108,7 +107,6 @@ Page({
   //     currentTab: e.detail.activeKey
   //   });
   //   that.lineInfo()
-
   // },
   /** 
    * 点击tab切换 

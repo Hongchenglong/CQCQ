@@ -26,6 +26,7 @@
 							<view class="menu_left">
 								<text class="pai">{{item.index}}</text>
 								<text class="name">{{item.student_id}}</text>
+								<text class="name">{{item.username}}</text>
 							</view>
 							<view class="menu_right">
 								<text class="times">{{item.count}} 次</text>
@@ -62,6 +63,7 @@
 							<view class="menu_left">
 								<text class="pai">{{item.index}}</text>
 								<text class="name">{{item.student_id}}</text>
+								<text class="name">{{item.username}}</text>
 							</view>
 							<view class="menu_right">
 								<text class="times">{{item.count}} 次</text>

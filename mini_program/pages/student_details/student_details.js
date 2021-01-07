@@ -223,6 +223,7 @@ Page({
   //     wx.hideLoading()
   //   }, 2000)
   // },
+  
   // 刷新
   onRefresh() {
     var that = this;

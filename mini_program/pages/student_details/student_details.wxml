@@ -22,7 +22,7 @@
 			src="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}"
 			data-photo="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}" />
 	</block>
-	<view class="shadow" style="padding-top: 30rpx;padding-bottom: 30rpx">
+	<view wx:if="{{time<checkData.end_time}}" class="shadow" style="padding-top: 30rpx;padding-bottom: 30rpx">
 		<text class="name" style="text-align: center;">宿舍成员</text>
 		<view class="table">
 			<view class="tr bg-w">
@@ -37,7 +37,6 @@
 					<view class="td" style="color: red">未签到</view>
 				</view>
 			</block>
-
 			<block wx:for='{{sign_list}}' wx:key="item">
 				<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
 					<view class="td">{{item}}</view>

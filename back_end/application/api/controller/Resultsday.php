@@ -3,8 +3,9 @@
 namespace app\api\controller;
 
 class Resultsday
-{
-    // 获取所有记录的日期
+{   
+    // 获取所有查寝记录的日期
+    // 可改进：写入数据库，不必每次查询
     public function getDay()
     {
         // $parameter = ['department', 'grade'];
@@ -31,10 +32,10 @@ class Resultsday
 
         $day = array_column($day, 'start_time');
         foreach ($day as $k => $v) {
-            $day[$k] = explode(' ', $day[$k])[0];
+            $day[$k] = explode(' ', $day[$k])[0]; // 留日期 去时间
         }
 
-        $day = array_values(array_unique($day));
+        $day = array_values(array_unique($day)); // 去重
 
         $return_data = array();
         $return_data['error_code'] = 0;
@@ -43,7 +44,7 @@ class Resultsday
         return json($return_data);
     }
 
-    // 获取指定天数的所有记录的开始时间与结束时间
+    // 获取指定日期当天所有记录的开始时间与结束时间
     public function getDayRecord()
     {
         // $parameter = ['department', 'grade', 'time'];

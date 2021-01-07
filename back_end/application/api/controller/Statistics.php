@@ -4,6 +4,7 @@ namespace app\api\controller;
 
 class Statistics extends Face
 {
+    // 人脸识别M:N，返回单个宿舍的签到与未签到名单
     public function face_search()
     {
         // $parameter = ['grade', 'department', 'start_time', 'end_time', 'dorm'];
@@ -28,6 +29,14 @@ class Statistics extends Face
         $where['d.dorm_num'] = $_POST['dorm'];
         $where['r.deleted'] = 0;
 
+        $current = date("Y-m-d h:i:s");
+        if ($_POST['end_time'] < $current) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '查寝时间已结束！';
+            return json($return_data);
+        }
+
         $img = Db('record')  // 提取该宿舍照片
             ->alias('r')
             ->field('r.photo, s.id')
@@ -51,11 +60,23 @@ class Statistics extends Face
         $data = array();
         $dorm = str_replace("#", '', $_POST['dorm']);
 
+        // 未上传照片
         if (empty($photo)) {
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '未上传照片！';
             $return_data['unsign_stu'] = $stu;
+            // 姓名
+            foreach ($stu as $key => $value) {
+                $name = Db('student')
+                ->field('username')
+                ->where('id', $stu[$key])
+                ->where(['grade' => $_POST['grade'], 'department' => $_POST['department']])
+                ->find();
+                $return_data['unsign_stu_name'][$key] = $name['username'];
+            }
+            $return_data['unsign_stu_name'] = array_merge($return_data['unsign_stu_name']); // 扁平化
+
             return json($return_data);
         }
 
@@ -113,6 +134,9 @@ class Statistics extends Face
         return json($return_data);
     }
 
+    /**
+     * 某次未签到名单
+     */
     public function stu_statistics()
     {
         // $parameter = ['grade', 'department', 'start_time', 'end_time'];
