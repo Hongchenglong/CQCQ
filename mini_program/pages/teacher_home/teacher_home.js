@@ -16,7 +16,7 @@ Page({
         page_tow: 'page1'
       },
       {
-        title: '查看查寝结果',
+        title: '查寝结果',
         name: 'View',
         color: 'newColor3',
         icon: 'newsfill',

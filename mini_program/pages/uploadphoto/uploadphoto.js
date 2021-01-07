@@ -43,7 +43,8 @@ Page({
     wx.chooseImage({
       count: 1 - pics.length,
       sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
+      // sourceType: ['album', 'camera'],
+      sourceType: ['camera'], // 只允许调用摄像头
       success: function (res) {
         var imgSrc = '';
         var imgSrc = res.tempFilePaths;

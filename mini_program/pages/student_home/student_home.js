@@ -8,7 +8,7 @@ Page({
     current: 'homepage',
     /*height:''*/
     elements: [{
-        title: '查看抽取结果',
+        title: '查寝名单',
         name: 'Extraction',
         color: 'newColor2',
         icon: 'formfill',
@@ -16,7 +16,7 @@ Page({
         page_tow: 'page3'
       },
       {
-        title: '拍照上传',
+        title: '上传照片',
         name: 'View',
         color: 'newColor3',
         icon: 'newsfill',
