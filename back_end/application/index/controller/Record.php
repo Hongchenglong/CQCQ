@@ -14,6 +14,7 @@ class Record extends BaseController
     {
         return $this->fetch();
     }
+    
     //获取时间日期
     public function get_date()
     {

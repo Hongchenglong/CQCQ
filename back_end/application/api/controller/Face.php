@@ -1,5 +1,4 @@
 <?php
-
 namespace app\api\controller;
 
 class Face extends BaseController
@@ -153,6 +152,7 @@ class Face extends BaseController
 
     public function add_face_single() // 添加及更新人脸（单次）
     {
+        // $file = request()->file('file');
         if (empty($_POST['id'])) {
             return json(['error_code' => 1, 'msg' => '请输入学号！']);
         } else if (empty($_POST['grade'])) {
