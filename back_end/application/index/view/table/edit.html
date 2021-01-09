@@ -107,7 +107,6 @@
         <div class="layui-form-item" style="width: 30%;display:inline-block; 
         border: 1px solid lightgrey;vertical-align: top;">
             <!-- <div style="float:left;margin-top: 30px;width: 1px;height: 200px; background: darkgray;"></div> -->
-
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="margin:0 auto;">人脸上传</legend>
             </fieldset>
@@ -115,8 +114,7 @@
             <div class="layui-upload">
                 <div class="layui-upload-list"
                     style="width: 195px;height: 260px;border: 1px solid lightgrey;margin:0 auto;">
-                    <img class="layui-upload-img" id="demo1">
-
+                    <img class="layui-upload-img" id="demo1" style="width: 100%; height: 100%;">
                     <p id="demoText"></p>
                 </div>
                 <!-- <input type="file" name="img" id="img" style="margin:10% auto; "> -->
@@ -227,6 +225,7 @@
         document.getElementsByName("email")[0].value = email;
         document.getElementsByName("department")[0].value = department;
         document.getElementsByName("grade")[0].value = grade;
+        document.getElementById("demo1").src = "/cqcq/back_end/public/face/" + grade + department + "/" + id + ".jpg";
 
         //使弹窗打开可根据传入性别选中对应选项
         if (sex == '男') {
