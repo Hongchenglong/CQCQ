@@ -6,7 +6,7 @@
 	<view class="new" bindtap="buttonchange"><text decode="{{true}}">自定义添加/重置号码</text></view>
 	<view class="Date">
 		<image src="/images/date.png" style="width:45rpx;height:45rpx"></image>
-		<!--https://oeong.xyz/cqcq/public/images/date.png-->
+		<!--https://oeong.com/cqcq/public/images/date.png-->
 		<text decode="{{true}}">&nbsp;当前日期：</text>{{date_1}} {{weekday}}
 	</view>
 	<view class="Date">
@@ -36,11 +36,13 @@
 </view>
 <view class="table" style="border-collapse: collapse;">
 	<view class="tr bg-w">
-		<view class="th">宿舍号</view>
+		<view class="th">序号</view>
+		<view class="th">宿舍</view>
 		<view class="th">号码</view>
 	</view>
 	<block wx:for="{{listData}}" wx:key="navItems">
 		<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
+			<view class="td">{{index+1}}</view>
 			<view class="td">{{item.dorm_num}}</view>
 			<view class="td">{{item.rand_num}}</view>
 		</view>

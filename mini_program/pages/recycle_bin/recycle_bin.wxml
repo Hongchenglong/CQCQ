@@ -12,7 +12,7 @@
 			<text class="ttwo">号码：{{itemName.rand_num}}</text>
 		</view>
 		<image bindtap='clickImg' class="imgs" mode="widthFix"
-		src="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}"
-		data-photo="https://oeong.xyz/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}"/>
+		src="https://oeong.com/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}"
+		data-photo="https://oeong.com/cqcq/public/{{itemName.photo?itemName.photo:'null.jpg'}}"/>
 	</block>
 </scroll-view>

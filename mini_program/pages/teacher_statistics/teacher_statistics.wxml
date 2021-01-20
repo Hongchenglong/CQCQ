@@ -72,16 +72,14 @@
 			<view class="tr bg-w">
 				<view class="th">学号</view>
 				<view class="th">姓名</view>
-				<view class="th">宿舍楼</view>
-				<view class="th">宿舍号</view>
+				<view class="th">宿舍</view>
 			</view>
 			<block wx:for='{{listData}}'>
 				<view wx:for='{{item}}'>
 					<view class="tr" style="background-color:{{index % 2 == 0?'#ffffff':'#f3faff'}}">
 						<view class="td">{{item.id}}</view>
 						<view class="td">{{item.username}}</view>
-						<view class="td">{{item.block}}</view>
-						<view class="td">{{item.room}}</view>
+						<view class="td">{{item.block}}#{{item.room}}</view>
 					</view>
 				</view>
 			</block>

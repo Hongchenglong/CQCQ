@@ -211,7 +211,6 @@ class Draw extends BaseController
         $where['end_time'] = $_POST['end_time'];
         Db::table('record')->where($where)->delete();
 
-
         // 查询条件
         $where = array();
         $where['grade'] = $_POST['grade'];
@@ -219,20 +218,38 @@ class Draw extends BaseController
         $dorm_id = explode(',', $_POST['dorm_id']);
         $rand_num = explode(',', $_POST['rand_num']);
         $len = sizeof($dorm_id);
+
+        $data = array();
+        $data['start_time'] = $_POST['start_time'];
+        $data['end_time'] = $_POST['end_time'];
+
         for ($i = 0; $i < $len; $i++) {
-            $data = array();
             $data['dorm_id'] = $dorm_id[$i];
             $data['rand_num'] = $rand_num[$i];
-            $data['start_time'] = $_POST['start_time'];
-            $data['end_time'] = $_POST['end_time'];
             $record_id = Db::table('record')->insertGetId($data);
 
             // 用dorm_id找到宿舍号，再用宿舍号到学生表中找该宿舍的学生学号
             $dorm_num = db('dorm')->field('dorm_num')->where('id', '=', $data['dorm_id'])->find();
-            $students = db('student')->field('id')->where(['dorm' => $dorm_num['dorm_num']])->select();
-            // 将找到的学号和记录号依次插入到result表中
+            $students = db('student')->field('id')
+                ->where([
+                    'dorm' => $dorm_num['dorm_num'],
+                    'grade' => $_POST['grade'],
+                    'department' => $_POST['department']
+                ])
+                ->select();
+
+            $first = 1;
             $cnt = sizeof($students);
             for ($j = 0; $j < $cnt; $j++) {
+                if ($first) {
+                    $phone = db('student')->field('phone')->where(['id' => $students[$j]['id']])->find();
+                    if (!empty($phone['phone'])) {
+                        $first = 0;
+                        $res = $this->MsgNotice($phone['phone'], $rand_num[$i]);
+                        // dump($res);
+                    }
+                }
+                // 将找到的学号和记录号依次插入到result表中
                 $result = db('result')->insert(['record_id' => $record_id, 'student_id' => $students[$j]['id']]);
             }
         }

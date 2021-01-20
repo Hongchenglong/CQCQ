@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
   /**
@@ -68,7 +68,7 @@ Page({
 Component({
 
   pageLifetimes: {
-    show: function() {
+    show: function () {
       // 页面被展示时刷新
       this.setData({
         username: getApp().globalData.user.username,
@@ -82,7 +82,7 @@ Component({
 
   data: {
     current: 'mine',
-    modalHidden:true,//是否隐藏对话框
+    modalHidden: true, //是否隐藏对话框
     username: '',
     grade: '',
     department: ''
@@ -93,8 +93,8 @@ Component({
       grade: getApp().globalData.user.grade,
       department: getApp().globalData.user.department
     })
-  },  
-  
+  },
+
   methods: {
     coutNum(e) {
       if (e > 1000 && e < 10000) {
@@ -118,12 +118,12 @@ Component({
     },
     methods: {
       /// 显示 actionsheet
-      show: function() {
+      show: function () {
         console.log(456)
       },
     },
     // 绑定微信
-    to_weixin:function(){
+    to_weixin: function () {
       var that = this
       wx.login({
         success: function (res) {
@@ -161,44 +161,43 @@ Component({
           })
         }
       })
-    
     },
 
-    to_pass:function(){
+    to_pass: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url:"../revise_password/revise_password"
+        url: "../revise_password/revise_password"
       })
       wx.hideLoading()
     },
 
-    to_mail:function(){
+    to_mail: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url:"../revise_email/revise_email"
+        url: "../revise_email/revise_email"
       })
       wx.hideLoading()
     },
 
-    to_phone:function(){
+    to_phone: function () {
       wx.showLoading({
         title: '加载中',
         mask: true,
       })
       wx.navigateTo({
-        url:"../revise_phone/revise_phone"
+        url: "../revise_phone/revise_phone"
       })
       wx.hideLoading()
     },
 
-     //点击加载样式
-     click: function () {
+    //点击加载样式
+    click: function () {
       //加载中的样式
       wx.showLoading({
         title: '加载中',
@@ -208,11 +207,11 @@ Component({
     },
 
     //事件处理函数
-    bindViewTap: function() {
+    bindViewTap: function () {
       this.setData({
-        modalHidden:!this.data.modalHidden
+        modalHidden: !this.data.modalHidden
       })
     },
 
-}
+  }
 })

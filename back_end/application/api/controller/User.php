@@ -152,7 +152,6 @@ class User extends BaseController
             unset($user['openid']);  // 删除openid
             unset($user['password']);  // 删除密码
             return json(['error_code' => '0', 'msg' => '登录成功', 'data' => $user]);
-
         } else {
             // 该微信用户没有绑定账号
             return json(['error_code' => '1', 'msg' => '您没有绑定账号，请登录后在“我的”页面绑定~']);
@@ -203,6 +202,34 @@ class User extends BaseController
             // 找不到账号
             return json(['error_code' => '1', 'msg' => '绑定失败']);
         }
+    }
+
+    //php get请求网络的方法
+    function curl_get($url, &$httpCode = 0)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        //不做证书校验,部署在linux环境下请改为true
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        $file_contents = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        return $file_contents;
+    }
+
+    /**
+     * 获取小程序全局唯一后台接口调用凭据（access_token）
+     */
+    public function getAccessToken()
+    {
+        $params = $this->wx_openid('');
+        $api = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$params['appid']}&secret={$params['secret']}";
+       
+        $str = $this->curl_get($api);
+        return json($str);
     }
 
     /**

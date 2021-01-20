@@ -193,7 +193,6 @@ class Table extends BaseController
 		$n = 0;
 		$file = fopen($name, 'r');
 		while (!feof($file)) {
-
 			if ($n == 0) {
 				$n++;
 				$head = fgets($file);

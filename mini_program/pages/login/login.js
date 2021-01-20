@@ -44,7 +44,6 @@ Page({
       })
     } else {
       wx.request({
-        // url: 'http://localhost:8080/cqcq/back_end/public/index.php/api/user/login',
         url: getApp().globalData.server + '/cqcq/public/index.php/api/user/login',
         data: {
           id: that.data.id,
@@ -136,7 +135,7 @@ Page({
           //获取用户信息
           wx.getUserInfo({
             success: res => {
-              console.log(res);
+              // console.log(res);
               getApp().globalData.userInfo = res.userInfo
               getApp().globalData.load = true
               //网络延迟，回调函数
@@ -191,9 +190,8 @@ Page({
         getApp().globalData.height = that.data.height
         getApp().globalData.width = that.data.width
         //getApp().globalData.height=that.data.height
-        console.log(that.data.height)
-        console.log(getApp().globalData.height)
-        //console.log(that.data.height*0.7)
+        // console.log(that.data.height)
+        // console.log(getApp().globalData.height)
       }
     });
   },

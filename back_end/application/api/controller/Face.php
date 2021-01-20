@@ -63,7 +63,7 @@ class Face extends BaseController
         }
     }
 
-    public function extract() // 处理人脸库
+    public function extract() // zip批量导入，处理人脸库
     {
         if (empty($_FILES['file'])) {
             return json(['error_code' => 1, 'msg' => '请选择.zip压缩包！']);
@@ -200,7 +200,6 @@ class Face extends BaseController
                 move_uploaded_file($_FILES['img']['tmp_name'], $path); // 上传至服务器 face/年级系 下
             }
 
-
             $base64_one = base64_encode(file_get_contents($path)); // 转换为base64
             $dorm = str_replace("#", '', $_POST['dorm']); // 替换掉#
             $dorm = $this->get_all_py($dorm); // 中二203
@@ -221,7 +220,7 @@ class Face extends BaseController
                     ->setField('face', $path);
                 return json(['error_code' => 0, 'msg' => '添加人脸库成功！']);
             } else {
-                return json(['error_code' => 3, 'msg' => '添加人脸库失败！']);
+                return json(['error_code' => 3, 'msg' => $res['error_msg']]);
             }
         }
     }
