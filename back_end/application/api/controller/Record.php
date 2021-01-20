@@ -85,12 +85,10 @@ class Record extends BaseController
                         ->where('deleted', 0)
                         ->find();
 
-                    $file = "/cqcq/public/" . $photo['photo'];
-                    if (file_exists($file))
-                        unlink($file);
-                    // if (!empty($photo['photo'])) {
-                    //     unlink($photo['photo']);
-                    // }
+                    // 重新上传照片时删除之前的照片
+                    if (!empty($photo['photo'])) {
+                        unlink($photo['photo']);
+                    }
 
                     //本地测试
                     $file = request()->file('file');
