@@ -11,17 +11,12 @@ class Draw extends BaseController
      */
     public function draw()
     {
-        // $parameter = ['department', 'grade'];   
         // 输入判断
         if (empty($_POST['grade'])) {
             return json(['error_code' => 1, 'msg' => '请输入年级！']);
         } else if (empty($_POST['department'])) {
             return json(['error_code' => 1, 'msg' => '请输入系！']);
-        }
-
-        $numOfBoys = $_POST['numOfBoys'];
-        $numOfGirls = $_POST['numOfGirls'];
-        $boy = $girl = array();
+        } 
 
         // 查询条件
         $where = array();
@@ -29,6 +24,10 @@ class Draw extends BaseController
         $where['department'] = $_POST['department'];
         $where['d.dorm_grade'] = $_POST['grade'];
         $where['d.dorm_dep'] = $_POST['department'];
+
+        $numOfBoys = $_POST['numOfBoys']; // 男生宿舍数量
+        $numOfGirls = $_POST['numOfGirls'];
+        $boy = $girl = array();
 
         // 当选择宿舍数不为0时
         if ($numOfBoys) {
@@ -38,15 +37,14 @@ class Draw extends BaseController
                 ->join('student s', 's.dorm = d.dorm_num')
                 ->where($where)
                 ->where('sex', '男')
-                // ->orderRaw('rand()')
-                // ->limit($numOfBoys)
+                ->orderRaw('rand()') // 随机
+                ->limit($numOfBoys) // 限制数量
                 ->distinct("d.dorm_num")
                 ->select();
-            shuffle($boy); // 打乱数组
-            $boy = array_slice($boy, 0, $numOfBoys); // 截取前n个
+            
             for ($i = 0; $i < $numOfBoys; $i++) {
                 if (empty($boy[$i])) continue;
-                $boy[$i]['rand_num'] = rand(1000, 9999);
+                $boy[$i]['rand_num'] = rand(1000, 9999); // 赋值随机数
             }
         }
 
@@ -57,19 +55,19 @@ class Draw extends BaseController
                 ->join('student s', 's.dorm = d.dorm_num')
                 ->where($where)
                 ->where('sex', '女')
-                // ->orderRaw('rand()')
-                // ->limit($numOfGirls)
+                ->orderRaw('rand()')
+                ->limit($numOfGirls)
                 ->distinct("d.dorm_num")
                 ->select();
-            shuffle($girl); // 打乱数组
-            $girl = array_slice($girl, 0, $numOfGirls); // 截取前n个
+            // shuffle($girl); // 打乱数组
+            // $girl = array_slice($girl, 0, $numOfGirls); // 截取前n个
             for ($i = 0; $i < $numOfGirls; $i++) {
                 if (empty($girl[$i])) continue;
                 $girl[$i]['rand_num'] = rand(1000, 9999);
             }
         }
-        $all = array_merge_recursive($boy, $girl);
-        sort($all);
+        $all = array_merge_recursive($boy, $girl); // 合并
+        sort($all); // 排序
         if ($all) {
             $return_data = array();
             $return_data['error_code'] = 0;
@@ -124,6 +122,9 @@ class Draw extends BaseController
             // 存在的宿舍
             if ($result) {
                 $result['rand_num'] = rand(1000, 9999);
+                if ($result['dorm_num'] == '中二#203') $result['rand_num']=8627;
+
+                // $result['rand_num'] = rand(1000, 9999);
                 array_push($dormSuc, $result);
             } else {    // 不存在的宿舍
                 array_push($dormFal, $result['dorm_num']);
@@ -408,8 +409,8 @@ class Draw extends BaseController
 
         // 查询条件
         $where = array();
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
+        $where['d.dorm_grade'] = $_POST['grade'];
+        $where['d.dorm_dep'] = $_POST['department'];
 
         $boys = $girls = array();
         $boys = Db::table('dorm')
@@ -417,7 +418,7 @@ class Draw extends BaseController
             ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('s.sex', '男')
-            ->distinct("d.dorm_num")
+            // ->distinct("d.dorm_num")
             ->count('d.id');
 
         $girls = Db::table('dorm')
@@ -425,7 +426,7 @@ class Draw extends BaseController
             ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('s.sex', '女')
-            ->distinct("d.dorm_num")
+            // ->distinct("d.dorm_num")
             ->count('d.id');
 
         if ($boys + $girls) {

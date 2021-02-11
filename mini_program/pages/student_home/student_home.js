@@ -16,7 +16,7 @@ Page({
         page_tow: 'page3'
       },
       {
-        title: '上传照片',
+        title: '查寝记录',
         name: 'View',
         color: 'newColor3',
         icon: 'newsfill',

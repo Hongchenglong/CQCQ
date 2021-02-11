@@ -10,14 +10,14 @@ Page({
     CustomBar: app.globalData.CustomBar,
     /*ColorList: app.globalData.ColorList,*/
     elements: [{
-        title: '通过邮箱验证修改密码',
-        name: 'Mail',
+        title: '邮箱验证',
+        name: 'Email',
         color: 'newColor2',
         icon: 'mail',
         page: 'email_verify',
       },
       {
-        title: '通过手机验证修改密码',
+        title: '短信验证',
         name: 'Phone',
         color: 'newColor3',
         icon: 'mobile',

@@ -34,6 +34,8 @@ class Recyclebin extends BaseController
             and date_format(end_time,'%Y-%m-%d') <= date_format(DATE_SUB(curdate(), INTERVAL 1 MONTH),'%Y-%m-%d')",
             ['grade' => $_POST['grade'], 'department' => $_POST['department']]
         );
+        
+        // 删除一个月前的照片
         foreach($result as $k => $v) {
             db('record')->where('id', $result[$k]['id'])->delete();
             db('result')->where('record_id', $result[$k]['id'])->delete();

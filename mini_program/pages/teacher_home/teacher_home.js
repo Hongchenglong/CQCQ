@@ -9,15 +9,15 @@ Page({
     current: 'homepage',
     elements: [{
         title: '抽取宿舍',
-        name: 'Extraction',
+        name: 'Extract',
         color: 'newColor2',
         icon: 'formfill',
         page: 'teacher_extract_page1',
         page_tow: 'page1'
       },
       {
-        title: '查寝结果',
-        name: 'View',
+        title: '查寝记录',
+        name: 'Result',
         color: 'newColor3',
         icon: 'newsfill',
         page: 'teacher_check',

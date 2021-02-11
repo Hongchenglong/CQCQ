@@ -1,7 +1,8 @@
 <view class="cu-list menu margin-bottom-xl shadow-lg radius">
 	<!-- 昵称 -->
-	<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="modalinput" data-target="Modal">
-		<text class="text-black">昵称</text>
+	<!-- <view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="modalinput" data-target="Modal"> -->
+		<view class="cu-item arrow flex solid-bottom padding justify-between" bindtap="popSuccessTest" data-target="Modal">
+		<text class="text-black">姓名</text>
 		<text class="text-grey">{{gr1}}</text>
 	</view>
 	<view class="cu-modal {{modalName=='Modal'?'show':''}}">

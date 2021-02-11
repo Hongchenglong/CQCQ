@@ -6,7 +6,7 @@
 		<text class="head">女生宿舍：</text>
 		<i-panel title="基础用法">
 			<view style="padding: 8px">
-				<i-input-number value="{{ Girls_name }}" min="0" max="{{ Girls_max }}" bindchange="handleChange1"  />
+				<i-input-number value="{{ Girls_num }}" min="0" max="{{ Girls_max }}" bindchange="handleChange1" />
 			</view>
 		</i-panel>
 		<text class="foot">间</text>
@@ -18,14 +18,16 @@
 		<text class="head">男生宿舍：</text>
 		<i-panel title="基础用法">
 			<view style="padding: 8px">
-				<i-input-number value="{{ Boys_name }}" min="0" max="{{ Boys_max }}" bindchange="handleChange2" />
+				<i-input-number value="{{ Boys_num }}" min="0" max="{{ Boys_max }}" bindchange="handleChange2" />
 			</view>
 		</i-panel>
 		<text class="foot">间</text>
 	</view>
 	<view class="other">
-		<button class="cu-btn round bg-blue lg" style="width:100%;background-color: #7AB8FB" hover-class="plain-hover" bindtap='buttonList'>随机抽取</button>
-		<view class="definition" style="padding-top:2%">不喜欢随机抽取？试试<view bindtap="buttonListener" style="font-weight:bold;color:#7AB8FB;">自定义抽取</view>
+		<button class="cu-btn round bg-blue lg" style="width:100%;background-color: #7AB8FB" hover-class="plain-hover"
+			bindtap='buttonList'>随机抽取</button>
+		<view class="definition" style="padding-top:2%">不喜欢随机抽取？试试<view bindtap="buttonListener"
+				style="font-weight:bold;color:#7AB8FB;">自定义抽取</view>
 		</view>
 	</view>
 </view>

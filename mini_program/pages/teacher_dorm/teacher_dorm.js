@@ -15,7 +15,7 @@ Page({
       page_tow:'page1'
     },
     {
-      title: '宿舍管理',
+      title: '宿舍添加',
       name: 'Manage',
       color: 'newColor1',
       icon: 'newsfill',

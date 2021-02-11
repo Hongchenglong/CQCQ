@@ -9,4 +9,4 @@
 | 后端代码 | back_end |
 | 小程序代码 | mini_program |
 
-![小程序二维码](http://oeong.xyz/cqcq/public/images/QRcode.jpg)
+![小程序二维码](http://cdn.oeong.com/niu20210211135605.jpeg)

@@ -5,13 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    /*select: false,
-    hiddenName1:null,
-    hiddenName2:null,*/
     dep: '',
     grade: '',
-    Boys_name: 4,
-    Girls_name: 1,
+    Boys_num: 4,
+    Girls_num: 1,
     Listdata: [],
     Boys_max: '',
     Girls_max: '',
@@ -21,14 +18,14 @@ Page({
     detail
   }) {
     this.setData({
-      Girls_name: detail.value
+      Girls_num: detail.value
     })
   },
   handleChange2({
     detail
   }) {
     this.setData({
-      Boys_name: detail.value,
+      Boys_num: detail.value,
     })
   },
 
@@ -45,8 +42,8 @@ Page({
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/draw',
       data: {
-        numOfBoys: that.data.Boys_name,
-        numOfGirls: that.data.Girls_name,
+        numOfBoys: that.data.Boys_num,
+        numOfGirls: that.data.Girls_num,
         department: that.data.dep,
         grade: that.data.grade
       },
@@ -105,12 +102,12 @@ Page({
     })
     //传最大宿舍号
     var that = this
-    console.log(getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber')
+    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber')
     wx.request({
       url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber',
       data: {
-        numOfBoys: that.data.Boys_name,
-        numOfGirls: that.data.Girls_name,
+        numOfBoys: that.data.Boys_num,
+        numOfGirls: that.data.Girls_num,
         department: that.data.dep,
         grade: that.data.grade
       },
@@ -137,8 +134,8 @@ Page({
           that.setData({
             Boys_max: 0,
             Girls_max: 0,
-            Boys_name: 0,
-            Girls_name: 0,
+            Boys_num: 0,
+            Girls_num: 0,
           })
         } else if (res.data.error_code != 0) {
           wx.showModal({
@@ -155,21 +152,21 @@ Page({
           })
           if (res.data.data.girls == 0) {
             that.setData({
-              Girls_name: 0,
+              Girls_num: 0,
             })
           } else if (res.data.data.boys == 0) {
             that.setData({
-              Boys_name: 0,
+              Boys_num: 0,
             })
           }
-          if (res.data.data.boys < that.data.Boys_name) {
+          if (res.data.data.boys < that.data.Boys_num) {
             that.setData({
-              Boys_name: res.data.data.boys,
+              Boys_num: res.data.data.boys,
             })
           }
-          if (res.data.data.girls < that.data.Girls_name) {
+          if (res.data.data.girls < that.data.Girls_num) {
             that.setData({
-              Girls_name: res.data.data.girls,
+              Girls_num: res.data.data.girls,
             })
           }
         }

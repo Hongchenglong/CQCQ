@@ -8,7 +8,7 @@
 	<view class='text-content' style="font-size:{{height*0.025}}rpx">
 		<view>Hi！欢迎使用辅助查寝小程序！</view>
 		<view class='margin-top-sm'>辅导员工作比较繁忙，对于晚间查寝往往会心有余而力不足，而现有的查寝方式因为种种原因，辅导员无法及时得到反馈。系统共分为2个角色，分别是辅导员、学生。</view>
-		<view class='margin-top-sm'>辅导员在小程序上进行抽签操作，随机抽取宿舍和号码，确定后，辅导员QQ群通知学生查看结果。学生收到通知后，举着号码牌拍完照后，上传照片到小程序。由辅导员审核。如果上传错了，可再次上传，修改照片。</view>
+		<view class='margin-top-sm'>辅导员在小程序上进行抽签操作，随机抽取宿舍和号码，确定后，辅导员QQ群通知学生查看结果。学生收到通知后，调用摄像头按照要求拍照。由辅导员审核。</view>
 		<view class='margin-top-sm'>更多功能敬请期待！</view>
 	</view>
 </view>

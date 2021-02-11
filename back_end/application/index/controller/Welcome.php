@@ -60,7 +60,8 @@ class Welcome extends BaseController
         if (!empty($more)) {
             $return_data = array();
             $j = 0;
-            for ($i = 0; $i < count($more); $i++) {
+            $cnt = count($more);
+            for ($i = 0; $i < $cnt; $i++) {
                 if ($more[$i]['num'] >= 3) {
                     $return_data[$j]['student_id'] = $more[$i]['student_id'];
                     $return_data[$j]['num'] = $more[$i]['num'];

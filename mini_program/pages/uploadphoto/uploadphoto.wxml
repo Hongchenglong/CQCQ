@@ -2,7 +2,7 @@
 	<view class="contantWrap">
 		<view class="contantPic"> -->
 			<view class="picsList" wx:for="{{pics}}" wx:key="">
-				<image name='photo' mode="aspectFit" src="{{item}}" class="imgs" style="left:60rpx"></image>
+				<image name='photo' mode="aspectFit" src="{{item}}" class="imgs" style="align:center"></image>
 				<!-- <image src="/images/error.png" class="uploadImg-error" data-img="{{item}}" bindtap='deleteImg'></image> -->
 				<text class="unsatisfy" data-img="{{item}}" bindtap='deleteImg'>照片不满意？点击删除</text>
 			</view>

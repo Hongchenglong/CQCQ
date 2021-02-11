@@ -3,19 +3,22 @@ namespace app\api\controller;
 
 class Face extends BaseController
 {
-    // 一张照片中多个人脸同时进行识别
+    /**
+     * 人脸搜索M:N识别API
+     * 待识别图片中含有多个人脸时，在指定人脸集合中，找到这多个人脸分别最相似的人脸
+     */
     public function multi_search($img = '', $dorm = '', $grade = '')
     {
         $token = $this->get_token();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/multi-search?access_token=' . $token;
         $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
 
-        $dorm = $this->get_all_py($dorm); // 转为拼音
-        $dorm = implode("", $dorm); // 转为字符串
+        $dorm = $this->get_all_py($dorm); // 宿舍转为拼音
+        $dorm = implode("", $dorm); // 把数组元素组合为字符串
         $bodys = array(
-            'image' => $base64_one,
-            'image_type' => "BASE64",
-            'group_id_list' => $grade . $dorm,
+            'image' => $base64_one, // 图片
+            'image_type' => "BASE64",  // 图片类型
+            'group_id_list' => $grade . $dorm,  // 人脸库group
             "max_face_num" => 10,
             'max_user_num' => 10
         );
@@ -61,6 +64,40 @@ class Face extends BaseController
         } else {
             dump('Add ' . $id . ' Failed!');
         }
+    }
+
+    /**
+     * 在线图片活体检测
+     */
+    public function faceverify($img = '')
+    {
+        $token = $this->get_token();
+        $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceverify?access_token=' . $token;
+        $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
+
+        $bodys = array(
+            'image' => $base64_one,
+            'image_type' => "BASE64"
+        );
+
+        $res = $this->request_post($url, $bodys);
+        return $res;
+    }
+
+    /**
+     * 删除用户组
+     */
+    public function delete()
+    {
+        $token = $this->get_token();
+        $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/group/delete?access_token=' . $token;
+
+        $bodys = array(
+            'group_id' => "student",
+        );
+
+        $res = $this->request_post($url, $bodys);
+        return $res;
     }
 
     public function extract() // zip批量导入，处理人脸库

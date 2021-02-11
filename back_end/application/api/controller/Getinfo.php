@@ -51,7 +51,7 @@ class Getinfo extends BaseController
 
     /**
      * 折线图 
-     * 返回近7/30天每天抽到的宿舍，未签到的宿舍，以及学生未签到次数
+     * 返回近7/30天每天抽到的宿舍，未签到的宿舍(上传照片算签到)，以及学生未签到次数
      */
     public function lineInfo()
     {
@@ -66,14 +66,14 @@ class Getinfo extends BaseController
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
 
-        $dorm = Db('dorm')  // 宿舍总数
+        $dorm = Db('dorm')  
             ->field('d.dorm_num')
             ->alias('d')
             ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
-        $numOfDorm = count($dorm);
+        $numOfDorm = count($dorm); // 宿舍总数
 
         // 获取7天、30天的一天被抽中的宿舍数
         $today = date('Y-m-d 23:59:59');
@@ -86,7 +86,7 @@ class Getinfo extends BaseController
         $where['r.start_time'] = array('between', array($recent7, $today));
         $where['r.deleted'] = 0;
 
-        $recordDay7 = Db('record')  // 7天内的记录时间
+        $recordDay7 = Db('record')  // 7天内被抽查的宿舍
             ->alias('r')
             ->field('r.start_time, d.dorm_num')
             ->join('dorm d', 'd.id = r.dorm_id')
@@ -100,7 +100,7 @@ class Getinfo extends BaseController
         }
 
         $where['r.start_time'] = array('between', array($recent30, $today));
-        $recordDay30 = Db('record')  // 30天内的记录时间
+        $recordDay30 = Db('record')  // 30天内
             ->alias('r')
             ->field('r.start_time, d.dorm_num')
             ->join('dorm d', 'd.id = r.dorm_id')
@@ -120,7 +120,7 @@ class Getinfo extends BaseController
         $where['r.deleted'] = 0;
         $where['t.sign'] = 0;
 
-        $unsign7 = Db('result')   // 7天内的未签到
+        $unsign7 = Db('result')   // 7天内的未签到的学生
             ->field('r.start_time, d.dorm_num, t.student_id, s.username')
             ->alias('t')
             ->join('student s', 's.id = t.student_id')
@@ -132,7 +132,7 @@ class Getinfo extends BaseController
 
         $where['r.start_time'] = array('between', array($recent30, $today));
 
-        $unsign30 = Db('result')   // 30天内的未签到
+        $unsign30 = Db('result')   // 30天内
             ->field('r.start_time, d.dorm_num, t.student_id, s.username')
             ->alias('t')
             ->join('student s', 's.id = t.student_id')
@@ -261,7 +261,7 @@ class Getinfo extends BaseController
     }
 
     /**
-     * 日期升序
+     * 日期升序排列
      */
     public function common($array)
     {
@@ -292,7 +292,7 @@ class Getinfo extends BaseController
             unset($array_[$k]['dorm_num']); // 删除宿舍显示
         }
 
-        asort($array_); // 根据日期升序排序
+        asort($array_); // 根据日期升序排列
         // $array_ = array_values($array_);
         return $array_;
     }

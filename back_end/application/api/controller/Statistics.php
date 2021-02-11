@@ -4,10 +4,11 @@ namespace app\api\controller;
 
 class Statistics extends Face
 {
-    // 人脸识别M:N，返回单个宿舍的签到与未签到名单
+    /**
+     * 通过人脸搜索M:N识别，返回单个宿舍的签到与未签到名单
+     */
     public function face_search()
     {
-        // $parameter = ['grade', 'department', 'start_time', 'end_time', 'dorm'];
         // 输入判断
         if (empty($_POST['grade'])) {
             return json(['error_code' => 1, 'msg' => '请输入年级！']);
@@ -39,17 +40,18 @@ class Statistics extends Face
 
         $img = Db('record')  // 提取该宿舍照片
             ->alias('r')
-            ->field('r.photo, s.id')
+            ->field('r.photo, s.id, s.username')
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
 
-        $stu = array_column($img, 'id'); // 提取id列
-        $photo = array_unique(array_column($img, 'photo'))[0]; // 移除重复的值
+        $stu = array_column($img, 'id'); // 提取id列，即学号
+        $stu_name = array_column($img, 'username'); // 提取姓名
+        $photo = array_unique(array_column($img, 'photo'))[0]; // 提取photo列并去重
 
-        Db('record')   // 本宿舍中的学号下的sign清零
+        Db('record')   // 重新上传照片后，本宿舍中的学号下的签到sign清零
             ->alias('r')
             ->join('dorm d', 'd.id = r.dorm_id')
             ->join('student s', 's.dorm = d.dorm_num')
@@ -65,34 +67,27 @@ class Statistics extends Face
             $return_data = array();
             $return_data['error_code'] = 2;
             $return_data['msg'] = '未上传照片！';
-            $return_data['unsign_stu'] = $stu;
-            // 姓名
-            foreach ($stu as $key => $value) {
-                $name = Db('student')
-                ->field('username')
-                ->where('id', $stu[$key])
-                ->where(['grade' => $_POST['grade'], 'department' => $_POST['department']])
-                ->find();
-                $return_data['unsign_stu_name'][$key] = $name['username'];
-            }
-            $return_data['unsign_stu_name'] = array_merge($return_data['unsign_stu_name']); // 扁平化
+            $return_data['unsign_stu'] = $stu; // 学号
+            $return_data['unsign_stu_name'] = $stu_name; 
 
             return json($return_data);
         }
 
+        // $res = $this->faceverify($photo);  // 活体检测
+
         $res = $this->multi_search($photo, $dorm, $_POST['grade']);  // 人脸搜索
-        $res = json_decode($res, true);
+        $res = json_decode($res, true); // score80分以上可以判断为同一人
 
         if (!empty($res['result'])) {
             foreach ($res['result']['face_list'] as $key => $value) {
-                if (!empty($res['result']['face_list'][$key]['user_list'])) {
-                    $data[$key] = intval($res['result']['face_list'][$key]['user_list'][0]['user_id']); // 提取学号转换为整型
-                    
+                if (!empty($res['result']['face_list'][$key]['user_list'])) { // 匹配的用户信息列表
+                    $sign_stu[$key] = intval($res['result']['face_list'][$key]['user_list'][0]['user_id']); // 提取学号并转为整型
+
                     $where = array();
                     $where['r.start_time'] = $_POST['start_time'];
                     $where['r.end_time'] = $_POST['end_time'];
                     $where['r.deleted'] = 0;
-                    $where['t.student_id'] = $data[$key];
+                    $where['t.student_id'] = $sign_stu[$key];
 
                     Db('record')   // 本宿舍识别到的学号记录下sign记为1
                         ->alias('r')
@@ -103,33 +98,37 @@ class Statistics extends Face
             }
         }
 
-        $unsign_stu = array_diff($stu, $data); // 比较两个数组的值，并返回差集
+        $unsign_stu = array_diff($stu, $sign_stu); // (所有，已签) 比较两个数组的值，并返回差集
         $unsign_stu = array_merge($unsign_stu); // 扁平化
+
         $return_data = array();
         $return_data['error_code'] = 0;
         $return_data['msg'] = '人脸识别完成！';
-        $return_data['unsign_stu'] = $unsign_stu;
-        $return_data['sign_stu'] = $data;
-        
-        foreach ($unsign_stu as $key => $value) {
-            $name = Db('student')  
-            ->field('username')
-            ->where('id', $unsign_stu[$key])
-            ->where(['grade'=> $_POST['grade'], 'department'=>$_POST['department']])
-            ->find();
-            $return_data['unsign_stu_name'][$key] = $name['username'];
-        }
-        $return_data['unsign_stu_name'] = array_merge($return_data['unsign_stu_name']); // 扁平化
+        $return_data['unsign_stu'] = $unsign_stu; // 未签的学号
+        $return_data['sign_stu'] = $sign_stu;
 
-        foreach ($data as $key => $value) {
-            $name = Db('student')  
-            ->field('username')
-            ->where('id', $data[$key])
-            ->where(['grade' => $_POST['grade'], 'department' => $_POST['department']])
-            ->find();
-            $return_data['sign_stu_name'][$key] = $name['username'];
+        // 通过学号匹配该学生的姓名
+        if (!empty($return_data['unsign_stu'])) {  
+            foreach ($unsign_stu as $key => $value) {
+                $name = Db('student')
+                    ->field('username')
+                    ->where('id', $unsign_stu[$key])
+                    ->find();
+                $return_data['unsign_stu_name'][$key] = $name['username'];
+            }
+            $return_data['unsign_stu_name'] = array_merge($return_data['unsign_stu_name']); // 扁平化
         }
-        $return_data['sign_stu_name'] = array_merge($return_data['sign_stu_name']); // 扁平化
+
+        if (!empty($return_data['sign_stu'])) {
+            foreach ($sign_stu as $key => $value) {
+                $name = Db('student')
+                    ->field('username')
+                    ->where('id', $sign_stu[$key])
+                    ->find();
+                $return_data['sign_stu_name'][$key] = $name['username'];
+            }
+            $return_data['sign_stu_name'] = array_merge($return_data['sign_stu_name']); // 扁平化
+        }
 
         return json($return_data);
     }
