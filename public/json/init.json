@@ -1,0 +1,39 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "index/welcome/welcome.html"
+  },
+  "logoInfo": {
+    "title": "LAYUI MINI",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "后台管理系统",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "首页",
+          "href": "index/welcome/welcome.html",
+          "icon": "fa fa-home",
+          "target": ""
+        },
+        {
+          "title": "宿舍管理",
+          "href": "index/table/table.html",
+          "icon": "fa fa-calendar",
+          "target": ""
+        },
+        {
+          "title": "查寝记录",
+          "icon": "fa fa-bar-chart",
+          "href": "index/record/records.html",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}
