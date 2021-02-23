@@ -66,10 +66,7 @@ class Record extends BaseController
             $return_data['count'] = count($record);
             return json($return_data);
         } else {
-            echo "<script>\r\n";
-            echo " alert(\"近7天\");\r\n";
-            // echo " history.back();\r\n";
-            echo "</script>";
+            return false;
         }
     }
 

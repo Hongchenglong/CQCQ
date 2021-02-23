@@ -208,14 +208,17 @@
             return null;
         }
 
-        phone = getQueryString("st_phone");
         id = getQueryString("st_id");
         username = unescape(getQueryString("st_username"));
         dorm = unescape(getQueryString("st_dorm"));
         grade = getQueryString("st_grade");
+        phone = getQueryString("st_phone");
         email = getQueryString("st_email");
         department = unescape(getQueryString("st_department"));
         sex = unescape(getQueryString("st_sex"));
+
+        if (phone == "null") phone = "";
+        if (email == "null") email = "";
 
         //将参数赋值给input输入框
         document.getElementsByName("phone")[0].value = phone;
