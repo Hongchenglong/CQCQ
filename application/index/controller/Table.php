@@ -134,7 +134,7 @@ class Table extends BaseController
 			echo " history.back();\r\n";
 			echo "</script>";
 		} else {
-			$this->error("没有删除权限,请登录", url('/cqcq/back_end/public/index.php/index/table/table'));
+			$this->error("没有删除权限,请登录", url('/cqcq/public/index.php/index/table/table'));
 		}
 	}
 
