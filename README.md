@@ -11,10 +11,11 @@
 | -------- | -------------------------------------------- |
 | 团队名称 | [爱是用心码](https://www.cnblogs.com/yongxinma/)      |
 | 项目名称 | 辅助查寝系统   |
-|  Gitee仓库| https://gitee.com/oeong/CQCQ |
-| 后端代码 | back_end |
-| 小程序代码 | mini_program |
-![小程序二维码](http://cdn.oeong.com/niu20210211135605.jpeg)
+|  Gitee地址| https://gitee.com/oeong/CQCQ |
+|  Github地址| https://gitee.com/hongchenglong/CQCQ |
+| 微信小程序 | mini_program |
+
+<img src="https://gitee.com/oeong/picgo/raw/master/images/20210223193909.png" alt="小程序二维码" style="zoom:50%;" />
 
 ## 基础
 
@@ -63,14 +64,6 @@ CQCQ  应用部署目录
 ├─README.md             README 文件
 ├─think                 命令行入口文件
 ```
-
-
-
-
-
-
-
-
 
 ## 安装教程
 

@@ -12,12 +12,12 @@
 		<view class="{{PageCur=='teacher_home'?'text-newblue':'text-gray'}}">首页</view>
 	</view>
 <!--宿舍管理-->
-	<view class="action" bindtap="NavChange" data-cur="teacher_dorm">
+	<!-- <view class="action" bindtap="NavChange" data-cur="teacher_dorm">
 		<view class='cuIcon-cu-image'>
 			<image src="/images/tabbar/teacher_dorm{{PageCur=='teacher_dorm'?'_cur':''}}.png"></image>
 		</view>
 		<view class="{{PageCur=='teacher_dorm'?'text-newblue':'text-gray'}}">宿舍</view>
-	</view>
+	</view> -->
 <!--统计-->
 	<view class="action" bindtap="NavChange" data-cur="teacher_statistics">
 		<view class='cuIcon-cu-image'>
