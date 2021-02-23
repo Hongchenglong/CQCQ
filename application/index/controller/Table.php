@@ -46,7 +46,6 @@ class Table extends BaseController
 		 		$res['face'] = '是';
 		 	}
 		 }
-
 		
 		if ($result) {
 			$return_data = array();
@@ -161,6 +160,7 @@ class Table extends BaseController
 				'department' => $department,
 				'dorm' => $dorm,
 			]);
+
 		if ($result) {
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " alert(\"更新成功\");\r\n";

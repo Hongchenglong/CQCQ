@@ -10,12 +10,12 @@ use \think\Validate;
 
 class Record extends BaseController
 {
-    public function records()
+    public function record()
     {
         return $this->fetch();
     }
     
-    //获取时间日期
+    //获取近7天时间日期
     public function get_date()
     {
         // session_start();
@@ -25,8 +25,9 @@ class Record extends BaseController
         $grade = Session::get('grade');
         $department = Session::get('department');
 
-        //当前时间
-        $time = date('Y-m-d H:i:s', time());
+        $today = date('Y-m-d 23:59:59');
+        $recent7 = date('Y-m-d', strtotime("-6 days")); // 近7天
+        $where['r.start_time'] = array('between', array($recent7, $today));
 
         $record = Db::table('record')
             ->field('start_time, end_time')   // 指定字段
@@ -36,8 +37,11 @@ class Record extends BaseController
             ->where(['grade' => $grade])
             ->where(['department' => $department])
             ->where(['deleted' => 0])
+            ->where($where)
             ->distinct(true)   // 返回唯一不同的值
             ->select();
+
+        $time = date('Y-m-d H:i:s', time()); //当前时间
 
         if (!empty($record)) {
             $return_data = array();
@@ -62,7 +66,10 @@ class Record extends BaseController
             $return_data['count'] = count($record);
             return json($return_data);
         } else {
-            echo false;
+            echo "<script>\r\n";
+            echo " alert(\"近7天\");\r\n";
+            // echo " history.back();\r\n";
+            echo "</script>";
         }
     }
 
@@ -71,8 +78,6 @@ class Record extends BaseController
     {
         session_start();
         $date = Request::instance()->post('date');
-        // $grade = $_SESSION['grade'];
-        // $department = $_SESSION['department'];
         $grade = Session::get('grade');
         $department = Session::get('department');
         $drecord = Db::table('record')
@@ -115,7 +120,7 @@ class Record extends BaseController
         }
     }
 
-    //获取查寝签到情况
+    //获取某一条记录里的签到情况
     public function dorm()
     {
         session_start();
@@ -152,7 +157,6 @@ class Record extends BaseController
         $where['r.start_time'] = $_POST['start_time'];
         $where['r.end_time'] = $_POST['end_time'];
         $where['r.deleted'] = 0;
-
 
         $dorm = Db('result')  // 该条记录信息
             ->field('d.dorm_num, s.id, re.sign')

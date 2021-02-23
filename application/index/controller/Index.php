@@ -28,6 +28,6 @@ class Index extends BaseController
 
     public function record()
     {
-        $this->redirect("/cqcq/public/index.php/index/record/records");
+        $this->redirect("/cqcq/public/index.php/index/record/record");
     }
 }

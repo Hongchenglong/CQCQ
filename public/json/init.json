@@ -30,7 +30,7 @@
         {
           "title": "查寝记录",
           "icon": "fa fa-bar-chart",
-          "href": "index/record/records.html",
+          "href": "index/record/record.html",
           "target": "_self"
         }
       ]
