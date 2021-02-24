@@ -207,10 +207,17 @@ class Draw extends BaseController
         }
 
         // 先查看是否有这个时间段的记录，有则删除
-        $where = array();
-        $where['start_time'] = $_POST['start_time'];
-        $where['end_time'] = $_POST['end_time'];
-        Db::table('record')->where($where)->delete();
+        $result = Db::query(
+            "delete r.* from record r join dorm d on d.id = r.dorm_id
+            where d.dorm_grade=:grade and d.dorm_dep=:dep and r.start_time=:start and r.end_time=:end",
+            ['grade' => $_POST['grade'], 'dep' => $_POST['department'], 'start'=> $_POST['start_time'], 'end' => $_POST['end_time']]
+        );
+
+        // 插入notice数据库中，查寝结束后发送邮件通知辅导员
+        $notice = db('notice')->where(['counselor_id' => $_POST['counselor_id'], 'start_time' => $_POST['start_time'], 'end_time' => $_POST['end_time']])->find();
+        if (empty($notice)) {
+            db('notice')->insert(['counselor_id' => $_POST['counselor_id'], 'start_time' => $_POST['start_time'], 'end_time' => $_POST['end_time']]);
+        }
 
         // 查询条件
         $where = array();
@@ -218,12 +225,11 @@ class Draw extends BaseController
         $where['department'] = $_POST['department'];
         $dorm_id = explode(',', $_POST['dorm_id']);
         $rand_num = explode(',', $_POST['rand_num']);
-        $len = sizeof($dorm_id);
 
         $data = array();
         $data['start_time'] = $_POST['start_time'];
         $data['end_time'] = $_POST['end_time'];
-
+        $len = sizeof($dorm_id);
         for ($i = 0; $i < $len; $i++) {
             $data['dorm_id'] = $dorm_id[$i];
             $data['rand_num'] = $rand_num[$i];
@@ -239,6 +245,7 @@ class Draw extends BaseController
                 ])
                 ->select();
 
+            // 给宿舍其中一名同学发送短信
             $first = 1;
             $cnt = sizeof($students);
             for ($j = 0; $j < $cnt; $j++) {
@@ -247,7 +254,6 @@ class Draw extends BaseController
                     if (!empty($phone['phone'])) {
                         $first = 0;
                         $res = $this->MsgNotice($phone['phone'], $rand_num[$i]);
-                        // dump($res);
                     }
                 }
                 // 将找到的学号和记录号依次插入到result表中

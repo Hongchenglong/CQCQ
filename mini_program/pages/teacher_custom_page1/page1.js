@@ -82,17 +82,20 @@ Page({
           that.setData({
             listdata: res.data.data.dormSuc
           })
-          wx.showModal({
-            title: "提示：",
-            content: res.data.msg,
-            showCancel: false,
-            success(res) { },
-            complete: function (res) {  
-              wx.redirectTo({
-                url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
-              })
-            },
+          wx.redirectTo({
+            url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
           })
+          // wx.showModal({
+          //   title: "提示：",
+          //   content: res.data.msg,
+          //   showCancel: false,
+          //   success(res) { },
+          //   complete: function (res) {  
+          //     wx.redirectTo({
+          //       url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
+          //     })
+          //   },
+          // })
         }
       },
       fail: function () {
