@@ -15,7 +15,7 @@ class Record extends BaseController
         return $this->fetch();
     }
     
-    //获取近7天时间日期
+    //获取最近7次查寝时间
     public function get_date()
     {
         // session_start();
@@ -25,10 +25,6 @@ class Record extends BaseController
         $grade = Session::get('grade');
         $department = Session::get('department');
 
-        $today = date('Y-m-d 23:59:59');
-        $recent7 = date('Y-m-d', strtotime("-6 days")); // 近7天
-        $where['r.start_time'] = array('between', array($recent7, $today));
-
         $record = Db::table('record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
@@ -37,8 +33,9 @@ class Record extends BaseController
             ->where(['grade' => $grade])
             ->where(['department' => $department])
             ->where(['deleted' => 0])
-            ->where($where)
             ->distinct(true)   // 返回唯一不同的值
+            ->limit(7)
+            ->order('start_time desc')
             ->select();
 
         $time = date('Y-m-d H:i:s', time()); //当前时间
