@@ -7,7 +7,8 @@ class Notice extends BaseController
 
     public function notice()
     {
-        $notice = db("notice")->where("send_time", null)->where("end_time","> time", date('Y-m-d H:i:s', time()))->select();
+        $notice = db("notice")->where("send_time", null)->where("end_time","<= time", date('Y-m-d H:i:s', time()))->select();
+        // dump($notice);
         $count = sizeof($notice);
         for ($i = 0; $i < $count; $i++) {
             $counselor = db("counselor")->where("id", $notice[$i]["counselor_id"])->find();
