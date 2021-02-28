@@ -25,11 +25,11 @@ class Checkresults extends BaseController
         $where = array();
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
-        $record = Db::table('record')
+        $record = Db::table('cq_record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('r.deleted', 0)
@@ -76,11 +76,11 @@ class Checkresults extends BaseController
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
         // dump($_POST['date']);
-        $record = Db::table('record')
+        $record = Db::table('cq_record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('start_time', 'between time', [$date . ' 00:00:00', $date . ' 23:59:59'])
@@ -125,12 +125,12 @@ class Checkresults extends BaseController
         $where['r.start_time'] = $_POST['start_time'];
         $where['r.end_time'] = $_POST['end_time'];
 
-        $result = Db::table('record')
+        $result = Db::table('cq_record')
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
-            ->update(['record.deleted' => 1]);
+            ->update(['r.deleted' => 1]);
 
         if ($result) {
             return json(['error_code' => 0, 'msg' => '删除查寝记录' . $result . '条']);
@@ -163,11 +163,11 @@ class Checkresults extends BaseController
         $where['r.start_time'] = $_POST['start_time'];
         $where['r.end_time'] = $_POST['end_time'];
 
-        $record = Db::table('record')
+        $record = Db::table('cq_record')
             ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('r.deleted', 0)
             ->distinct(true)
@@ -209,11 +209,11 @@ class Checkresults extends BaseController
         $where['d.dorm_dep'] = $_POST['department'];
         $where['s.dorm'] = $_POST['dorm'];
 
-        $record = Db::table('record')
+        $record = Db::table('cq_record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where($where)
             ->where('r.deleted', 0)
@@ -262,11 +262,11 @@ class Checkresults extends BaseController
         $where['r.end_time'] = $_POST['end_time'];
         $where['s.dorm'] = $_POST['dorm'];
 
-        $record = Db::table('record')
+        $record = Db::table('cq_record')
             ->field('start_time, end_time, photo, d.dorm_num, r.rand_num')   // 指定字段
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('r.deleted', 0)
             ->distinct(true)

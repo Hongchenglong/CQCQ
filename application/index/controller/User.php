@@ -26,7 +26,7 @@ class User extends BaseController
     //获取数据库信息
     public function get_trinfo(){
         $id = Request::instance()->post('id');
-        $tr_data = Db('counselor')
+        $tr_data = Db::table('cq_instructor')
         	->field('phone,grade,department,email')
         	->where(['id'  => $id])
             ->find();
@@ -48,7 +48,7 @@ class User extends BaseController
         $grade = Request::instance()->post('grade');
         $department = Request::instance()->post('department');
 
-        $result = Db('counselor')
+        $result = Db::table('cq_instructor')
             ->where([
                 'id'  => $id
             ])
@@ -80,10 +80,10 @@ class User extends BaseController
         $new_password = md5(Request::instance()->post('new_password'));
         $again_password = md5(Request::instance()->post('again_password'));
         $where = ['id' => $id];
-        $data_id = Db('counselor')->where($where)->find();
+        $data_id = Db::table('cq_instructor')->where($where)->find();
         if ($old_password == $data_id['password']) {
             if ($new_password == $again_password) {
-                $result = Db('counselor')
+                $result = Db::table('cq_instructor')
                     ->where([
                         'id'  => $id
                     ])

@@ -15,9 +15,9 @@
 			<view class="te"><text class="texts" style="padding-top: 2%;">截止时间：</text><text class="text2" style="padding-top: 2%;">{{checkData.end_time}}</text></view>
 		</view>
 		<view class="sm text-center">
-		<button wx:if="{{time<checkData.end_time}}" class="cu-btn round bg-white shadow" style="width:90px;height:50rpx;margin-right:3%;float:right;margin-top: 45rpx;color:#82b1ff" bindtap="onSend">
+		<!-- <button wx:if="{{time<checkData.end_time}}" class="cu-btn round bg-white shadow" style="width:90px;height:50rpx;margin-right:3%;float:right;margin-top: 45rpx;color:#82b1ff" bindtap="onSend">
 			一键提醒
-		</button>
+		</button> -->
 	</view>
 	</view>
 

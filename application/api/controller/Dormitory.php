@@ -27,10 +27,10 @@ class Dormitory extends BaseController
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
 
-        $result = Db::table('dorm')
+        $result = Db::table('cq_dorm')
             ->field('block, room')   // 指定字段
             ->alias('d')    // 别名
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->order('room')
             ->where($where)
             ->distinct(true)   // 返回唯一不同的值
@@ -77,7 +77,7 @@ class Dormitory extends BaseController
         // 检验学号是否已被注册
         $where = array();
         $where['id'] = $_POST['studentId'];
-        $student = db('student')->where($where)->find();
+        $student = Db::table('cq_student')->where($where)->find();
 
         // 查询宿舍
         $where = array();
@@ -85,10 +85,10 @@ class Dormitory extends BaseController
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
         $where['dorm_num'] = $dorm_num;
-        $dorm = Db::table('dorm')
+        $dorm = Db::table('cq_dorm')
             ->field('dorm.id, dorm_num')   // 指定字段
             ->alias('d')    // 别名
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->find();
 
@@ -101,7 +101,7 @@ class Dormitory extends BaseController
                 $data['room'] = $_POST['room'];
                 $data['block'] = $_POST['block'];
                 $data['dorm_num'] = $dorm_num;
-                $dorm = db('dorm')->insert($data);
+                $dorm = Db::table('cq_dorm')->insert($data);
             }
 
             // 如果尚未注册，则注册
@@ -115,7 +115,7 @@ class Dormitory extends BaseController
 
             // 密码经过md5函数加密，得到32位字符串
             $data['password'] = md5($data['id']);
-            $student = db('student')->insert($data);
+            $student = Db::table('cq_student')->insert($data);
 
             $return_data = array();
             $return_data['error_code'] = 0;
@@ -151,15 +151,15 @@ class Dormitory extends BaseController
         $where = array();
         $where['room'] = $_POST['room'];
         $where['block'] = $_POST['block'];
-        $result = Db('dorm')
+        $result = Db::table('cq_dorm')
             ->alias('d')
             ->field('s.id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->select();
         if (count($result) == 1) {
             $result = Db::execute(
-                "delete d from dorm d join student s on s.dorm = d.dorm_num 
+                "delete d from cq_dorm d join cq_student s on s.dorm = d.dorm_num 
             where s.grade=:grade and s.department=:department and d.room=:room and d.block=:block",
                 ['grade' => $where['grade'], 'department' => $where['department'], 'room' => $where['room'], 'block' => $where['block']]
             );
@@ -171,7 +171,7 @@ class Dormitory extends BaseController
         $where['id'] = $_POST['studentId'];
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $result = Db::table('student')
+        $result = Db::table('cq_student')
             ->where($where)
             ->delete();
 
@@ -199,10 +199,10 @@ class Dormitory extends BaseController
         $where = array();
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $result = db('dorm')
+        $result = Db::table('cq_dorm')
             ->field('block')
             ->alias('d')    // 别名
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->distinct(true)
             ->where($where)
             ->select();

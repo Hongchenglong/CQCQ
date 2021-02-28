@@ -1,7 +1,7 @@
 <?php
 
 namespace app\api\controller;
-
+use think\Db;
 class Resultsday
 {   
     // 获取所有查寝记录的日期
@@ -21,11 +21,11 @@ class Resultsday
         $where['s.department'] = $_POST['department'];
         $where['r.deleted'] = 0;
 
-        $day = Db('record')
+        $day = Db::table('cq_record')
             ->alias('r')    // 别名
             ->field('r.start_time')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
@@ -62,11 +62,11 @@ class Resultsday
         $where['s.department'] = $_POST['department'];
         $where['r.deleted'] = 0;
 
-        $day = Db('record')
+        $day = Db::table('cq_record')
             ->alias('r')    // 别名
             ->field('r.start_time, r.end_time')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
@@ -104,10 +104,10 @@ class Resultsday
         $where['r.deleted'] = 0;
 
         // 查找该学号所有的签到记录
-        $unsign_record = Db('record')
+        $unsign_record = Db::table('cq_record')
             ->alias('r')
             ->field('r.start_time, r.end_time')
-            ->join('result t', 't.record_id = r.id')
+            ->join('cq_result t', 't.record_id = r.id')
             ->where($where)
             ->select();
 
@@ -129,10 +129,10 @@ class Resultsday
         }
 
         $where['t.sign'] = 1;
-        $sign_record = Db('record')
+        $sign_record = Db::table('cq_record')
             ->alias('r')
             ->field('r.start_time, r.end_time')
-            ->join('result t', 't.record_id = r.id')
+            ->join('cq_result t', 't.record_id = r.id')
             ->where($where)
             ->select();
 

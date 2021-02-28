@@ -88,7 +88,7 @@ Page({
               icon: 'loading',
               duration: 400
             })
-            if (getApp().globalData.user.user == 'counselor') {
+            if (getApp().globalData.user.user == 'instructor') {
               //console.log(that.data.id.length),
               wx.reLaunch({
                 url: '/pages/teacher_index/teacher_index'
@@ -233,7 +233,7 @@ Page({
                 icon: 'loading',
                 duration: 400
               })
-              if (getApp().globalData.user.user == 'counselor') {
+              if (getApp().globalData.user.user == 'instructor') {
                 wx.reLaunch({
                   url: '/pages/teacher_index/teacher_index'
                 })

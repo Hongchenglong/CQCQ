@@ -3,6 +3,7 @@
 namespace app\api\controller;
 
 use think\Validate;
+use think\Db;
 
 class Forget extends BaseController
 {
@@ -27,12 +28,12 @@ class Forget extends BaseController
         }
 
         //判断是否存在该用户
-        $user = Db('student')
+        $user = Db::table('cq_student')
             ->where(['phone' => $_POST['phone']])
             ->find();
 
         if (empty($user)) {
-            $user = Db('counselor')
+            $user = Db::table('cq_instructor')
                 ->where(['phone' => $_POST['phone']])
                 ->find();
         }
@@ -91,12 +92,12 @@ class Forget extends BaseController
         }
 
         //判断是否存在该用户
-        $user = Db('student')
+        $user = Db::table('cq_student')
             ->where(['email' => $_POST['email']])
             ->find();
 
         if (empty($user)) {
-            $user = Db('counselor')
+            $user = Db::table('cq_instructor')
                 ->where(['email' => $_POST['email']])
                 ->find();
         }
@@ -177,17 +178,17 @@ class Forget extends BaseController
 
         //更新数据
         if ($res) {
-            if (Db('student')->where(['email' => $_POST['email']])->find()) {
-                $result = Db('student')->where(['email' => $_POST['email']])->setField('password', md5($_POST['password']));
-            } else if (Db('counselor')->where(['email' => $_POST['email']])->find()) {
-                $result = Db('counselor')->where(['email' => $_POST['email']])->setField('password', md5($_POST['password']));
+            if (Db::table('cq_student')->where(['email' => $_POST['email']])->find()) {
+                $result = Db::table('cq_student')->where(['email' => $_POST['email']])->setField('password', md5($_POST['password']));
+            } else if (Db::table('cq_instructor')->where(['email' => $_POST['email']])->find()) {
+                $result = Db::table('cq_instructor')->where(['email' => $_POST['email']])->setField('password', md5($_POST['password']));
             }
         } else {
 
-            if (Db('student')->where(['phone' => $_POST['phone']])->find()) {
-                $result = Db('student')->where(['phone' => $_POST['phone']])->setField('password', md5($_POST['password']));
-            } else if (Db('counselor')->where(['phone' => $_POST['phone']])->find()) {
-                $result = Db('counselor')->where(['phone' => $_POST['phone']])->setField('password', md5($_POST['password']));
+            if (Db::table('cq_student')->where(['phone' => $_POST['phone']])->find()) {
+                $result = Db::table('cq_student')->where(['phone' => $_POST['phone']])->setField('password', md5($_POST['password']));
+            } else if (Db::table('cq_instructor')->where(['phone' => $_POST['phone']])->find()) {
+                $result = Db::table('cq_instructor')->where(['phone' => $_POST['phone']])->setField('password', md5($_POST['password']));
             }
         }
 

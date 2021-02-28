@@ -1,7 +1,7 @@
 <?php
 
 namespace app\api\controller;
-
+use think\Db;
 class Record extends BaseController
 {
     /**
@@ -37,11 +37,11 @@ class Record extends BaseController
         $where['start_time'] = $_POST['start_time'];
         $where['end_time'] = $_POST['end_time'];
 
-        $record = Db('record')
+        $record = Db::table('cq_record')
             ->alias('r')    // 别名
             ->field('r.id')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('deleted', 0)
             ->find();
@@ -76,11 +76,11 @@ class Record extends BaseController
                     $where['start_time'] = $_POST['start_time'];
                     $where['end_time'] = $_POST['end_time'];
 
-                    $photo = Db('record')
+                    $photo = Db::table('cq_record')
                         ->alias('r')    // 别名
                         ->field('r.photo')
-                        ->join('dorm d', 'd.id = r.dorm_id')
-                        ->join('student s', 's.dorm = d.dorm_num')
+                        ->join('cq_dorm d', 'd.id = r.dorm_id')
+                        ->join('cq_student s', 's.dorm = d.dorm_num')
                         ->where($where)
                         ->where('deleted', 0)
                         ->find();
@@ -98,7 +98,7 @@ class Record extends BaseController
                     // 上传到数据库
                     $uploadTime = date('Y-m-d H:i:s', time());
                     $data = array('photo' => "upload/" . $day . '/' . $new_name, 'upload_time' => $uploadTime);
-                    $result = Db('record')->where(['id' => $record['id']])->setField($data);
+                    $result = Db::table('cq_record')->where(['id' => $record['id']])->setField($data);
 
                     $return_data = array();
                     $return_data['error_code'] = 0;

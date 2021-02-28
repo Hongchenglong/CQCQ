@@ -104,7 +104,7 @@ Page({
       duration:400
       })
       getApp().globalData.load = true
-      if (getApp().globalData.user.user == 'counselor') {
+      if (getApp().globalData.user.user == 'instructor') {
         getApp().globalData.PageCur = 'teacher_mine'
         wx.reLaunch({
           url: "../teacher_index/teacher_index",

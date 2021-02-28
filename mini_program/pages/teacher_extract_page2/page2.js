@@ -120,7 +120,7 @@ Page({
           wx.request({
             url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/verifyResults',
             data: {
-              counselor_id: getApp().globalData.user.id,
+              instructor_id: getApp().globalData.user.id,
               department: that.data.dep,
               grade: that.data.grade,
               start_time: that.data.date_1 + " " + that.data.time1,

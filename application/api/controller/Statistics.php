@@ -2,6 +2,8 @@
 
 namespace app\api\controller;
 
+use think\Db;
+
 class Statistics extends Face
 {
     /**
@@ -38,11 +40,11 @@ class Statistics extends Face
             return json($return_data);
         }
 
-        $img = Db('record')  // 提取该宿舍照片
+        $img = Db::table('cq_record')  // 提取该宿舍照片
             ->alias('r')
             ->field('r.photo, s.id, s.username')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
@@ -51,11 +53,11 @@ class Statistics extends Face
         $stu_name = array_column($img, 'username'); // 提取姓名
         $photo = array_unique(array_column($img, 'photo'))[0]; // 提取photo列并去重
 
-        Db('record')   // 重新上传照片后，本宿舍中的学号下的签到sign清零
+        Db::table('cq_record')   // 重新上传照片后，本宿舍中的学号下的签到sign清零
             ->alias('r')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
-            ->join('result t', 't.record_id = r.id')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
+            ->join('cq_result t', 't.record_id = r.id')
             ->where($where)
             ->setField('t.sign', 0);
 
@@ -89,9 +91,9 @@ class Statistics extends Face
                     $where['r.deleted'] = 0;
                     $where['t.student_id'] = $sign_stu[$key];
 
-                    Db('record')   // 本宿舍识别到的学号记录下sign记为1
+                    Db::table('cq_record')   // 本宿舍识别到的学号记录下sign记为1
                         ->alias('r')
-                        ->join('result t', 't.record_id = r.id')
+                        ->join('cq_result t', 't.record_id = r.id')
                         ->where($where)
                         ->setField('t.sign', 1);
                 }
@@ -110,7 +112,7 @@ class Statistics extends Face
         // 通过学号匹配该学生的姓名
         if (!empty($return_data['unsign_stu'])) {  
             foreach ($unsign_stu as $key => $value) {
-                $name = Db('student')
+                $name = Db::table('cq_student')
                     ->field('username')
                     ->where('id', $unsign_stu[$key])
                     ->find();
@@ -121,7 +123,7 @@ class Statistics extends Face
 
         if (!empty($return_data['sign_stu'])) {
             foreach ($sign_stu as $key => $value) {
-                $name = Db('student')
+                $name = Db::table('cq_student')
                     ->field('username')
                     ->where('id', $sign_stu[$key])
                     ->find();
@@ -158,12 +160,12 @@ class Statistics extends Face
         $where['r.deleted'] = 0;
         $where['t.sign'] = 0;
 
-        $list = Db('result')   // 查找未签到人员信息
+        $list = Db::table('cq_result')   // 查找未签到人员信息
             ->field('s.id, s.username, d.dorm_num')
             ->alias('t')
-            ->join('student s', 's.id = t.student_id')
-            ->join('record r', 't.record_id = r.id')
-            ->join('dorm d', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.id = t.student_id')
+            ->join('cq_record r', 't.record_id = r.id')
+            ->join('cq_dorm d', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
@@ -175,12 +177,12 @@ class Statistics extends Face
         }
 
         $where['t.sign'] = 1;
-        $num = Db('result')   // 查找已签到人员
+        $num = Db::table('cq_result')   // 查找已签到人员
             ->field('s.id')
             ->alias('t')
-            ->join('student s', 's.id = t.student_id')
-            ->join('record r', 't.record_id = r.id')
-            ->join('dorm d', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.id = t.student_id')
+            ->join('cq_record r', 't.record_id = r.id')
+            ->join('cq_dorm d', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();

@@ -14,7 +14,7 @@ class Index
 
     public function test()
     {
-        $result = Db::table('student')
+        $result = Db::table('cq_student')
         ->field('sex')
         ->where('id', 211706174)
         ->find();

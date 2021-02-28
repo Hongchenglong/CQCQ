@@ -37,7 +37,7 @@ class Table extends BaseController
 	public function informations()
 	{
 		Db::connect();
-		$result = db('Student', [], false)->select();
+		$result = db('cq_student', [], false)->select();
 		sort($result);
 		foreach ($result as &$res){
 		    if(!$res['face']){
@@ -63,7 +63,7 @@ class Table extends BaseController
 		$id = Request::instance()->post('id');
 		// dump($id);
 		$where = ['id' => $id];
-		$data = Db('Student')
+		$data = Db::table('cq_student')
 			->field('id,sex,phone,grade,department,dorm,email')
 			->where($where)
 			->find();
@@ -92,7 +92,7 @@ class Table extends BaseController
 		$dorm = Request::instance()->post('dorm');
 
 		$where = ['id' => $id];
-		$data_id = Db('Student')->where($where)->find();
+		$data_id = Db::table('cq_student')->where($where)->find();
 		$data =
 			[
 				'id' => $id,
@@ -112,7 +112,7 @@ class Table extends BaseController
 			echo " history.back();\r\n";
 			echo "</script>";
 		} else {
-			Db('Student')->insert($data);
+			Db::table('cq_student')->insert($data);
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " alert(\"添加成功\");\r\n";
 			echo " history.back();\r\n";
@@ -127,7 +127,7 @@ class Table extends BaseController
 			$student_id = Request::instance()->get('student_id');
 			$students = explode('_', $student_id);
 			foreach ($students as $id) {
-				Db::table('student')->where('id', $id)->delete();
+				Db::table('cq_student')->where('id', $id)->delete();
 			}
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " history.back();\r\n";
@@ -149,7 +149,7 @@ class Table extends BaseController
 		$department = Request::instance()->post('department');
 		$dorm = Request::instance()->post('dorm');
 
-		$result = Db('Student')
+		$result = Db::table('cq_student')
 			->where(['id'  => $id])
 			->update([
 				'sex' => $sex,
@@ -211,7 +211,7 @@ class Table extends BaseController
 		}
 		for ($i = 1; $i < $n - 1; $i++) {
 			$where = ['id' => $reutrn_data[$i][1]];
-			$data_id = Db('Student')->where($where)->find();
+			$data_id = Db::table('cq_student')->where($where)->find();
 			if (!$data_id) {
 				$data[] = [
 					'id' => $reutrn_data[$i][1],
@@ -226,7 +226,7 @@ class Table extends BaseController
 				];
 				$insert_id = $insert_id + 1;
 			} else {
-				$result = Db('Student')
+				$result = Db::table('cq_student')
 					->where(['id'  => $reutrn_data[$i][1]])
 					->update([
 						'sex' => $reutrn_data[$i][2],
@@ -243,7 +243,7 @@ class Table extends BaseController
 			}
 		}
 
-		$in_result = Db('Student')->insertAll($data);
+		$in_result = Db::table('cq_student')->insertAll($data);
 
 		if ($in_result && $update_id) {
 			echo "<script language=\"JavaScript\">\r\n";

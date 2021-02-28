@@ -18,18 +18,18 @@ class Getinfo extends BaseController
             return json(['error_code' => 1, 'msg' => '请输入用户id！']);
         }
 
-        $get = Db('counselor')
+        $get = Db::table('cq_instructor')
             ->field('id, username, email, phone, grade, department')
             ->where(['id' => $_POST['id']])
             ->find();
 
         if (empty($get)) { //学生
-            $getStuInfo = Db('student')
+            $getStuInfo = Db::table('cq_student')
                 ->field('id, sex, username, email, phone, grade, department, dorm')
                 ->where(['id' => $_POST['id']])
                 ->find();
 
-            $getRoom = Db('dorm')
+            $getRoom = Db::table('cq_dorm')
                 ->field('id, block, room, dorm_num')
                 ->where(['dorm_num' => $getStuInfo['dorm']])
                 ->select();
@@ -66,10 +66,10 @@ class Getinfo extends BaseController
         $where['s.grade'] = $_POST['grade'];
         $where['s.department'] = $_POST['department'];
 
-        $dorm = Db('dorm')  
+        $dorm = Db::table('cq_dorm')  
             ->field('d.dorm_num')
             ->alias('d')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
@@ -86,11 +86,11 @@ class Getinfo extends BaseController
         $where['r.start_time'] = array('between', array($recent7, $today));
         $where['r.deleted'] = 0;
 
-        $recordDay7 = Db('record')  // 7天内被抽查的宿舍
+        $recordDay7 = Db::table('cq_record')  // 7天内被抽查的宿舍
             ->alias('r')
             ->field('r.start_time, d.dorm_num')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
@@ -100,11 +100,11 @@ class Getinfo extends BaseController
         }
 
         $where['r.start_time'] = array('between', array($recent30, $today));
-        $recordDay30 = Db('record')  // 30天内
+        $recordDay30 = Db::table('cq_record')  // 30天内
             ->alias('r')
             ->field('r.start_time, d.dorm_num')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
@@ -120,24 +120,24 @@ class Getinfo extends BaseController
         $where['r.deleted'] = 0;
         $where['t.sign'] = 0;
 
-        $unsign7 = Db('result')   // 7天内的未签到的学生
+        $unsign7 = Db::table('cq_result')   // 7天内的未签到的学生
             ->field('r.start_time, d.dorm_num, t.student_id, s.username')
             ->alias('t')
-            ->join('student s', 's.id = t.student_id')
-            ->join('record r', 't.record_id = r.id')
-            ->join('dorm d', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.id = t.student_id')
+            ->join('cq_record r', 't.record_id = r.id')
+            ->join('cq_dorm d', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();
 
         $where['r.start_time'] = array('between', array($recent30, $today));
 
-        $unsign30 = Db('result')   // 30天内
+        $unsign30 = Db::table('cq_result')   // 30天内
             ->field('r.start_time, d.dorm_num, t.student_id, s.username')
             ->alias('t')
-            ->join('student s', 's.id = t.student_id')
-            ->join('record r', 't.record_id = r.id')
-            ->join('dorm d', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.id = t.student_id')
+            ->join('cq_record r', 't.record_id = r.id')
+            ->join('cq_dorm d', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();

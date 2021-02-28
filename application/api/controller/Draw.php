@@ -31,10 +31,10 @@ class Draw extends BaseController
 
         // 当选择宿舍数不为0时
         if ($numOfBoys) {
-            $boy = Db::table('dorm')
-                ->field('dorm.id, dorm_num')   // 指定字段
+            $boy = Db::table('cq_dorm')
+                ->field('d.id, dorm_num')   // 指定字段
                 ->alias('d')    // 别名
-                ->join('student s', 's.dorm = d.dorm_num')
+                ->join('cq_student s', 's.dorm = d.dorm_num')
                 ->where($where)
                 ->where('sex', '男')
                 ->orderRaw('rand()') // 随机
@@ -49,10 +49,10 @@ class Draw extends BaseController
         }
 
         if ($numOfGirls) {
-            $girl = Db::table('dorm')
-                ->field('dorm.id, dorm_num')   // 指定字段
+            $girl = Db::table('cq_dorm')
+                ->field('d.id, dorm_num')   // 指定字段
                 ->alias('d')    // 别名
-                ->join('student s', 's.dorm = d.dorm_num')
+                ->join('cq_student s', 's.dorm = d.dorm_num')
                 ->where($where)
                 ->where('sex', '女')
                 ->orderRaw('rand()')
@@ -112,10 +112,10 @@ class Draw extends BaseController
         for ($i = 0; $i < $len; $i++) {
             $where['room']  = $room[$i];
             $where['block'] = $block[$i];
-            $result = Db::table('dorm')
-                ->field('dorm.id, dorm_num')   // 指定字段
+            $result = Db::table('cq_dorm')
+                ->field('d.id, dorm_num')   // 指定字段
                 ->alias('d')    // 别名
-                ->join('student s', 's.dorm = d.dorm_num')
+                ->join('cq_student s', 's.dorm = d.dorm_num')
                 ->where($where)
                 ->find();
 
@@ -168,9 +168,9 @@ class Draw extends BaseController
         $where['d.dorm_dep'] = $_POST['department'];
         $where['room']  = $_POST['room'];
         $where['block'] = $_POST['block'];
-        $result = Db::table('dorm')
+        $result = Db::table('cq_dorm')
             ->alias('d')    // 别名
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->find();
 
@@ -204,19 +204,21 @@ class Draw extends BaseController
             return json(['error_code' => 1, 'msg' => '请输入宿舍id！']);
         } else if (empty($_POST['rand_num'])) {
             return json(['error_code' => 1, 'msg' => '请输入随机数！']);
+        } else if (empty($_POST['instructor_id'])) {
+            return json(['error_code' => 1, 'msg' => '请输入辅导员学工号！']);
         }
 
         // 先查看是否有这个时间段的记录，有则删除
         $result = Db::query(
-            "delete r.* from record r join dorm d on d.id = r.dorm_id
+            "delete r.* from cq_record r join cq_dorm d on d.id = r.dorm_id
             where d.dorm_grade=:grade and d.dorm_dep=:dep and r.start_time=:start and r.end_time=:end",
             ['grade' => $_POST['grade'], 'dep' => $_POST['department'], 'start'=> $_POST['start_time'], 'end' => $_POST['end_time']]
         );
 
         // 插入notice数据库中，查寝结束后发送邮件通知辅导员
-        $notice = db('notice')->where(['counselor_id' => $_POST['counselor_id'], 'start_time' => $_POST['start_time'], 'end_time' => $_POST['end_time']])->find();
+        $notice = Db::table('cq_notice')->where(['instructor_id' => $_POST['instructor_id'], 'start_time' => $_POST['start_time'], 'end_time' => $_POST['end_time']])->find();
         if (empty($notice)) {
-            db('notice')->insert(['counselor_id' => $_POST['counselor_id'], 'start_time' => $_POST['start_time'], 'end_time' => $_POST['end_time']]);
+            Db::table('cq_notice')->insert(['instructor_id' => $_POST['instructor_id'], 'start_time' => $_POST['start_time'], 'end_time' => $_POST['end_time']]);
         }
 
         // 查询条件
@@ -233,11 +235,11 @@ class Draw extends BaseController
         for ($i = 0; $i < $len; $i++) {
             $data['dorm_id'] = $dorm_id[$i];
             $data['rand_num'] = $rand_num[$i];
-            $record_id = Db::table('record')->insertGetId($data);
+            $record_id = Db::table('cq_record')->insertGetId($data);
 
             // 用dorm_id找到宿舍号，再用宿舍号到学生表中找该宿舍的学生学号
-            $dorm_num = db('dorm')->field('dorm_num')->where('id', '=', $data['dorm_id'])->find();
-            $students = db('student')->field('id')
+            $dorm_num = Db::table('cq_dorm')->field('dorm_num')->where('id', '=', $data['dorm_id'])->find();
+            $students = Db::table('cq_student')->field('id')
                 ->where([
                     'dorm' => $dorm_num['dorm_num'],
                     'grade' => $_POST['grade'],
@@ -250,14 +252,14 @@ class Draw extends BaseController
             $cnt = sizeof($students);
             for ($j = 0; $j < $cnt; $j++) {
                 if ($first) {
-                    $phone = db('student')->field('phone')->where(['id' => $students[$j]['id']])->find();
+                    $phone = Db::table('cq_student')->field('phone')->where(['id' => $students[$j]['id']])->find();
                     if (!empty($phone['phone'])) {
                         $first = 0;
                         $res = $this->MsgNotice($phone['phone'], $rand_num[$i]);
                     }
                 }
                 // 将找到的学号和记录号依次插入到result表中
-                $result = db('result')->insert(['record_id' => $record_id, 'student_id' => $students[$j]['id']]);
+                $result = Db::table('cq_result')->insert(['record_id' => $record_id, 'student_id' => $students[$j]['id']]);
             }
         }
 
@@ -288,11 +290,11 @@ class Draw extends BaseController
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
         $where['start_time'] = $_POST['start_time'];
-        $result = Db::table('record')
+        $result = Db::table('cq_record')
             ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->select();
 
@@ -326,11 +328,11 @@ class Draw extends BaseController
         $where = array();
         $where['grade'] = $_POST['grade'];
         $where['department'] = $_POST['department'];
-        $result = Db::table('record')
+        $result = Db::table('cq_record')
             ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('end_time', '> time', $now)
             ->select();
@@ -365,22 +367,22 @@ class Draw extends BaseController
         $where['department'] = $_POST['department'];
 
         // 先找到本系、本年级的id最大的开始时间和结束时间
-        $recentTime = Db::table('record')
+        $recentTime = Db::table('cq_record')
             ->field('r.id, start_time, end_time')
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('deleted', 0)
             ->order('r.id desc')
             ->find();
 
         // 再用这个时间去找和它同一批的数据
-        $result = Db::table('record')
+        $result = Db::table('cq_record')
             ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('start_time', $recentTime['start_time'])
             ->where('end_time', $recentTime['end_time'])
@@ -419,17 +421,17 @@ class Draw extends BaseController
         $where['d.dorm_dep'] = $_POST['department'];
 
         $boys = $girls = array();
-        $boys = Db::table('dorm')
+        $boys = Db::table('cq_dorm')
             ->alias('d')    // 别名
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('s.sex', '男')
             // ->distinct("d.dorm_num")
             ->count('d.id');
 
-        $girls = Db::table('dorm')
+        $girls = Db::table('cq_dorm')
             ->alias('d')    // 别名
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->where('s.sex', '女')
             // ->distinct("d.dorm_num")

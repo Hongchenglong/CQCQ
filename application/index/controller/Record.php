@@ -25,11 +25,11 @@ class Record extends BaseController
         $grade = Session::get('grade');
         $department = Session::get('department');
 
-        $record = Db::table('record')
+        $record = Db::table('cq_record')
             ->field('start_time, end_time')   // 指定字段
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where(['grade' => $grade])
             ->where(['department' => $department])
             ->where(['deleted' => 0])
@@ -74,11 +74,11 @@ class Record extends BaseController
         $date = Request::instance()->post('date');
         $grade = Session::get('grade');
         $department = Session::get('department');
-        $drecord = Db::table('record')
+        $drecord = Db::table('cq_record')
             ->field('start_time, end_time')
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->distinct(true)   // 返回唯一不同的值
             ->where('start_time', 'between time', [$date . ' 00:00:00', $date . ' 23:59:59'])
             ->where(['grade' => $grade])
@@ -152,12 +152,12 @@ class Record extends BaseController
         $where['r.end_time'] = $_POST['end_time'];
         $where['r.deleted'] = 0;
 
-        $dorm = Db('result')  // 该条记录信息
+        $dorm = Db::table('cq_result')  // 该条记录信息
             ->field('d.dorm_num, s.id, re.sign')
             ->alias('re')
-            ->join('record r', 're.record_id = r.id')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = re.student_id')
+            ->join('cq_record r', 're.record_id = r.id')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.id = re.student_id')
             ->where($where)
             ->distinct(true)
             ->select();

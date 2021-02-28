@@ -24,7 +24,7 @@ class Login extends Controller
 
 		$where = ['id' => $uaccount, 'password' => $password];
 
-		$data = Db('counselor') //比对用户名密码是否正确
+		$data = Db::table('cq_instructor') //比对用户名密码是否正确
 			->field('*')
 			->where($where)
 			->find();

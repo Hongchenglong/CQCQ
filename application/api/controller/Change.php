@@ -3,6 +3,7 @@
 namespace app\api\controller;
 
 use think\Validate;
+use think\Db;
 
 class Change extends BaseController
 {
@@ -18,7 +19,7 @@ class Change extends BaseController
         }
 
         //验证规则（昵称）
-        if (Db('student')->where(['id' => $_POST['id']])->find()) {
+        if (Db::table('cq_student')->where(['id' => $_POST['id']])->find()) {
             $vusername = new Validate([['username', 'require|/^[a-zA-Z\x{4e00}-\x{9fa5}]{2,16}$/u']]); // 注：汉字只占一个字符
         } else {
             $vusername = new Validate([['username', 'require|/^[a-zA-Z\x{4e00}-\x{9fa5}]{2,16}$/u']]);
@@ -31,10 +32,10 @@ class Change extends BaseController
         }
 
         // 更新数据
-        if (Db('student')->where(['id' => $_POST['id']])->find()) {
-            $result = Db('student')->where(['id' => $_POST['id']])->setField('username', $_POST['username']);
+        if (Db::table('cq_student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db::table('cq_student')->where(['id' => $_POST['id']])->setField('username', $_POST['username']);
         } else {
-            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('username', $_POST['username']);
+            $result = Db::table('cq_instructor')->where(['id' => $_POST['id']])->setField('username', $_POST['username']);
         }
 
         if ($result) {
@@ -64,10 +65,10 @@ class Change extends BaseController
         }
 
         //更新数据
-        if (Db('student')->where(['id' => $_POST['id']])->find()) {
-            $result = Db('student')->where(['id' => $_POST['id']])->setField('grade', $_POST['grade']);
+        if (Db::table('cq_student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db::table('cq_student')->where(['id' => $_POST['id']])->setField('grade', $_POST['grade']);
         } else {
-            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('grade', $_POST['grade']);
+            $result = Db::table('cq_instructor')->where(['id' => $_POST['id']])->setField('grade', $_POST['grade']);
         }
 
         if ($result) {
@@ -98,10 +99,10 @@ class Change extends BaseController
         }
 
         //更新数据
-        if (Db('student')->where(['id' => $_POST['id']])->find()) {
-            $result = Db('student')->where(['id' => $_POST['id']])->setField('department', $_POST['department']);
+        if (Db::table('cq_student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db::table('cq_student')->where(['id' => $_POST['id']])->setField('department', $_POST['department']);
         } else {
-            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('department', $_POST['department']);
+            $result = Db::table('cq_instructor')->where(['id' => $_POST['id']])->setField('department', $_POST['department']);
         }
         if ($result) {
             $return_data = array();
@@ -137,7 +138,7 @@ class Change extends BaseController
         $dormNumber = $_POST['block'] . '#' . $_POST['room'];
 
         // 获取自己信息里的宿舍
-        $judge = Db('dorm')
+        $judge = Db::table('cq_dorm')
             ->field('dorm_num')
             ->where(['id' => $_POST['id']])
             ->find();
@@ -146,7 +147,7 @@ class Change extends BaseController
         if ($judge['dorm_num'] == $dormNumber) { // 与自己的原宿舍一致 =>不允许修改
             $result = 0;
         }else{
-            $result = Db('student')->where(['id' => $_POST['id']])->setField('dorm', $dormNumber);
+            $result = Db::table('cq_student')->where(['id' => $_POST['id']])->setField('dorm', $dormNumber);
         }
 
         if ($result) {
@@ -185,10 +186,10 @@ class Change extends BaseController
         }
 
         // 先从学生表中查询，若不存在从辅导员表中查询
-        $user = Db('student')->where(['id' => $_POST['id']])->find();
+        $user = Db::table('cq_student')->where(['id' => $_POST['id']])->find();
 
         if (empty($user)) {
-            $user = Db('counselor')->where(['id' => $_POST['id']])->find();
+            $user = Db::table('cq_instructor')->where(['id' => $_POST['id']])->find();
         }
 
         //判断原密码
@@ -218,10 +219,10 @@ class Change extends BaseController
         }
 
         //更新数据
-        if (Db('student')->where(['id' => $_POST['id']])->find()) {
-            $result = Db('student')->where(['id' => $_POST['id']])->setField('password', md5($_POST['newPassword']));
+        if (Db::table('cq_student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db::table('cq_student')->where(['id' => $_POST['id']])->setField('password', md5($_POST['newPassword']));
         } else {
-            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('password', md5($_POST['newPassword']));
+            $result = Db::table('cq_instructor')->where(['id' => $_POST['id']])->setField('password', md5($_POST['newPassword']));
         }
 
         if ($result) {
@@ -255,13 +256,13 @@ class Change extends BaseController
         }
 
         //查看该id下的手机号
-        $userPhone = Db('counselor') //辅导员
+        $userPhone = Db::table('cq_instructor') //辅导员
             ->field('phone')
             ->where(['id' => $_POST['id']])
             ->find();
 
         if (empty($userPhone)) {
-            $userPhone = Db('student') //学生
+            $userPhone = Db::table('cq_student') //学生
                 ->field('phone')
                 ->where(['id' => $_POST['id']])
                 ->find();
@@ -273,12 +274,12 @@ class Change extends BaseController
         }
 
         // 判断输入的手机号是否已经被他人绑定
-        $user = Db('counselor') //辅导员
+        $user = Db::table('cq_instructor') //辅导员
             ->where(['phone' => $_POST['phone']])
             ->find();
 
         if (empty($user)) {
-            $user = Db('student')  //学生
+            $user = Db::table('cq_student')  //学生
                 ->where(['phone' => $_POST['phone']])
                 ->find();
         }
@@ -318,10 +319,10 @@ class Change extends BaseController
 
         // 判断用户类型
         // 更新数据
-        if (Db('student')->where(['id' => $_POST['id']])->find()) {
-            $result = Db('student')->where(['id' => $_POST['id']])->setField('phone', $_POST['phone']);
+        if (Db::table('cq_student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db::table('cq_student')->where(['id' => $_POST['id']])->setField('phone', $_POST['phone']);
         } else {
-            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('phone', $_POST['phone']);
+            $result = Db::table('cq_instructor')->where(['id' => $_POST['id']])->setField('phone', $_POST['phone']);
         }
 
         if ($result) {
@@ -359,13 +360,13 @@ class Change extends BaseController
         }
 
         //查看该id下的email
-        $userEmail = Db('counselor') //辅导员
+        $userEmail = Db::table('cq_instructor') //辅导员
             ->field('email')
             ->where(['id' => $_POST['id']])
             ->find();
 
         if (empty($userEmail)) {
-            $userEmail = Db('student') //学生
+            $userEmail = Db::table('cq_student') //学生
                 ->field('email')
                 ->where(['id' => $_POST['id']])
                 ->find();
@@ -377,12 +378,12 @@ class Change extends BaseController
         }
 
         // 判断输入的邮箱是否已经被他人绑定
-        $user = Db('counselor') //辅导员
+        $user = Db::table('cq_instructor') //辅导员
             ->where(['email' => $_POST['email']])
             ->find();
 
         if (empty($user)) {
-            $user = Db('student')  //学生
+            $user = Db::table('cq_student')  //学生
                 ->where(['email' => $_POST['email']])
                 ->find();
         }
@@ -421,10 +422,10 @@ class Change extends BaseController
         }
 
         // 判断用户类型
-        if (Db('student')->where(['id' => $_POST['id']])->find()) {
-            $result = Db('student')->where(['id' => $_POST['id']])->setField('email', $_POST['email']);
+        if (Db::table('cq_student')->where(['id' => $_POST['id']])->find()) {
+            $result = Db::table('cq_student')->where(['id' => $_POST['id']])->setField('email', $_POST['email']);
         } else {
-            $result = Db('counselor')->where(['id' => $_POST['id']])->setField('email', $_POST['email']);
+            $result = Db::table('cq_instructor')->where(['id' => $_POST['id']])->setField('email', $_POST['email']);
         }
 
         if ($result) {

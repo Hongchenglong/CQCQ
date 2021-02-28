@@ -41,7 +41,7 @@ class Face extends BaseController
         }
 
         $data = array('face' => $img);
-        Db('student')->where(['id' => $id])->setField($data);
+        Db::table('cq_student')->where(['id' => $id])->setField($data);
 
         $token = $this->get_token();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/add?access_token=' . $token;
@@ -165,7 +165,7 @@ class Face extends BaseController
                 $student_id = explode("_", explode(".", $v)[0])[0];
                 $name[$k]['student_id'] = $student_id;
                 $name[$k]['file_path'] = $toDir . '/' . $file_path . '/' . $v;
-                $name[$k]['dorm'] = Db('student')->where(['id' => $student_id])->field('dorm')->find()['dorm'];
+                $name[$k]['dorm'] = Db::table('cq_student')->where(['id' => $student_id])->field('dorm')->find()['dorm'];
             }
         } else {
             $files = scandir($toDir);
@@ -176,7 +176,7 @@ class Face extends BaseController
 
                 $name[$k]['student_id'] = $student_id;
                 $name[$k]['file_path'] = $toDir . '/' . $v;
-                $name[$k]['dorm'] = Db('student')->where(['id' => $student_id])->field('dorm')->find()['dorm'];
+                $name[$k]['dorm'] = Db::table('cq_student')->where(['id' => $student_id])->field('dorm')->find()['dorm'];
             }
         }
 
@@ -252,7 +252,7 @@ class Face extends BaseController
             $res = json_decode($res, true);
 
             if ($res['error_code'] == 0) {
-                Db('student') // 保存人脸照片路径至服务器
+                Db::table('cq_student') // 保存人脸照片路径至服务器
                     ->where('id', $_POST['id'])
                     ->setField('face', $path);
                 return json(['error_code' => 0, 'msg' => '添加人脸库成功！']);

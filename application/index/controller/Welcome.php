@@ -45,11 +45,11 @@ class Welcome extends BaseController
         $where['re.sign'] = 0;
         $where['r.deleted'] = 0;
 
-        $more = Db('result')
+        $more = Db::table('cq_result')
             ->field('re.student_id,count(*) as num')
             ->alias('re')
-            ->join('record r', 're.record_id = r.id')
-            ->join('student s', 's.id = re.student_id')
+            ->join('cq_record r', 're.record_id = r.id')
+            ->join('cq_student s', 's.id = re.student_id')
             ->group('re.student_id')
             ->where($where)
             ->where('r.end_time', '<', $time)
@@ -65,7 +65,7 @@ class Welcome extends BaseController
                 if ($more[$i]['num'] >= 3) {
                     $return_data[$j]['student_id'] = $more[$i]['student_id'];
                     $return_data[$j]['num'] = $more[$i]['num'];
-                    $st_name = Db('student')
+                    $st_name = Db::table('cq_student')
                         ->field('username')
                         ->where('id', '=', $more[$i]['student_id'])
                         ->distinct(true)
@@ -114,11 +114,11 @@ class Welcome extends BaseController
         $where = ['grade' => $grade, 'department' => $department, 'r.deleted' => 0];
 
         Db::connect();
-        $record = Db::table('record')
+        $record = Db::table('cq_record')
             ->field('start_time, end_time')
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where('start_time', 'between time', [$date . ' 00:00:00', $date . ' 23:59:59'])
             ->where($where)
             ->distinct(true)   // 返回唯一不同的值
@@ -129,12 +129,12 @@ class Welcome extends BaseController
             rsort($record);  //排序
             $j = 0;
             for ($i = 0; $i < count($record); $i++) {
-                $dorm = Db('result')  // 该条记录信息
+                $dorm = Db::table('cq_result')  // 该条记录信息
                     ->field('d.dorm_num, s.id')
                     ->alias('re')
-                    ->join('record r', 're.record_id = r.id')
-                    ->join('dorm d', 'd.id = r.dorm_id')
-                    ->join('student s', 's.id = re.student_id')
+                    ->join('cq_record r', 're.record_id = r.id')
+                    ->join('cq_dorm d', 'd.id = r.dorm_id')
+                    ->join('cq_student s', 's.id = re.student_id')
                     ->where('re.sign', '=', 0)
                     ->where('start_time', '=', $record[$i]['start_time'])
                     ->where('end_time', '=', $record[$i]['end_time'])
@@ -199,12 +199,12 @@ class Welcome extends BaseController
         $where['re.sign'] = 0;
         $where['r.deleted'] = 0;
 
-        $dorm = Db('result')  // 该条记录信息
+        $dorm = Db::table('cq_result')  // 该条记录信息
             ->field('d.dorm_num, s.id')
             ->alias('re')
-            ->join('record r', 're.record_id = r.id')
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('student s', 's.id = re.student_id')
+            ->join('cq_record r', 're.record_id = r.id')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.id = re.student_id')
             ->where($where)
             ->distinct(true)
             ->select();
@@ -270,16 +270,16 @@ class Welcome extends BaseController
         $week_date = $this->get_Week(); //获取一周所有的日期
         // print_r($week_date);
 
-        $dorm = Db('dorm')  // 查找一共有多少宿舍
+        $dorm = Db::table('cq_dorm')  // 查找一共有多少宿舍
             ->field('dorm_num')
             ->alias('d')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where(['dorm_grade' => $grade, 'dorm_dep' => $department])
             ->distinct(true)
             ->select();
         $total_dorm = count($dorm);
 
-        $stu = Db::table('student') // 获取一共有多少学生
+        $stu = Db::table('cq_student') // 获取一共有多少学生
             ->field('id')
             ->where(['grade' => $grade, 'department' => $department])
             ->distinct(true)
@@ -292,12 +292,12 @@ class Welcome extends BaseController
         $where['r.start_time'] = array('between', array($week_date[0]['date'], $week_date[6]['date']));
         $where['r.deleted'] = 0;
 
-        $re_week = Db::table('record') // 获取一周所有记录的时间
+        $re_week = Db::table('cq_record') // 获取一周所有记录的时间
             ->field('start_time, end_time,d.dorm_num,student_id')
             ->alias('r')    // 别名
-            ->join('dorm d', 'd.id = r.dorm_id')
-            ->join('result t', 't.record_id = r.id')
-            ->join('student s', 's.dorm = d.dorm_num')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_result t', 't.record_id = r.id')
+            ->join('cq_student s', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)   // 返回唯一不同的值
             ->select();
@@ -310,12 +310,12 @@ class Welcome extends BaseController
         $where['r.deleted'] = 0;
         $where['t.sign'] = 0;
 
-        $unsign_week = Db('result')   // 每周每天 多少人/多少宿舍 未签到
+        $unsign_week = Db::table('cq_result')   // 每周每天 多少人/多少宿舍 未签到
             ->field('r.start_time, d.dorm_num, t.student_id')
             ->alias('t')
-            ->join('student s', 's.id = t.student_id')
-            ->join('record r', 't.record_id = r.id')
-            ->join('dorm d', 's.dorm = d.dorm_num')
+            ->join('cq_student s', 's.id = t.student_id')
+            ->join('cq_record r', 't.record_id = r.id')
+            ->join('cq_dorm d', 's.dorm = d.dorm_num')
             ->where($where)
             ->distinct(true)
             ->select();

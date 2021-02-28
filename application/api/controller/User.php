@@ -29,13 +29,13 @@ class User extends BaseController
         $where['id'] = $_POST['id'];
 
         // 先从辅导员表中查询，若不存在从学生表中查询
-        $user = Db::table('counselor')
+        $user = Db::table('cq_instructor')
             ->where($where)
             ->find();
-        if ($user) $user['user'] = 'counselor';
+        if ($user) $user['user'] = 'instructor';
 
         if (empty($user)) {
-            $user = Db::table('student')
+            $user = Db::table('cq_student')
                 ->where($where)
                 ->find();
             if ($user) $user['user'] = 'student';
@@ -140,11 +140,11 @@ class User extends BaseController
 
         // 从数据库中查找是否有该openid
         // 先从辅导员表中查询，若不存在从学生表中查询
-        $user = db('counselor')->where('openid', $openid)->find();
-        if ($user) $user['user'] = 'counselor';
+        $user = Db::table('cq_instructor')->where('openid', $openid)->find();
+        if ($user) $user['user'] = 'instructor';
 
         if (empty($user)) {
-            $user = db('student')->where('openid', $openid)->find();
+            $user = Db::table('cq_student')->where('openid', $openid)->find();
             if ($user) $user['user'] = 'student';
         }
 
