@@ -1,0 +1,39 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "admin/index/index.html"
+  },
+  "logoInfo": {
+    "title": "CQCQ",
+    "image": "/cqcq/public/images/owl.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "title": "后台管理系统",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "主页",
+          "href": "admin/index/index.html",
+          "icon": "fa fa-home",
+          "target": ""
+        },
+        {
+          "title": "学生管理",
+          "href": "index/table/table.html",
+          "icon": "fa fa-calendar",
+          "target": ""
+        },
+        {
+          "title": "查寝记录",
+          "icon": "fa fa-bar-chart",
+          "href": "index/record/record.html",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

@@ -15,6 +15,6 @@ class Column extends BaseController
 	public function out()
     {
 		Session::clear();
-		 $this->redirect("/cqcq/public/index.php/index/login/index");
+		$this->redirect("/cqcq/public/index.php/index/login/index");
 	}
 }

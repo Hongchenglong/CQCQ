@@ -37,7 +37,8 @@ class Table extends BaseController
 	public function informations()
 	{
 		Db::connect();
-		$result = db('cq_student', [], false)->select();
+		$result = Db::table('cq_student')->select();
+//		$result = db('cq_student', [], false)->select();
 		sort($result);
 		foreach ($result as &$res){
 		    if(!$res['face']){

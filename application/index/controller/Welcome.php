@@ -38,7 +38,7 @@ class Welcome extends BaseController
             return json($return_data);
         }
         $time = date('Y-m-d H:i:s', time());
-
+        // date('Y-m-01', strtotime(date("Y-m-d")));
         $where = array();
         $where['s.grade'] = $grade;
         $where['s.department'] = $department;
