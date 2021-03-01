@@ -25,7 +25,7 @@ class Schema extends Command
     protected function configure()
     {
         $this->setName('optimize:schema')
-            ->addOption('config', null, Option::VALUE_REQUIRED, 'db config .')
+            ->addOption('setting', null, Option::VALUE_REQUIRED, 'db setting .')
             ->addOption('db', null, Option::VALUE_REQUIRED, 'db name .')
             ->addOption('table', null, Option::VALUE_REQUIRED, 'table name .')
             ->addOption('module', null, Option::VALUE_REQUIRED, 'module name .')
@@ -38,8 +38,8 @@ class Schema extends Command
             @mkdir(RUNTIME_PATH . 'schema', 0755, true);
         }
         $config = [];
-        if ($input->hasOption('config')) {
-            $config = $input->getOption('config');
+        if ($input->hasOption('setting')) {
+            $config = $input->getOption('setting');
         }
         if ($input->hasOption('module')) {
             $module = $input->getOption('module');

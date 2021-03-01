@@ -1,7 +1,7 @@
 <?php
 
 use think\Route;
-// 缩短url路径
+// 通过路由缩短url路径，原来的访问地址会自动失效
 // Route::rule('login','index/login/index');
 // Route::rule('column','index/column/index');
 // Route::rule('user_setting','index/user/user_setting');

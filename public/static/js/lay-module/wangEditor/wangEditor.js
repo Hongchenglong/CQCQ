@@ -2936,7 +2936,7 @@ Menus.prototype = {
         var $toolbarElem = editor.$toolbarElem;
         var menus = this.menus;
         var config = editor.config;
-        // config.zIndex 是配置的编辑区域的 z-index，菜单的 z-index 得在其基础上 +1
+        // setting.zIndex 是配置的编辑区域的 z-index，菜单的 z-index 得在其基础上 +1
         var zIndex = config.zIndex + 1;
         objForEach(menus, function (key, menu) {
             var $elem = menu.$elem;

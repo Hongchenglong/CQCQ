@@ -5,27 +5,13 @@
     <title>查寝统计</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Access-Control-Allow-Origin" content="*" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="format-detection" content="telephone=no" />
-    <link
-      rel="stylesheet"
-      href="/cqcq/public/static/lib/layui-v2.5.5/css/layui.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/cqcq/public/static/css/public.css"
-      media="all"
-    />
+    <link rel="stylesheet" href="/cqcq/public/static/lib/layui-v2.5.5/css/layui.css" media="all" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="/cqcq/public/static/css/public.css" media="all"/>
     <style>
       body {
         background-color: #f2f2f2;
@@ -112,24 +98,17 @@
   <body>
     <!-- 右上角 -->
     <div class="dv">
-      <div
-        class="layui-btn-group"
-        style="float: right; margin-left: 20px; margin-right: 10px;"
-      >
+      <div class="layui-btn-group" style="float: right; margin-left: 20px; margin-right: 10px;">
         <button
           type="button"
           id="btn_all"
           class="layui-btn layui-btn-sm"
-          onclick="changeAll()"
-        >
+          onclick="changeAll()" >
           全部
         </button>
       </div>
 
-      <div
-        class="layui-inline"
-        style="float: right; background-color: #009688;"
-      >
+      <div class="layui-inline" style="float: right; background-color: #009688;">
         <button type="submit" class="layui-btn layui-btn-sm" onclick="search()">
           <i class="layui-icon"></i>搜索
         </button>
@@ -146,14 +125,11 @@
         <i class="fa fa-calendar-o date-input-icon"></i>
       </div>
     </div>
-
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;近7次查寝记录</h2>
     <!-- 查寝记录 -->
     <div class="yuan" name="st_yuan" id="st_yuan"></div>
 
-    <script
-      src="/cqcq/public/static/lib/layui-v2.5.5/layui.js"
-      charset="utf-8"
-    ></script>
+    <script src="/cqcq/public/static/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
     <script type="text/javascript">
       function changeAll() {
         location.reload();

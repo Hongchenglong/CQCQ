@@ -246,7 +246,7 @@ class App
             include RUNTIME_PATH . $module . 'init' . EXT;
         } else {
             // 加载模块配置
-            $config = Config::load(CONF_PATH . $module . 'config' . CONF_EXT);
+            $config = Config::load(CONF_PATH . $module . 'setting' . CONF_EXT);
 
             // 读取数据库配置文件
             $filename = CONF_PATH . $module . 'database' . CONF_EXT;

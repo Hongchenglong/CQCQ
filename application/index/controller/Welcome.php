@@ -18,11 +18,11 @@ class Welcome extends BaseController
     }
 
     /**
-     * 未签人员名单
+     * 本月未签警告，3次以上
+     * @return \think\response\Json
      */
     public function get_more()
     {
-        session_start();
         $grade = Session::get('grade');
         $department = Session::get('department');
         //输入判断
@@ -37,8 +37,8 @@ class Welcome extends BaseController
             $return_data['msg'] = '请输入系！';
             return json($return_data);
         }
-        $time = date('Y-m-d H:i:s', time());
-        // date('Y-m-01', strtotime(date("Y-m-d")));
+//        $time = date('Y-m-d H:i:s', time());
+        $time = date('Y-m-01 0:0:0', strtotime(date("Y-m-d")));
         $where = array();
         $where['s.grade'] = $grade;
         $where['s.department'] = $department;
@@ -52,7 +52,7 @@ class Welcome extends BaseController
             ->join('cq_student s', 's.id = re.student_id')
             ->group('re.student_id')
             ->where($where)
-            ->where('r.end_time', '<', $time)
+            ->where('r.end_time', '>', $time)
             ->order('num desc')
             ->distinct(true)
             ->select();
@@ -92,7 +92,6 @@ class Welcome extends BaseController
      */
     public function get_time()
     {
-        session_start();
         $grade = Session::get('grade');
         $department = Session::get('department');
 
@@ -164,7 +163,7 @@ class Welcome extends BaseController
      */
     public function get_records()
     {
-        session_start();
+//        session_start();
         $grade = Session::get('grade');
         $department = Session::get('department');
 

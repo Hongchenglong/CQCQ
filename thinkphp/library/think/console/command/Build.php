@@ -26,7 +26,7 @@ class Build extends Command
     {
         $this->setName('build')
             ->setDefinition([
-                new Option('config', null, Option::VALUE_OPTIONAL, "build.php path"),
+                new Option('setting', null, Option::VALUE_OPTIONAL, "build.php path"),
                 new Option('module', null, Option::VALUE_OPTIONAL, "module name"),
             ])
             ->setDescription('Build Application Dirs');
@@ -40,13 +40,13 @@ class Build extends Command
             return;
         }
 
-        if ($input->hasOption('config')) {
-            $build = include $input->getOption('config');
+        if ($input->hasOption('setting')) {
+            $build = include $input->getOption('setting');
         } else {
             $build = include APP_PATH . 'build.php';
         }
         if (empty($build)) {
-            $output->writeln("Build Config Is Empty");
+            $output->writeln("Build Setting Is Empty");
             return;
         }
         \think\Build::run($build);

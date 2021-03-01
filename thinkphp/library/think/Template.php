@@ -982,7 +982,7 @@ class Template
                     $parseStr = '\\think\\Lang::get(\'' . $param . '\')';
                     break;
                 case 'CONFIG':
-                    $parseStr = '\\think\\Config::get(\'' . $param . '\')';
+                    $parseStr = '\\think\\Setting::get(\'' . $param . '\')';
                     break;
                 default:
                     $parseStr = '\'\'';

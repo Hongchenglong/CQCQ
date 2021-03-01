@@ -231,7 +231,7 @@ class Cookie
 
         !isset(self::$init) && self::init();
 
-        // 要删除的 cookie 前缀，不指定则删除 config 设置的指定前缀
+        // 要删除的 cookie 前缀，不指定则删除 setting 设置的指定前缀
         $config = self::$config;
         $prefix = !is_null($prefix) ? $prefix : $config['prefix'];
 

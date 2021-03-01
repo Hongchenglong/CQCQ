@@ -36,7 +36,6 @@ class Table extends BaseController
 	//返回表中所有宿舍信息
 	public function informations()
 	{
-		Db::connect();
 		$result = Db::table('cq_student')->select();
 //		$result = db('cq_student', [], false)->select();
 		sort($result);

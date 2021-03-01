@@ -27,7 +27,7 @@ class ModelNotFoundException extends DbException
         $this->message = $message;
         $this->model   = $model;
 
-        $this->setData('Database Config', $config);
+        $this->setData('Database Setting', $config);
     }
 
     /**

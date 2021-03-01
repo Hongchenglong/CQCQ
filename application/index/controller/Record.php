@@ -19,7 +19,7 @@ class Record extends BaseController
     public function get_date()
     {
         // session_start();
-        Db::connect();
+//        Db::connect();
         // $grade = Request::instance()->post('grade');
         // $department = Request::instance()->post('department');
         $grade = Session::get('grade');
@@ -70,7 +70,7 @@ class Record extends BaseController
     //搜索
     public function search_date()
     {
-        session_start();
+//        session_start();
         $date = Request::instance()->post('date');
         $grade = Session::get('grade');
         $department = Session::get('department');
@@ -117,7 +117,7 @@ class Record extends BaseController
     //获取某一条记录里的签到情况
     public function dorm()
     {
-        session_start();
+//        session_start();
         $grade = Session::get('grade');
         $department = Session::get('department');
 

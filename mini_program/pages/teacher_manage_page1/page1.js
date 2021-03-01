@@ -1,4 +1,4 @@
-// pages/teacher/manage/page1/page1.js
+// pages/teacher/admin/page1/page1.js
 Page({
 
   data: {

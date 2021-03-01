@@ -7,6 +7,7 @@ use \think\Session;
 class Column extends BaseController
 {
     public function index(){
+
 		return $this->fetch();
 	}
 

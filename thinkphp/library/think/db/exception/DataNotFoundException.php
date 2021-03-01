@@ -28,7 +28,7 @@ class DataNotFoundException extends DbException
         $this->message = $message;
         $this->table   = $table;
 
-        $this->setData('Database Config', $config);
+        $this->setData('Database Setting', $config);
     }
 
     /**

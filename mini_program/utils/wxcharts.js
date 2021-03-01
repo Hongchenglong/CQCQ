@@ -1438,7 +1438,7 @@ function drawLegend(series, opts, config, context) {
     // each legend shape width 15px
     // the spacing between shape and text in each legend is the `padding`
     // each legend spacing is the `padding`
-    // legend margin top `config.padding`
+    // legend margin top `setting.padding`
 
     var _calLegendData = calLegendData(series, opts, config),
         legendList = _calLegendData.legendList;

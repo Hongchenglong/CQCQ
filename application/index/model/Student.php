@@ -1,14 +1,15 @@
 <?php
 
 
-namespace app\admin\model;
+namespace app\index\model;
+
 use think\Model;
 
 /**
- * 用户模型
- * @package app\admin\model
+ * 学生模型
+ * @package app\index\model
  */
-class Instructor extends Model
+class Student extends Model
 {
     protected $auto = ['password'];
     protected function setPasswordAttr($value)

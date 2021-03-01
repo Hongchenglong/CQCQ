@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 
+use app\index\model\Instructor;
 use \think\Controller;
 use \think\Db;
 use \think\Request;
@@ -19,25 +20,17 @@ class Login extends Controller
 
 	public function valid()
 	{
-		$uaccount = Request::instance()->post('uaccount');
-		$password = md5(Request::instance()->post('password'));
-
-		$where = ['id' => $uaccount, 'password' => $password];
-
-		$data = Db::table('cq_instructor') //比对用户名密码是否正确
-			->field('*')
-			->where($where)
-			->find();
-		
-		if (!empty($data)) {
-			$_SESSION['grade'] = $data['grade'];
-			$_SESSION['department'] = $data['department'];
-			Session::set('id', $data['id']);
-			Session::set('username', $data['username']);
-			Session::set('password', $data['password']);
-			Session::set('grade', $data['grade']);
-			Session::set('department', $data['department']);
-			$this->redirect('/cqcq/public/index.php/index/column');
+        $data = input('post.');
+        $where = ['id' => $data['id'], 'password' => md5($data['password'])];
+        $instructor = new Instructor();
+        $result = $instructor->where($where)->find();
+        if (!empty($result)) {
+            Session::set('id', $result['id']);
+            Session::set('username', $result['username']);
+            Session::set('password', $result['password']);
+            Session::set('grade', $result['grade']);
+            Session::set('department', $result['department']);
+			$this->redirect('/cqcq/public/index.php/index/column'); // 注意不能是index/column/index
 		} else {
 			$this->error("用户名或密码错误", url('index/login/index'));
 		}

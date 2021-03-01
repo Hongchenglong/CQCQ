@@ -1,11 +1,11 @@
 {
   "homeInfo": {
-    "title": "首页",
+    "title": "主页",
     "href": "index/welcome/welcome.html"
   },
   "logoInfo": {
-    "title": "LAYUI MINI",
-    "image": "images/logo.png",
+    "title": "CQCQ",
+    "image": "/cqcq/public/images/owl.png",
     "href": ""
   },
   "menuInfo": [
@@ -16,7 +16,7 @@
       "target": "_self",
       "child": [
         {
-          "title": "首页",
+          "title": "主页",
           "href": "index/welcome/welcome.html",
           "icon": "fa fa-home",
           "target": ""

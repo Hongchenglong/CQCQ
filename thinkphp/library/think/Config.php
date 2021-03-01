@@ -53,7 +53,7 @@ class Config
 
         $class = false !== strpos($type, '\\') ?
             $type :
-            '\\think\\config\\driver\\' . ucwords($type);
+            '\\think\\setting\\driver\\' . ucwords($type);
 
         return self::set((new $class())->parse($config), $name, $range);
     }

@@ -23,9 +23,9 @@ class Config extends Command
 
     protected function configure()
     {
-        $this->setName('optimize:config')
-            ->addArgument('module', Argument::OPTIONAL, 'Build module config cache .')
-            ->setDescription('Build config and common file cache.');
+        $this->setName('optimize:setting')
+            ->addArgument('module', Argument::OPTIONAL, 'Build module setting cache .')
+            ->setDescription('Build setting and common file cache.');
     }
 
     protected function execute(Input $input, Output $output)
@@ -54,7 +54,7 @@ class Config extends Command
 
         if ($module) {
             // 加载模块配置
-            $config = ThinkConfig::load(CONF_PATH . $module . 'config' . CONF_EXT);
+            $config = ThinkConfig::load(CONF_PATH . $module . 'setting' . CONF_EXT);
 
             // 读取数据库配置文件
             $filename = CONF_PATH . $module . 'database' . CONF_EXT;
