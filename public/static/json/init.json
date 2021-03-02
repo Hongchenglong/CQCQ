@@ -32,6 +32,37 @@
           "icon": "fa fa-bar-chart",
           "href": "index/record/record.html",
           "target": "_self"
+        },
+        {
+          "title": "系统设置",
+          "icon": "fa fa-gears",
+          "target": "_self",
+          "child": [
+            {
+              "title": "微信小程序",
+              "href": "setting/wxapp.html",
+              "icon": "fa fa-comments",
+              "target": "_self"
+            },
+            {
+              "title": "百度人脸识别",
+              "href": "setting/face.html",
+              "icon": "fa fa-user",
+              "target": "_self"
+            },
+            {
+              "title": "阿里云短信服务",
+              "href": "setting/sms.html",
+              "icon": "fa fa-comment",
+              "target": "_self"
+            },
+            {
+              "title": "阿里云邮件推送",
+              "href": "setting/mail.html",
+              "icon": "fa fa-at",
+              "target": "_self"
+            }            
+          ]
         }
       ]
     }

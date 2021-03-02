@@ -4,10 +4,10 @@
 namespace app\index\validate;
 use think\Validate;
 
-class Instructor extends Validate
+class Student extends Validate
 {
     protected $rule = [
-        'id|学工号' => 'unique',
+        'id|学号' => 'unique',
         'username|用户名' => 'require|min:3',
         'password|密码' => 'require|min:6|confirm:repassword',
         'grade|年级' => 'require|min:4|max:4',
@@ -15,7 +15,7 @@ class Instructor extends Validate
     ];
 
     protected $message = [
-        'id.unique' => '学工号必须唯一',
+        'id.unique' => '学号必须唯一',
         'username.require' => '用户名不能为空',
         'username.min' => '用户名长度不能小于3',
         'password.require' => '密码不能为空',

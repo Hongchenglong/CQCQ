@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>系统设置</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/cqcq/public/static/lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="/cqcq/public/static/css/public.css" media="all">
+    <style>
+        .layui-form-item .layui-input-company {
+            width: auto;
+            padding-right: 10px;
+            line-height: 38px;
+        }
+
+        .layuimini-form > .layui-form-item > .layui-form-label {
+            width: 200px !important;
+        }
+
+        .layui-input, .layui-textarea {
+            width: 70%;
+        }
+
+        .layui-btn {
+            margin-left: 80px;
+        }
+
+        .layui-form-label {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <form action="smsEdit" method="post" class="layui-form layuimini-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label required">AccessKey ID</label>
+                <div class="layui-input-block">
+                    <input type="text" name="key" value="{$values['key']}" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">AccessKey Secret</label>
+                <div class="layui-input-block">
+                    <input type="text" name="secret" value="{$values['secret']}" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">改密验证码签名</label>
+                    <div class="layui-input-inline">
+                        <input type="tel" name="pswd" value="{$values['pswd']}" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="width: 80px">模板CODE</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="pmodel" value="{$values['pmodel']}" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">通过手机验证码修改密码</div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <label class="layui-form-label">查寝验证码签名</label>
+                    <div class="layui-input-inline">
+                        <input type="tel" name="notice" value="{$values['notice']}" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="width: 80px">模板CODE</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="nmodel" value="{$values['nmodel']}" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">查寝时以验证码的形式通知学生</div>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button type="submit" class="layui-btn layui-btn-normal" lay-submit lay-filter="setting">确认保存
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/cqcq/public/static/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+</body>
+</html>

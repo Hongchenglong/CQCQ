@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 
+use app\index\model\Instructor;
 use \think\Controller;
 use \think\Db;
 use \think\Request;
@@ -26,10 +27,8 @@ class User extends BaseController
     //获取数据库信息
     public function get_trinfo(){
         $id = Request::instance()->post('id');
-        $tr_data = Db::table('cq_instructor')
-        	->field('phone,grade,department,email')
-        	->where(['id'  => $id])
-            ->find();
+        $instructor = new Instructor();
+        $tr_data = $instructor->where('id', $id)->find();
 
         $data = [
             'email' => $tr_data['email'],
@@ -39,25 +38,12 @@ class User extends BaseController
         ];
         return json($data);
     }
-    //基本资料
+    // 基本资料
     public function setting()
     {
-        $id = Request::instance()->post('id');
-        $email = Request::instance()->post('email');
-        $phone = Request::instance()->post('phone');
-        $grade = Request::instance()->post('grade');
-        $department = Request::instance()->post('department');
-
-        $result = Db::table('cq_instructor')
-            ->where([
-                'id'  => $id
-            ])
-            ->update([
-                'email' => $email,
-                'phone' => $phone,
-                'grade' => $grade,
-                'department' => $department
-            ]);
+        $data = input('post.');
+        $instructor = new Instructor();
+        $result = $instructor->allowField(true)->save($data, ['id'=>$data['id']]);
 
         if ($result) {
             echo "<script language=\"JavaScript\">\r\n";
@@ -72,7 +58,7 @@ class User extends BaseController
         }
     }
 
-    //修改密码
+    // 修改密码
     public function passwd()
     {
         $id = Request::instance()->post('id');

@@ -18,7 +18,8 @@ class Index extends BaseController
 
     public function welcome()
     {
-        $this->redirect("/cqcq/public/index.php/index/welcome/welcome");
+        return $this->fetch('welcome/welcome');
+//        $this->redirect("/cqcq/public/index.php/index/welcome/welcome");
     }
 
     public function table()

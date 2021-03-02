@@ -2,6 +2,7 @@
 
 namespace app\index\controller;
 
+use app\index\model\Student as StudentModel;
 use \think\Db;
 use \think\Request;
 use \think\Session;
@@ -36,37 +37,37 @@ class Table extends BaseController
 	//返回表中所有宿舍信息
 	public function informations()
 	{
-		$result = Db::table('cq_student')->select();
-//		$result = db('cq_student', [], false)->select();
-		sort($result);
-		foreach ($result as &$res){
-		    if(!$res['face']){
-		 		$res['face'] = '否';
-		 	}else{
-		 		$res['face'] = '是';
-		 	}
-		 }
-		
-		if ($result) {
+		$grade = Session::get('grade');
+		$department = Session::get('department');
+		$where = ['grade' => $grade, 'department' => $department];
+		$list = Db::table('cq_student')->where($where)->select();
+		sort($list);
+		foreach ($list as &$res) {
+			if (!$res['face']) {
+				$res['face'] = '否';
+			} else {
+				$res['face'] = '是';
+			}
+		}
+
+		if ($list) {
 			$return_data = array();
 			$return_data['code'] = 0;
 			$return_data['msg'] = '';
-			$return_data['data'] = $result;
-			$return_data['count'] = count($result);
+			$return_data['data'] = $list;
+			$return_data['count'] = count($list);
 			return json($return_data);
 		}
 	}
 
-	//根据学号查找宿舍
+	//根据学号查找学生
 	public function find_info()
 	{
 		$id = Request::instance()->post('id');
-		// dump($id);
-		$where = ['id' => $id];
-		$data = Db::table('cq_student')
-			->field('id,sex,phone,grade,department,dorm,email')
-			->where($where)
-			->find();
+
+		$student = new StudentModel();
+		$data = $student->field('id,username,sex,phone,grade,department,dorm,email')->where('id', $id)->find();
+
 		if (!empty($data)) {
 			$return_data = array();
 			$return_data['error_code'] = 0;
@@ -81,38 +82,18 @@ class Table extends BaseController
 	//添加单人信息
 	public function add_user()
 	{
-		$id = Request::instance()->post('id');
-		$sex = Request::instance()->post('sex');
-		$username = Request::instance()->post('username');
-		$password = md5(Request::instance()->post('password'));
-		$email = Request::instance()->post('email');
-		$phone = Request::instance()->post('phone');
-		$grade = Request::instance()->post('grade');
-		$department = Request::instance()->post('department');
-		$dorm = Request::instance()->post('dorm');
+		$data = input('post.');
+		$student = new StudentModel();
+		$ret = $student->where('id', $data['id'])->find();
 
-		$where = ['id' => $id];
-		$data_id = Db::table('cq_student')->where($where)->find();
-		$data =
-			[
-				'id' => $id,
-				'sex' => $sex,
-				'username' => $username,
-				'password' => $password,
-				'email' => $email,
-				'phone' => $phone,
-				'grade' => $grade,
-				'department' => $department,
-				'dorm' => $dorm,
-			];
-
-		if ($data_id) {
+		if ($ret) {
 			echo "<script language=\"JavaScript\">\r\n";
-			echo " alert(\"添加失败，该学号已存在\");\r\n";
+			echo " alert(\"添加失败，学号已存在\");\r\n";
 			echo " history.back();\r\n";
 			echo "</script>";
 		} else {
-			Db::table('cq_student')->insert($data);
+			$student = new StudentModel($data);
+			$student->allowField(true)->save();
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " alert(\"添加成功\");\r\n";
 			echo " history.back();\r\n";
@@ -125,9 +106,10 @@ class Table extends BaseController
 	{
 		if (Session::has('id')) {
 			$student_id = Request::instance()->get('student_id');
-			$students = explode('_', $student_id);
-			foreach ($students as $id) {
-				Db::table('cq_student')->where('id', $id)->delete();
+			$student = explode('_', $student_id);
+			foreach ($student as $id) {
+				StudentModel::where('id', $id)->delete();
+				// Db::table('cq_student')->where('id', $id)->delete();
 			}
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " history.back();\r\n";
@@ -140,32 +122,12 @@ class Table extends BaseController
 	// 更改用户信息
 	public function edit_user()
 	{
-		$id = Request::instance()->post('id');
-		$sex = Request::instance()->post('sex');
-		$username = Request::instance()->post('username');
-		$email = Request::instance()->post('email');
-		$phone = Request::instance()->post('phone');
-		$grade = Request::instance()->post('grade');
-		$department = Request::instance()->post('department');
-		$dorm = Request::instance()->post('dorm');
+		$data = input('post.');
+		$student = new StudentModel();
+		$ret = $student->allowField(true)->save($data, ['id' => $data['id']]);
 
-		$result = Db::table('cq_student')
-			->where(['id'  => $id])
-			->update([
-				'sex' => $sex,
-				'username' => $username,
-				'email' => $email,
-				'phone' => $phone,
-				'grade' => $grade,
-				'department' => $department,
-				'dorm' => $dorm,
-			]);
-
-		if ($result) {
-			echo "<script language=\"JavaScript\">\r\n";
-			echo " alert(\"更新成功\");\r\n";
-			echo " history.back();\r\n";
-			echo "</script>";
+		if (!$ret) {
+			$this->error('修改用户信息失败');
 		}
 	}
 
