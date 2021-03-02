@@ -1,15 +1,57 @@
 <?php
 namespace app\api\controller;
 
+use think\Db;
+
 class Face extends BaseController
 {
+    /**
+     * 人脸识别access_token
+     */
+    public function generateToken()
+    {
+        $ret = Db::table('cq_setting')->where('key', 'face')->find();
+        $values = json_decode($ret['values'], true);
+
+        $url = 'https://aip.baidubce.com/oauth/2.0/token';
+        $post_data['grant_type'] = 'client_credentials';
+        $post_data['client_id'] = $values['key']; // Api Key
+        $post_data['client_secret'] = $values['secret']; // Secret Key
+        $o = "";
+        foreach ($post_data as $k => $v) {
+            $o .= "$k=" . urlencode($v) . "&";
+        }
+        $post_data = substr($o, 0, -1);
+        $res = $this->request_post($url, $post_data);
+        $res = json_decode($res, true);
+        // return $res['access_token'];
+
+        $values['token'] = $res['access_token'];
+        $values = json_encode($values);
+        $now = date('Y-m-d H:i:s', time());
+        $ret = Db::table('cq_setting')->where('key', 'face')->update(['values'=>$values, 'update_time'=>$now]);
+        if ($ret) {
+            echo "<script>alert(\"更新成功\");history.back();</script>";
+            // return json(['error_code' => 0, 'msg' => '更新token成功']);
+        } else {
+            echo "<script>alert(\"更新失败\");history.back();</script>";
+            // return json(['error_code' => 1, 'msg' => '更新token失败']);
+        }
+    }
+
+    public function getToken() {
+        $ret = Db::table('cq_setting')->where('key', 'face')->find();
+        $values = json_decode($ret['values'], true);
+        return $values['token'];
+    }
+
     /**
      * 人脸搜索M:N识别API
      * 待识别图片中含有多个人脸时，在指定人脸集合中，找到这多个人脸分别最相似的人脸
      */
     public function multi_search($img = '', $dorm = '', $grade = '')
     {
-        $token = $this->get_token();
+        $token = $this->getToken();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/multi-search?access_token=' . $token;
         $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
 
@@ -43,7 +85,7 @@ class Face extends BaseController
         $data = array('face' => $img);
         Db::table('cq_student')->where(['id' => $id])->setField($data);
 
-        $token = $this->get_token();
+        $token = $this->getToken();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/user/add?access_token=' . $token;
 
         $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
@@ -71,7 +113,7 @@ class Face extends BaseController
      */
     public function faceverify($img = '')
     {
-        $token = $this->get_token();
+        $token = $this->getToken();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceverify?access_token=' . $token;
         $base64_one = base64_encode(file_get_contents($img)); // 转换为base64
 
@@ -89,7 +131,7 @@ class Face extends BaseController
      */
     public function delete()
     {
-        $token = $this->get_token();
+        $token = $this->getToken();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/group/delete?access_token=' . $token;
 
         $bodys = array(
@@ -217,7 +259,7 @@ class Face extends BaseController
                 $dir = 'face/' . $_POST['grade'] . $_POST['department'];
                 $path = $dir . '/' . $new_name; //face为保存图片目录
 
-                $token = $this->get_token();
+                $token = $this->getToken();
 
                 //是否存在该文件,存在则更新,否则添加
                 if (file_exists($path)) {
@@ -264,7 +306,7 @@ class Face extends BaseController
 
     public function getList() // 组列表查询
     {
-        $token = $this->get_token();
+        $token = $this->getToken();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/group/getlist?access_token=' . $token;
 
         $bodys = array(
@@ -289,7 +331,7 @@ class Face extends BaseController
 
     public function getUsers($group_id = '') // 获取用户列表
     {
-        $token = $this->get_token();
+        $token = $this->getToken();
         $url = 'https://aip.baidubce.com/rest/2.0/face/v3/faceset/group/getusers?access_token=' . $token;
 
         $bodys = array(

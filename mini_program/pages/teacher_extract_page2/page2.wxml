@@ -6,7 +6,7 @@
 	<view class="new" bindtap="buttonchange"><text decode="{{true}}">自定义添加/重置号码</text></view>
 	<view class="Date">
 		<image src="/images/date.png" style="width:45rpx;height:45rpx"></image>
-		<!--https://oeong.com/cqcq/public/images/date.png-->
+		<!--http://localhost:8080/cqcq/public/images/date.png-->
 		<text decode="{{true}}">&nbsp;当前日期：</text>{{date_1}} {{weekday}}
 	</view>
 	<view class="Date">

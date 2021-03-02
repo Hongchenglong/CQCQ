@@ -16,7 +16,7 @@
 
 <!--<view>
 	<view class="head">
-		<image class="logo" src='https://oeong.com/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
+		<image class="logo" src='http://localhost:8080/cqcq/public/images/zhicheng.png' mode="aspectFit"></image>
 	</view>
 	<view class="wrap">
 		<view class="menu">-->
@@ -24,7 +24,7 @@
 			<!--<button class="one" style="width:100%" bindtap="gotoextractresults">
 				<view class="whole">
 					<view class="pic">
-						<image class="pic1" src='https://oeong.com/cqcq/public/images/look.png' mode="aspectFit"></image>
+						<image class="pic1" src='http://localhost:8080/cqcq/public/images/look.png' mode="aspectFit"></image>
 					</view>
 					<text decode="{{true}}">&nbsp;&nbsp;查看抽取结果</text>
 				</view>
@@ -35,7 +35,7 @@
 			<!--<button class="two" style="width:100%" bindtap="gotopicupload">
 				<view class="whole">
 					<view class="pic">
-						<image class="pic1" src='https://oeong.com/cqcq/public/images/camera.png' mode="aspectFit"></image>
+						<image class="pic1" src='http://localhost:8080/cqcq/public/images/camera.png' mode="aspectFit"></image>
 					</view>
 					<text decode="{{true}}">&nbsp;&nbsp;拍照上传</text>
 				</view>

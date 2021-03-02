@@ -49,7 +49,7 @@
                 <label class="layui-form-label">TOKEN</label>
                 <div class="layui-input-block">
                     <input type="text" name="token" value="{$values['token']}" class="layui-input" readonly="readonly"
-                           style="width: 15%; border: none; display: inline;">
+                           style="border: none; display: inline;">
                 </div>
                 <label class="layui-form-label">更新时间</label>
                 <div class="layui-input-block">
@@ -61,7 +61,8 @@
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button type="button" class="layui-btn layui-btn-warm">更新Token</button>
+                    <button type="button" class="layui-btn layui-btn-warm">
+                        <a href="/cqcq/public/index.php/api/face/generateToken">更新Token</a></button>
                     <button type="submit" class="layui-btn layui-btn-normal" lay-submit lay-filter="setting">确认保存
                     </button>
                 </div>
