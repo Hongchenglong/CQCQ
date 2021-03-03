@@ -3,19 +3,19 @@
 <view class="Section">
 
 	<!--<view class="turn" bindtap="buttonchange">
-		<image src="http://localhost:8080/cqcq/public/images/right.png" style="width:23px;height:23px"></image>
+		<image src="https://oeong.com/cqcq/public/images/right.png" style="width:23px;height:23px"></image>
 		<text decode="{{true}}">&nbsp;返回首页</text>
 	</view>-->
 
 	<view class="Start">
 		<image src="/images/startTime.png" class="date"></image>
-		<!--http://localhost:8080/cqcq/public/images/startTime.png-->
+		<!--https://oeong.com/cqcq/public/images/startTime.png-->
 		<view class="text">开始时间：{{time1}}</view>
 	</view>
 
 	<view class="Later">
 		<image src="/images/endTime.png" class="date"></image>
-		<!--http://localhost:8080/cqcq/public/images/endTime.png-->
+		<!--https://oeong.com/cqcq/public/images/endTime.png-->
 		<view class="text">截止时间：{{time2}}</view>
 	</view>
 

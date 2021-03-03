@@ -2,7 +2,7 @@
 <view class="wrap">
 	<view class="girls">
 		<image src="/images/nvsheng.png" class="iconGirl"></image>
-		<!--http://localhost:8080/cqcq/public/images/nvsheng.png-->
+		<!--https://oeong.com/cqcq/public/images/nvsheng.png-->
 		<text class="head">女生宿舍：</text>
 		<i-panel title="基础用法">
 			<view style="padding: 8px">
@@ -14,7 +14,7 @@
 
 	<view class="boys">
 		<image src="/images/nansheng.png" class="iconBoy"></image>
-		<!--http://localhost:8080/cqcq/public/images/nansheng.png-->
+		<!--https://oeong.com/cqcq/public/images/nansheng.png-->
 		<text class="head">男生宿舍：</text>
 		<i-panel title="基础用法">
 			<view style="padding: 8px">

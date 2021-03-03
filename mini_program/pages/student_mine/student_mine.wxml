@@ -13,7 +13,7 @@
 		<view class="margin-top-sm">
 			<text decode="{{true}}">{{grade}}&nbsp;{{department}}</text>
 		</view>
-		<image src="http://localhost:8080/cqcq/public/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+		<image src="https://oeong.com/cqcq/public/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 	</view>
 	<!--<view class="padding flex text-center text-grey bg-white shadow-warp">-->
 	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
@@ -73,7 +73,7 @@
 			bindtap="bindViewTap">
 			<image src="/images/exit.png"></image><text decode="{{true}}">&nbsp;&nbsp;退出登录</text>
 		</button>
-		<!--http://localhost:8080/cqcq/public/images/exit.png-->
+		<!--https://oeong.com/cqcq/public/images/exit.png-->
 	</view>
 	<view class="cu-tabbar-height"></view>
 </scroll-view>

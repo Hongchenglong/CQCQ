@@ -8,6 +8,10 @@ class Statistics extends Face
 {
     /**
      * 通过人脸搜索M:N识别，返回单个宿舍的签到与未签到名单
+     * @return \think\response\Json
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     public function face_search()
     {
@@ -70,7 +74,7 @@ class Statistics extends Face
             $return_data['error_code'] = 2;
             $return_data['msg'] = '未上传照片！';
             $return_data['unsign_stu'] = $stu; // 学号
-            $return_data['unsign_stu_name'] = $stu_name; 
+            $return_data['unsign_stu_name'] = $stu_name;
 
             return json($return_data);
         }
@@ -110,7 +114,7 @@ class Statistics extends Face
         $return_data['sign_stu'] = $sign_stu;
 
         // 通过学号匹配该学生的姓名
-        if (!empty($return_data['unsign_stu'])) {  
+        if (!empty($return_data['unsign_stu'])) {
             foreach ($unsign_stu as $key => $value) {
                 $name = Db::table('cq_student')
                     ->field('username')

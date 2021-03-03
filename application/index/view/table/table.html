@@ -79,8 +79,8 @@
 
             var $ = layui.jquery,
                 form = layui.form,
-                table = layui.table;
-            upload = layui.upload;
+                table = layui.table,
+                upload = layui.upload;
 
             var documentWidth = $(document).width();  //获取屏幕的宽度
 
@@ -169,8 +169,7 @@
                         title: '提示：',
                         btnAlign: 'c' //按钮居中
                     });  //无输入情况
-                }
-                else {
+                } else {
                     var request = new XMLHttpRequest();//建立request请求
                     request.open('post', 'index.php?s=index/table/find_info');//发送对象是Table.php 发送post
                     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');//请求头 默认即可

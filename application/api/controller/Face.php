@@ -3,10 +3,19 @@ namespace app\api\controller;
 
 use think\Db;
 
+/**
+ * Class Face
+ * @package app\api\controller
+ */
 class Face extends BaseController
 {
     /**
-     * 人脸识别access_token
+     * 生成人脸识别access_token
+     * @throws \think\Exception
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     * @throws \think\exception\PDOException
      */
     public function generateToken()
     {
@@ -48,6 +57,10 @@ class Face extends BaseController
     /**
      * 人脸搜索M:N识别API
      * 待识别图片中含有多个人脸时，在指定人脸集合中，找到这多个人脸分别最相似的人脸
+     * @param string $img
+     * @param string $dorm
+     * @param string $grade
+     * @return bool|string
      */
     public function multi_search($img = '', $dorm = '', $grade = '')
     {

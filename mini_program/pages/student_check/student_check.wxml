@@ -1,6 +1,6 @@
 <!--pages/student_check/student_check.wxml-->
 <view class="changeInfoName" hidden='{{!isShowing}}'>
-	<image src="http://localhost:8080/cqcq/public/images/search.png" />
+	<image src="https://oeong.com/cqcq/public/images/search.png" />
 	<view>
 		<picker mode="date" value="{{dateValue}}" start="2020-01-01" end="2999-12-31" bindchange="datePickerBindchange">
 			{{dateValue}}
