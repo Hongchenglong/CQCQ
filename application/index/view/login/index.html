@@ -20,22 +20,24 @@
 			<!--     登录表单       -->
 			<form action="valid" method="post" id="login-form" class="login-form">
 				<div class="form-group">
-					<input class="" name="id" placeholder="请输入学工号" type="text" required>
+					<input class="" name="id" id="userid" placeholder="请输入学工号" type="text" required>
 				</div>
 				<div class="form-group">
 					<input class="" name="password" placeholder="请输入密码" type="password" required>
 				</div>
 				<div class="form-group">
-					<button id="btn-submit" type="submit">
-						登录
-					</button>
+					<button id="btn-submit" type="submit">登录</button>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
 </body>
-<script src="/cqcq/public/assets/store/js/jquery.min.js"></script>
-<script src="/cqcq/public/assets/layer/layer.js"></script>
-<script src="/cqcq/public/assets/store/js/jquery.form.min.js"></script>
+<script src="/cqcq/public/static/js/jquery-3.2.1.min.js"></script>
+<script>
+	$('#btn-submit').bind('click', function(){
+		window.localStorage.userid = $('#userid').val();
+	});
+</script>
+
 </html>

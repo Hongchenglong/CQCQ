@@ -125,7 +125,6 @@
         <i class="fa fa-calendar-o date-input-icon"></i>
       </div>
     </div>
-    <h2>&nbsp;&nbsp;&nbsp;&nbsp;近7次查寝记录</h2>
     <!-- 查寝记录 -->
     <div class="yuan" name="st_yuan" id="st_yuan"></div>
 
@@ -228,7 +227,6 @@
                         thead.appendChild(tr);
                         table.appendChild(thead);
                         div2.appendChild(table);
-
                         for (var m = 0; m < msg.count; m++) {
                           let tr = document.createElement("tr");
                           let td2 = document.createElement("td");
@@ -282,7 +280,8 @@
         }
       }
 
-      layui.use(["jquery", "laypage", "laydate", "flow"], function () {
+      layui.use(["jquery", "laypage", "laydate", "layer"], function () {
+        var layer = layui.layer;
         var laydate = layui.laydate;
         var laypage = layui.laypage;
 
@@ -301,6 +300,7 @@
           success: function (msg) {
             window.localStorage.num = msg.count;
             let bd = document.getElementsByName("st_yuan")[0];
+            layer.msg('最近' + msg.count + '次查寝记录');
             for (var i = 0; i < msg.count; i++) {
               // console.log(msg[i].data);
               let div1 = document.createElement("div");
@@ -359,6 +359,8 @@
                   let th1 = document.createElement("th");
                   let th2 = document.createElement("th");
                   let th3 = document.createElement("th");
+                  let th4 = document.createElement("th");
+                  
 
                   table.className = "layui-table";
                   table.id = "table1";
@@ -366,14 +368,19 @@
                   th1.style.textAlign = "center";
                   th2.style.textAlign = "center";
                   th3.style.textAlign = "center";
+                  th4.style.textAlign = "center";
+
 
                   th1.innerHTML = "宿舍";
                   th2.innerHTML = "学号";
-                  th3.innerHTML = "签到情况";
+                  th3.innerHTML = "姓名";
+                  th4.innerHTML = "签到情况";
+
 
                   tr.appendChild(th1);
                   tr.appendChild(th2);
                   tr.appendChild(th3);
+                  tr.appendChild(th4);
                   thead.appendChild(tr);
                   table.appendChild(thead);
                   div2.appendChild(table);
@@ -382,6 +389,8 @@
                     let tr = document.createElement("tr");
                     let td2 = document.createElement("td");
                     let td3 = document.createElement("td");
+                    let td4 = document.createElement("td");
+
 
                     var c = 1;
                     for (var n = m + 1; n < msg.count; n++) {
@@ -400,19 +409,22 @@
                     }
 
                     td2.innerHTML = msg.data[m].id;
+                    td3.innerHTML = msg.data[m].username;
                     if (msg.data[m].sign == 0) {
-                      td3.innerHTML = "未签到";
-                      td3.style.color = "#FF6666";
+                      td4.innerHTML = "未签到";
+                      td4.style.color = "#FF6666";
                     } else {
-                      td3.innerHTML = "已签到";
-                      td3.style.color = "#CCCCCC";
+                      td4.innerHTML = "已签到";
+                      td4.style.color = "#CCCCCC";
                     }
 
                     td2.style.fontWeight = "normal";
                     td3.style.fontWeight = "normal";
+                    td4.style.fontWeight = "normal";
 
                     tr.appendChild(td2);
                     tr.appendChild(td3);
+                    tr.appendChild(td4);
                     table.appendChild(tr);
                   }
                 },

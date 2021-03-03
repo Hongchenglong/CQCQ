@@ -4,10 +4,6 @@ namespace app\api\controller;
 use think\Db;
 class Notice extends BaseController
 {
-    public function index()
-    {
-        return "hello";
-    }
     public function notice()
     {
         $notice = Db::table('cq_notice')->where("send_time", null)->where("end_time","<= time", date('Y-m-d H:i:s', time()))->select();
@@ -43,7 +39,10 @@ class Notice extends BaseController
             $res = $this->EmailNotice($instructor["email"], $instructor["username"], $body);
             if ($res['isSuccess']) {
                 Db::table('cq_notice')->where(['start_time'=> $notice[$i]['start_time'], 'end_time' => $notice[$i]['end_time']])->update(['send_time'=> date('Y-m-d H:i:s', time())]);
-            } 
+                echo "<script>alert(\"发送成功\")</script>";
+            } else {
+                echo "<script>alert(\"发送失败\");/script>";
+            }
         }
     }
 }

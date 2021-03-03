@@ -153,7 +153,7 @@ class Record extends BaseController
         $where['r.deleted'] = 0;
 
         $dorm = Db::table('cq_result')  // 该条记录信息
-            ->field('d.dorm_num, s.id, re.sign')
+            ->field('d.dorm_num, s.id, s.username, re.sign')
             ->alias('re')
             ->join('cq_record r', 're.record_id = r.id')
             ->join('cq_dorm d', 'd.id = r.dorm_id')

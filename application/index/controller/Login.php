@@ -34,6 +34,5 @@ class Login extends Controller
 		} else {
 			$this->error("用户名或密码错误", url('index/login/index'));
 		}
-
 	}
 }

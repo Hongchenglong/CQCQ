@@ -59,7 +59,7 @@
             {
               "title": "阿里云邮件推送",
               "href": "setting/mail.html",
-              "icon": "fa fa-at",
+              "icon": "fa fa-envelope",
               "target": "_self"
             }            
           ]
