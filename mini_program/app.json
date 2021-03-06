@@ -1,10 +1,11 @@
 {
   "pages": [
+
     "pages/login/login",  
+    "pages/teacher_extract_page3/page3",
     
     "pages/recycle_bin/recycle_bin",
     "pages/recycle/recycle",
-    
     "pages/student_picupload/student_picupload",
     "pages/revise_password/revise_password",
     "pages/revise_phone/revise_phone",
@@ -15,25 +16,21 @@
     "pages/revise_about/revise_about",
     "pages/revise_email/revise_email",
     "pages/uploadphoto/uploadphoto",
-    
     "pages/student_home/student_home",
-
     "pages/student_extract/page3",
     "pages/teacher_custom_page1/page1",  
     "pages/teacher_custom_page2/page1",  
     "pages/teacher_extract_page1/page1",
     "pages/teacher_extract_page2/page2",
-    "pages/teacher_extract_page3/page3",
+
     "pages/teacher_manage_page1/page1",
     "pages/teacher_manage_page2/page2",
-    
     "pages/load/load",
     "pages/teacher_mine/teacher_mine",
     "pages/teacher_home/teacher_home",
     "pages/teacher_dorm/teacher_dorm",
     "pages/teacher_statistics/teacher_statistics",
     "pages/more/more",
-    
     "pages/teacher_check/teacher_check",
     "pages/forget/forget",
     "pages/email_verify/email_verify",
@@ -41,13 +38,10 @@
     "pages/student_check/student_check",
     "pages/student_details/student_details",
     "pages/teacher_details/teacher_details",
-
     "pages/teacher_index/teacher_index",
     "pages/student_index/student_index",
-
     "pages/index/index",
     "pages/logs/logs",
-
     "pages/safe/safe"
   ],
   "window": {

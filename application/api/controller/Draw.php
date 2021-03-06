@@ -251,17 +251,8 @@ public function draw()
                 ])
                 ->select();
 
-            // 给宿舍其中一名同学发送短信
-            $first = 1;
             $cnt = sizeof($students);
             for ($j = 0; $j < $cnt; $j++) {
-                if ($first) {
-                    $phone = Db::table('cq_student')->field('phone')->where(['id' => $students[$j]['id']])->find();
-                    if (!empty($phone['phone'])) {
-                        $first = 0;
-                        $res = $this->MsgNotice($phone['phone'], $rand_num[$i]);
-                    }
-                }
                 // 将找到的学号和记录号依次插入到result表中
                 $result = Db::table('cq_result')->insert(['record_id' => $record_id, 'student_id' => $students[$j]['id']]);
             }
@@ -272,6 +263,116 @@ public function draw()
         } else {
             return json(['error_code' => 1, 'msg' => '没有可确认的抽签结果！']);
         }
+    }
+
+    /**
+     * 显示最近一次的抽签结果
+     */
+    public function displayRecentResults()
+    {
+        // $parameter = ['department', 'grade'];
+        // 输入判断
+        if (empty($_POST['grade'])) {
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
+        } else if (empty($_POST['department'])) {
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
+        }
+
+        // 查询条件
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+
+        // 先找到本系、本年级的id最大的开始时间和结束时间
+        $recentTime = Db::table('cq_record')
+        ->field('r.id, start_time, end_time')
+        ->alias('r')    // 别名
+        ->join('cq_dorm d', 'd.id = r.dorm_id')
+        ->join('cq_student s', 's.dorm = d.dorm_num')
+        ->where($where)
+        ->where('deleted', 0)
+        ->order('r.id desc')
+        ->find();
+
+        // 再用这个时间去找和它同一批的数据
+        $result = Db::table('cq_record')
+        ->field('d.id, d.dorm_num, r.rand_num, r.start_time, r.end_time')
+        ->alias('r')    // 别名
+        ->join('cq_dorm d', 'd.id = r.dorm_id')
+        ->join('cq_student s', 's.dorm = d.dorm_num')
+        ->where($where)
+        ->where('start_time', $recentTime['start_time'])
+        ->where('end_time', $recentTime['end_time'])
+        ->where('deleted', 0)
+        ->distinct(true)   // 返回唯一不同的值
+        ->select();
+
+        if ($result) {
+            $return_data = array();
+            $return_data['error_code'] = 0;
+            $return_data['msg'] = '显示抽签结果!';
+            $return_data['data'] = $result;
+            return json($return_data);
+        } else {
+            return json(['error_code' => 2, 'msg' => '暂无抽签结果！']);
+        }
+    }
+
+    /**
+     * 短信通知学生查寝开始
+     */
+    public function informStudents() 
+    {
+        if (empty($_POST['grade'])) {
+            return json(['error_code' => 1, 'msg' => '请输入年级！']);
+        } else if (empty($_POST['department'])) {
+            return json(['error_code' => 1, 'msg' => '请输入系！']);
+        }
+
+        $where = array();
+        $where['grade'] = $_POST['grade'];
+        $where['department'] = $_POST['department'];
+
+        // 先找到本系、本年级的id最大的开始时间和结束时间
+        $recentTime = Db::table('cq_record')
+        ->field('r.id, start_time, end_time')
+        ->alias('r')    // 别名
+        ->join('cq_dorm d', 'd.id = r.dorm_id')
+        ->join('cq_student s', 's.dorm = d.dorm_num')
+        ->where($where)
+        ->where('deleted', 0)
+        ->order('r.id desc')
+        ->find();
+
+        // 再用这个时间去找和它同一批的数据
+        $result = Db::table('cq_record')
+        ->field('d.id, d.dorm_num, r.rand_num, r.start_time, r.end_time')
+        ->alias('r')    // 别名
+        ->join('cq_dorm d', 'd.id = r.dorm_id')
+        ->join('cq_student s', 's.dorm = d.dorm_num')
+        ->where($where)
+        ->where('start_time', $recentTime['start_time'])
+        ->where('end_time', $recentTime['end_time'])
+        ->where('deleted', 0)
+        ->distinct(true)   // 返回唯一不同的值
+        ->select();
+        
+        $first = 1;
+        $cnt = sizeof($result);
+        for ($j = 0; $j < $cnt; $j++) {
+            if ($first) {
+                $phone = Db::table('cq_student')->field('phone')->where(['dorm' => $result[$j]['dorm_num']])->find();
+                if (!empty($phone['phone'])) {
+                    $first = 0;
+                    $res = $this->MsgNotice($phone['phone'], $result[$j]['rand_num']);
+                    if (!$res['acsResponse']) {
+                        continue;
+                        // return json(['error_code' => 5, 'msg' => '发送短信通知失败！']);
+                    }
+                }
+            }
+        }
+        return json(['error_code' => 0, 'msg' => '已成功通知学生！']);
     }
 
     /**
@@ -340,60 +441,6 @@ public function draw()
             ->where($where)
             ->where('end_time', '> time', $now)
             ->select();
-
-        if ($result) {
-            $return_data = array();
-            $return_data['error_code'] = 0;
-            $return_data['msg'] = '显示抽签结果!';
-            $return_data['data'] = $result;
-            return json($return_data);
-        } else {
-            return json(['error_code' => 2, 'msg' => '暂无抽签结果！']);
-        }
-    }
-
-    /**
-     * 显示最近一次的抽签结果
-     */
-    public function displayRecentResults()
-    {
-        // $parameter = ['department', 'grade'];
-        // 输入判断
-        if (empty($_POST['grade'])) {
-            return json(['error_code' => 1, 'msg' => '请输入年级！']);
-        } else if (empty($_POST['department'])) {
-            return json(['error_code' => 1, 'msg' => '请输入系！']);
-        }
-
-        // 查询条件
-        $where = array();
-        $where['grade'] = $_POST['grade'];
-        $where['department'] = $_POST['department'];
-
-        // 先找到本系、本年级的id最大的开始时间和结束时间
-        $recentTime = Db::table('cq_record')
-            ->field('r.id, start_time, end_time')
-            ->alias('r')    // 别名
-            ->join('cq_dorm d', 'd.id = r.dorm_id')
-            ->join('cq_student s', 's.dorm = d.dorm_num')
-            ->where($where)
-            ->where('deleted', 0)
-            ->order('r.id desc')
-            ->find();
-
-        // 再用这个时间去找和它同一批的数据
-        $result = Db::table('cq_record')
-            ->field('d.dorm_num, r.rand_num, r.start_time, r.end_time')
-            ->alias('r')    // 别名
-            ->join('cq_dorm d', 'd.id = r.dorm_id')
-            ->join('cq_student s', 's.dorm = d.dorm_num')
-            ->where($where)
-            ->where('start_time', $recentTime['start_time'])
-            ->where('end_time', $recentTime['end_time'])
-            ->where('deleted', 0)
-            ->distinct(true)   // 返回唯一不同的值
-            ->select();
-
 
         if ($result) {
             $return_data = array();

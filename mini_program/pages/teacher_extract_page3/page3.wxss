@@ -1,3 +1,5 @@
+@import"/colorui/main.wxss";
+
 .Section{
   display: flex;
   justify-content: center; 
@@ -9,7 +11,6 @@
   line-height: 60rpx;
   /* border-bottom: solid 1px darkgray; */
   margin-bottom: 25rpx;
-
 }
 .line{
   margin-bottom: 30rpx;
@@ -78,4 +79,11 @@ image{
   border: solid 1px;
   display: flex; 
   flex-direction: row;
+}
+
+.other{
+  width:80%;
+  align-items: center;
+  justify-content: center; 
+  /* margin: 30rpx auto; */
 }

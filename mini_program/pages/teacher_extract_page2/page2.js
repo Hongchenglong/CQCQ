@@ -143,7 +143,7 @@ Page({
               } else if (res.data.error_code == 0) {
                 wx.showToast({
                   title: res.data.msg,
-                  duration: 10000, //显示时长
+                  duration: 1000, //显示时长
                   icon: 'success',
                   mask: true,
                   success(res) {},

@@ -11,10 +11,10 @@
 		<image src="/images/endTime.png" class="date"></image>
 		<view class="text">截止时间：{{time2}}</view>
 	</view>
-
 	<view class="line"></view>
 </view>
-
+<button class="" style="align:center;width:50%;color:white;background-color: #7AB8FB" hover-class="plain-hover"
+	bindtap='msgNotice'>短信通知学生</button>
 <view class="table">
 	<view class="tr bg-w">
 		<view class="th">宿舍号</view>
