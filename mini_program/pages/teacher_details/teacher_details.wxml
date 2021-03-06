@@ -26,6 +26,6 @@
 			<text class="tone">宿舍：{{itemName.dorm_num}}</text>
 			<text class="ttwo">号码：{{itemName.rand_num}}</text>
 		</view>
-		<image bindtap='clickImg' class="imgs" mode="widthFix" src="https://oeong.com/cqcq/public/images/{{itemName.photo?itemName.photo:'null.jpg'}}" data-photo="https://oeong.com/cqcq/public/images/{{itemName.photo?itemName.photo:'null.jpg'}}" />
+		<image bindtap='clickImg' class="imgs" mode="widthFix" src="/images/{{itemName.photo?itemName.photo:'null.jpg'}}" data-photo="/images/{{itemName.photo?itemName.photo:'null.jpg'}}" />
 	</block>
 </scroll-view>

@@ -73,7 +73,6 @@
 			bindtap="bindViewTap">
 			<image src="/images/exit.png"></image><text decode="{{true}}">&nbsp;&nbsp;退出登录</text>
 		</button>
-		<!--https://oeong.com/cqcq/public/images/exit.png-->
 	</view>
 	<view class="cu-tabbar-height"></view>
 </scroll-view>

@@ -16,7 +16,7 @@
 		<!-- 下拉框 -->
 		<!-- <view class='selected' bindtap='bindShowMsg'>
 			<text>{{types_name}}</text>
-			<image src='https://oeong.com/cqcq/public/images/xialajiantou.png' class="one_jt"></image>
+			<image src='/images/xialajiantou.png' class="one_jt"></image>
 		</view> -->
 		<!-- 下拉需要显示的列表 -->
 		<!-- <view class="select_box" wx:if="{{select}}">

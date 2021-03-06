@@ -19,8 +19,8 @@
 			<text class="ttwo">号码：{{itemName.rand_num}}</text>
 		</view>
 		<image bindtap='clickImg' class="imgs" mode="widthFix"
-			src="https://oeong.com/cqcq/public/images/{{itemName.photo?itemName.photo:'null.jpg'}}"
-			data-photo="https://oeong.com/cqcq/public/images/{{itemName.photo?itemName.photo:'null.jpg'}}" />
+			src="/images/{{itemName.photo?itemName.photo:'null.jpg'}}"
+			data-photo="/images/{{itemName.photo?itemName.photo:'null.jpg'}}" />
 	</block>
 	<view wx:if="{{time<checkData.end_time}}" class="shadow" style="padding-top: 30rpx;padding-bottom: 30rpx">
 		<text class="name" style="text-align: center;">宿舍成员</text>

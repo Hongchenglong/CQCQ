@@ -8,7 +8,7 @@
 			</view>
 				
 			
-			<image src="https://oeong.com/cqcq/public/images/upload.png" class="uploadImg {{isShow?'true':'hideTrue'}}"
+			<image src="/images/upload.png" class="uploadImg {{isShow?'true':'hideTrue'}}"
 				bindtap="uploadImage"></image>
 		<!-- </view> -->
 
