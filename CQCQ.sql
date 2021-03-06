@@ -130,7 +130,7 @@ CREATE TABLE `cq_instructor`  (
 -- ----------------------------
 -- Records of cq_instructor
 -- ----------------------------
-INSERT INTO `cq_instructor` VALUES (1234, 'instructor', '81dc9bdb52d04dc20036dbd8313ed055', NULL, NULL, 2017, '计算机工程系', NULL);
+INSERT INTO `cq_instructor` VALUES (8848, 'instructor', '24368c745de15b3d2d6279667debcba3', NULL, NULL, 2017, '计算机工程系', NULL);
 
 -- ----------------------------
 -- Table structure for cq_notice
