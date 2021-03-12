@@ -47,9 +47,8 @@ class Notice extends BaseController
     }
 }
 
-
 // crontab -e
-// */5 * * * * curl "oeong.com/cqcq/public/index.php/api/notice/notice"
+// */5 * * * * curl "https://oeong.com/cqcq/public/index.php/api/notice/notice"
 // service crond restart
 // grep "notice" /var/log/cron
 

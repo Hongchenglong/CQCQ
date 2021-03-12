@@ -34,11 +34,6 @@ class BaseController extends Controller
         return $params;
     }
 
-    public function index() {
-        return "hello";
-    }
- 
-
     /**
      * 短信验证码
      */

@@ -141,9 +141,9 @@ class User extends BaseController
         // 从数据库中查找是否有该openid
         // 先从辅导员表中查询，若不存在从学生表中查询
         $user = Db::table('cq_instructor')->where('openid', $openid)->find();
-        if ($user) $user['user'] = 'instructor';
-
-        if (empty($user)) {
+        if ($user) {
+            $user['user'] = 'instructor';
+        } else {
             $user = Db::table('cq_student')->where('openid', $openid)->find();
             if ($user) $user['user'] = 'student';
         }
