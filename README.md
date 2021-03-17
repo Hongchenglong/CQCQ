@@ -56,7 +56,7 @@ ThinkPHP是一个免费开源的，快速、简单的面向对象的轻量级PHP
 
 ### 本地部署
 
-1. 下载`phpstudy`，启动`Apache`和`MySQL`;
+1. 下载`phpstudy`，启动`Apache2.4`和`MySQL5.7`;
 2. 下载项目`CQCQ`,放在`D:\phpstudy_pro\WWW\`下
 3. 新建数据库`CQCQ`，导入`CQCQ.sql`。修改`/application/database.php`中的用户名和密码。
 4. 在`https://mp.weixin.qq.com/`申请微信小程序。
