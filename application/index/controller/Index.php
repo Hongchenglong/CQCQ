@@ -11,24 +11,5 @@ use \think\Validate;
 
 class Index extends BaseController
 {
-    public function index()
-    {
-        $this->redirect("/cqcq/public/index.php/index/login/index");
-    }
 
-    public function welcome()
-    {
-        return $this->fetch('welcome/welcome');
-//        $this->redirect("/cqcq/public/index.php/index/welcome/welcome");
-    }
-
-    public function table()
-    {
-        $this->redirect("/cqcq/public/index.php/index/table/table");
-    }
-
-    public function record()
-    {
-        $this->redirect("/cqcq/public/index.php/index/record/record");
-    }
 }
