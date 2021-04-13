@@ -1,7 +1,7 @@
 {
   "homeInfo": {
     "title": "主页",
-    "href": "index/welcome/welcome.html"
+    "href": "welcome/welcome.html"
   },
   "logoInfo": {
     "title": "CQCQ",
@@ -17,20 +17,20 @@
       "child": [
         {
           "title": "主页",
-          "href": "index/welcome/welcome.html",
+          "href": "welcome/welcome.html",
           "icon": "fa fa-home",
           "target": ""
         },
         {
           "title": "学生管理",
-          "href": "index/table/table.html",
+          "href": "table/table.html",
           "icon": "fa fa-calendar",
           "target": ""
         },
         {
           "title": "查寝记录",
           "icon": "fa fa-bar-chart",
-          "href": "index/record/record.html",
+          "href": "record/record.html",
           "target": "_self"
         },
         {
