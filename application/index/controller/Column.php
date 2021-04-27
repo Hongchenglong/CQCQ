@@ -10,7 +10,6 @@ class Column extends BaseController
 		return $this->fetch();
 	}
 
-
 	//退出清空记录
 	public function out()
     {

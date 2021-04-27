@@ -16,8 +16,8 @@ class BaseController extends Controller
 {
     public function _initialize()
     {
-         if (!session('username')) {
-             $this->error('请先登录系统', 'index/login/index');
-         }
+        //  if (!session('username')) {
+        //      $this->error('请先登录系统', 'index/login/index');
+        //  }
     }
 }

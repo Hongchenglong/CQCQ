@@ -79,7 +79,7 @@ class Table extends BaseController
 		}
 	}
 
-	//添加单人信息
+	// 添加单人信息
 	public function add_user()
 	{
 		$data = input('post.');
@@ -109,7 +109,6 @@ class Table extends BaseController
 			$student = explode('_', $student_id);
 			foreach ($student as $id) {
 				StudentModel::where('id', $id)->delete();
-				// Db::table('cq_student')->where('id', $id)->delete();
 			}
 			echo "<script language=\"JavaScript\">\r\n";
 			echo " history.back();\r\n";

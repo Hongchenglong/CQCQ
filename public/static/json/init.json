@@ -30,10 +30,21 @@
         {
           "title": "查寝记录",
           "icon": "fa fa-bar-chart",
-          "href": "record/record.html",
-          "target": "_self"
-        },
-        {
+          "target": "_self",
+                    "child": [
+                     {
+                      "title": "查寝记录",
+                      "href": "record/record.html",
+                      "icon": "fa fa-clock-o",
+                      "target": "_self"
+                    }, {
+                      "title": "未签名单",
+                      "icon": "fa fa-close",
+                      "href": "record/notsigned.html",
+                      "target": "_self"
+                    } 
+                  ]
+        }, {
           "title": "系统设置",
           "icon": "fa fa-gears",
           "target": "_self",

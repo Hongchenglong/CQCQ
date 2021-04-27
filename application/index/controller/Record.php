@@ -14,14 +14,15 @@ class Record extends BaseController
     {
         return $this->fetch();
     }
+
+    public function notsigned()
+    {
+        return $this->fetch();
+    }
     
-    //获取最近7次查寝时间
+    // 获取最近7次查寝时间
     public function get_date()
     {
-        // session_start();
-//        Db::connect();
-        // $grade = Request::instance()->post('grade');
-        // $department = Request::instance()->post('department');
         $grade = Session::get('grade');
         $department = Session::get('department');
 
@@ -67,10 +68,9 @@ class Record extends BaseController
         }
     }
 
-    //搜索
+    // 搜索
     public function search_date()
     {
-//        session_start();
         $date = Request::instance()->post('date');
         $grade = Session::get('grade');
         $department = Session::get('department');
@@ -86,7 +86,7 @@ class Record extends BaseController
             ->where(['deleted' => 0])
             ->select();
 
-        //当前时间
+        // 当前时间
         $time = date('Y-m-d H:i:s', time());
         if (!empty($drecord)) {
             $data = array();
@@ -114,10 +114,9 @@ class Record extends BaseController
         }
     }
 
-    //获取某一条记录里的签到情况
+    // 获取某一条记录里的签到情况
     public function dorm()
     {
-//        session_start();
         $grade = Session::get('grade');
         $department = Session::get('department');
 
@@ -153,8 +152,8 @@ class Record extends BaseController
         $where['r.deleted'] = 0;
 
         $dorm = Db::table('cq_result')  // 该条记录信息
-            ->field('d.dorm_num, s.id, s.username, re.sign')
-            ->alias('re')
+        ->field('d.dorm_num, s.id, s.username, re.sign')
+        ->alias('re')
             ->join('cq_record r', 're.record_id = r.id')
             ->join('cq_dorm d', 'd.id = r.dorm_id')
             ->join('cq_student s', 's.id = re.student_id')
@@ -172,5 +171,65 @@ class Record extends BaseController
         } else {
             echo false;
         }
+    }
+
+    // 未签到人员名单
+    public function notSignedList() {
+        $grade = Session::get('grade');
+        $department = Session::get('department');
+
+        // 输入判断
+        if (empty($grade)) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入年级！';
+            return json($return_data);
+        } else if (empty($department)) {
+            $return_data = array();
+            $return_data['error_code'] = 1;
+            $return_data['msg'] = '请输入系！';
+            return json($return_data);
+        }
+        
+        // 条件
+        $where = array();
+        $where['s.grade'] = $grade;
+        $where['s.department'] = $department;
+        $where['r.deleted'] = 0;
+        $where['re.sign'] = 0;
+        $date = Db::table('cq_record')->field('start_time')->order('start_time desc')->find();
+        $time = explode(" ", $date['start_time'])[0] . ' 00:00:00';
+
+        $dorm = Db::table('cq_result')  // 该条记录信息
+            ->field('s.id, s.username, s.sex, d.dorm_num, s.phone, r.start_time, r.end_time, re.sign, re.record_id')
+            ->alias('re')
+            ->join('cq_record r', 're.record_id = r.id')
+            ->join('cq_dorm d', 'd.id = r.dorm_id')
+            ->join('cq_student s', 's.id = re.student_id')
+            ->where($where)
+            ->where('r.end_time', '>=', $time)
+            ->distinct(true)
+            ->select();
+
+        if (!empty($dorm)) {
+            $return_data = array();
+            $return_data['code'] = 0;
+            rsort($dorm);  //排序
+            $return_data['msg'] = '';
+            $return_data['data'] = $dorm;
+            $return_data['count'] = count($dorm);
+            return json($return_data);
+        } else {
+            echo false;
+        }
+    }
+
+    // 标记已签到
+    public function sign() {
+        $where = array();
+        $where['student_id'] = Request::instance()->get('student_id');
+        $where['record_id'] = Request::instance()->get('record_id');
+        Db::table('cq_result')->where($where)->update(['sign' => 1]);
+        echo "<script>history.back();</script>";
     }
 }
