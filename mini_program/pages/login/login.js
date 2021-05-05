@@ -44,7 +44,7 @@ Page({
       })
     } else {
       wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/api/user/login',
+        url: getApp().globalData.server + '/cqcq/student/login',
         data: {
           id: that.data.id,
           password: that.data.password,
@@ -55,15 +55,7 @@ Page({
         },
         success: function (res) {
           console.log(res.data)
-          if (res.data.error_code == 1 || res.data.error_code == 2 || res.data.error_code == 3) {
-            wx.showModal({
-              title: '提示！',
-              content: res.data.msg,
-              confirmColor: '#7EC4F8',
-              showCancel: false,
-              success(res) {}
-            })
-          } else if (res.data.error_code != 0) {
+          if (res.data.code != 0) {
             wx.showModal({
               title: '哎呀～',
               content: '出错了呢！' + res.data.data.msg,
@@ -77,7 +69,7 @@ Page({
                 }
               }*/
             })
-          } else if (res.data.error_code == 0) {
+          } else if (res.data.code == 0) {
             getApp().globalData.user = res.data.data
             console.log(getApp().globalData.user)
             console.log(getApp().globalData.user.user)
@@ -216,7 +208,7 @@ Page({
             "Content-Type": "application/x-www-form-urlencoded"
           },
           success: function (res) {
-            if (res.data.error_code != 0) {
+            if (res.data.code != 0) {
               wx.showModal({
                 title: '提示！',
                 content: res.data.msg,
@@ -224,7 +216,7 @@ Page({
                 showCancel: false,
                 success(res) { }
               })
-            } else if (res.data.error_code == 0) {
+            } else if (res.data.code == 0) {
               getApp().globalData.user = res.data.data
               //加载中的样式
               wx.showToast({

@@ -52,8 +52,8 @@ App({
   globalData: {
     user: {}, //后台返回用户全部信息
     userInfo: {}, //微信获取用户信息
-    // server: 'http://localhost:8080', //域名
-    server: 'https://oeong.com', //域名
+    server: 'http://localhost:8080', //域名
+    // server: 'https://oeong.com', //域名
     height: '', //手机屏幕高度
     width: '',
     load: false, //判断用户是否授权
