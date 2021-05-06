@@ -17,21 +17,4 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @PostMapping("/login")
-    @ResponseBody // 将Java对象转为Json格式的数据。
-    public ResultVO login(Integer id, String password) {
-        Student student = studentService.findById(id);
-        if (student != null) {
-            String pwd = student.getPassword();
-            password = DigestUtils.md5DigestAsHex(password.getBytes()); // md5加密
-            if (pwd.equals(password)) {
-                System.out.println("登录成功");
-                return ResultVOUtil.success(student);
-            }  else {
-                return ResultVOUtil.error("您输入的账号或密码不正确");
-            }
-        } else {
-            return ResultVOUtil.error("您输入的账号或密码不正确");
-        }
-    }
 }

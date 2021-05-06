@@ -22,6 +22,12 @@ public class UserController {
     @Autowired
     private InstructorService instructorService;
 
+    /**
+     * 小程序登录
+     * @param id
+     * @param password
+     * @return
+     */
     @PostMapping("/login")
     @ResponseBody
     public ResultVO login(Integer id, String password) {
@@ -32,6 +38,7 @@ public class UserController {
             password = DigestUtils.md5DigestAsHex(password.getBytes()); // md5加密
             if (pwd.equals(password)) {
                 System.out.println("辅导员登录成功");
+                instructor.setUser("instructor");
                 return ResultVOUtil.success(instructor);
             }
         } else {
@@ -41,6 +48,7 @@ public class UserController {
                 password = DigestUtils.md5DigestAsHex(password.getBytes()); // md5加密
                 if (pwd.equals(password)) {
                     System.out.println("学生登录成功");
+                    student.setUser("student");
                     return ResultVOUtil.success(student);
                 }
             }
