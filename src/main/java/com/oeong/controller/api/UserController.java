@@ -12,9 +12,10 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/user")
-@Controller
+@RestController
 public class UserController {
 
     @Autowired
@@ -29,7 +30,6 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    @ResponseBody
     public ResultVO login(Integer id, String password) {
         System.out.println("用户正在登录");
         Instructor instructor = instructorService.findById(id);

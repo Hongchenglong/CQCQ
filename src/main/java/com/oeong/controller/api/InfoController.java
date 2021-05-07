@@ -31,7 +31,6 @@ public class InfoController {
      * @return
      */
     @PostMapping("/getHomeInfo")
-    @ResponseBody
     public ResultVO getHomeInfo(Integer id) {
         Instructor instructor = instructorService.findById(id);
         if (instructor != null) {

@@ -13,3 +13,8 @@ server:
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: com.oeong.entity
+
+logging:
+  level:
+    root: info
+    com.oeong: debug
