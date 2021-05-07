@@ -13,6 +13,8 @@ server:
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: com.oeong.entity
+  configuration:
+    map-underscore-to-camel-case: true # 驼峰命名
 
 logging:
   level:

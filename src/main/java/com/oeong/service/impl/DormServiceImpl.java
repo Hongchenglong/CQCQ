@@ -6,6 +6,8 @@ import com.oeong.service.DormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DormServiceImpl implements DormService {
 
@@ -18,12 +20,17 @@ public class DormServiceImpl implements DormService {
     }
 
     @Override
-    public Integer count(Integer dormGrade, String dormDep, String sex) {
+    public List<Integer> count(Integer dormGrade, String dormDep, String sex) {
         return dormDao.count(dormGrade, dormDep, sex);
     }
 
     @Override
-    public Object findAll(Integer dormGrade, String dormDep, String sex) {
-        return dormDao.findAll(dormGrade, dormDep, sex);
+    public Integer cnt(Integer dormGrade, String dormDep, String sex) {
+        return dormDao.cnt(dormGrade, dormDep, sex);
+    }
+
+    @Override
+    public List<Dorm> randomDraw(Integer grade, String dep, String sex, Integer limit) {
+        return dormDao.randomDraw(grade, dep, sex, limit);
     }
 }

@@ -11,6 +11,8 @@ public class Student extends User{
     private String sex;
     private String dorm;
     private String face;
+    private Dorm dormEntity;
+
     //    private Integer id;
     //    private String username;
     //    private String password;
@@ -19,4 +21,9 @@ public class Student extends User{
     //    private String grade;
     //    private String department;
     //    private String openid;
+
+
+//    private Integer id;
+//    private String name;
+
 }

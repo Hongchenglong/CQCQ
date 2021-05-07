@@ -82,7 +82,7 @@ Page({
               data: {
                 id: getApp().globalData.user.id
               },
-              'url': getApp().globalData.server + '/info/getHomeInfo',
+              url: getApp().globalData.server + '/info/getHomeInfo',
               method: "POST",
               header: {
                 'Content-Type': 'application/x-www-form-urlencoded'

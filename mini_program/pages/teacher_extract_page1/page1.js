@@ -38,9 +38,8 @@ Page({
 
   buttonList: function (e) {
     var that = this
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/Draw/draw')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/draw',
+      url: getApp().globalData.server + '/draw/draw',
       data: {
         numOfBoys: that.data.Boys_num,
         numOfGirls: that.data.Girls_num,
@@ -52,32 +51,20 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success(res) {
-        if (res.data.error_code != 0) {
+        if (res.data.code != 0) {
           wx.showModal({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
             success(res) {}
           })
-        } else if (res.data.error_code == 0) {
+        } else if (res.data.code == 0) {
           that.setData({
             Listdata: res.data.data.dorm
           })
           wx.navigateTo({
             url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.Listdata)
           })
-          // console.log(that.data.Listdata)
-          // wx.showModal({
-          //   title: "提示：",
-          //   content: '抽取成功！',
-          //   showCancel: false,
-          //   success(res) {},
-          //   complete: function (res) {
-          //     wx.navigateTo({
-          //       url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.Listdata)
-          //     })
-          //   },
-          // })
         }
       },
       fail: function () {
@@ -89,7 +76,6 @@ Page({
         })
       }
     })
-
   },
 
   /**
@@ -102,12 +88,9 @@ Page({
     })
     //传最大宿舍号
     var that = this
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber')
-    wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/getNumber',
+    wx.request({ // 发起 HTTPS 网络请求
+      url: getApp().globalData.server + '/draw/getNumber',
       data: {
-        numOfBoys: that.data.Boys_num,
-        numOfGirls: that.data.Girls_num,
         department: that.data.dep,
         grade: that.data.grade
       },
@@ -116,19 +99,16 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success(res) {
-        if (res.data.error_code == 2) {
+        if (res.data.code != 0) {
           wx.showModal({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
             success(res) {},
             complete: function (res) {
-              wx.navigateBack({
-                delta: 1
+              wx.navigateBack({ // 关闭当前页面，返回上一页面或多级页面
+                delta: 1 // 返回的页面数
                 })
-              /*wx.reLaunch({
-                url: '/pages/teacher_home/teacher_home',
-              })*/
             }
           })
           that.setData({
@@ -137,15 +117,7 @@ Page({
             Boys_num: 0,
             Girls_num: 0,
           })
-        } else if (res.data.error_code != 0) {
-          wx.showModal({
-            title: "提示：",
-            content: res.data.msg,
-            showCancel: false,
-            success(res) {}
-          })
-        } else if (res.data.error_code == 0) {
-          // console.log(res.data.data.girls)
+        } else if (res.data.code == 0) {
           that.setData({
             Boys_max: res.data.data.boys,
             Girls_max: res.data.data.girls

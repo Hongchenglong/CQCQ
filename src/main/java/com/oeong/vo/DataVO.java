@@ -13,4 +13,6 @@ public class DataVO {
 
     private Integer boys;
     private Integer girls;
+
+    private List<Dorm> dorm;
 }
