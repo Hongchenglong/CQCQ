@@ -2,6 +2,7 @@ package com.oeong.controller.api;
 
 import com.oeong.entity.Dorm;
 import com.oeong.service.DormService;
+import com.oeong.service.NoticeService;
 import com.oeong.util.ResultVOUtil;
 import com.oeong.vo.DataVO;
 import com.oeong.vo.ResultVO;
@@ -20,6 +21,8 @@ public class DrawController {
 
     @Autowired
     private DormService dormService;
+    @Autowired
+    private NoticeService noticeService;
 
     /**
      * 随机抽取宿舍
@@ -56,6 +59,11 @@ public class DrawController {
         } else {
             return ResultVOUtil.error("抽签失败，没有选择宿舍！");
         }
+    }
+
+    public ResultVO verify(Integer grade, String department, String start_time, String end_time,
+                           Integer dorm_id, Integer rand_num, Integer instructor_id) {
+        Integer notice = noticeService.findByInstructorId(instructor_id, start_time, end_time);
     }
 
     /**
