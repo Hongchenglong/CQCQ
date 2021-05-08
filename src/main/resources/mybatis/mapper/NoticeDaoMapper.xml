@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oeong.dao.NoticeDao">
-    <select id="findByInstructorId" parameterType="String" resultType="Integer">
+    <select id="findByInstructorId" resultType="Integer">
         select notice_id from cq_notice
-        where instructor_id=#{instructorId} and start_time=#{startTime} and end_time=#{startTime};
+        where instructor_id=#{instructorId} and start_time=#{startTime} and end_time=#{endTime};
     </select>
-    <insert id="insertNotice" parameterType="String">
+    <insert id="insertNotice">
         insert into cq_notice(instructor_id, start_time, end_time)
-        values (#{instructorId}, #{startTime}, #{startTime});
+        values (#{instructorId}, #{startTime}, #{endTime});
     </insert>
 </mapper>

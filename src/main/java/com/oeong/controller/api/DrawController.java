@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -61,9 +62,17 @@ public class DrawController {
         }
     }
 
+    @PostMapping("/verify")
     public ResultVO verify(Integer grade, String department, String start_time, String end_time,
                            Integer dorm_id, Integer rand_num, Integer instructor_id) {
         Integer notice = noticeService.findByInstructorId(instructor_id, start_time, end_time);
+        if (notice == null) {
+            noticeService.insertNotice(instructor_id, start_time, end_time);
+        }
+
+
+
+        return null;
     }
 
     /**
