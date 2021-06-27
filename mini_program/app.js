@@ -52,8 +52,8 @@ App({
   globalData: {
     user: {}, //后台返回用户全部信息
     userInfo: {}, //微信获取用户信息
-    // server: 'http://localhost:8080', //域名
-    server: 'https://oeong.com', //域名
+    server: 'http://localhost:8080/cqcq', //域名
+    // server: 'https://oeong.com', //域名
     height: '', //手机屏幕高度
     width: '',
     load: false, //判断用户是否授权
@@ -73,7 +73,7 @@ App({
     all: {},
     userInfo: null,
     multiArray: [
-      ['中一', '中二', '东一', '东二', '测试'],
+      ['中一', '中二', '东一', '东二'],
       ['1', '2', '3', '4', '5', '6', '7'],
       ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10',
         '11', '12', '13', '14', '15', '16', '17', '18', '19', '20',

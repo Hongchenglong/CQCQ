@@ -118,7 +118,7 @@ Page({
           console.log('用户点击确定')
           //调用抽取接口
           wx.request({
-            url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/verifyResults',
+            url: getApp().globalData.server + '/draw/verify',
             data: {
               instructor_id: getApp().globalData.user.id,
               department: that.data.dep,
@@ -133,14 +133,14 @@ Page({
               'content-type': 'application/x-www-form-urlencoded'
             },
             success(res) {
-              if (res.data.error_code != 0) {
+              if (res.data.code != 0) {
                 wx.showModal({
                   title: "提示：",
                   content: res.data.msg,
                   showCancel: false,
                   success(res) {}
                 })
-              } else if (res.data.error_code == 0) {
+              } else if (res.data.code == 0) {
                 wx.showToast({
                   title: res.data.msg,
                   duration: 1000, //显示时长

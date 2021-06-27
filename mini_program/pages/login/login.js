@@ -18,12 +18,6 @@ Page({
     height:''
   },
 
-  /*signup: function () {
-    wx.navigateTo({
-      url: '/pages/enroll/enroll'
-    })
-  },*/
-
   login: function () {
     var that = this
     if (that.data.id == '') {
@@ -44,7 +38,7 @@ Page({
       })
     } else {
       wx.request({
-        url: getApp().globalData.server + '/cqcq/public/index.php/api/user/login',
+        url: getApp().globalData.server + '/user/login',
         data: {
           id: that.data.id,
           password: that.data.password,
@@ -55,29 +49,14 @@ Page({
         },
         success: function (res) {
           console.log(res.data)
-          if (res.data.error_code == 1 || res.data.error_code == 2 || res.data.error_code == 3) {
-            wx.showModal({
-              title: '提示！',
-              content: res.data.msg,
-              confirmColor: '#7EC4F8',
-              showCancel: false,
-              success(res) {}
-            })
-          } else if (res.data.error_code != 0) {
+          if (res.data.code != 0) {
             wx.showModal({
               title: '哎呀～',
               content: '出错了呢！' + res.data.data.msg,
               confirmColor: '#7EC4F8',
-              showCancel: false,
-              /*success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                } else if (res.cancel) {
-                  console.log('用户点击取消')
-                }
-              }*/
+              showCancel: false
             })
-          } else if (res.data.error_code == 0) {
+          } else if (res.data.code == 0) {
             getApp().globalData.user = res.data.data
             console.log(getApp().globalData.user)
             console.log(getApp().globalData.user.user)
@@ -103,7 +82,7 @@ Page({
               data: {
                 id: getApp().globalData.user.id
               },
-              'url': getApp().globalData.server + '/cqcq/public/index.php/api/getinfo/getHomeInfo',
+              url: getApp().globalData.server + '/info/getHomeInfo',
               method: "POST",
               header: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -216,7 +195,7 @@ Page({
             "Content-Type": "application/x-www-form-urlencoded"
           },
           success: function (res) {
-            if (res.data.error_code != 0) {
+            if (res.data.code != 0) {
               wx.showModal({
                 title: '提示！',
                 content: res.data.msg,
@@ -224,7 +203,7 @@ Page({
                 showCancel: false,
                 success(res) { }
               })
-            } else if (res.data.error_code == 0) {
+            } else if (res.data.code == 0) {
               getApp().globalData.user = res.data.data
               //加载中的样式
               wx.showToast({

@@ -29,7 +29,8 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": false,
+    "bundle": false,
+    "useIsolateContext": true,
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,

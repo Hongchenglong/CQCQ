@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oeong.dao.StudentDao">
+    <select id="findById" parameterType="Integer" resultType="Student">
+        select * from cq_student where id=#{id};
+    </select>
+    <select id="findByDorm" resultType="Student">
+        select * from cq_student where dorm=#{dormNum} and grade=#{grade} and department=#{department};
+    </select>
+</mapper>
