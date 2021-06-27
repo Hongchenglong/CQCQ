@@ -4,4 +4,7 @@
     <select id="findById" parameterType="Integer" resultType="Student">
         select * from cq_student where id=#{id};
     </select>
+    <select id="findByDorm" resultType="Student">
+        select * from cq_student where dorm=#{dormNum} and grade=#{grade} and department=#{department};
+    </select>
 </mapper>

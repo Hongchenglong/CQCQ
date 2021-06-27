@@ -8,4 +8,28 @@
     <select id="getLastId" resultType="Integer">
         select id from cq_record order by id desc limit 1;
     </select>
+    <!-- 一对多collection -->
+    <!-- 一段时间，多间宿舍 -->
+    <!-- resultMap：结果集 -->
+    <resultMap id="timeAndDormMap" type="Record">
+        <id property="id" column="id"/>
+        <!--   property：JavaBean对象属性，column：数据库列名    -->
+        <result property="dormId" column="dorm_id"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="deleted" column="deleted"/>
+        <!--    collection关联的对象，dormList    -->
+        <collection property="dormList" ofType="Dorm">
+            <id property="id" column="did"/>
+            <result property="dormGrade" column="dorm_grade"/>
+            <result property="dormDep" column="dorm_dep"/>
+        </collection>
+    </resultMap>
+    <!--  查询目前最近的一次查寝时间  -->
+    <select id="selectMaxTime" resultType="com.oeong.entity.Record">
+        select r.start_time as start_time, r.end_time as end_time from cq_record r, cq_dorm d
+        where r.dorm_id = d.id and d.dorm_grade=#{dormGrade} and d.dorm_dep=#{dormDep} and r.deleted=0
+        order by r.id desc limit 1;
+    </select>
+
 </mapper>

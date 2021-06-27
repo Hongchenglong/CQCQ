@@ -15,6 +15,7 @@ mybatis:
   type-aliases-package: com.oeong.entity
   configuration:
     map-underscore-to-camel-case: true # 驼峰命名
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印SQL
 
 logging:
   level:

@@ -1,6 +1,7 @@
 package com.oeong.controller.api;
 
 import com.oeong.entity.Dorm;
+import com.oeong.entity.Record;
 import com.oeong.entity.Result;
 import com.oeong.entity.Student;
 import com.oeong.service.*;
@@ -64,15 +65,33 @@ public class DrawController {
         }
     }
 
-    @Test
-    public void test() {
-        Integer dorm = dormService.cnt(2017, "计算机工程系", "男");
-//        List<Dorm> boy = dormService.randomDraw(2017, "计算机工程系", "男", 20);
-//        System.out.println("boy " + boy);
-        System.out.println(dorm);
-//        System.out.println("result " + resultService);
+    /**
+     * 获取宿舍数量
+     * @param grade
+     * @param department
+     * @return
+     */
+    @PostMapping("/getNumber")
+    public ResultVO getNumber(Integer grade, String department) {
+        Integer boys = dormService.count(grade, department, "男").size();
+        Integer girls = dormService.count(grade, department, "女").size();
+        System.out.println("男生宿舍：" + boys);
+        System.out.println("女生宿舍：" + girls);
+        if (boys + girls > 0) {
+            DataVO dataVO = new DataVO();
+            dataVO.setBoys(boys);
+            dataVO.setGirls(girls);
+            return ResultVOUtil.success(dataVO);
+        } else {
+            return ResultVOUtil.error("该系暂无宿舍，请导入！");
+        }
     }
 
+    /**
+     * @Author: Hongchenglong
+     * @Date: 2021/6/27 15:03
+     * @Decription: 确认查寝名单
+     */
     @PostMapping("/verify")
     public ResultVO verify(Integer grade, String department, String start_time, String end_time,
                            String dorm_id, String rand_num, Integer instructor_id) {
@@ -97,14 +116,12 @@ public class DrawController {
             // 宿舍门牌号
             String dormNum = dormService.findByDormId(dormId, grade, department).getDormNum();
             System.out.println("dormService=============" + dormService);
-
             List<Student> studentList = studentService.findByDorm(dormNum, grade, department);
             // // 将学号和记录号依次插入到result表中
             for (Student student : studentList) {
                 ret = resultService.insertResult(student.getId(), recordId);
             }
         }
-
         if (ret > 0) {
             return ResultVOUtil.success(null);
         } else {
@@ -112,25 +129,11 @@ public class DrawController {
         }
     }
 
-    /**
-     * 获取宿舍数量
-     * @param grade
-     * @param department
-     * @return
-     */
-    @PostMapping("/getNumber")
-    public ResultVO getNumber(Integer grade, String department) {
-        Integer boys = dormService.count(grade, department, "男").size();
-        Integer girls = dormService.count(grade, department, "女").size();
-        System.out.println("男生宿舍：" + boys);
-        System.out.println("女生宿舍：" + girls);
-        if (boys + girls > 0) {
-            DataVO dataVO = new DataVO();
-            dataVO.setBoys(boys);
-            dataVO.setGirls(girls);
-            return ResultVOUtil.success(dataVO);
-        } else {
-            return ResultVOUtil.error("该系暂无宿舍，请导入！");
-        }
+    @PostMapping("/result")
+    public ResultVO result(Integer grade, String department) {
+        // 先找到本系、本年级的id最大的开始时间和结束时间
+        Record record = recordService.selectMaxTime(grade, department);
+
+        return null;
     }
 }

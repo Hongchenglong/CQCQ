@@ -7,6 +7,7 @@
     <select id="findByDormId" resultType="Dorm">
         select * from cq_dorm where id=#{dormId} and dorm_grade=#{dormGrade} and dorm_dep=#{dormDep};
     </select>
+
     <!-- 一对多collection -->
     <!-- 一间宿舍，多个学生 -->
     <resultMap id="DormAndStudentsResultMap" type="Dorm">
@@ -15,6 +16,7 @@
         <result property="dormNum" column="dorm_num"/>
         <result property="dormGrade" column="dorm_grade"/>
         <result property="dormDep" column="dorm_dep"/>
+        <!--    studentList    -->
         <collection property="studentList" ofType="Student">
             <id property="id" column="sid"/>
             <result property="dorm" column="dorm"/>
@@ -35,6 +37,6 @@
     <select id="randomDraw" resultMap="DormAndStudentsResultMap">
         select d.id, d.dorm_num from cq_dorm d join cq_student s on s.dorm = d.dorm_num
         where s.sex=#{sex} and d.dorm_grade=#{grade} and d.dorm_dep=#{dep}
-        order by rand() limit #{limit}
+        order by rand() limit #{limit};
     </select>
 </mapper>
