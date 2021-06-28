@@ -35,7 +35,7 @@ Page({
     })
     var that = this
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/api/draw/displayRecentResults',
+      url: getApp().globalData.server + '/draw/result',
       data: {
         department: that.data.dep,
         grade: that.data.grade,
@@ -46,14 +46,14 @@ Page({
       },
       success(res) {
         // console.log(res.data)
-        if (res.data.error_code != 0) {
+        if (res.data.code != 0) {
           wx.showModal({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
             success(res) {}
           })
-        } else if (res.data.error_code == 0) {
+        } else if (res.data.code == 0) {
           var l = res.data.data.length - 1
           that.setData({
             Listdata: res.data.data,
