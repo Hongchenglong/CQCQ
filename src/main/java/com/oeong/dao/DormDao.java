@@ -24,4 +24,6 @@ public interface DormDao {
     // 获取区号
     @Select("select distinct block from cq_dorm where dorm_grade=#{grade} and dorm_dep=#{dep};")
     List<String> getBlock(Integer grade, String dep);
+    @Select("select * from cq_dorm where dorm_grade=#{grade} and dorm_dep=#{dep} and dorm_num='${block}#${room}';")
+    Integer doesItExist(Integer grade, String dep, String block, Integer room);
 }

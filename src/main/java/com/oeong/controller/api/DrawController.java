@@ -152,11 +152,26 @@ public class DrawController {
         }
     }
 
-    @PostMapping("/block")
+    @PostMapping("/getBlock")
     public ResultVO getBlock(Integer grade, String department) {
         List<String> block = dormDao.getBlock(grade, department);
         if (block.size() > 0) {
             return ResultVOUtil.success(block);
+        } else {
+            return ResultVOUtil.error("未查找到数据");
+        }
+    }
+
+    /**
+     * @Author: Hongchenglong
+     * @Date: 2021/6/28 22:51
+     * @Decription: 判断宿舍是否存在
+     */
+    @PostMapping("/doesItExist")
+    public ResultVO doesItExist(Integer grade, String department, String block, Integer room) {
+        Integer exit = dormDao.doesItExist(grade, department, block, room);
+        if (exit != null) {
+            return ResultVOUtil.success(null);
         } else {
             return ResultVOUtil.error("未查找到数据");
         }
