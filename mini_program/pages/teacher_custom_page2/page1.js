@@ -57,9 +57,8 @@ Page({
       blockList.push(List[i].block)
       roomList.push(List[i].room)
     }
-    console.log(getApp().globalData.server + '/cqcq/public/index.php/api/Draw/customize')
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/customize',
+      url: getApp().globalData.server + '/draw/customize',
       data: {
         department: that.data.dep,
         grade: that.data.grade,
@@ -72,14 +71,14 @@ Page({
       },
       success(res) {
         // console.log(res.data)
-        if (res.data.error_code != 0) {
+        if (res.data.code != 0) {
           wx.showModal({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
             success(res) {}
           })
-        } else if (res.data.error_code == 0) {
+        } else if (res.data.code == 0) {
           that.setData({
             listdata: res.data.data.dormSuc
           })
@@ -128,7 +127,7 @@ Page({
       if (n == 0) {
         //判断宿舍是否存在
         wx.request({
-          url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/doesItExist',
+          url: getApp().globalData.server + '/draw/doesItExist',
           data: {
             department: that.data.dep,
             grade: that.data.grade,
@@ -140,14 +139,14 @@ Page({
             'content-type': 'application/x-www-form-urlencoded'
           },
           success(res) {
-            if (res.data.error_code != 0) {
+            if (res.data.code != 0) {
               wx.showModal({
                 title: "提示：",
                 content: res.data.msg,
                 showCancel: false,
                 success(res) {}
               })
-            } else if (res.data.error_code == 0) {
+            } else if (res.data.code == 0) {
               list.push({
                 'block': apart,
                 'room': num
@@ -240,13 +239,11 @@ Page({
       grade: getApp().globalData.user.grade,
       dep: getApp().globalData.user.department
     })
-    //console.log(this.data.grade)
-    //console.log(this.data.dep)
-    // console.log(getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock')
+
 
     // 传区号
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/api/dormitory/getBlock',
+      url: getApp().globalData.server + '/draw/getBlock',
       data: {
         department: that.data.dep,
         grade: that.data.grade,
@@ -256,16 +253,16 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success(res) {
-        if (res.data.error_code != 0) {
+        if (res.data.code != 0) {
           wx.showModal({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
             success(res) {}
           })
-        } else if (res.data.error_code == 0) {
+        } else if (res.data.code == 0) {
           for (var i = 0; i < res.data.data.length; i++) {
-            listblock.push(res.data.data[i].block)
+            listblock.push(res.data.data[i])
           }
           that.setData({
             listblock: listblock

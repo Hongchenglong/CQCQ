@@ -57,7 +57,7 @@ Page({
       roomList.push(List[i].room)
     }
     wx.request({
-      url: getApp().globalData.server + '/cqcq/public/index.php/api/Draw/customize',
+      url: getApp().globalData.server + '/draw/customize',
       data: {
         department: that.data.dep,
         grade: that.data.grade,
@@ -70,31 +70,20 @@ Page({
       },
       success(res) {
         // console.log(res.data)
-        if (res.data.error_code != 0) {
+        if (res.data.code != 0) {
           wx.showModal({
             title: "提示：",
             content: res.data.msg,
             showCancel: false,
             success(res) { }
           })
-        } else if (res.data.error_code == 0) {
+        } else if (res.data.code == 0) {
           that.setData({
             listdata: res.data.data.dormSuc
           })
           wx.redirectTo({
             url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
           })
-          // wx.showModal({
-          //   title: "提示：",
-          //   content: res.data.msg,
-          //   showCancel: false,
-          //   success(res) { },
-          //   complete: function (res) {  
-          //     wx.redirectTo({
-          //       url: '/pages/teacher_extract_page2/page2?listData=' + JSON.stringify(that.data.listdata)
-          //     })
-          //   },
-          // })
         }
       },
       fail: function () {

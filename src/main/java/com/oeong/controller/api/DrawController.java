@@ -176,4 +176,31 @@ public class DrawController {
             return ResultVOUtil.error("未查找到数据");
         }
     }
+
+    @PostMapping("/customize")
+    public ResultVO customize(Integer grade, String department, String block, String room) {
+        List<Map<String, String>> dormSuc = new ArrayList<>();
+        List<String> blockList = Arrays.asList(block.split(","));
+        List<String> roomList = Arrays.asList(room.split(","));
+        Integer len = blockList.size();
+        for (Integer i = 0; i < len; i++) {
+            // 判断指定宿舍是否存在
+            ResultVO resultVO = doesItExist(grade, department, blockList.get(i), Integer.valueOf(roomList.get(i)));
+            if (resultVO.getCode() == 0) {
+                System.out.println(blockList.get(i) + "#" + roomList.get(i));
+                Map<String, String> map = new HashMap<>();
+                map.put("dorm_num", blockList.get(i) + "#" + roomList.get(i));
+                map.put("rand_num", String.valueOf(new Random().nextInt(9000) + 1000));
+                dormSuc.add(map);
+            }
+        }
+        DataVO dataVO = new DataVO();
+        dataVO.setDormSuc(dormSuc);
+        if (dataVO != null) {
+            return ResultVOUtil.success(dataVO);
+        } else {
+            return ResultVOUtil.error("未提供数据");
+        }
+
+    }
 }

@@ -5,6 +5,7 @@ import com.oeong.entity.Student;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 public class DataVO {
@@ -15,4 +16,5 @@ public class DataVO {
     private Integer girls;
 
     private List<Dorm> dorm;
+    private List<Map<String, String>> dormSuc;
 }
