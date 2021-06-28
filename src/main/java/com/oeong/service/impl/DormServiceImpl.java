@@ -38,4 +38,9 @@ public class DormServiceImpl implements DormService {
     public List<Dorm> randomDraw(Integer grade, String dep, String sex, Integer limit) {
         return dormDao.randomDraw(grade, dep, sex, limit);
     }
+
+    @Override
+    public List<Dorm> selectDormAndNumber(Integer dormGrade, String dormDep, String startTime, String endTime) {
+        return dormDao.selectDormAndNumber(dormGrade, dormDep, startTime, endTime);
+    }
 }

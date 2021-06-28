@@ -39,4 +39,26 @@
         where s.sex=#{sex} and d.dorm_grade=#{grade} and d.dorm_dep=#{dep}
         order by rand() limit #{limit};
     </select>
+
+    <!--  association一对一  -->
+    <resultMap id="RecordAndDormMap" type="Dorm">
+        <id property="id" column="id"/>
+        <result property="dormGrade" column="dorm_grade"/>
+        <result property="dormDep" column="dorm_dep"/>
+        <result property="randNum" column="rand_num"/>
+        <result property="dormNum" column="dorm_num"/>
+        <association property="record" javaType="Record">
+            <id property="id" column="rid"/>
+            <!--   property：JavaBean对象属性，column：数据库列名    -->
+            <result property="dormId" column="dorm_id"/>
+            <result property="startTime" column="start_time"/>
+            <result property="endTime" column="end_time"/>
+            <result property="deleted" column="deleted"/>
+        </association>
+    </resultMap>
+    <select id="selectDormAndNumber" resultMap="RecordAndDormMap">
+        select d.dorm_num, r.rand_num from cq_dorm d, cq_record r where d.id=r.dorm_id
+        and r.start_time=#{startTime} and r.end_time=#{endTime}
+        and d.dorm_grade=#{dormGrade} and d.dorm_dep=#{dormDep} and deleted=0;
+    </select>
 </mapper>

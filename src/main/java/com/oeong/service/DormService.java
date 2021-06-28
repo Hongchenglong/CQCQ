@@ -11,4 +11,5 @@ public interface DormService {
     List<Integer> count(Integer dormGrade, String dormDep, String sex);
     Integer cnt(Integer dormGrade, String dormDep, String sex);
     List<Dorm> randomDraw(Integer grade, String dep, String sex, Integer limit);
+    List<Dorm> selectDormAndNumber(Integer dormGrade, String dormDep, String startTime, String endTime);
 }

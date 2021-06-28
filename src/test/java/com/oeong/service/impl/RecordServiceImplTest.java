@@ -22,8 +22,7 @@ class RecordServiceImplTest {
     @Test
     public void maxTime() {
         System.out.println("recordService============");
-        System.out.println(recordService);
-        System.out.println(recordService.getLastId());
+
         System.out.println(recordService.selectMaxTime(2017, "计算机工程系"));
     }
 

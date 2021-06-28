@@ -1,5 +1,6 @@
 package com.oeong.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -14,5 +15,7 @@ public class Record {
     private String uploadTime;
     private String endTime;
     private Integer deleted;
+    private Dorm dorm;
     private List<Dorm> dormList;
+    private String dormNum;
 }

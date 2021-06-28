@@ -21,4 +21,6 @@ public class Dorm {
     // 随机数
     @JsonProperty("rand_num")
     private Integer randNum;
+    private Record record;
+    private List<Record> recordList;
 }

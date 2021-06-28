@@ -1,5 +1,6 @@
 package com.oeong.controller.api;
 
+import com.oeong.dao.DormDao;
 import com.oeong.entity.Dorm;
 import com.oeong.entity.Record;
 import com.oeong.entity.Result;
@@ -20,6 +21,8 @@ public class DrawController {
 
     @Autowired
     private DormService dormService;
+    @Autowired
+    private DormDao dormDao;
     @Autowired
     private NoticeService noticeService;
     @Autowired
@@ -129,11 +132,33 @@ public class DrawController {
         }
     }
 
+    /**
+     * @Author: Hongchenglong
+     * @Date: 2021/6/28 22:12
+     * @Decription: 显示宿舍和随机号
+     */
     @PostMapping("/result")
     public ResultVO result(Integer grade, String department) {
         // 先找到本系、本年级的id最大的开始时间和结束时间
         Record record = recordService.selectMaxTime(grade, department);
+        String startTime = record.getStartTime();
+        String endTime = record.getEndTime();
+        // 获取宿舍号和随机号码
+        List<Dorm> dormAndNumbers = dormService.selectDormAndNumber(grade, department, startTime, endTime);
+        if (dormAndNumbers.size() > 0) {
+            return ResultVOUtil.success(dormAndNumbers);
+        } else {
+            return ResultVOUtil.error("未查找到数据");
+        }
+    }
 
-        return null;
+    @PostMapping("/block")
+    public ResultVO getBlock(Integer grade, String department) {
+        List<String> block = dormDao.getBlock(grade, department);
+        if (block.size() > 0) {
+            return ResultVOUtil.success(block);
+        } else {
+            return ResultVOUtil.error("未查找到数据");
+        }
     }
 }
