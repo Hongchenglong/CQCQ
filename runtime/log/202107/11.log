@@ -1,0 +1,89 @@
+---------------------------------------------------------------
+[ 2021-07-11T14:59:42+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/login/valid
+[ sql ] [ DB ] CONNECT:[ UseTime:0.047175s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_instructor` [ RunTime:0.072957s ]
+[ sql ] [ SQL ] SELECT * FROM `cq_instructor` WHERE  `id` = 1412  AND `password` = '02087b6536d7f8e1c50336c8d76b7657' LIMIT 1 [ RunTime:0.001306s ]
+---------------------------------------------------------------
+[ 2021-07-11T14:59:48+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/welcome/index.php?s=index/welcome/get_line
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004242s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_dorm` [ RunTime:0.017420s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `dorm_num` FROM `cq_dorm` `d` INNER JOIN `cq_student` `s` ON `s`.`dorm`=`d`.`dorm_num` WHERE  `dorm_grade` = 2017  AND `dorm_dep` = '计算机工程系' [ RunTime:0.027298s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_student` [ RunTime:0.001604s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `id` FROM `cq_student` WHERE  `grade` = 2017  AND `department` = '计算机工程系' [ RunTime:0.000969s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_record` [ RunTime:0.013532s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time`,`end_time`,`d`.`dorm_num`,`student_id` FROM `cq_record` `r` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_result` `t` ON `t`.`record_id`=`r`.`id` INNER JOIN `cq_student` `s` ON `s`.`dorm`=`d`.`dorm_num` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` BETWEEN '2021-07-05' AND '2021-07-11'  AND `r`.`deleted` = 0 [ RunTime:0.023932s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.003626s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `r`.`start_time`,`d`.`dorm_num`,`t`.`student_id` FROM `cq_result` `t` INNER JOIN `cq_student` `s` ON `s`.`id`=`t`.`student_id` INNER JOIN `cq_record` `r` ON `t`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `s`.`dorm`=`d`.`dorm_num` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` BETWEEN '2021-07-05' AND '2021-07-11'  AND `r`.`deleted` = 0  AND `t`.`sign` = 0 [ RunTime:0.107948s ]
+---------------------------------------------------------------
+[ 2021-07-11T14:59:48+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/welcome/index.php?s=index/welcome/get_more
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003073s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.007684s ]
+[ sql ] [ SQL ] SELECT DISTINCT  re.student_id,count(*) as num FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `re`.`sign` = 0  AND `r`.`deleted` = 0  AND `r`.`end_time` > '2021-07-01 0:0:0' GROUP BY `re`.`student_id` ORDER BY `num` DESC [ RunTime:0.066400s ]
+---------------------------------------------------------------
+[ 2021-07-11T14:59:48+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/welcome/index.php?s=index/welcome/get_time
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003667s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_record` [ RunTime:0.001862s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time`,`end_time` FROM `cq_record` `r` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`dorm`=`d`.`dorm_num` WHERE  `start_time` BETWEEN '2021-07-11 00:00:00' AND '2021-07-11 23:59:59'  AND `grade` = 2017  AND `department` = '计算机工程系'  AND `r`.`deleted` = 0 [ RunTime:0.002523s ]
+---------------------------------------------------------------
+[ 2021-07-11T14:59:48+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/welcome/index.php?s=index/welcome/get_line
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004200s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_dorm` [ RunTime:0.001943s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `dorm_num` FROM `cq_dorm` `d` INNER JOIN `cq_student` `s` ON `s`.`dorm`=`d`.`dorm_num` WHERE  `dorm_grade` = 2017  AND `dorm_dep` = '计算机工程系' [ RunTime:0.003413s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_student` [ RunTime:0.001631s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `id` FROM `cq_student` WHERE  `grade` = 2017  AND `department` = '计算机工程系' [ RunTime:0.000754s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_record` [ RunTime:0.001917s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time`,`end_time`,`d`.`dorm_num`,`student_id` FROM `cq_record` `r` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_result` `t` ON `t`.`record_id`=`r`.`id` INNER JOIN `cq_student` `s` ON `s`.`dorm`=`d`.`dorm_num` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` BETWEEN '2021-07-05' AND '2021-07-11'  AND `r`.`deleted` = 0 [ RunTime:0.009852s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.001400s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `r`.`start_time`,`d`.`dorm_num`,`t`.`student_id` FROM `cq_result` `t` INNER JOIN `cq_student` `s` ON `s`.`id`=`t`.`student_id` INNER JOIN `cq_record` `r` ON `t`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `s`.`dorm`=`d`.`dorm_num` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` BETWEEN '2021-07-05' AND '2021-07-11'  AND `r`.`deleted` = 0  AND `t`.`sign` = 0 [ RunTime:0.097305s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:39+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/public/index.php/index/Table/informations?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002522s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_student` [ RunTime:0.001576s ]
+[ sql ] [ SQL ] SELECT * FROM `cq_student` WHERE  `grade` = 2017  AND `department` = '计算机工程系' [ RunTime:0.000512s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:43+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/record/index.php?s=index/record/get_date
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001790s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_record` [ RunTime:0.001134s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `start_time`,`end_time` FROM `cq_record` `r` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`dorm`=`d`.`dorm_num` WHERE  `grade` = 2017  AND `department` = '计算机工程系'  AND `deleted` = 0 ORDER BY `start_time` DESC LIMIT 7 [ RunTime:0.019204s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:43+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/record/index.php?s=index/record/dorm
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001655s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.004963s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `d`.`dorm_num`,`s`.`id`,`s`.`username`,`re`.`sign` FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2021-06-28 22:30:00'  AND `r`.`end_time` = '2021-06-28 22:45:00'  AND `r`.`deleted` = 0 [ RunTime:0.712860s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/record/index.php?s=index/record/dorm
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001778s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.003622s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `d`.`dorm_num`,`s`.`id`,`s`.`username`,`re`.`sign` FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2021-06-27 22:30:00'  AND `r`.`end_time` = '2021-06-27 22:45:00'  AND `r`.`deleted` = 0 [ RunTime:0.986350s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/record/index.php?s=index/record/dorm
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001903s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.003788s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `d`.`dorm_num`,`s`.`id`,`s`.`username`,`re`.`sign` FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2021-03-06 22:30:00'  AND `r`.`end_time` = '2021-03-06 22:45:00'  AND `r`.`deleted` = 0 [ RunTime:0.214657s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/record/index.php?s=index/record/dorm
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001944s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.003751s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `d`.`dorm_num`,`s`.`id`,`s`.`username`,`re`.`sign` FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2021-03-06 00:00:00'  AND `r`.`end_time` = '2021-03-06 22:45:00'  AND `r`.`deleted` = 0 [ RunTime:0.050967s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/record/index.php?s=index/record/dorm
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001654s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.003520s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `d`.`dorm_num`,`s`.`id`,`s`.`username`,`re`.`sign` FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2021-03-06 00:00:00'  AND `r`.`end_time` = '2021-03-06 19:00:00'  AND `r`.`deleted` = 0 [ RunTime:0.045965s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/record/index.php?s=index/record/dorm
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001878s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.003638s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `d`.`dorm_num`,`s`.`id`,`s`.`username`,`re`.`sign` FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2021-03-03 00:00:00'  AND `r`.`end_time` = '2021-03-03 00:02:00'  AND `r`.`deleted` = 0 [ RunTime:0.044550s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:45+08:00 ] 0.0.0.0 POST localhost:8080/cqcq/public/index.php/index/record/index.php?s=index/record/dorm
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001829s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.003539s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `d`.`dorm_num`,`s`.`id`,`s`.`username`,`re`.`sign` FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`start_time` = '2021-03-01 00:00:00'  AND `r`.`end_time` = '2021-03-01 01:00:00'  AND `r`.`deleted` = 0 [ RunTime:0.043787s ]
+---------------------------------------------------------------
+[ 2021-07-11T15:20:45+08:00 ] 0.0.0.0 GET localhost:8080/cqcq/public/index.php/index/Record/notSignedList?page=1&limit=10
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002606s ] mysql:host=127.0.0.1;dbname=CQCQ;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_record` [ RunTime:0.000998s ]
+[ sql ] [ SQL ] SELECT `start_time` FROM `cq_record` ORDER BY `start_time` DESC LIMIT 1 [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `cq_result` [ RunTime:0.003646s ]
+[ sql ] [ SQL ] SELECT DISTINCT  `s`.`id`,`s`.`username`,`s`.`sex`,`d`.`dorm_num`,`s`.`phone`,`r`.`start_time`,`r`.`end_time`,`re`.`sign`,`re`.`record_id` FROM `cq_result` `re` INNER JOIN `cq_record` `r` ON `re`.`record_id`=`r`.`id` INNER JOIN `cq_dorm` `d` ON `d`.`id`=`r`.`dorm_id` INNER JOIN `cq_student` `s` ON `s`.`id`=`re`.`student_id` WHERE  `s`.`grade` = 2017  AND `s`.`department` = '计算机工程系'  AND `r`.`deleted` = 0  AND `re`.`sign` = 0  AND `r`.`end_time` >= '2021-06-28 00:00:00' [ RunTime:0.041229s ]
