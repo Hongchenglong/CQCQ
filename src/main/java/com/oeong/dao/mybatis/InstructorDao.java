@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface InstructorDao {
-    public Instructor findById(Integer id);
+    Instructor findById(Integer id);
 }

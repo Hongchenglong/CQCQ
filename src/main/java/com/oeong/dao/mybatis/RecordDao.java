@@ -11,8 +11,8 @@ import java.util.List;
 @Mapper
 @Repository
 public interface RecordDao {
-    public Integer insertRecord(Integer dormId, Integer randNum, String startTime, String endTime);
-    public Integer getLastId();
-    public Record selectMaxTime(Integer dormGrade, String dormDep);
-    public List<Dorm> selectDormAndNumber(Integer dormGrade, String dormDep, String startTime, String endTime);
+    Integer insertRecord(Integer dormId, Integer randNum, String startTime, String endTime);
+    Integer getLastId();
+    Record selectMaxTime(Integer dormGrade, String dormDep);
+    List<Dorm> selectDormAndNumber(Integer dormGrade, String dormDep, String startTime, String endTime);
 }

@@ -18,7 +18,7 @@
     <!-- 一对多collection -->
     <!-- 一段时间，多间宿舍 -->
     <!-- resultMap：结果集 -->
-    <resultMap id="RecordAndDormMap" type="Record">
+    <resultMap id="RecordAndDormMap" type="com.oeong.entity.Record">
         <id property="id" column="id"/>
         <!--   property：JavaBean对象属性，column：数据库列名    -->
         <result property="dormId" column="dorm_id"/>
@@ -27,7 +27,7 @@
         <result property="endTime" column="end_time"/>
         <result property="deleted" column="deleted"/>
         <!--    collection关联的对象，dormList    -->
-        <collection property="dormList" ofType="Dorm">
+        <collection property="dormList" ofType="com.oeong.entity.Dorm">
             <id property="id" column="did"/>
             <result property="dormGrade" column="dorm_grade"/>
             <result property="dormDep" column="dorm_dep"/>

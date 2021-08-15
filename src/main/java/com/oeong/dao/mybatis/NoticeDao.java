@@ -8,6 +8,6 @@ import java.util.Date;
 @Mapper
 @Repository
 public interface NoticeDao {
-    public Integer findByInstructorId(Integer instructorId, String startTime, String endTime);
-    public Integer insertNotice(Integer instructorId, String startTime, String endTime);
+    Integer findByInstructorId(Integer instructorId, String startTime, String endTime);
+    Integer insertNotice(Integer instructorId, String startTime, String endTime);
 }

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oeong.dao.mybatis.DormDao">
-    <select id="findByDormNum" resultType="Dorm">
+    <select id="findByDormNum" resultType="com.oeong.entity.Dorm">
         select * from cq_dorm where dorm_num=#{dormNum} and dorm_grade=#{dormGrade} and dorm_dep=#{dormDep};
     </select>
-    <select id="findByDormId" resultType="Dorm">
+    <select id="findByDormId" resultType="com.oeong.entity.Dorm">
         select * from cq_dorm where id=#{dormId} and dorm_grade=#{dormGrade} and dorm_dep=#{dormDep};
     </select>
 
     <!-- 一对多collection -->
     <!-- 一间宿舍，多个学生 -->
-    <resultMap id="DormAndStudentsResultMap" type="Dorm">
+    <resultMap id="DormAndStudentsResultMap" type="com.oeong.entity.Dorm">
         <!-- 配置 Dorm 的属性 -->
         <id property="id" column="id"/>
         <result property="dormNum" column="dorm_num"/>
         <result property="dormGrade" column="dorm_grade"/>
         <result property="dormDep" column="dorm_dep"/>
         <!--    studentList    -->
-        <collection property="studentList" ofType="Student">
+        <collection property="studentList" ofType="com.oeong.entity.Student">
             <id property="id" column="sid"/>
             <result property="dorm" column="dorm"/>
             <result property="sex" column="sex"/>
@@ -41,13 +41,13 @@
     </select>
 
     <!--  association一对一  -->
-    <resultMap id="RecordAndDormMap" type="Dorm">
+    <resultMap id="RecordAndDormMap" type="com.oeong.entity.Dorm">
         <id property="id" column="id"/>
         <result property="dormGrade" column="dorm_grade"/>
         <result property="dormDep" column="dorm_dep"/>
         <result property="randNum" column="rand_num"/>
         <result property="dormNum" column="dorm_num"/>
-        <association property="record" javaType="Record">
+        <association property="record" javaType="com.oeong.entity.Record">
             <id property="id" column="rid"/>
             <!--   property：JavaBean对象属性，column：数据库列名    -->
             <result property="dormId" column="dorm_id"/>
