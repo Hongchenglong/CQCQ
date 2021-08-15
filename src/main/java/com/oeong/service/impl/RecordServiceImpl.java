@@ -1,15 +1,11 @@
 package com.oeong.service.impl;
 
 
-import com.oeong.dao.RecordDao;
-import com.oeong.entity.Dorm;
+import com.oeong.dao.mybatis.RecordDao;
 import com.oeong.entity.Record;
-import com.oeong.entity.Result;
 import com.oeong.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class RecordServiceImpl implements RecordService {

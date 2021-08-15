@@ -1,15 +1,13 @@
 package com.oeong.controller.api;
 
-import com.oeong.dao.DormDao;
+import com.oeong.dao.mybatis.DormDao;
 import com.oeong.entity.Dorm;
 import com.oeong.entity.Record;
-import com.oeong.entity.Result;
 import com.oeong.entity.Student;
 import com.oeong.service.*;
 import com.oeong.util.ResultVOUtil;
 import com.oeong.vo.DataVO;
 import com.oeong.vo.ResultVO;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

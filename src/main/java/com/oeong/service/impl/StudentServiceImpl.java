@@ -1,6 +1,6 @@
 package com.oeong.service.impl;
 
-import com.oeong.dao.StudentDao;
+import com.oeong.dao.mybatis.StudentDao;
 import com.oeong.entity.Student;
 import com.oeong.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;

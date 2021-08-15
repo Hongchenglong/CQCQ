@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/cqcq?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: root
+    password: KdCDFG53G6MGSGSk
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 server:
@@ -11,7 +11,7 @@ server:
     context-path: /cqcq
 
 mybatis:
-  mapper-locations: classpath:mybatis/mapper/*.xml
+  mapper-locations: classpath:mapper/mybatis/*.xml
   type-aliases-package: com.oeong.entity
   configuration:
     map-underscore-to-camel-case: true # 驼峰命名

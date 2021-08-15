@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oeong.dao.mybatis.DormDao">
+    <select id="findByDormNum" resultType="Dorm">
+        select * from cq_dorm where dorm_num=#{dormNum} and dorm_grade=#{dormGrade} and dorm_dep=#{dormDep};
+    </select>
+    <select id="findByDormId" resultType="Dorm">
+        select * from cq_dorm where id=#{dormId} and dorm_grade=#{dormGrade} and dorm_dep=#{dormDep};
+    </select>
+
+    <!-- 一对多collection -->
+    <!-- 一间宿舍，多个学生 -->
+    <resultMap id="DormAndStudentsResultMap" type="Dorm">
+        <!-- 配置 Dorm 的属性 -->
+        <id property="id" column="id"/>
+        <result property="dormNum" column="dorm_num"/>
+        <result property="dormGrade" column="dorm_grade"/>
+        <result property="dormDep" column="dorm_dep"/>
+        <!--    studentList    -->
+        <collection property="studentList" ofType="Student">
+            <id property="id" column="sid"/>
+            <result property="dorm" column="dorm"/>
+            <result property="sex" column="sex"/>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+            <result property="email" column="phone"/>
+            <result property="grade" column="grade"/>
+            <result property="department" column="department"/>
+            <result property="openid" column="openid"/>
+            <result property="face" column="face"/>
+        </collection>
+    </resultMap>
+    <select id="count" resultMap="DormAndStudentsResultMap">
+        select d.id from cq_dorm d join cq_student s on s.dorm = d.dorm_num
+        where s.sex=#{sex} and d.dorm_grade=#{dormGrade} and d.dorm_dep=#{dormDep};
+    </select>
+    <select id="randomDraw" resultMap="DormAndStudentsResultMap">
+        select d.id, d.dorm_num from cq_dorm d join cq_student s on s.dorm = d.dorm_num
+        where s.sex=#{sex} and d.dorm_grade=#{grade} and d.dorm_dep=#{dep}
+        order by rand() limit #{limit};
+    </select>
+
+    <!--  association一对一  -->
+    <resultMap id="RecordAndDormMap" type="Dorm">
+        <id property="id" column="id"/>
+        <result property="dormGrade" column="dorm_grade"/>
+        <result property="dormDep" column="dorm_dep"/>
+        <result property="randNum" column="rand_num"/>
+        <result property="dormNum" column="dorm_num"/>
+        <association property="record" javaType="Record">
+            <id property="id" column="rid"/>
+            <!--   property：JavaBean对象属性，column：数据库列名    -->
+            <result property="dormId" column="dorm_id"/>
+            <result property="startTime" column="start_time"/>
+            <result property="endTime" column="end_time"/>
+            <result property="deleted" column="deleted"/>
+        </association>
+    </resultMap>
+    <select id="selectDormAndNumber" resultMap="RecordAndDormMap">
+        select d.dorm_num, r.rand_num from cq_dorm d, cq_record r where d.id=r.dorm_id
+        and r.start_time=#{startTime} and r.end_time=#{endTime}
+        and d.dorm_grade=#{dormGrade} and d.dorm_dep=#{dormDep} and deleted=0;
+    </select>
+</mapper>

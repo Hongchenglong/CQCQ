@@ -1,6 +1,6 @@
 package com.oeong.service.impl;
 
-import com.oeong.dao.DormDao;
+import com.oeong.dao.mybatis.DormDao;
 import com.oeong.entity.Dorm;
 import com.oeong.service.DormService;
 import org.springframework.beans.factory.annotation.Autowired;

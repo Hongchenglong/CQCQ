@@ -1,11 +1,9 @@
 package com.oeong.service.impl;
 
-import com.oeong.dao.NoticeDao;
+import com.oeong.dao.mybatis.NoticeDao;
 import com.oeong.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {

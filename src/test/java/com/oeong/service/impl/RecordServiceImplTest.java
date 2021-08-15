@@ -1,12 +1,9 @@
 package com.oeong.service.impl;
 
-import com.oeong.dao.DormDao;
 import com.oeong.service.RecordService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @Author: Hongchenglong

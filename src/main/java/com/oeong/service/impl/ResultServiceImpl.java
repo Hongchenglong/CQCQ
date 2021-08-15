@@ -1,7 +1,6 @@
 package com.oeong.service.impl;
 
-import com.oeong.dao.ResultDao;
-import com.oeong.entity.Result;
+import com.oeong.dao.mybatis.ResultDao;
 import com.oeong.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
