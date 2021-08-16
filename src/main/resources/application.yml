@@ -4,6 +4,11 @@ spring:
     username: root
     password: KdCDFG53G6MGSGSk
     driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      url: ${spring.datasource.url}
+      username: ${spring.datasource.username}
+      password: ${spring.datasource.password}
+      driver-class-name: ${spring.datasource.driver-class-name}
 
 server:
   port: 8080
@@ -11,7 +16,7 @@ server:
     context-path: /cqcq
 
 mybatis:
-  mapper-locations: classpath:mapper/mybatis/*.xml
+  mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.oeong.entity
   configuration:
     map-underscore-to-camel-case: true # 驼峰命名

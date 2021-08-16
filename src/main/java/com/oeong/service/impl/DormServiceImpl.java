@@ -1,6 +1,6 @@
 package com.oeong.service.impl;
 
-import com.oeong.dao.mybatis.DormDao;
+import com.oeong.mapper.DormMapper;
 import com.oeong.entity.Dorm;
 import com.oeong.service.DormService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,35 +12,35 @@ import java.util.List;
 public class DormServiceImpl implements DormService {
 
     @Autowired
-    private DormDao dormDao;
+    private DormMapper dormMapper;
 
     @Override
     public Dorm findByDormNum(String dormNum, Integer dormGrade, String dormDep) {
-        return dormDao.findByDormNum(dormNum, dormGrade, dormDep);
+        return dormMapper.findByDormNum(dormNum, dormGrade, dormDep);
     }
 
     @Override
     public Dorm findByDormId(Integer dormId, Integer dormGrade, String dormDep) {
-        return dormDao.findByDormId(dormId, dormGrade, dormDep);
+        return dormMapper.findByDormId(dormId, dormGrade, dormDep);
     }
 
     @Override
     public List<Integer> count(Integer dormGrade, String dormDep, String sex) {
-        return dormDao.count(dormGrade, dormDep, sex);
+        return dormMapper.count(dormGrade, dormDep, sex);
     }
 
     @Override
     public Integer cnt(Integer dormGrade, String dormDep, String sex) {
-        return dormDao.cnt(dormGrade, dormDep, sex);
+        return dormMapper.cnt(dormGrade, dormDep, sex);
     }
 
     @Override
     public List<Dorm> randomDraw(Integer grade, String dep, String sex, Integer limit) {
-        return dormDao.randomDraw(grade, dep, sex, limit);
+        return dormMapper.randomDraw(grade, dep, sex, limit);
     }
 
     @Override
     public List<Dorm> selectDormAndNumber(Integer dormGrade, String dormDep, String startTime, String endTime) {
-        return dormDao.selectDormAndNumber(dormGrade, dormDep, startTime, endTime);
+        return dormMapper.selectDormAndNumber(dormGrade, dormDep, startTime, endTime);
     }
 }

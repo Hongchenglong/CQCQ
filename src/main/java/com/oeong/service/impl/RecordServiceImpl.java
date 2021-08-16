@@ -1,7 +1,7 @@
 package com.oeong.service.impl;
 
 
-import com.oeong.dao.mybatis.RecordDao;
+import com.oeong.mapper.RecordMapper;
 import com.oeong.entity.Record;
 import com.oeong.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +11,21 @@ import org.springframework.stereotype.Service;
 public class RecordServiceImpl implements RecordService {
 
     @Autowired
-    private RecordDao recordDao;
+    private RecordMapper recordMapper;
 
     @Override
     public Integer insertRecord(Integer dormId, Integer randNum, String startTime, String endTime) {
-        return recordDao.insertRecord(dormId, randNum, startTime, endTime);
+        return recordMapper.insertRecord(dormId, randNum, startTime, endTime);
     }
 
     @Override
     public Integer getLastId() {
-        return recordDao.getLastId();
+        return recordMapper.getLastId();
     }
 
     @Override
     public Record selectMaxTime(Integer dormGrade, String dormDep) {
-        return recordDao.selectMaxTime(dormGrade, dormDep);
+        return recordMapper.selectMaxTime(dormGrade, dormDep);
     }
 
 

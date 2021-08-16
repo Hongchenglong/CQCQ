@@ -97,13 +97,12 @@ layui.define(["element","laytpl" ,"jquery"], function (exports) {
             var leftMenusHtml =  me.each(leftMenus || [],function (idx,leftMenu) { // 左侧菜单遍历
                 var children = me.renderChildrenMenu(leftMenu.child, { childOpenClass:options.childOpenClass });
                 var leftMenuHtml = me.compileMenu({
-                    href: leftMenu.href,
-                    target: leftMenu.target,
-                    childOpenClass: options.childOpenClass,
-                    icon: leftMenu.icon,
-                    title: leftMenu.title,
-                    children: children,
-                    className: '',
+                    href:leftMenu.href,
+                    target:leftMenu.target,
+                    childOpenClass:options.childOpenClass,
+                    icon:leftMenu.icon,
+                    title:leftMenu.title,
+                    children:children
                 });
                 return leftMenuHtml ;
             }).join("");

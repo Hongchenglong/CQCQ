@@ -1,6 +1,6 @@
 package com.oeong.controller.api;
 
-import com.oeong.dao.mybatis.DormDao;
+import com.oeong.mapper.DormMapper;
 import com.oeong.entity.Dorm;
 import com.oeong.entity.Record;
 import com.oeong.entity.Student;
@@ -20,7 +20,7 @@ public class DrawController {
     @Autowired
     private DormService dormService;
     @Autowired
-    private DormDao dormDao;
+    private DormMapper dormMapper;
     @Autowired
     private NoticeService noticeService;
     @Autowired
@@ -152,7 +152,7 @@ public class DrawController {
 
     @PostMapping("/getBlock")
     public ResultVO getBlock(Integer grade, String department) {
-        List<String> block = dormDao.getBlock(grade, department);
+        List<String> block = dormMapper.getBlock(grade, department);
         if (block.size() > 0) {
             return ResultVOUtil.success(block);
         } else {
@@ -167,7 +167,7 @@ public class DrawController {
      */
     @PostMapping("/doesItExist")
     public ResultVO doesItExist(Integer grade, String department, String block, Integer room) {
-        Integer exit = dormDao.doesItExist(grade, department, block, room);
+        Integer exit = dormMapper.doesItExist(grade, department, block, room);
         if (exit != null) {
             return ResultVOUtil.success(null);
         } else {
