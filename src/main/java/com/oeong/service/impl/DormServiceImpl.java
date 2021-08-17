@@ -1,5 +1,6 @@
 package com.oeong.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.oeong.mapper.DormMapper;
 import com.oeong.entity.Dorm;
 import com.oeong.service.DormService;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DormServiceImpl implements DormService {
+public class DormServiceImpl extends ServiceImpl<DormMapper, Dorm> implements DormService {
 
     @Autowired
     private DormMapper dormMapper;

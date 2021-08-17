@@ -1,5 +1,6 @@
 package com.oeong.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.oeong.entity.Dorm;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface DormMapper {
+public interface DormMapper extends BaseMapper<Dorm> {
     // 查找某间宿舍
     Dorm findByDormNum(String dormNum, Integer dormGrade, String dormDep);
     Dorm findByDormId(Integer dormId, Integer dormGrade, String dormDep);

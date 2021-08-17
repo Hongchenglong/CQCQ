@@ -1,11 +1,12 @@
 package com.oeong.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.oeong.entity.Dorm;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface DormService {
+public interface DormService extends IService<Dorm> {
     Dorm findByDormNum(String dormNum, Integer dormGrade, String dormDep);
     Dorm findByDormId(Integer dormId, Integer dormGrade, String dormDep);
     List<Integer> count(Integer dormGrade, String dormDep, String sex);

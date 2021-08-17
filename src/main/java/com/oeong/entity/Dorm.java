@@ -1,11 +1,13 @@
 package com.oeong.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@TableName("cq_dorm")
 public class Dorm {
     private Integer id;
     @JsonProperty("dorm_grade")

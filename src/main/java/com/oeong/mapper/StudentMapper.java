@@ -1,5 +1,6 @@
 package com.oeong.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.oeong.entity.Student;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -11,7 +12,7 @@ import java.util.List;
 @Mapper
 // @mapper的作用是可以给mapper接口自动生成一个实现类，让spring对mapper接口的bean进行管理，并且可以省略去写复杂的xml文件
 @Repository
-public interface StudentMapper {
+public interface StudentMapper extends BaseMapper<Student> {
     Student findById(Integer id);
     List<Student> findByDorm(String dormNum, Integer grade, String department);
     @Select("select * from cq_student where grade=#{grade} and department=#{department} " +

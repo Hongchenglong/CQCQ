@@ -1,5 +1,6 @@
 package com.oeong.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.oeong.mapper.StudentMapper;
 import com.oeong.entity.Student;
 import com.oeong.service.StudentService;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StudentServiceImpl implements StudentService {
+public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
 
     @Autowired
     private StudentMapper studentMapper;

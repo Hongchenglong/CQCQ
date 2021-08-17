@@ -1,11 +1,13 @@
 package com.oeong.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@TableName("cq_record")
 public class Record {
     private Integer id;
     private String photo;

@@ -1,10 +1,11 @@
 package com.oeong.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.oeong.entity.Student;
 
 import java.util.List;
 
-public interface StudentService {
+public interface StudentService extends IService<Student> {
     Student findById(Integer id);
     List<Student> findByDorm(String dormNum, Integer grade, String department);
     List<Student> findByGradeAndDepart(Integer grade, String department, Integer begin, Integer offset);

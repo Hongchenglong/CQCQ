@@ -1,12 +1,14 @@
 package com.oeong.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.oeong.entity.Notice;
 import com.oeong.mapper.NoticeMapper;
 import com.oeong.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NoticeServiceImpl implements NoticeService {
+public class NoticeServiceImpl extends ServiceImpl<NoticeMapper, Notice> implements NoticeService {
     @Autowired
     private NoticeMapper noticeMapper;
 
